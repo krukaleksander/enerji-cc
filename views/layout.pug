@@ -2,6 +2,23 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')    
+    link(rel='stylesheet', href='/stylesheets/style.css')  
+    script(src="https://kit.fontawesome.com/9d8f165f6b.js" crossorigin="anonymous")  
   body
+    nav(class='main-nav') 
+      ul
+        li
+          i(class="fas fa-calculator") 
+            a(href="/panel") Kalkulator                 
+        li 
+          i(class="fas fa-file-invoice-dollar")
+            a(href="/panel")  Handlowcy  
+                   
+        li 
+          i(class="fas fa-skull-crossbones") 
+            a( class='disabled')  Rezygnacje          
+        li 
+          i(class="fas fa-rss")
+            a(class='disabled')  Aktualności
+          
     block content

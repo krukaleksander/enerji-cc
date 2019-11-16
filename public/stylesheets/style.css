@@ -57,6 +57,38 @@ body {
   box-shadow: inset 1px 1px 10px 0px;
 }
 
+/* css nawigacja */
+.main-nav {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgb(37, 157, 42);
+  color: white;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav li {
+  border-right: 2px solid white;
+  padding: 5px;
+}
+
+.main-nav li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.main-nav li a.disabled {
+  text-decoration: line-through;
+  cursor: default;
+}
+
 /* doklejony CSS */
 .wrapper {
   width: 800px;
