@@ -42,6 +42,7 @@ body {
   border: none;
   border-radius: 12px;
   cursor: pointer;
+  transition: .3s;
 }
 
 .logout-btn {

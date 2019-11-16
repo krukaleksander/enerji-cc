@@ -18,10 +18,6 @@ router.get('/', function (req, res, next) {
 
     });
 });
-router.get('/panel/calculator.js', function (req, res) {
-    // res.sendfile(__dirname + '../public/javascripts/calculator.js');
-    console.log('poporisłem grzecznie o skrypt i musisz mi go wydać')
-});
 
 router.post('/', function (req, res, next) {
     req.session.admin = 0;
