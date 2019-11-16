@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  form(method='post')
+    button(type='submit' class='logout-btn') Wyloguj
+  div(class='wrapper')
+    h3 Minimalny rachunek 150 z&lstrok;!
+    label kwota rachunku: 
+    input(id="bill" type='text')
+    button(id="btn") Przelicz
+    br
+    label Cykl:
+    select(id='select')
+        option(value='1') Miesięczny
+        option(value='2') Dwumiesięczny
+        option(value='12') Roczny
+    p Klient wydaje miesięcznie na prąd: 
+        span(id='monthCost')
+    p Zużycie roczne MWH:
+        span(id='yearIn')      
+    p Moc instalacji opcjonalna [kWp]: 
+        span(id='power')
+    p(id='creditPar') 
+        span(class='orient') Orientacyjna rata kredytu: 
+        span(id='credit')
+        p.credit-desc (kapitał + odsetki na okres 120 miesięcy)
+        div(id='save-money')
+            h4(class="saves") Oszczędności:
+            p(class='saves-desc') (do końca gwarancji na panele - perspektywa 20 lat; separator dla tysięcy)
+            p Przy takich samych cenach energii: 
+                span(id='same-energy')
+            p Przy zmianie cen energii o spodziewane 40%: 
+                span(id='changed-energy')
+  
