@@ -25,8 +25,4 @@ router.post('/', function (req, res, next) {
     res.redirect('/');
     return;
 });
-router.get('/panel/experts', function (req, res, next) {
-
-    res.render('experts');
-});
 module.exports = router;

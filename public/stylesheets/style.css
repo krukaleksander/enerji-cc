@@ -174,3 +174,32 @@ body {
   margin-top: 0;
   font-size: 15px;
 }
+
+/* sekcja handlowcy */
+h1.experts-heading {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+table.experts-table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background: white;
+}
+
+table.experts-table td,
+table.experts-table th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+table.experts-table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+table.experts-table tr:hover {
+  background-color: black;
+  color: white;
+}
