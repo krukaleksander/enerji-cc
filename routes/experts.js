@@ -13,20 +13,15 @@ router.all('*', (req, res, next) => {
 router.get('/', function (req, res, next) {
 
 
-    res.render('panel', {
-        title: 'EnerjiCC Panel',
+    res.render('experts', {
+        title: 'EnerjiCC Experts',
 
     });
 });
-
 router.post('/', function (req, res, next) {
     // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
     req.session.admin = 0;
     res.redirect('/');
     return;
-});
-router.get('/panel/experts', function (req, res, next) {
-
-    res.render('experts');
 });
 module.exports = router;
