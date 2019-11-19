@@ -6,84 +6,12 @@ block content
   h1(class='experts-heading') Eksperci - tabela
   div(class="experts-wrapper")
     table(class='experts-table')
-      tr
-        th Imię i Nazwisko 
-        th Kiedy dzwoni
-        th Nr telefonu
-        th Email
-        th Miasto początkowe
-        th Obsługiwane powiaty
-        th Dodatkowe info
-      tr
-        td Sylwia Pasik
-        td Dzień wcześniej
-        td -
-        td -
-        td -
-        td -
-        td -
-      tr
-        td Łukasz Malinowski
-        td Tego samego dnia
-        td -
-        td -
-        td -
-        td -
-        td Piątki spotkania max do 14
-      tr
-        td Mariusz Grzejszczyk
-        td Jak chce klient
-        td -
-        td -
-        td -
-        td -
-        td -
-      tr
-        td Adam Rudnik
-        td Tego samego dnia
-        td -
-        td -
-        td -
-        td -
-        td -
-      tr
-        td Stanisław Serkowski
-        td Tego samego dnia
-        td -
-        td -
-        td -
-        td -
-        td Można ładować Soboty
-      tr
-        td Krzysztof Węgiełek
-        td Jak chce klient
-        td -
-        td -
-        td -
-        td -
-        td -
-      tr
-        td Grzegorz Branica
-        td Jak chce klient
-        td -
-        td -
-        td -
-        td -
-        td -
-      tr
-        td Arkadiusz Śmiech
-        td Tego samego dnia
-        td -
-        td -
-        td -
-        td -
-        td -
-      tr
-        td Monika Nowińska
-        td Tego samego dnia
-        td -
-        td -
-        td -
-        td -
-        td -
-    
+      each item in data
+        tr
+          td=item.name
+          td=item.whenToCall
+          td=item.phoneNumber
+          td=item.email
+          td=item.starting
+          td=item.regions
+          td=item.extraInfo       

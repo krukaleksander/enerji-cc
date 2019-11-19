@@ -4,13 +4,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const config = require('./config');
+const mongoose = require('mongoose');
+mongoose.connect(config.db, {
+  useNewUrlParser: true
+});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var panelRouter = require('./routes/panel');
 var expertsRouter = require('./routes/experts');
 
-var config = require('./config');
+
 
 var app = express();
 
