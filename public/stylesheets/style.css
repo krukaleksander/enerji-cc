@@ -78,6 +78,10 @@ body {
   padding: 5px;
 }
 
+.main-nav li a:hover {
+  color: black;
+}
+
 .main-nav li a {
   text-decoration: none;
   color: white;
