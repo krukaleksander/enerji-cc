@@ -6,7 +6,15 @@ block content
   h1(class='experts-heading') Eksperci - tabela
   div(class="experts-wrapper")
     table(class='experts-table')
-      each item in data
+      tr
+          th Imię i naziwsko
+          th Dzwoni
+          th Nr tel.
+          th Email
+          th Rusza z 
+          th Powiaty
+          th Dodatkowe info
+      each item in data        
         tr
           td=item.name
           td=item.whenToCall
