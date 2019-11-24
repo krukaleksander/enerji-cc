@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  form(method='post')
+    button(type='submit' class='logout-btn') Wyloguj
+  h1(class='table-heading') E-Tablica
+  div(class="table-wrapper")
+    each item in data     
+      div(class='person')
+        span(class="points")=item.points
+        p(class="name")=item.name
+        div(class="pointsPanel")          
+          span(class="plus" data-operation="plus" data-id=item.id) +
+          span(class="minus" data-operation="minus" data-id=item.id) -      
