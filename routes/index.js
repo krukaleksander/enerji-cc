@@ -1,11 +1,18 @@
 var express = require('express');
 var router = express.Router();
-const login = 'eternit';
-const password = 'rachunek50zl';
+const Longinus = require('../models/longinus');
+let login, password;
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: 'EnerjiCC Panel',
+
+  Longinus.find({}, (err, data) => {
+    console.log(data[0].login)
+    login = data[0].login;
+    password = data[0].password;
+    res.render('index', {
+      title: 'EnerjiCC Panel',
+    });
+
   });
 });
 // musisz podać dokładną ścieżkę ulokowania tego!
