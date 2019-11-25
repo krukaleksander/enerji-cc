@@ -253,8 +253,8 @@ div.pointsPanel {
   right: 5px;
 }
 
-div.pointsPanel span.plus,
-div.pointsPanel span.minus {
+div.pointsPanel a.plus,
+div.pointsPanel a.minus {
   display: block;
   width: 25px;
   height: 25px;
@@ -267,10 +267,11 @@ div.pointsPanel span.minus {
   border-radius: 1px;
   cursor: pointer;
   transition: .2s;
+  text-decoration: none;
 }
 
-div.pointsPanel span.plus:hover,
-div.pointsPanel span.minus:hover {
+div.pointsPanel a.plus:hover,
+div.pointsPanel a.minus:hover {
   background: gray;
 }
 
