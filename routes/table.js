@@ -13,9 +13,29 @@ router.all('*', (req, res, next) => {
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     Players.find({}, (err, data) => {
+        let dataMod;
+        // fragment z powrównaniem
+        function compare(a, b) {
+
+            const numA = a.points;
+            const numB = b.points;
+
+            let comparison = 0;
+            if (numA < numB) {
+                comparison = 1;
+            } else if (numA > numB) {
+                comparison = -1;
+            }
+            return comparison;
+        }
+
+        dataMod = data.sort(compare);
+
+        // koniec fragment z porównaniem
+
         res.render('table', {
             title: 'EnerjiCC e-tablica',
-            data
+            dataMod
         });
 
     });

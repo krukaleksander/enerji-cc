@@ -6,7 +6,6 @@ let login, password;
 router.get('/', function (req, res, next) {
 
   Longinus.find({}, (err, data) => {
-    console.log(data[0].login)
     login = data[0].login;
     password = data[0].password;
     res.render('index', {
