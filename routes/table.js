@@ -29,4 +29,35 @@ router.post('/', function (req, res, next) {
     res.redirect('/');
     return;
 });
+
+router.get('/add/:id/:score', function (req, res, next) {
+    // console.log(req.params.id)
+    const idNr = parseInt(req.params.id)
+    const score = parseInt(req.params.score);
+    Players.findOneAndUpdate({
+        id: idNr
+    }, {
+        points: score + 1
+    }, function (err, player) {
+        res.redirect('/panel/table');
+    });
+
+});
+
+router.get('/minus/:id/:score', function (req, res, next) {
+    // console.log(req.params.id)
+    const idNr = parseInt(req.params.id)
+    const score = parseInt(req.params.score);
+    Players.findOneAndUpdate({
+        id: idNr
+    }, {
+        points: score - 1
+    }, function (err, player) {
+        res.redirect('/panel/table');
+    });
+
+
+});
+
+
 module.exports = router;

@@ -273,3 +273,7 @@ div.pointsPanel span.plus:hover,
 div.pointsPanel span.minus:hover {
   background: gray;
 }
+
+div.person.winner {
+  background: yellow;
+}
