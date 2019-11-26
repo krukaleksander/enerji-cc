@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    height: 100vh;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: url('../images/photovoltaic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .logout-btn {
+        position: fixed;
+        top: 5px;
+        right: 5px;
+        width: 130px;
+        height: 35px;
+        font-size: 20px;
+        background-color: rgb(73, 203, 78);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: .3s;
+
+    }
+
+    @import './parts/login';
+    @import './parts/nav';
+    @import './parts/calc';
+    @import './parts/experts';
+    @import './parts/table';
+
+}

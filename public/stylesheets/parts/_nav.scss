@@ -1,0 +1,34 @@
+.main-nav {
+    position: fixed;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgb(37, 157, 42);
+    color: white;
+
+    ul {
+        display: flex;
+        list-style: none;
+
+        li {
+            border-right: 2px solid white;
+            padding: 5px;
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: 20px;
+
+                &:hover {
+                    color: black;
+                }
+            }
+
+            a.disabled {
+                text-decoration: line-through;
+                cursor: default;
+            }
+        }
+    }
+}

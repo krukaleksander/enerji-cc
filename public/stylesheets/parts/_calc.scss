@@ -1,0 +1,85 @@
+.wrapper {
+    width: 800px;
+    height: 500px;
+    margin: 50px auto 0;
+    background: rgba(173, 216, 230, 0.74);
+    padding: 20px;
+    border: 3px solid black;
+    box-shadow: 4px 4px black;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+
+    h3 {
+        text-align: center;
+        color: #830707;
+    }
+
+    input {
+        font-size: 20px;
+    }
+
+    p {
+        margin-top: 10px;
+    }
+
+    button {
+        display: inline-block;
+        width: 100px;
+        box-sizing: border-box;
+        font-size: 20px;
+        padding: 3px;
+        background-color: transparent;
+        border: 1px solid black;
+        cursor: pointer;
+
+        &:hover {
+            font-weight: bolder;
+        }
+    }
+
+    #select {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    #yearIn,
+    #power,
+    #monthCost,
+    #same-energy,
+    #changed-energy {
+        color: green;
+        font-weight: bolder;
+    }
+
+    #same-energy.active,
+    #changed-energy.active {
+        display: inline-block;
+        padding: 2px 4px;
+        border: 2px solid blue;
+    }
+
+    #creditPar {
+        color: green;
+        font-weight: bolder;
+        margin-bottom: 0;
+    }
+
+    #creditPar .orient {
+        text-decoration: underline;
+    }
+
+    #save-money {
+        margin-top: 10px;
+    }
+
+    #save-money .saves {
+        margin-bottom: 0;
+    }
+
+    #save-money .saves-desc,
+    .credit-desc {
+        margin-top: 0;
+        font-size: 15px;
+    }
+
+}
