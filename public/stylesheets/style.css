@@ -218,6 +218,7 @@ div.table-wrapper {
   background-color: rgba(0, 188, 212, 0.55);
   padding: 10px;
   border-radius: 5px;
+
 }
 
 div.person {
@@ -277,4 +278,18 @@ div.pointsPanel a.minus:hover {
 
 div.person.winner {
   background: yellow;
+  position: relative;
+}
+
+img.crown {
+  width: 80px;
+  position: absolute;
+  transform: rotateZ(-17deg);
+  z-index: 1;
+  left: -26px;
+  top: -33px;
+}
+
+img.crown.disabled {
+  display: none;
 }

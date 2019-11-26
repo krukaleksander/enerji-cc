@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Players = require('../models/players');
-
+let position = 0;
 router.all('*', (req, res, next) => {
     if (!req.session.admin) {
         res.redirect('/');
@@ -35,7 +35,8 @@ router.get('/', function (req, res, next) {
 
         res.render('table', {
             title: 'EnerjiCC e-tablica',
-            dataMod
+            dataMod,
+            position
         });
 
     });

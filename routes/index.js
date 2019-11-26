@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const Longinus = require('../models/longinus');
 let login, password;
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
@@ -17,6 +18,9 @@ router.get('/', function (req, res, next) {
 // musisz podać dokładną ścieżkę ulokowania tego!
 router.get('javascripts/calculator.js', function (req, res) {
   res.sendfile(__dirname + '/../public/javascripts/calculator.js');
+});
+router.get('images/crown.png', function (req, res) {
+  res.sendfile(__dirname + '/../public/images/crown.png');
 });
 router.post('/', function (req, res) {
   const body = req.body;
