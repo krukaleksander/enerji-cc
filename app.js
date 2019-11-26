@@ -16,6 +16,8 @@ var usersRouter = require('./routes/users');
 var panelRouter = require('./routes/panel');
 var expertsRouter = require('./routes/experts');
 var tableRouter = require('./routes/table');
+var newsRouter = require('./routes/news');
+var addRouter = require('./routes/add');
 
 
 
@@ -42,6 +44,8 @@ app.use('/users', usersRouter);
 app.use('/panel', panelRouter);
 app.use('/panel/experts', expertsRouter);
 app.use('/panel/table', tableRouter);
+app.use('/panel/news', newsRouter);
+app.use('/panel/news/add', addRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

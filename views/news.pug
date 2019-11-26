@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  form(method='post')
+    button(type='submit' class='logout-btn') Wyloguj
+  h1(class='table-heading') Aktualności
+  div(class="news-wrapper")
+    p(class="news-description") Ogłoszenia? Krótkie wiadomości? To jest właściwe miejsce.
+    //- data już jest przekazana!   
+    div(class='post-news')
+      form(method='post' action="news/add")
+        p
+          label Do:
+          input(type='text' name='target' value=body.target || '')
+        p  
+          label Tytuł
+          input(type='text' name='title' value=body.title || '')
+
+        p
+          label Opis
+          textarea(name='content')=body.content || ''
+        p
+          input(type='submit' value='Zapisz')         
