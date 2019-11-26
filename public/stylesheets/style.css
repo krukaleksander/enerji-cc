@@ -223,6 +223,26 @@ body div.table-wrapper {
   border-radius: 5px;
 }
 
+body div.table-wrapper div.sum {
+  height: 50px;
+  text-align: right;
+  font-size: 30px;
+  font-size: bolder;
+  color: white;
+  position: relative;
+}
+
+body div.table-wrapper div.sum P {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2px;
+  width: 140px;
+  text-align: center;
+  background: rgba(17, 17, 17, 0.658);
+  border-radius: 10px;
+}
+
 body div.person {
   background: rgba(255, 255, 255, 0.86);
   width: 80%;

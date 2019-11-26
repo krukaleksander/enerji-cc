@@ -15,5 +15,7 @@ block content
          a(href=`/panel/table/add/${item.id}/${item.points}` class="plus" data-operation="plus" data-id=item.id) +
          a(href=`/panel/table/minus/${item.id}/${item.points}` class="minus" data-operation="minus" data-id=item.id) -
          a(href=`/panel/table/minus/${item.id}/1` class="minus" data-operation="minus" data-id=item.id) R
+    div(class="sum")
+      p(class="score-number")=`Suma: ${allScore}`
     
         

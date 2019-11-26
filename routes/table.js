@@ -32,11 +32,18 @@ router.get('/', function (req, res, next) {
         dataMod = data.sort(compare);
 
         // koniec fragment z porównaniem
+        // fragment z sumą
+        let allScore = 0;
+        data.forEach(e => {
+            allScore = allScore + e.points;
+        })
 
+        // koniec fragmentu z sumą
         res.render('table', {
             title: 'EnerjiCC e-tablica',
             dataMod,
-            position
+            position,
+            allScore
         });
 
     });
