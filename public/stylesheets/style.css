@@ -12,6 +12,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body .logout-btn {
@@ -314,4 +315,50 @@ body img.crown {
 
 body img.crown.disabled {
   display: none;
+}
+
+body div.necessary-wrapper {
+  background: rgba(0, 188, 212, 0.55);
+}
+
+body div.necessary-wrapper h2 {
+  background: rgba(17, 17, 17, 0.658);
+  text-align: center;
+  border-radius: 2px;
+  border-bottom: 2px solid white;
+  padding: 10px 0;
+  color: white;
+}
+
+body div.necessary-wrapper div.link {
+  background: rgba(255, 255, 255, 0.59);
+  border: 1px solid black;
+}
+
+body div.necessary-wrapper div.link a {
+  display: block;
+  text-align: left;
+  margin: 10px 0;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 5px;
+  color: black;
+  font-weight: bold;
+}
+
+body div.necessary-wrapper div.link p {
+  padding: 5px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+body div.necessary-wrapper div.img-prad-wrapper {
+  width: 800px;
+  height: 400px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+body div.necessary-wrapper div.img-prad-wrapper img {
+  width: 100%;
 }

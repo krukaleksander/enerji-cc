@@ -14,6 +14,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
     .logout-btn {
         position: fixed;
@@ -36,5 +37,6 @@ body {
     @import './parts/calc';
     @import './parts/experts';
     @import './parts/table';
+    @import './parts/necessary';
 
 }

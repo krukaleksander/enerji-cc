@@ -39,6 +39,10 @@ router.get('/', function (req, res, next) {
         })
 
         // koniec fragmentu z sumą
+        // fragment reset all
+
+
+        // fragment reset all
         res.render('table', {
             title: 'EnerjiCC e-tablica',
             dataMod,
