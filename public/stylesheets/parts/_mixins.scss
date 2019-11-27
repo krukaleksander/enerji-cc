@@ -3,7 +3,7 @@ $iphoneXl: 830px;
 $ipad: 768px;
 $iphone6l: 670px;
 $iphoneX: 600px;
-$common: 541px;
+$common: 570px;
 
 
 @mixin iphoneX {
@@ -48,6 +48,14 @@ $common: 541px;
 
 @mixin common {
     @media (max-width: #{$common}) {
+        @content
+    }
+}
+
+;
+
+@mixin commonPort {
+    @media (max-width: #{$common}) and (orientation: portrait) {
         @content
     }
 }

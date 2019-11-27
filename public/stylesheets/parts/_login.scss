@@ -1,3 +1,5 @@
+@import './mixins';
+
 .login-wrapper {
     width: 450px;
     height: 500px;
@@ -8,10 +10,30 @@
     margin: 30px auto 0;
     background: rgba(255, 255, 255, 0.84);
 
+    @include iphoneXl {
+        height: 280px;
+    }
+
+    @include common {
+        margin: -18px auto 0;
+    }
+
+    @include commonPort {
+        width: 275px;
+        margin: 10px auto 0;
+    }
+
+    ;
+
     input {
         display: block;
         margin: 30px auto 0;
         font-size: 25px;
+
+        @include commonPort {
+            width: 250px;
+            font-size: 20px;
+        }
     }
 
     .submit-btn,

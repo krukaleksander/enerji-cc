@@ -45,10 +45,36 @@ body .login-wrapper {
   background: rgba(255, 255, 255, 0.84);
 }
 
+@media (max-width: 830px) {
+  body .login-wrapper {
+    height: 280px;
+  }
+}
+
+@media (max-width: 570px) {
+  body .login-wrapper {
+    margin: -18px auto 0;
+  }
+}
+
+@media (max-width: 570px) and (orientation: portrait) {
+  body .login-wrapper {
+    width: 275px;
+    margin: 10px auto 0;
+  }
+}
+
 body .login-wrapper input {
   display: block;
   margin: 30px auto 0;
   font-size: 25px;
+}
+
+@media (max-width: 570px) and (orientation: portrait) {
+  body .login-wrapper input {
+    width: 250px;
+    font-size: 20px;
+  }
 }
 
 body .login-wrapper .submit-btn,
@@ -103,7 +129,7 @@ body .main-nav {
   color: white;
 }
 
-@media (max-width: 541px) {
+@media (max-width: 570px) {
   body .main-nav {
     top: -400px;
     transition: .3s;
