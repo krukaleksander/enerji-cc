@@ -1,8 +1,37 @@
+@import './mixins';
+
+div.menu-mobile {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+
+    @include iphoneX {
+        display: block;
+    }
+
+    i {
+        font-size: 50px;
+    }
+
+    i.active {
+        transform: rotateX(180deg);
+    }
+}
+
 .main-nav {
     position: fixed;
     top: 5px;
     left: 50%;
     transform: translateX(-50%);
+
+    @include common {
+        top: -400px;
+        transition: .3s;
+    }
 
     background: rgb(37, 157, 42);
     color: white;
@@ -11,14 +40,58 @@
         display: flex;
         list-style: none;
 
+        @include iphoneX {
+            flex-direction: column;
+        }
+
         li {
             border-right: 2px solid white;
             padding: 5px;
+
+            @include ipadPro {
+                width: 180px;
+                text-align: center;
+            }
+
+            @include ipad {
+                width: 140px;
+            }
+
+            @include iphoneXl {
+                width: 140px;
+            }
+
+            @include iphone6l {
+                width: 125px;
+            }
+
+            @include iphoneX {
+                width: 260px;
+                border-right: none;
+                border-bottom: 2px solid white;
+            }
+
 
             a {
                 text-decoration: none;
                 color: white;
                 font-size: 20px;
+
+                @include ipadPro {
+                    font-size: 30px;
+                }
+
+                @include ipad {
+                    font-size: 25px;
+                }
+
+                @include iphoneXl {
+                    font-size: 20px;
+                }
+
+                @include iphoneX {
+                    font-size: 25px;
+                }
 
                 &:hover {
                     color: black;

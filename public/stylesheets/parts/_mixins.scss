@@ -1,0 +1,55 @@
+$ipadPro: 1024px;
+$iphoneXl: 830px;
+$ipad: 768px;
+$iphone6l: 670px;
+$iphoneX: 600px;
+$common: 541px;
+
+
+@mixin iphoneX {
+    @media (max-width: #{$iphoneX}) {
+        @content
+    }
+}
+
+;
+
+@mixin iphoneXl {
+    @media (max-width: #{$iphoneXl}) {
+        @content
+    }
+}
+
+;
+
+@mixin ipad {
+    @media (max-width: #{$ipad}) {
+        @content
+    }
+}
+
+;
+
+@mixin ipadPro {
+    @media (max-width: #{$ipadPro}) {
+        @content
+    }
+}
+
+;
+
+@mixin iphone6l {
+    @media (max-width: #{$iphone6l}) {
+        @content
+    }
+}
+
+;
+
+@mixin common {
+    @media (max-width: #{$common}) {
+        @content
+    }
+}
+
+;

@@ -30,6 +30,9 @@ body {
         cursor: pointer;
         transition: .3s;
 
+        &:hover {
+            box-shadow: inset 1px 1px 10px 0px;
+        }
     }
 
     @import './parts/login';

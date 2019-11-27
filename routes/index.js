@@ -19,6 +19,9 @@ router.get('/', function (req, res, next) {
 router.get('javascripts/calculator.js', function (req, res) {
   res.sendfile(__dirname + '/../public/javascripts/calculator.js');
 });
+router.get('/javascripts/main.js', function (req, res) {
+  res.sendfile(__dirname + '/../public/javascripts/main.js');
+});
 router.get('images/crown.png', function (req, res) {
   res.sendfile(__dirname + '/../public/images/crown.png');
 });

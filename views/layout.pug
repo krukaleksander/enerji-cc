@@ -1,10 +1,13 @@
 doctype html
 html
   head
+    meta( name='viewport', content='width=device-width, initial-scale=1' )
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')  
     script(src="https://kit.fontawesome.com/9d8f165f6b.js" crossorigin="anonymous")  
   body
+    div(class="menu-mobile disabled")
+      i(class="far fa-caret-square-down")
     nav(class='main-nav') 
       ul
         li
@@ -21,5 +24,5 @@ html
                  
         
        
-          
+    script(src="javascripts/main.js")
     block content
