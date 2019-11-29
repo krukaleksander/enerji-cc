@@ -61,3 +61,19 @@ $common: 570px;
 }
 
 ;
+
+@mixin mainBtn {
+    width: 130px;
+    height: 35px;
+    font-size: 20px;
+    background-color: rgb(73, 203, 78);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+        box-shadow: inset 1px 1px 10px 0px;
+    }
+}

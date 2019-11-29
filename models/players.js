@@ -14,6 +14,22 @@ var playersSchema = new Schema({
         type: Number,
         required: true
     },
+    pointsWeek: {
+        type: Number,
+        required: true
+    },
+    pointsMonth: {
+        type: Number,
+        required: true
+    },
+    pointsNextMonth: {
+        type: Number,
+        required: true
+    },
+    allPoints: {
+        type: Number,
+        required: true
+    },
 
 });
 

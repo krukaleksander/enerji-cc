@@ -441,6 +441,54 @@ body img.crown.disabled {
   display: none;
 }
 
+body .close-session {
+  display: block;
+  width: 130px;
+  height: 35px;
+  font-size: 20px;
+  background-color: #49cb4e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: .3s;
+  padding: 10px;
+  width: 170px;
+  line-height: 10px;
+  margin: 10px auto;
+  background: #c40f0f;
+}
+
+body .close-session:hover {
+  box-shadow: inset 1px 1px 10px 0px;
+}
+
+body .close-session.yes {
+  text-decoration: none;
+  background: #49cb4e;
+}
+
+body div.confirm-close-session {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 30vw;
+  height: auto;
+  padding: 20px;
+  border: 3px solid green;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+body div.confirm-close-session.active {
+  display: block;
+}
+
 body div.necessary-wrapper {
   background: rgba(0, 188, 212, 0.55);
 }

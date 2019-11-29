@@ -75,7 +75,9 @@ router.get('/add/:id/:score', function (req, res, next) {
     });
 
 });
-
+router.get('/javascripts/table.js', function (req, res) {
+    res.sendfile(__dirname + '/public/javascripts/table.js');
+});
 router.get('/minus/:id/:score', function (req, res, next) {
     // console.log(req.params.id)
     const idNr = parseInt(req.params.id)
@@ -90,6 +92,22 @@ router.get('/minus/:id/:score', function (req, res, next) {
 
 
 });
+router.get('/close-session/', function (req, res, next) {
+    Players.find({}, {}, function (err, player) {
+        player.forEach(player => {
+            player.pointsWeek += player.points;
+            player.pointsMonth += player.points;
+            player.points = 0;
+            player.save(function (err) {
+                if (err) {
+                    console.error('ERROR!');
+                }
+            });
+        })
 
+        res.redirect('/panel/table');
+    });
+
+});
 
 module.exports = router;
