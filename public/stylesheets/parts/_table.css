@@ -27,6 +27,7 @@ div.table-wrapper div.sum P {
   text-align: center;
   background: rgba(17, 17, 17, 0.658);
   border-radius: 10px;
+  margin-bottom: 0;
 }
 
 div.person {
@@ -39,6 +40,10 @@ div.person {
   font-weight: bolder;
   display: flex;
   position: relative;
+}
+
+div.person p {
+  margin-bottom: 0;
 }
 
 div.person.winner {
@@ -148,4 +153,21 @@ div.confirm-close-session {
 
 div.confirm-close-session.active {
   display: block;
+}
+
+div.table-old-wrapper {
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.86);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+div.table-old-wrapper div.table-week table,
+div.table-old-wrapper div.table-moth table {
+  border-spacing: 2px;
+  border-color: grey;
 }

@@ -23,7 +23,7 @@ block content
       a(class="close-session yes" href="table/close-session/") Potwierdzam
       buton(class="close-session no") Innym razem
   div(class='table-old-wrapper')
-    div(class='table-week')
+    div(class='table-week table table-dark')
       h2 Tabela tygodniowa
       table
         tr
@@ -35,7 +35,7 @@ block content
             td=item.name
             td=item.pointsWeek
             td=item.pointsWeek * 7
-    div(class='table-month')
+    div(class='table-month table table-dark')
       h2 Tabela miesięczna
       table
         tr
@@ -48,4 +48,7 @@ block content
             td=item.pointsMonth
             td=item.pointsMonth * 7
   script(src="/javascripts/table.js")
-        
+  script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1")
+  script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous")
+          

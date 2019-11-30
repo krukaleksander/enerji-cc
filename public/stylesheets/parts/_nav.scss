@@ -39,6 +39,7 @@ div.menu-mobile {
     ul {
         display: flex;
         list-style: none;
+        margin-bottom: 0;
 
         @include iphoneX {
             flex-direction: column;
