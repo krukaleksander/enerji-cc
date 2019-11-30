@@ -15,32 +15,42 @@ block content
          a(href=`/panel/table/add/${item.id}/${item.points}` class="plus" data-operation="plus" data-id=item.id) +
          a(href=`/panel/table/minus/${item.id}/${item.points}` class="minus" data-operation="minus" data-id=item.id) -         
     div(class="sum")
-      p(class="score-number")=`Suma: ${allScore}`
-      //- stwórz byn który będzie miał w właściwości len dataMod.length ;)
-    button(id="close-session-btn" class="close-session") Zamknij sesję
+      p(class="score-number")=`Suma: ${allScore}`   
+    button(id="close-session-btn" class="close-session btn btn-danger") Zamknij sesję
     div(class="confirm-close-session")
-      p Czy jesteś pewna/-y, że chcesz zamknąć sesję? Spowoduje to wyzerowanie wyników na tablicy dobowej i przeniesienie ich do zestawień tygodniowych i miesięcznych. [wyświetlane będą już niebawem]
-      a(class="close-session yes" href="table/close-session/") Potwierdzam
-      buton(class="close-session no") Innym razem
+      p Czy jesteś pewna/-y, że chcesz zamknąć sesję? Spowoduje to wyzerowanie wyników na tablicy dobowej i przeniesienie ich do zestawień tygodniowych i miesięcznych. 
+      form(action="table/close-session/")
+        button(class="btn btn-success" type="submit") Potwierdzam       
+      button(class="close-session no btn btn-danger") Innym razem
+    div(class="confirm-close-session-week")
+      p Czy jesteś pewna/-y, że chcesz zamknąć sesję tygodniową? Spowoduje to wyzerowanie wyników na tablicy tygodniowej.
+      form(action="table/close-session-week/")
+        button(class="btn btn-success" type="submit") Potwierdzam 
+      button(class="close-session-week no btn btn-danger") Innym razem
   div(class='table-old-wrapper')
-    div(class='table-week table table-dark')
+    div(class='table-week table table-hover table-dark')
       h2 Tabela tygodniowa
       table
         tr
           th Imię i nazwisko
-          th Liczba spotkań
+          th Spotkań
           th Kasiorka(netto)
         each item in dataModWeek
           tr
             td=item.name
             td=item.pointsWeek
             td=item.pointsWeek * 7
-    div(class='table-month table table-dark')
+        tr
+          td
+          td
+          td 
+            button(id="close-session-btn-week" class="btn btn-danger") Zamknij sesję              
+    div(class='table-month table table-hover table-dark')
       h2 Tabela miesięczna
       table
         tr
           th Imię i nazwisko
-          th Liczba Spotkań
+          th Spotkań
           th Kasiorka(netto)
         each item in dataModMonth
           tr

@@ -130,6 +130,7 @@ router.get('/minus/:id/:score', function (req, res, next) {
 
 
 });
+// zamknięcie sesji tablicy dobowej
 router.get('/close-session/', function (req, res, next) {
     Players.find({}, {}, function (err, player) {
         player.forEach(player => {
@@ -147,5 +148,20 @@ router.get('/close-session/', function (req, res, next) {
     });
 
 });
+// zamknięcie sesji tablicy tygodiowej
+router.get('/close-session-week/', function (req, res, next) {
+    Players.find({}, {}, function (err, player) {
+        player.forEach(player => {
+            player.pointsWeek = 0;
+            player.save(function (err) {
+                if (err) {
+                    console.error('ERROR!');
+                }
+            });
+        })
 
+        res.redirect('/panel/table');
+    });
+
+});
 module.exports = router;

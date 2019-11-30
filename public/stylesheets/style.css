@@ -125,6 +125,7 @@ body .main-nav {
   top: 5px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
   background: #259d2a;
   color: white;
 }
@@ -248,6 +249,7 @@ body .wrapper input {
 
 body .wrapper p {
   margin-top: 10px;
+  line-height: 100%;
 }
 
 body .wrapper button {
@@ -447,34 +449,20 @@ body img.crown.disabled {
   display: none;
 }
 
-body .close-session {
+body .close-session,
+body .close-session-week {
   display: block;
-  width: 130px;
-  height: 35px;
-  font-size: 20px;
-  background-color: #49cb4e;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: .3s;
-  padding: 10px;
-  width: 170px;
-  line-height: 10px;
   margin: 10px auto;
-  background: #c40f0f;
 }
 
-body .close-session:hover {
-  box-shadow: inset 1px 1px 10px 0px;
-}
-
-body .close-session.yes {
+body .close-session.yes,
+body .close-session-week.yes {
   text-decoration: none;
   background: #49cb4e;
 }
 
-body div.confirm-close-session {
+body div.confirm-close-session,
+body div.confirm-close-session-week {
   display: none;
   position: fixed;
   top: 50%;
@@ -495,6 +483,10 @@ body div.confirm-close-session.active {
   display: block;
 }
 
+body div.confirm-close-session-week.active {
+  display: block;
+}
+
 body div.table-old-wrapper {
   margin-top: 10px;
   background: rgba(255, 255, 255, 0.86);
@@ -510,6 +502,11 @@ body div.table-old-wrapper div.table-week table,
 body div.table-old-wrapper div.table-moth table {
   border-spacing: 2px;
   border-color: grey;
+}
+
+body div.table-old-wrapper div.table-week a {
+  text-decoration: none;
+  color: white;
 }
 
 body div.necessary-wrapper {

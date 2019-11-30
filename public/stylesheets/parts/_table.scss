@@ -110,24 +110,27 @@ img.crown.disabled {
     display: none;
 }
 
-.close-session {
+.close-session,
+.close-session-week {
     display: block;
-    @include mainBtn;
-    padding: 10px;
-    width: 170px;
-    line-height: 10px;
+    // @include mainBtn;
+    // padding: 10px;
+    // width: 170px;
+    // line-height: 10px;
     margin: 10px auto;
-    background: rgb(196, 15, 15);
+    // background: rgb(196, 15, 15);
 
 }
 
-.close-session.yes {
+.close-session.yes,
+.close-session-week.yes {
     text-decoration: none;
     background: rgb(73, 203, 78);
 }
 
 
-div.confirm-close-session {
+div.confirm-close-session,
+div.confirm-close-session-week {
     display: none;
     position: fixed;
     top: 50%;
@@ -145,6 +148,10 @@ div.confirm-close-session {
 }
 
 div.confirm-close-session.active {
+    display: block;
+}
+
+div.confirm-close-session-week.active {
     display: block;
 }
 
@@ -166,5 +173,10 @@ div.table-old-wrapper {
         }
     }
 
-    div.table-month {}
+    div.table-week {
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
 }

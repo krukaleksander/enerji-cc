@@ -107,34 +107,20 @@ img.crown.disabled {
   display: none;
 }
 
-.close-session {
+.close-session,
+.close-session-week {
   display: block;
-  width: 130px;
-  height: 35px;
-  font-size: 20px;
-  background-color: #49cb4e;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: .3s;
-  padding: 10px;
-  width: 170px;
-  line-height: 10px;
   margin: 10px auto;
-  background: #c40f0f;
 }
 
-.close-session:hover {
-  box-shadow: inset 1px 1px 10px 0px;
-}
-
-.close-session.yes {
+.close-session.yes,
+.close-session-week.yes {
   text-decoration: none;
   background: #49cb4e;
 }
 
-div.confirm-close-session {
+div.confirm-close-session,
+div.confirm-close-session-week {
   display: none;
   position: fixed;
   top: 50%;
@@ -155,6 +141,10 @@ div.confirm-close-session.active {
   display: block;
 }
 
+div.confirm-close-session-week.active {
+  display: block;
+}
+
 div.table-old-wrapper {
   margin-top: 10px;
   background: rgba(255, 255, 255, 0.86);
@@ -170,4 +160,9 @@ div.table-old-wrapper div.table-week table,
 div.table-old-wrapper div.table-moth table {
   border-spacing: 2px;
   border-color: grey;
+}
+
+div.table-old-wrapper div.table-week a {
+  text-decoration: none;
+  color: white;
 }

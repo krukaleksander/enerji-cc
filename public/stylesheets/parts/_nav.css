@@ -27,6 +27,7 @@ div.menu-mobile i.active {
   top: 5px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
   background: #259d2a;
   color: white;
 }
