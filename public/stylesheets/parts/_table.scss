@@ -157,7 +157,7 @@ div.confirm-close-session-week.active {
 
 div.table-old-wrapper {
     margin-top: 10px;
-    background: rgba(255, 255, 255, 0.86);
+    // background: rgba(255, 255, 255, 0.86);
     display: flex;
     justify-content: center;
     text-align: center;
@@ -166,10 +166,16 @@ div.table-old-wrapper {
     letter-spacing: 1px;
 
     div.table-week,
-    div.table-moth {
+    div.table-month {
+        flex-basis: 40%;
+
         table {
-            border-spacing: 2px;
-            border-color: grey;
+            margin: 0 auto;
+        }
+
+        h2 {
+            padding: 5px;
+            text-align: center;
         }
     }
 

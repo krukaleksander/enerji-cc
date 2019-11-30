@@ -489,7 +489,6 @@ body div.confirm-close-session-week.active {
 
 body div.table-old-wrapper {
   margin-top: 10px;
-  background: rgba(255, 255, 255, 0.86);
   display: flex;
   justify-content: center;
   text-align: center;
@@ -498,10 +497,20 @@ body div.table-old-wrapper {
   letter-spacing: 1px;
 }
 
+body div.table-old-wrapper div.table-week,
+body div.table-old-wrapper div.table-month {
+  flex-basis: 40%;
+}
+
 body div.table-old-wrapper div.table-week table,
-body div.table-old-wrapper div.table-moth table {
-  border-spacing: 2px;
-  border-color: grey;
+body div.table-old-wrapper div.table-month table {
+  margin: 0 auto;
+}
+
+body div.table-old-wrapper div.table-week h2,
+body div.table-old-wrapper div.table-month h2 {
+  padding: 5px;
+  text-align: center;
 }
 
 body div.table-old-wrapper div.table-week a {
