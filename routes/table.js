@@ -13,9 +13,12 @@ router.all('*', (req, res, next) => {
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     Players.find({}, (err, data) => {
-        let dataMod;
+        let dataDay = data.slice(); //tworzysz kopie data, inaczej przypisujesz referencje i sie wszystko psuje
+        let dataWeek = data.slice();
+        let dataMonth = data.slice();
+        let dataModDay, dataModWeek, dataModMonth;
         // fragment z powrównaniem
-        function compare(a, b) {
+        function compareDay(a, b) {
 
             const numA = a.points;
             const numB = b.points;
@@ -29,7 +32,43 @@ router.get('/', function (req, res, next) {
             return comparison;
         }
 
-        dataMod = data.sort(compare);
+        function compareWeek(a, b) {
+
+            const numA = a.pointsWeek;
+            const numB = b.pointsWeek;
+
+            let comparison = 0;
+            if (numA < numB) {
+                comparison = 1;
+            } else if (numA > numB) {
+                comparison = -1;
+            }
+            return comparison;
+        }
+
+        function compareMonth(a, b) {
+
+            const numA = a.pointsMonth;
+            const numB = b.pointsMonth;
+
+            let comparison = 0;
+            if (numA < numB) {
+                comparison = 1;
+            } else if (numA > numB) {
+                comparison = -1;
+            }
+            return comparison;
+        }
+        console.log(`Data przed funkcja: ${data}`);
+
+
+        dataModDay = dataDay.sort(compareDay);
+        dataModWeek = dataWeek.sort(compareWeek);
+        dataModMonth = dataMonth.sort(compareMonth);
+        // console.log(`Data po funkcji: ${data}`);
+
+        // console.log(dataModDay);
+
 
         // koniec fragment z porównaniem
         // fragment z sumą
@@ -39,13 +78,12 @@ router.get('/', function (req, res, next) {
         })
 
         // koniec fragmentu z sumą
-        // fragment reset all
 
-
-        // fragment reset all
         res.render('table', {
             title: 'EnerjiCC e-tablica',
-            dataMod,
+            dataModDay,
+            dataModWeek,
+            dataModMonth,
             position,
             allScore
         });

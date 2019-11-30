@@ -5,8 +5,8 @@ block content
     button(type='submit' class='logout-btn') Wyloguj
   h1(class='table-heading') E-Tablica
   div(class="table-wrapper")
-    
-    each item in dataMod     
+  
+    each item in dataModDay     
       div(data-position=`${position++}` class=`${item.points > 0 && position == 0 ? "person winner" : "person"}`)
         img(data-position=`${position++}` src="/images/crown.png" class=`${item.points > 0 && position == 1 ? "crown" : "crown disabled"}`)
         span(class="points")=item.points
@@ -22,5 +22,30 @@ block content
       p Czy jesteś pewna/-y, że chcesz zamknąć sesję? Spowoduje to wyzerowanie wyników na tablicy dobowej i przeniesienie ich do zestawień tygodniowych i miesięcznych. [wyświetlane będą już niebawem]
       a(class="close-session yes" href="table/close-session/") Potwierdzam
       buton(class="close-session no") Innym razem
+  div(class='table-old-wrapper')
+    div(class='table-week')
+      h2 Tabela tygodniowa
+      table
+        tr
+          th Imię i nazwisko
+          th Liczba spotkań
+          th Kasiorka(netto)
+        each item in dataModWeek
+          tr
+            td=item.name
+            td=item.pointsWeek
+            td=item.pointsWeek * 7
+    div(class='table-month')
+      h2 Tabela miesięczna
+      table
+        tr
+          th Imię i nazwisko
+          th Liczba Spotkań
+          th Kasiorka(netto)
+        each item in dataModMonth
+          tr
+            td=item.name
+            td=item.pointsMonth
+            td=item.pointsMonth * 7
   script(src="/javascripts/table.js")
         
