@@ -176,3 +176,27 @@ div.table-old-wrapper div.table-week a {
   text-decoration: none;
   color: white;
 }
+
+.party-time,
+.christmas-time {
+  background-color: rgba(255, 255, 253, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  width: 250px;
+  text-align: center;
+  position: fixed;
+  top: 0px;
+}
+
+.party-time p,
+.christmas-time p {
+  margin: 0;
+}
+
+.party-time {
+  left: 20px;
+}
+
+.christmas-time {
+  right: 150px;
+}

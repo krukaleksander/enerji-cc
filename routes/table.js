@@ -116,6 +116,9 @@ router.get('/add/:id/:score', function (req, res, next) {
 router.get('/javascripts/table.js', function (req, res) {
     res.sendfile(__dirname + '/public/javascripts/table.js');
 });
+router.get('/javascripts/christmas.js', function (req, res) {
+    res.sendfile(__dirname + '/public/javascripts/christmas.js');
+})
 router.get('/minus/:id/:score', function (req, res, next) {
     // console.log(req.params.id)
     const idNr = parseInt(req.params.id)

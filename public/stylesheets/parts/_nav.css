@@ -120,7 +120,7 @@ div.menu-mobile i.active {
 }
 
 .main-nav ul li a:hover {
-  color: black;
+  border-bottom: 2px solid white;
 }
 
 .main-nav ul li a.disabled {
