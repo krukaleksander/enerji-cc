@@ -119,6 +119,9 @@ router.get('/javascripts/table.js', function (req, res) {
 router.get('/javascripts/christmas.js', function (req, res) {
     res.sendfile(__dirname + '/public/javascripts/christmas.js');
 })
+router.get('/javascripts/snow.js', function (req, res) {
+    res.sendfile(__dirname + '/public/javascripts/snow.js');
+})
 router.get('/minus/:id/:score', function (req, res, next) {
     // console.log(req.params.id)
     const idNr = parseInt(req.params.id)

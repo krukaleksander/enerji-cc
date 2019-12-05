@@ -48,8 +48,15 @@ div.menu-mobile {
         }
 
         li {
+
+
+
             border-right: 2px solid white;
             padding: 5px;
+
+            &:nth-child(4) {
+                border-right: none;
+            }
 
             @include ipadPro {
                 width: 180px;
@@ -73,7 +80,6 @@ div.menu-mobile {
                 border-right: none;
                 border-bottom: 2px solid white;
             }
-
 
             a {
                 text-decoration: none;
@@ -102,10 +108,14 @@ div.menu-mobile {
                 }
             }
 
+
+
             a.disabled {
                 text-decoration: line-through;
                 cursor: default;
             }
+
         }
+
     }
 }

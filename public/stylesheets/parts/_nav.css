@@ -56,6 +56,10 @@ div.menu-mobile i.active {
   padding: 5px;
 }
 
+.main-nav ul li:nth-child(4) {
+  border-right: none;
+}
+
 @media (max-width: 1024px) {
   .main-nav ul li {
     width: 180px;
