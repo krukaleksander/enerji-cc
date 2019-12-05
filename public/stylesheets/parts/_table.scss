@@ -102,12 +102,18 @@ div.pointsPanel {
 }
 
 img.crown {
-    width: 80px;
+    // width: 80px;
+    // position: absolute;
+    // transform: rotateZ(-17deg);
+    // z-index: 1;
+    // left: -26px;
+    // top: -33px;
+    width: 60px;
     position: absolute;
-    transform: rotateZ(-17deg);
+    transform: rotateZ(-6deg);
     z-index: 1;
-    left: -26px;
-    top: -33px;
+    left: -27px;
+    top: -23px;
 }
 
 img.crown.disabled {
@@ -198,15 +204,17 @@ div.table-old-wrapper {
     background-color: rgba(255, 255, 253, 0.7);
     padding: 10px;
     border-radius: 5px;
-    width: 250px;
+    width: auto;
+    font-size: 15px;
     text-align: center;
     position: fixed;
     top: 0px;
 
     p {
         margin: 0;
-        font-family: 'Anton', sans-serif;
-        letter-spacing: 1px;
+        font-family: Arial;
+        font-weight: bolder;
+
     }
 }
 

@@ -18,7 +18,7 @@ block content
   
     each item in dataModDay     
       div(data-position=`${position++}` class=`${item.points > 0 && position == 0 ? "person winner" : "person"}`)
-        img(data-position=`${position++}` src="/images/crown.png" class=`${item.points > 0 && position == 1 ? "crown" : "crown disabled"}`)
+        img(data-position=`${position++}` src="/images/santa-hat.png" class=`${item.points > 0 && position == 1 ? "crown" : "crown disabled"}`)
         span(class="points")=item.points
         p(class="name")=item.name
         div(class="pointsPanel")          
