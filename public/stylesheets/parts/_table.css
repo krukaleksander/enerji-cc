@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext");
 h1.table-heading {
   text-align: center;
   margin-bottom: 10px;
@@ -8,6 +9,7 @@ div.table-wrapper {
   background-color: rgba(255, 255, 253, 0.7);
   padding: 10px;
   border-radius: 5px;
+  position: relative;
 }
 
 div.table-wrapper div.sum {
@@ -147,7 +149,7 @@ div.confirm-close-session-week.active {
 }
 
 div.table-old-wrapper {
-  margin-top: 10px;
+  margin-top: 55px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -191,6 +193,8 @@ div.table-old-wrapper div.table-week a {
 .party-time p,
 .christmas-time p {
   margin: 0;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1px;
 }
 
 .party-time {
@@ -199,4 +203,16 @@ div.table-old-wrapper div.table-week a {
 
 .christmas-time {
   right: 150px;
+}
+
+.bell {
+  width: 140px;
+  position: absolute;
+  bottom: -68px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bell img {
+  width: 100%;
 }

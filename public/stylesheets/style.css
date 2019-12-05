@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -315,6 +316,7 @@ body .wrapper .credit-desc {
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;
+  color: white;
 }
 
 body table.experts-table {
@@ -350,6 +352,7 @@ body div.table-wrapper {
   background-color: rgba(255, 255, 253, 0.7);
   padding: 10px;
   border-radius: 5px;
+  position: relative;
 }
 
 body div.table-wrapper div.sum {
@@ -489,7 +492,7 @@ body div.confirm-close-session-week.active {
 }
 
 body div.table-old-wrapper {
-  margin-top: 10px;
+  margin-top: 55px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -533,6 +536,8 @@ body .christmas-time {
 body .party-time p,
 body .christmas-time p {
   margin: 0;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1px;
 }
 
 body .party-time {
@@ -541,6 +546,18 @@ body .party-time {
 
 body .christmas-time {
   right: 150px;
+}
+
+body .bell {
+  width: 140px;
+  position: absolute;
+  bottom: -68px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+body .bell img {
+  width: 100%;
 }
 
 body div.necessary-wrapper {
