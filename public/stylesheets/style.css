@@ -526,7 +526,6 @@ body div.table-old-wrapper div.table-week a {
   color: white;
 }
 
-body .party-time,
 body .christmas-time {
   background-color: rgba(255, 255, 253, 0.7);
   padding: 10px;
@@ -535,22 +534,14 @@ body .christmas-time {
   font-size: 15px;
   text-align: center;
   position: fixed;
-  top: 0px;
+  top: 5px;
+  left: 30px;
 }
 
-body .party-time p,
 body .christmas-time p {
   margin: 0;
   font-family: Arial;
   font-weight: bolder;
-}
-
-body .party-time {
-  left: 20px;
-}
-
-body .christmas-time {
-  right: 150px;
 }
 
 body .bell {

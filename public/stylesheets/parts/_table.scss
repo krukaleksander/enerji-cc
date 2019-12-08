@@ -199,7 +199,6 @@ div.table-old-wrapper {
 
 // święta
 
-.party-time,
 .christmas-time {
     background-color: rgba(255, 255, 253, 0.7);
     padding: 10px;
@@ -208,7 +207,8 @@ div.table-old-wrapper {
     font-size: 15px;
     text-align: center;
     position: fixed;
-    top: 0px;
+    top: 5px;
+    left: 30px;
 
     p {
         margin: 0;
@@ -216,14 +216,6 @@ div.table-old-wrapper {
         font-weight: bolder;
 
     }
-}
-
-.party-time {
-    left: 20px;
-}
-
-.christmas-time {
-    right: 150px;
 }
 
 .bell {
