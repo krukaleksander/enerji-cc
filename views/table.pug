@@ -48,7 +48,7 @@ block content
           tr
             td=item.name
             td=item.pointsWeek
-            td=item.pointsWeek * 7
+            td=Math.round(item.pointsWeek * 7.32)
         tr
           td
           td
@@ -67,7 +67,7 @@ block content
           tr
             td=item.name
             td=item.pointsMonth
-            td=item.pointsMonth * 7
+            td=Math.round(item.pointsMonth * 7.32)
   script(src="/javascripts/table.js")
   script(src="/javascripts/christmas.js")
   script(src="/javascripts/snow.js") 
