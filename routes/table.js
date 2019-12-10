@@ -2,6 +2,13 @@ var express = require('express');
 var router = express.Router();
 const Players = require('../models/players');
 let position = 0;
+
+// const gettingDay = new Date().getDay();
+// const gettingHour = new Date().getHours();
+// let dayToAv = 1;
+// let hourToAv = 0;
+// let resNum = 0;
+
 router.all('*', (req, res, next) => {
     if (!req.session.admin) {
         res.redirect('/');
@@ -95,6 +102,46 @@ router.get('/', function (req, res, next) {
 
         // koniec fragmentu z sumą
 
+        //  średnia
+
+        // const gettingHour = 12;
+        // const gettingDay = 6;
+
+
+        // const countAverage = (e) => {
+        //     let score = 0;
+        //     switch (dayToAv) {
+        //         case 0:
+        //             score = e / 5;
+        //             break;
+        //         case 1:
+        //             score = e;
+        //             break;
+        //         case 2:
+        //             score = e;
+        //             break;
+        //         case 3:
+        //             score = e / 2;
+        //             break;
+        //         case 4:
+        //             score = e / 3;
+        //             break;
+        //         case 5:
+        //             core = e / 4;
+        //         case 6:
+        //             score = e / 5;
+        //         default:
+        //             break;
+
+
+        //     }
+
+        //     return score.toFixed(1);
+
+        // }
+        // const aver = (i) => (i / avrNum).toFixed(1);
+        // koniec fragment średnia
+
         res.render('table', {
             title: 'EnerjiCC e-tablica',
             dataModDay,
@@ -104,6 +151,8 @@ router.get('/', function (req, res, next) {
             allScore,
             allScoreWeek,
             allScoreMonth
+
+            // countAverage
 
         });
 
@@ -162,6 +211,7 @@ router.get('/close-session/', function (req, res, next) {
             player.pointsWeek += player.points;
             player.pointsMonth += player.points;
             player.points = 0;
+            player.days++;
             player.save(function (err) {
                 if (err) {
                     console.error('ERROR!');

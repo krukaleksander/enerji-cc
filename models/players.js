@@ -30,6 +30,10 @@ var playersSchema = new Schema({
         type: Number,
         required: true
     },
+    days: {
+        type: Number,
+        required: true
+    },
 
 });
 
