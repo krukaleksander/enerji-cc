@@ -59,23 +59,39 @@ router.get('/', function (req, res, next) {
             }
             return comparison;
         }
-        console.log(`Data przed funkcja: ${data}`);
-
 
         dataModDay = dataDay.sort(compareDay);
         dataModWeek = dataWeek.sort(compareWeek);
         dataModMonth = dataMonth.sort(compareMonth);
-        // console.log(`Data po funkcji: ${data}`);
-
-        // console.log(dataModDay);
-
 
         // koniec fragment z porównaniem
         // fragment z sumą
+
+        // SUMA DNIA
         let allScore = 0;
         data.forEach(e => {
             allScore = allScore + e.points;
         })
+        // KONIEC SUMA DNIA
+
+        //SUMA TYDZIEŃ
+        let allScoreWeek = 0;
+        data.forEach(e => {
+            allScoreWeek = allScoreWeek + e.pointsWeek;
+        })
+
+        //koniec suma tydzień
+
+        // suma miesiąc
+
+        let allScoreMonth = 0;
+
+        data.forEach(e => {
+            allScoreMonth = allScoreMonth + e.pointsMonth;
+        })
+
+        // koniec suma miesiąc
+
 
         // koniec fragmentu z sumą
 
@@ -85,7 +101,10 @@ router.get('/', function (req, res, next) {
             dataModWeek,
             dataModMonth,
             position,
-            allScore
+            allScore,
+            allScoreWeek,
+            allScoreMonth
+
         });
 
     });

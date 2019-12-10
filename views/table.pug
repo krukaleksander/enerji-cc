@@ -48,10 +48,10 @@ block content
           tr
             td=item.name
             td=item.pointsWeek
-            td=Math.round(item.pointsWeek * 7.32)
+            td=Math.round(item.pointsWeek * 7)
         tr
-          td
-          td
+          td SUMA:
+          td=allScoreWeek
           td 
             button(id="close-session-btn-week" class="btn btn-danger") Zamknij sesję              
     div(class='table-month table table-hover table-dark')
@@ -67,7 +67,11 @@ block content
           tr
             td=item.name
             td=item.pointsMonth
-            td=Math.round(item.pointsMonth * 7.32)
+            td=Math.round(item.pointsMonth * 7)
+        tr
+          td SUMA:
+          td=allScoreMonth
+          TD
   script(src="/javascripts/table.js")
   script(src="/javascripts/christmas.js")
   script(src="/javascripts/snow.js") 

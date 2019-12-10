@@ -12,11 +12,14 @@ router.all('*', (req, res, next) => {
 })
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    // let thisMonthNr = new Date().getMonth();
-    // let thisMonth = new Date(2019, thisMonthNr, 0).getDate();
+    let thisMonthNr = new Date().getMonth();
+    let today = new Date().getDay();
+    let thisMonth = new Date(2019, thisMonthNr, 0).getDate();
+    let daysArr = [];
+    console.log(today);
     res.render('calendar', {
         title: 'EnerjiCC Kalendarz',
-
+        thisMonth
     })
 
 });

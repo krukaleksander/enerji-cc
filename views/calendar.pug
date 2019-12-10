@@ -1,13 +1,30 @@
 extends layout
 
 block content
+  - var i = 0;
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj
   h1(class="calendar-heading") Kalendarz
   h2(class="calendar-heading") Wybierz Eksperta
   #calendar-wrapper
     select#experts-calendar
-  #demo  
+  #calendar
+    #month-wrapper
+      span 
+        i(class="fas fa-arrow-circle-left")
+      span 
+        i(class="fas fa-arrow-circle-right")
+      p Grudzień
+    #weekday-wrapper
+      p Pon.
+      p Wt.
+      p Śr.
+      P Czw.
+      p Pt.
+    #days-wrapper  
+      - for (i = 0; i < thisMonth; i++) {
+        div(class="one-day" data-day=`2019,11,${i +1}` )=i + 1
+      - }
   script(src="/javascripts/snow.js") 
   script(src="/javascripts/calendar.js") 
   script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")

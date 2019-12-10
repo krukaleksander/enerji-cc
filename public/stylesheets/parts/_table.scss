@@ -128,6 +128,7 @@ img.crown.disabled {
     // width: 170px;
     // line-height: 10px;
     margin: 10px auto;
+
     // background: rgb(196, 15, 15);
 
 }
@@ -155,6 +156,7 @@ div.confirm-close-session-week {
     letter-spacing: 1px;
     font-size: 16px;
     line-height: 120%;
+    z-index: 1;
 }
 
 div.confirm-close-session.active {

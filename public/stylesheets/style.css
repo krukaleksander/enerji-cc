@@ -485,6 +485,7 @@ body div.confirm-close-session-week {
   letter-spacing: 1px;
   font-size: 16px;
   line-height: 120%;
+  z-index: 1;
 }
 
 body div.confirm-close-session.active {
