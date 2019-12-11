@@ -210,8 +210,11 @@ router.get('/close-session/', function (req, res, next) {
         player.forEach(player => {
             player.pointsWeek += player.points;
             player.pointsMonth += player.points;
+            if (player.points > 0) {
+                player.days++;
+            }
             player.points = 0;
-            player.days++;
+
             player.save(function (err) {
                 if (err) {
                     console.error('ERROR!');

@@ -49,7 +49,7 @@ block content
           tr
             td=item.name
             td=item.pointsWeek
-            td=(item.pointsWeek/item.days).toFixed(1)
+            td=item.pointsWeek > 0 ? (item.pointsWeek/item.days).toFixed(1) : 0
             td=Math.round(item.pointsWeek * 7)
         tr
           td SUMA:
