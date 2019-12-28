@@ -449,8 +449,8 @@ body img.crown {
   position: absolute;
   transform: rotateZ(-6deg);
   z-index: 1;
-  left: -27px;
-  top: -23px;
+  left: -24px;
+  top: -22px;
 }
 
 body img.crown.disabled {
