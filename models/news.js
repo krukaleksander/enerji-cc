@@ -4,15 +4,15 @@ var Schema = mongoose.Schema;
 var newsSchema = new Schema({
     target: {
         type: String,
-        required: true
+        required: false
     },
     title: {
         type: String,
-        required: true
+        required: false
     },
     content: {
         type: String,
-        required: true
+        required: false
     },
 
 });

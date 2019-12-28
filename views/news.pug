@@ -1,23 +1,30 @@
 extends layout
 
 block content
+  link(href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet")
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj
-  h1(class='table-heading') Aktualności
-  div(class="news-wrapper")
-    p(class="news-description") Ogłoszenia? Krótkie wiadomości? To jest właściwe miejsce.
-    //- data już jest przekazana!   
-    div(class='post-news')
+  h1(class='table-heading') Aktualności  
+  div(class="news-wrapper")   
+    button(class="btn btn-success btn-add-post") Dodaj  
+      i(class="fas fa-plus")
+    div(class='post-news form-group')
       form(method='post' action="news/add")
         p
-          label Do:
-          input(type='text' name='target' value=body.target || '')
+          input(placeholder="Do" type='text' name='target' value=body.target || '')
         p  
-          label Tytuł
-          input(type='text' name='title' value=body.title || '')
+          input(placeholder="Tytuł" type='text' name='title' value=body.title || '')
 
         p
-          label Opis
-          textarea(name='content')=body.content || ''
+          textarea(placeholder="Treść" name='content')=body.content || ''
         p
-          input(type='submit' value='Zapisz')         
+          input(class="btn btn-success btn-posting" type='submit' value='Zapisz')  
+          span(class="btn btn-danger btn-cancel-post") Anuluj    
+    //- data już jest przekazana!      
+    each post in data
+      .post
+        h4(class="post-target")=`<<< ${post.target} >>> ${post.title}`        
+        p(class="post-content")=post.content
+    
+  script(src="/javascripts/snow.js")     
+  script(src="/javascripts/news.js")     

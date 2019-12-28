@@ -602,3 +602,56 @@ body div.necessary-wrapper div.img-prad-wrapper {
 body div.necessary-wrapper div.img-prad-wrapper img {
   width: 100%;
 }
+
+body div.news-wrapper {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.82);
+  width: 900px;
+  margin: 10px auto;
+}
+
+body div.news-wrapper .btn-add-post {
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+  margin: 5px;
+}
+
+body div.news-wrapper .post {
+  background: white;
+  padding: 5px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+body div.news-wrapper .post .post-target {
+  font-weight: bolder;
+  background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
+  color: white;
+}
+
+body div.news-wrapper .post-news {
+  padding: 10px;
+  background: transparent;
+  border-radius: 2px;
+  text-align: center;
+}
+
+body div.news-wrapper .post-news form {
+  height: 0px;
+  overflow: hidden;
+  transition: 1s;
+}
+
+body div.news-wrapper .post-news form .btn-posting {
+  margin-right: 10px;
+}
+
+body div.news-wrapper .post-news form .btn-cancel-post {
+  padding: 6px;
+  cursor: pointer;
+}
+
+body div.news-wrapper .post-news.active form {
+  height: 260px;
+}
