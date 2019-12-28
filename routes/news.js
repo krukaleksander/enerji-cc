@@ -20,10 +20,20 @@ router.get('/', function (req, res, next) {
             errors: {}
 
         });
+
     })
 
 });
+router.get('/rmv/:id', function (req, res, next) {
+    console.log(req.params.id);
+    News.findOneAndDelete({
+        _id: req.params.id
+    }, function (err) {
+        console.log(err);
+        res.redirect('/panel/news');
+    });
 
+});
 router.post('/', function (req, res, next) {
     // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
     req.session.admin = 0;

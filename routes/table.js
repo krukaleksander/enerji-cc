@@ -181,6 +181,7 @@ router.get('/add/:id/:score', function (req, res, next) {
     });
 
 });
+
 router.get('/javascripts/table.js', function (req, res) {
     res.sendfile(__dirname + '/public/javascripts/table.js');
 });

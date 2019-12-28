@@ -25,6 +25,7 @@ block content
       .post
         h4(class="post-target")=`<<< ${post.target} >>> ${post.title}`        
         p(class="post-content")=post.content
+        a(class='rmv-post' href=`news/rmv/${post.id}`) Usuń
     
   script(src="/javascripts/snow.js")     
   script(src="/javascripts/news.js")     
