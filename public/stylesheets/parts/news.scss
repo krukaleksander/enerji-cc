@@ -19,8 +19,15 @@ div.news-wrapper {
 
         .post-target {
             font-weight: bolder;
-            background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
+            background: rgba(0, 0, 0, 0.82);
             color: white;
+            padding: 4px;
+        }
+
+        .time-par {
+            text-align: right;
+            color: rgb(154, 138, 138);
+            font-size: 0.8em;
         }
     }
 

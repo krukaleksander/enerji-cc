@@ -23,7 +23,8 @@ block content
     //- data już jest przekazana!      
     each post in data
       .post
-        h4(class="post-target")=`<<< ${post.target} >>> ${post.title}`        
+        h4(class="post-target")=`<<< ${post.target} >>> ${post.title}` 
+        p(class="time-par")=post.time       
         p(class="post-content")=post.content
         a(class='rmv-post' href=`news/rmv/${post.id}`) Usuń
     
