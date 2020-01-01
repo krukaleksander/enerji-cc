@@ -34,6 +34,10 @@ var playersSchema = new Schema({
         type: Number,
         required: true
     },
+    archive: {
+        type: Array,
+        required: true
+    },
 
 });
 

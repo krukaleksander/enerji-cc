@@ -244,4 +244,23 @@ router.get('/close-session-week/', function (req, res, next) {
     });
 
 });
+// zamknięcie sesji tablicy miesięcznej
+router.get('/close-session-month/', function (req, res, next) {
+    Players.find({}, {}, function (err, player) {
+        player.forEach(player => {
+            if (player.pointsMonth > 0) {
+                player.archive.push(player.pointsMonth);
+            }
+            player.pointsMonth = 0;
+            player.save(function (err) {
+                if (err) {
+                    console.error('ERROR!');
+                }
+            });
+        })
+
+        res.redirect('/panel/table');
+    });
+
+});
 module.exports = router;

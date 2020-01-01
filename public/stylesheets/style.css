@@ -470,7 +470,8 @@ body .close-session-week.yes {
 }
 
 body div.confirm-close-session,
-body div.confirm-close-session-week {
+body div.confirm-close-session-week,
+body div.confirm-close-session-month {
   display: none;
   position: fixed;
   top: 50%;
@@ -488,12 +489,14 @@ body div.confirm-close-session-week {
   z-index: 1;
 }
 
-body div.confirm-close-session.active {
+body div.confirm-close-session.active,
+body div.confirm-close-session-week.active,
+body div.confirm-close-session-month.active {
   display: block;
 }
 
-body div.confirm-close-session-week.active {
-  display: block;
+body .close-session-month.no {
+  margin-top: 10px;
 }
 
 body div.table-old-wrapper {

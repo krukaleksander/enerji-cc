@@ -5,11 +5,11 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj
   h1(class='table-heading') E-Tablica 
-  div(class="christmas-time")
-    p(class="time-to") Nowy rok za:
-      span(class="days-christmas")
-      span(class="hours-christmas")
-      span(class="minutes-christmas")
+  //- div(class="christmas-time")
+  //-   p(class="time-to") Nowy rok za:
+  //-     span(class="days-christmas")
+  //-     span(class="hours-christmas")
+  //-     span(class="minutes-christmas")
   div(class="table-wrapper")
   
     each item in dataModDay     
@@ -34,6 +34,11 @@ block content
       form(action="table/close-session-week/")
         button(class="btn btn-success" type="submit") Potwierdzam 
       button(class="close-session-week no btn btn-danger") Innym razem
+    div(class="confirm-close-session-month")
+      p Czy jesteś pewna/-y, że chcesz zamknąć sesję miesięczną? Spowoduje to wyzerowanie wyników na tablicy miesięcznej i pobranie z bazy danych punktów naliczonych na następny miesiąc.
+      form(action="table/close-session-month/")
+        button(class="btn btn-success" type="submit") Potwierdzam 
+      button(class="close-session-month no btn btn-danger") Innym razem
     div(class="bell")
       img(src="/images/bell.png")
   div(class='table-old-wrapper')
@@ -75,7 +80,9 @@ block content
             td=Math.round(item.pointsMonth * 7)
         tr
           td SUMA:
-          td=allScoreMonth          
+          td=allScoreMonth  
+          td
+            button(id="close-session-btn-month" class="btn btn-danger") Zamknij sesję         
   script(src="/javascripts/table.js")
   script(src="/javascripts/christmas.js")
   script(src="/javascripts/snow.js") 

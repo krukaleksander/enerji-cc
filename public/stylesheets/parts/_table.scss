@@ -141,7 +141,8 @@ img.crown.disabled {
 
 
 div.confirm-close-session,
-div.confirm-close-session-week {
+div.confirm-close-session-week,
+div.confirm-close-session-month {
     display: none;
     position: fixed;
     top: 50%;
@@ -159,12 +160,14 @@ div.confirm-close-session-week {
     z-index: 1;
 }
 
-div.confirm-close-session.active {
+div.confirm-close-session.active,
+div.confirm-close-session-week.active,
+div.confirm-close-session-month.active {
     display: block;
 }
 
-div.confirm-close-session-week.active {
-    display: block;
+.close-session-month.no {
+    margin-top: 10px;
 }
 
 div.table-old-wrapper {
