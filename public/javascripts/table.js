@@ -1,7 +1,7 @@
 closeSessionDiv = document.querySelector('.confirm-close-session');
 closeSessionDivWeek = document.querySelector('.confirm-close-session-week');
 closeSessionDivMonth = document.querySelector('.confirm-close-session-month');
-
+profileBtns = [...document.querySelectorAll('span.profile')];
 document.getElementById('close-session-btn').addEventListener('click', () => {
     closeSessionDiv.classList.add('active');
 });
@@ -21,4 +21,9 @@ document.getElementById('close-session-btn-month').addEventListener('click', () 
 });
 document.querySelector('.close-session-month.no').addEventListener('click', () => {
     closeSessionDivMonth.classList.remove('active');
+})
+profileBtns.forEach(e => {
+    e.addEventListener('click', () => {
+        // console.log(e.id);
+    })
 })

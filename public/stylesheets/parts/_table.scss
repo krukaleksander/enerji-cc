@@ -221,6 +221,7 @@ div.table-old-wrapper {
         font-weight: bolder;
 
     }
+
 }
 
 .bell {
@@ -235,4 +236,62 @@ div.table-old-wrapper {
         width: 100%;
     }
 
+}
+
+span.profile {
+    i {
+        transition: .3s;
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(59, 89, 152);
+        }
+    }
+}
+
+.profile-cont {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 500px;
+    min-height: 200px;
+    background: rgb(243, 245, 244);
+    z-index: 2;
+    border: solid;
+    border-image: linear-gradient(to left, #2e98bc 0%, #c66262 100%);
+    border-image-slice: 1;
+    border-width: 3px;
+    border-radius: 5px;
+    text-align: center;
+
+    .close-profile {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+
+    }
+
+    h2.name {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bolder;
+        letter-spacing: 2px;
+
+        span {
+            background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .profile-par {
+        font-size: 18px;
+    }
+
+    .profile-all-points {
+        color: rgb(162, 118, 7);
+    }
 }

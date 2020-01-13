@@ -560,6 +560,61 @@ body .bell img {
   width: 100%;
 }
 
+body span.profile i {
+  transition: .3s;
+  cursor: pointer;
+}
+
+body span.profile i:hover {
+  color: #3b5998;
+}
+
+body .profile-cont {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 500px;
+  min-height: 200px;
+  background: #f3f5f4;
+  z-index: 2;
+  border: solid;
+  border-image: linear-gradient(to left, #2e98bc 0%, #c66262 100%);
+  border-image-slice: 1;
+  border-width: 3px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+body .profile-cont .close-profile {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+
+body .profile-cont h2.name {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+body .profile-cont h2.name span {
+  background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body .profile-cont .profile-par {
+  font-size: 18px;
+}
+
+body .profile-cont .profile-all-points {
+  color: #a27607;
+}
+
 body div.necessary-wrapper {
   background: rgba(0, 188, 212, 0.55);
 }
