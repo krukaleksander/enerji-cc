@@ -38,6 +38,10 @@ var playersSchema = new Schema({
         type: Array,
         required: true
     },
+    message: {
+        type: String,
+        required: true
+    },
 
 });
 

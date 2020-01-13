@@ -445,12 +445,12 @@ body div.pointsPanel a.minus:hover {
 }
 
 body img.crown {
-  width: 60px;
+  width: 80px;
   position: absolute;
-  transform: rotateZ(-6deg);
+  transform: rotateZ(-17deg);
   z-index: 1;
-  left: -24px;
-  top: -22px;
+  left: -26px;
+  top: -33px;
 }
 
 body img.crown.disabled {
@@ -592,6 +592,7 @@ body .profile-cont .close-profile {
   top: 5px;
   right: 5px;
   cursor: pointer;
+  color: #3c5998;
 }
 
 body .profile-cont h2.name {

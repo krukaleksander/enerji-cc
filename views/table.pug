@@ -14,7 +14,7 @@ block content
   
     each item in dataModDay     
       div(data-position=`${position++}` class=`${item.points > 0 && position == 0 ? "person winner" : "person"}`)
-        img(data-position=`${position++}` src="/images/party-hat.png" class=`${item.points > 0 && position == 1 ? "crown" : "crown disabled"}`)
+        img(data-position=`${position++}` src="/images/crown.png" class=`${item.points > 0 && position == 1 ? "crown" : "crown disabled"}`)
         span(class="points")=item.points
         p(class="name")=item.name      
 
@@ -32,7 +32,7 @@ block content
            p(class="profile-par")=`W tym tygodniu: ${item.pointsWeek}`
            p(class="profile-par")=`W tym miesiącu: ${item.pointsMonth}`
            p(class="profile-par profile-all-points")=`WSZYSTKIE: ${item.allPoints}`
-           p(class="profile-par alert alert-success") Wyślij mi na maila liczby z poprzednich miesięcy!
+           p(class="profile-par alert alert-success")=item.message
 
     div(class="sum")
       p(class="score-number")=`Suma: ${allScore}`   
