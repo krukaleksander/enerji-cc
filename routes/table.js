@@ -231,6 +231,7 @@ router.get('/close-session/', function (req, res, next) {
 router.get('/close-session-week/', function (req, res, next) {
     Players.find({}, {}, function (err, player) {
         player.forEach(player => {
+            player.allPoints += player.pointsWeek;
             player.pointsWeek = 0;
             player.days = 0;
             player.save(function (err) {
