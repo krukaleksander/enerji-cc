@@ -4,13 +4,28 @@ block content
   link(href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet")
   h1(class="table-heading") E-Taca
   p(class="church-desc alert alert-success") Ojciec Patryk bardzo chętnie dostarczy Ci bazę, jednak wymaga to pewnego datku na e-tacę. Wpisz proszę jaki powiat Cię interesuje a także napisz swoje imię - o anonimowy darczyńco.
-    span  Ojciec Patryk bierze co łaska, ale nie mniej niż 500zł - należność automatycznie odliczy się od Twojej wypłaty. 
+    span  Ojciec Patryk bierze co łaska, ale nie mniej niż 500zł - płatność kartą.
   .church-wrap
     div(class="church-todo")
-       each target in data
-         div(class="one-target")
-         p=target.target
-         p=target.who
+      table(class="table table-hover table-dark")
+        th Powiat
+        th Darczyńca
+        th Akcje
+        each target in data
+         tr
+           td=target.target
+           td=target.who
+           td 
+             a(class='rmv-target' href=`church/rmv/${target.id}`) Usuń           
     div(class="church-order")
+      form(method='post' action="church/new")
+        p
+          input(placeholder="Powiat" type='text' name='target' value=body.target || '')
+        p  
+          input(placeholder="Darczyńca" type='text' name='who' value=body.who || '')        
+        p
+          input(class="btn btn-success btn-posting" type='submit' value='Zapłać kartą')  
+          br
+          span(class="btn btn-danger btn-cancel-post") Spróbuj oszukać Ojca Patryka    
   script(src="/javascripts/snow.js")     
   script(src="/javascripts/church.js")    

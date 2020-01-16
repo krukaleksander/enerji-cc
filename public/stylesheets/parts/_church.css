@@ -9,3 +9,37 @@
   display: block;
   font-weight: bolder;
 }
+
+.church-wrap {
+  margin: 20px auto;
+  background: rgba(29, 29, 29, 0.79);
+  width: 90%;
+  border-radius: 5px;
+  min-height: 200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.church-wrap .church-todo,
+.church-wrap .church-order {
+  width: 400px;
+  text-align: center;
+}
+
+.church-wrap .target-ok {
+  margin-right: 5px;
+}
+
+.church-wrap .rmv-target {
+  color: #c15f5f;
+}
+
+.church-wrap .btn-posting {
+  margin-bottom: 10px;
+}
+
+.church-wrap .btn-cancel-post {
+  cursor: pointer;
+}

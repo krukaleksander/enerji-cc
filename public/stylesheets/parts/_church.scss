@@ -10,3 +10,37 @@
 
     }
 }
+
+.church-wrap {
+    margin: 20px auto;
+    background: rgba(29, 29, 29, 0.79);
+    width: 90%;
+    border-radius: 5px;
+    min-height: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .church-todo,
+    .church-order {
+        width: 400px;
+        text-align: center;
+    }
+
+    .target-ok {
+        margin-right: 5px;
+    }
+
+    .rmv-target {
+        color: rgb(193, 95, 95);
+    }
+
+    .btn-posting {
+        margin-bottom: 10px;
+    }
+
+    .btn-cancel-post {
+        cursor: pointer;
+    }
+}
