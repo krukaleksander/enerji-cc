@@ -1,0 +1,16 @@
+extends layout
+//- data dostarczona z modelu church
+block content
+  link(href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet")
+  h1(class="table-heading") E-Taca
+  p(class="church-desc alert alert-success") Ojciec Patryk bardzo chętnie dostarczy Ci bazę, jednak wymaga to pewnego datku na e-tacę. Wpisz proszę jaki powiat Cię interesuje a także napisz swoje imię - o anonimowy darczyńco.
+    span  Ojciec Patryk bierze co łaska, ale nie mniej niż 500zł - należność automatycznie odliczy się od Twojej wypłaty. 
+  .church-wrap
+    div(class="church-todo")
+       each target in data
+         div(class="one-target")
+         p=target.target
+         p=target.who
+    div(class="church-order")
+  script(src="/javascripts/snow.js")     
+  script(src="/javascripts/church.js")    

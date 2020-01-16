@@ -20,6 +20,7 @@ var newsRouter = require('./routes/news');
 var addRouter = require('./routes/add');
 var necinfoRouter = require('./routes/necinfo');
 var calendarRouter = require('./routes/calendar');
+var churchRouter = require('./routes/church');
 
 
 
@@ -50,6 +51,7 @@ app.use('/panel/news', newsRouter);
 app.use('/panel/news/add', addRouter);
 app.use('/panel/necessary', necinfoRouter);
 app.use('/panel/calendar', calendarRouter);
+app.use('/panel/church', churchRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

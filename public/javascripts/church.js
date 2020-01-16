@@ -1,0 +1,1 @@
+document.body.style.background = "url(../images/church.jpg)";

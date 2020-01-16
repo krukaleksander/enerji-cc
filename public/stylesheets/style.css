@@ -721,3 +721,15 @@ body div.news-wrapper .post-news form .btn-cancel-post {
 body div.news-wrapper .post-news.active form {
   height: 260px;
 }
+
+body .church-desc {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+body .church-desc span {
+  display: block;
+  font-weight: bolder;
+}
