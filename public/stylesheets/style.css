@@ -155,7 +155,7 @@ body .main-nav ul li {
   padding: 5px;
 }
 
-body .main-nav ul li:nth-child(5) {
+body .main-nav ul li:nth-child(6) {
   border-right: none;
 }
 
@@ -764,6 +764,11 @@ body .church-wrap .btn-posting {
   margin-bottom: 10px;
 }
 
-body .church-wrap .btn-cancel-post {
+body .church-wrap .btn-cheat {
   cursor: pointer;
+}
+
+body .church-wrap .cheat {
+  font-size: 20px;
+  display: none;
 }

@@ -40,6 +40,11 @@
   margin-bottom: 10px;
 }
 
-.church-wrap .btn-cancel-post {
+.church-wrap .btn-cheat {
   cursor: pointer;
+}
+
+.church-wrap .cheat {
+  font-size: 20px;
+  display: none;
 }
