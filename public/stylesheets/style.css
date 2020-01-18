@@ -748,7 +748,7 @@ body .church-wrap {
 
 body .church-wrap .church-todo,
 body .church-wrap .church-order {
-  width: 400px;
+  min-width: 500px;
   text-align: center;
 }
 
@@ -757,7 +757,8 @@ body .church-wrap .target-ok {
 }
 
 body .church-wrap .rmv-target {
-  color: #c15f5f;
+  color: red;
+  font-size: 20px;
 }
 
 body .church-wrap .btn-posting {
@@ -771,4 +772,9 @@ body .church-wrap .btn-cheat {
 body .church-wrap .cheat {
   font-size: 20px;
   display: none;
+}
+
+body .church-wrap #start-task {
+  margin-right: 10px;
+  color: #28a745;
 }

@@ -24,7 +24,7 @@
 
 .church-wrap .church-todo,
 .church-wrap .church-order {
-  width: 400px;
+  min-width: 500px;
   text-align: center;
 }
 
@@ -33,7 +33,8 @@
 }
 
 .church-wrap .rmv-target {
-  color: #c15f5f;
+  color: red;
+  font-size: 20px;
 }
 
 .church-wrap .btn-posting {
@@ -47,4 +48,9 @@
 .church-wrap .cheat {
   font-size: 20px;
   display: none;
+}
+
+.church-wrap #start-task {
+  margin-right: 10px;
+  color: #28a745;
 }

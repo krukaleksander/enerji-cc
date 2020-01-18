@@ -10,15 +10,19 @@ block content
   .church-wrap
     div(class="church-todo")
       table(class="table table-hover table-dark")
+        th Utworzone
         th Powiat
         th Darczyńca
         th Akcje
         each target in data
          tr
+           td=target.created
            td=target.target
            td=target.who
            td 
-             a(class='rmv-target' href=`church/rmv/${target.id}`) Usuń           
+             i(class="fas fa-play" id="start-task")
+             a(class='rmv-target' href=`church/rmv/${target.id}`)
+               i(class="fas fa-times")          
     div(class="church-order")
       form(method='post' action="church/new")
         p

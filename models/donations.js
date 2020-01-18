@@ -9,7 +9,15 @@ var donationsSchema = new Schema({
     who: {
         type: String,
         required: false
-    }
+    },
+    created: {
+        type: String,
+        required: false
+    },
+    working: {
+        type: Boolean,
+        required: false
+    },
 });
 
 module.exports = mongoose.model('Donations', donationsSchema);

@@ -13,6 +13,9 @@ router.all('*', (req, res, next) => {
 /* GET users listing. */
 router.post('/', (req, res) => {
     const body = req.body;
+    const time = ((new Date).toString()).slice(4, 25);
+    body.created = time;
+    body.working = false;
     const donationsData = new Donations(body);
     const errors = donationsData.validateSync();
     donationsData.save((err) => {
