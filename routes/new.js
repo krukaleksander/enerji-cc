@@ -13,8 +13,10 @@ router.all('*', (req, res, next) => {
 /* GET users listing. */
 router.post('/', (req, res) => {
     const body = req.body;
-    const time = ((new Date).toString()).slice(4, 25);
-    body.created = time;
+    let time = new Date();
+    time.setHours(time.getHours() + 1);
+    let timemod = ((time).toString()).slice(4, 25);
+    body.created = timemod;
     body.working = "noworking";
     const donationsData = new Donations(body);
     const errors = donationsData.validateSync();
