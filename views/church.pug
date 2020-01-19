@@ -15,12 +15,17 @@ block content
         th Darczyńca
         th Akcje
         each target in data
-         tr
+         tr(class=target.working)
            td=target.created
            td=target.target
            td=target.who
            td 
-             i(class="fas fa-play" id="start-task")
+             if target.working == "noworking"
+               a(id="start-task" href=`church/active/${target.id}`)
+                 i(class="fas fa-play")
+             else if target.working == "working"
+               a(id="stop-task" href=`church/deactive/${target.id}`)
+                 i(class="fas fa-stop")
              a(class='rmv-target' href=`church/rmv/${target.id}`)
                i(class="fas fa-times")          
     div(class="church-order")

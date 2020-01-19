@@ -774,7 +774,29 @@ body .church-wrap .cheat {
   display: none;
 }
 
-body .church-wrap #start-task {
+body .church-wrap #start-task,
+body .church-wrap #stop-task {
   margin-right: 10px;
   color: #28a745;
+  cursor: pointer;
+}
+
+body .church-wrap #stop-task {
+  color: red;
+}
+
+body .church-wrap .working {
+  background-color: green;
+}
+
+body .church-wrap .working:hover {
+  background-color: #6ec56e;
+}
+
+body .church-wrap .working td {
+  background-color: transparent;
+}
+
+body .church-wrap .working td:hover {
+  background-color: transparent;
 }

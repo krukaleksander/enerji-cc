@@ -15,7 +15,7 @@ var donationsSchema = new Schema({
         required: false
     },
     working: {
-        type: Boolean,
+        type: String,
         required: false
     },
 });

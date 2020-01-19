@@ -34,6 +34,28 @@ router.get('/rmv/:id', function (req, res, next) {
     });
 
 });
+router.get('/active/:id', function (req, res, next) {
+    // console.log(req.params.id)  ;
+    Donations.findOneAndUpdate({
+        _id: req.params.id
+    }, {
+        working: "working"
+    }, function (err, player) {
+        res.redirect('/panel/church');
+    });
+
+});
+router.get('/deactive/:id', function (req, res, next) {
+    // console.log(req.params.id)  ;
+    Donations.findOneAndUpdate({
+        _id: req.params.id
+    }, {
+        working: "noworking"
+    }, function (err, player) {
+        res.redirect('/panel/church');
+    });
+
+});
 router.post('/', function (req, res, next) {
     // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
     req.session.admin = 0;

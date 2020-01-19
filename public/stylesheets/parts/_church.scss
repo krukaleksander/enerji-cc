@@ -50,8 +50,30 @@
         display: none;
     }
 
-    #start-task {
+    #start-task,
+    #stop-task {
         margin-right: 10px;
         color: rgb(40, 167, 69);
+        cursor: pointer;
+    }
+
+    #stop-task {
+        color: red;
+    }
+
+    .working {
+        background-color: green;
+
+        &:hover {
+            background-color: rgb(110, 197, 110);
+        }
+
+        td {
+            background-color: transparent;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
     }
 }

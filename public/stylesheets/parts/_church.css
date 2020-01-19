@@ -50,7 +50,29 @@
   display: none;
 }
 
-.church-wrap #start-task {
+.church-wrap #start-task,
+.church-wrap #stop-task {
   margin-right: 10px;
   color: #28a745;
+  cursor: pointer;
+}
+
+.church-wrap #stop-task {
+  color: red;
+}
+
+.church-wrap .working {
+  background-color: green;
+}
+
+.church-wrap .working:hover {
+  background-color: #6ec56e;
+}
+
+.church-wrap .working td {
+  background-color: transparent;
+}
+
+.church-wrap .working td:hover {
+  background-color: transparent;
 }
