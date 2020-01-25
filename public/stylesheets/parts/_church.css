@@ -76,3 +76,19 @@
 .church-wrap .working td:hover {
   background-color: transparent;
 }
+
+.church-wrap.male {
+  background: rgba(29, 29, 29, 0.35);
+}
+
+.table-dark.male {
+  background-color: rgba(52, 58, 64, 0.5);
+}
+
+.church-desc.male {
+  background-color: rgba(212, 237, 218, 0.56);
+}
+
+.working.male {
+  background-color: rgba(0, 128, 0, 0.490196);
+}

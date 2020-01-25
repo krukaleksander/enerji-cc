@@ -97,6 +97,10 @@ body .login-wrapper .logout-btn:hover {
   box-shadow: inset 1px 1px 10px 0px;
 }
 
+body .login-wrapper.male {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 body div.menu-mobile {
   display: none;
   width: 50px;
@@ -616,6 +620,18 @@ body .profile-cont .profile-all-points {
   color: #a27607;
 }
 
+body .table-wrapper.male {
+  background-color: rgba(255, 255, 253, 0.18);
+}
+
+body div.person.male {
+  background: rgba(255, 255, 255, 0.38);
+}
+
+body div.table-dark.male {
+  background-color: rgba(52, 58, 64, 0.52);
+}
+
 body div.necessary-wrapper {
   background: rgba(0, 188, 212, 0.55);
 }
@@ -799,4 +815,65 @@ body .church-wrap .working td {
 
 body .church-wrap .working td:hover {
   background-color: transparent;
+}
+
+body .church-wrap.male {
+  background: rgba(29, 29, 29, 0.35);
+}
+
+body .table-dark.male {
+  background-color: rgba(52, 58, 64, 0.5);
+}
+
+body .church-desc.male {
+  background-color: rgba(212, 237, 218, 0.56);
+}
+
+body .working.male {
+  background-color: rgba(0, 128, 0, 0.490196);
+}
+
+body .change-motive {
+  position: fixed;
+  height: 95px;
+  top: -96px;
+  left: 0px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  transition: .5s;
+}
+
+body .change-motive ul {
+  list-style: none;
+  margin-bottom: 0px;
+}
+
+body .change-motive ul li a {
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+body .change-motive ul li .arrow-motive {
+  color: white;
+  font-size: 25px;
+  vertical-align: -3px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+body .change-motive ul li .arrow-motive.active {
+  transform: rotateZ(-180deg);
+}
+
+body .change-motive ul .motive-link {
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+  color: white;
+  text-transform: uppercase;
+}
+
+body .change-motive.active {
+  top: 0px;
 }

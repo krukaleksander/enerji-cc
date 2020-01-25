@@ -23,9 +23,20 @@ html
            a(href="/panel/necessary") Przydatne 
         li 
           a(href="/panel/news")  Aktualności 
-           
+    div(class='change-motive')
+      ul
+        li(class="female-link") 
+          a(href="/panel/table") Kobiecy
+        li(class="male-link") 
+          a(href="/panel/table")  Męski
+        li(class="christmas-link") 
+          a(href="/panel/table")  Świąteczny
+        li(class="motive-link") Motywy  
+          i(class="far fa-arrow-alt-circle-down arrow-motive")
+
                  
         
-       
-    script(src="javascripts/main.js")
+   
+     
     block content
+script(src="/javascripts/motive.js") 

@@ -1,0 +1,46 @@
+.change-motive {
+    position: fixed;
+    height: 95px;
+    top: -96px;
+    left: 0px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    transition: .5s;
+
+    ul {
+        list-style: none;
+        margin-bottom: 0px;
+
+        li {
+            a {
+                color: white;
+                font-weight: bolder;
+                letter-spacing: 1px;
+            }
+
+            .arrow-motive {
+                color: white;
+                font-size: 25px;
+                vertical-align: -3px;
+                cursor: pointer;
+                transition: .3s;
+            }
+
+            .arrow-motive.active {
+                transform: rotateZ(-180deg);
+            }
+        }
+
+        .motive-link {
+            position: absolute;
+            bottom: -30px;
+            right: 10px;
+            color: white;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.change-motive.active {
+    top: 0px;
+}
