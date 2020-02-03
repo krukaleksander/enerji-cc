@@ -2,14 +2,22 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var importants = new Schema({
-    title: {
+    id: {
+        type: Number,
+        required: true
+    },
+    name: {
         type: String,
         required: true
     },
-    value: {
+    ammount: {
+        type: Number,
+        required: true
+    },
+    description: {
         type: String,
         required: true
     },
 });
 
-module.exports = mongoose.model('Importants', importantsSchema);
+module.exports = mongoose.model('importants', importants);

@@ -1,19 +1,19 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var statystykiSchema = new Schema({
+var statystyki = new Schema({
     name: {
         type: String,
-        required: false
+        required: true
     },
     ammount: {
         type: Number,
-        required: false
+        required: true
     },
     description: {
         type: String,
-        required: false
+        required: true
     },
 });
 
-module.exports = mongoose.model('Statystyki', statystykiSchema);
+module.exports = mongoose.model('statystyki', statystyki);

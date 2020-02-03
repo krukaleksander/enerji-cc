@@ -22,7 +22,7 @@ var necinfoRouter = require('./routes/necinfo');
 var calendarRouter = require('./routes/calendar');
 var churchRouter = require('./routes/church');
 var newRouter = require('./routes/new.js');
-var statsRouter = require('./routes/stats.js');
+var statystykiRouter = require('./routes/statystyki.js');
 
 
 
@@ -55,7 +55,7 @@ app.use('/panel/necessary', necinfoRouter);
 app.use('/panel/calendar', calendarRouter);
 app.use('/panel/church', churchRouter);
 app.use('/panel/church/new', newRouter);
-app.use('/stats', statsRouter);
+app.use('/stats', statystykiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
