@@ -28,6 +28,7 @@ div.menu-mobile {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+    min-width: 700px;
 
     @include common {
         top: -400px;
@@ -54,7 +55,7 @@ div.menu-mobile {
             border-right: 2px solid white;
             padding: 5px;
 
-            &:nth-child(6) {
+            &:nth-child(7) {
                 border-right: none;
             }
 

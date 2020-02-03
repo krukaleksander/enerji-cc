@@ -54,7 +54,6 @@ const changeFn = () => {
 
     }
 
-
 }
 if (window.localStorage.motive === undefined) {
     window.localStorage.setItem('motive', 'unset');

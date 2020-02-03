@@ -131,6 +131,7 @@ body .main-nav {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+  min-width: 700px;
   background: rgba(154, 12, 12, 0.11);
   color: white;
 }
@@ -159,7 +160,7 @@ body .main-nav ul li {
   padding: 5px;
 }
 
-body .main-nav ul li:nth-child(6) {
+body .main-nav ul li:nth-child(7) {
   border-right: none;
 }
 
