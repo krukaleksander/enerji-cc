@@ -14,8 +14,32 @@ router.get('/', function (req, res, next) {
             body: {},
             errors: {}
         });
-        console.log(data);
     })
 });
+router.get('/add/:id/:score', function (req, res, next) {
+    const idNr = parseInt(req.params.id)
+    const score = parseInt(req.params.score);
+    Statsenerga.findOneAndUpdate({
+        id: idNr
+    }, {
+        ammount: score + 1
+    }, function () {
+        res.redirect('/stats');
+    });
 
+});
+router.get('/minus/:id/:score', function (req, res, next) {
+    // console.log(req.params.id)
+    const idNr = parseInt(req.params.id)
+    const score = parseInt(req.params.score);
+    Statsenerga.findOneAndUpdate({
+        id: idNr
+    }, {
+        ammount: score - 1
+    }, function () {
+        res.redirect('/stats');
+    });
+
+
+});
 module.exports = router;

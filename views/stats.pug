@@ -12,10 +12,10 @@ block content
           span(class=`case-name case-name${item.id}`)=item.name  
           span(class='case-description' data-show=`case-name${item.id}`)=item.description        
           .stats-generate
-            form(action="/stats")
+            form(action=`/stats/add/${item.id}/${item.ammount}`)
               button(class="stats-btn" type="submit") 
                 i(class="fas fa-plus")
-            form(action="/stats")
+            form(action=`/stats/minus/${item.id}/${item.ammount}`)
               button(class="stats-btn" type="submit") 
                 i(class="fas fa-minus")
     
