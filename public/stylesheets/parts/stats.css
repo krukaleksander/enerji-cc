@@ -88,11 +88,11 @@
 }
 
 .stats-wrapper .cases-wrapper #mail {
-  background-color: rgba(1, 128, 1, 0.521);
+  background-color: rgba(1, 128, 1, 0.721);
 }
 
 .stats-wrapper .cases-wrapper #pd {
-  background-color: rgba(1, 128, 1, 0.621);
+  background-color: rgba(1, 128, 1, 0.921);
 }
 
 .stats-wrapper .cases-wrapper #oferta {
@@ -101,4 +101,17 @@
 
 .stats-wrapper .cases-wrapper #umowa {
   background-color: green;
+}
+
+.stats-wrapper .cases-wrapper #bb {
+  background-color: rgba(0, 0, 0, 0.582);
+}
+
+.stats-wrapper .sum-div {
+  background: rgba(245, 245, 245, 0.79);
+  padding: 10px;
+}
+
+.stats-wrapper .sum-div span {
+  font-weight: bolder;
 }

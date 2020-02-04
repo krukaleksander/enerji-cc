@@ -89,11 +89,11 @@
         }
 
         #mail {
-            background-color: rgba(1, 128, 1, 0.521);
+            background-color: rgba(1, 128, 1, 0.721);
         }
 
         #pd {
-            background-color: rgba(1, 128, 1, 0.621);
+            background-color: rgba(1, 128, 1, 0.921);
         }
 
         #oferta {
@@ -102,6 +102,19 @@
 
         #umowa {
             background-color: green;
+        }
+
+        #bb {
+            background-color: rgba(0, 0, 0, 0.582);
+        }
+    }
+
+    .sum-div {
+        background: rgba(245, 245, 245, 0.79);
+        padding: 10px;
+
+        span {
+            font-weight: bolder;
         }
     }
 

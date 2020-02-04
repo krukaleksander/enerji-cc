@@ -2,8 +2,7 @@ extends layout
 
 block content
   .stats-wrapper.container.container-fluid 
-    h1(class="stats-heading") Statystyki
-    p(class="alert alert-danger") Proszę się tym nie bawić, jest w fazie developmentu!!!
+    h1(class="stats-heading") Statystyki    
     p(class="alert alert-success") Jeśli nie wiesz co oznacza status po prostu najedź na niego myszką =)
     .cases-wrapper
       each item in data
@@ -18,6 +17,16 @@ block content
             form(action=`/stats/minus/${item.id}/${item.ammount}`)
               button(class="stats-btn" type="submit") 
                 i(class="fas fa-minus")
+      .sum-div
+        h1(class="stats-heading") Podsumowanie
+        p(class="sum-par sum-par-all") Przerobione kontakty: 
+          span=allRecords
+        p(class="sum-par sum-not-answered") Brak rozmowy [NO + BB]:  
+          span=notAnsweredCalls          
+        p(class="sum-par sum-answered") Rozmowa [Pozostałe]:   
+          span=`${allRecords - notAnsweredCalls}`
+        p(class="sum-par sum-answered") Pożądane [Mail + PD]:   
+          span=positiveEnd
     
   script(src="/javascripts/snow.js")   
   script(src="/javascripts/stats.js")   

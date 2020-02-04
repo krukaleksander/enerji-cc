@@ -8,11 +8,24 @@ router.get('/', function (req, res, next) {
         data.sort(function (a, b) {
             return a.id - b.id
         })
+        let allRecords = 0;
+        let notAnsweredCalls = 0;
+        let positiveEnd = 0;
+        data.forEach(record => {
+            allRecords += record.ammount;
+            if (record.id === 0 || record.id === 3) {
+                notAnsweredCalls += record.ammount
+            } else if (record.id === 5 || record.id === 6) {
+                positiveEnd += record.ammount
+            }
+
+        })
         res.render('stats', {
             title: 'EnerjiCC Stats',
             data,
-            body: {},
-            errors: {}
+            allRecords,
+            notAnsweredCalls,
+            positiveEnd
         });
     })
 });
