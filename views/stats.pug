@@ -1,9 +1,23 @@
 extends layout
 
 block content
-  .stats-wrapper 
-    h1(class=stats-heading) Statystyki
-    p=data
+  .stats-wrapper.container.container-fluid 
+    h1(class="stats-heading") Statystyki
+    p(class="alert alert-danger") Proszę się tym nie bawić, jest w fazie developmentu!!!
+    p(class="alert alert-success") Jeśli nie wiesz co oznacza status po prostu najedź na niego myszką =)
+    .cases-wrapper
+      each item in data
+        div(class="stats-case"  id=`${item.name.toLowerCase()}`)
+          span(class="case-ammount")=item.ammount
+          span(class=`case-name case-name${item.id}`)=item.name  
+          span(class='case-description' data-show=`case-name${item.id}`)=item.description        
+          .stats-generate
+            form(action="/stats")
+              button(class="stats-btn" type="submit") 
+                i(class="fas fa-plus")
+            form(action="/stats")
+              button(class="stats-btn" type="submit") 
+                i(class="fas fa-minus")
     
-  script(src="/javascripts/snow.js")     
-  script(src="/javascripts/news.js") 
+  script(src="/javascripts/snow.js")   
+  script(src="/javascripts/stats.js")   

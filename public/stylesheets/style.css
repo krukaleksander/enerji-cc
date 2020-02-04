@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap&subset=latin-ext");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -877,4 +878,108 @@ body .change-motive ul .motive-link {
 
 body .change-motive.active {
   top: 0px;
+}
+
+body .stats-wrapper {
+  background-color: rgba(255, 255, 255, 0.50196);
+  font-family: Roboto, sans-serif;
+  padding: 30px;
+}
+
+body .stats-wrapper .stats-heading {
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: bolder;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+body .stats-wrapper .cases-wrapper {
+  padding: 10px;
+  width: 40%;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+body .stats-wrapper .cases-wrapper .stats-case {
+  padding: 10px;
+  display: flex;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  position: relative;
+}
+
+body .stats-wrapper .cases-wrapper .stats-case .case-ammount {
+  padding: 2px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  margin-right: 5px;
+  min-width: 30px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.767);
+  flex-grow: 1;
+}
+
+body .stats-wrapper .cases-wrapper .stats-case .case-name {
+  padding: 2px;
+  flex-grow: 2;
+  cursor: context-menu;
+}
+
+body .stats-wrapper .cases-wrapper .stats-case .case-description {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  background: khaki;
+  border: 1px solid gray;
+  padding: 5px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  line-height: 120%;
+  z-index: 2;
+}
+
+body .stats-wrapper .cases-wrapper .stats-case .stats-generate {
+  flex-grow: 19;
+  display: flex;
+  justify-content: flex-end;
+}
+
+body .stats-wrapper .cases-wrapper .stats-case .stats-generate .stats-btn {
+  width: 30px;
+  height: 30px;
+}
+
+body .stats-wrapper .cases-wrapper #no {
+  background: rgba(240, 0, 0, 0.37);
+}
+
+body .stats-wrapper .cases-wrapper #rezygnacja {
+  background: rgba(240, 0, 0, 0.7);
+}
+
+body .stats-wrapper .cases-wrapper #out {
+  background: rgba(240, 0, 0, 0.904);
+}
+
+body .stats-wrapper .cases-wrapper #kontakt {
+  background-color: rgba(255, 235, 59, 0.43);
+}
+
+body .stats-wrapper .cases-wrapper #mail {
+  background-color: rgba(1, 128, 1, 0.521);
+}
+
+body .stats-wrapper .cases-wrapper #pd {
+  background-color: rgba(1, 128, 1, 0.621);
+}
+
+body .stats-wrapper .cases-wrapper #oferta {
+  background-color: rgba(1, 128, 1, 0.821);
+}
+
+body .stats-wrapper .cases-wrapper #umowa {
+  background-color: green;
 }

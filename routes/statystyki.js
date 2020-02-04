@@ -5,6 +5,9 @@ const Statsenerga = require('../models/importants');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     Statsenerga.find({}, (err, data) => {
+        data.sort(function (a, b) {
+            return a.id - b.id
+        })
         res.render('stats', {
             title: 'EnerjiCC Stats',
             data,
