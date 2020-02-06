@@ -11,22 +11,29 @@ block content
           span(class=`case-name case-name${item.id}`)=item.name  
           span(class='case-description' data-show=`case-name${item.id}`)=item.description        
           .stats-generate
-            form(action=`/stats/add/${item.id}/${item.ammount}`)
+            form(class="add-form" action=`/stats/add/${item.id}/${item.ammount}`)
               button(class="stats-btn" type="submit") 
                 i(class="fas fa-plus")
-            form(action=`/stats/minus/${item.id}/${item.ammount}`)
+            form(class="reduce-form" action=`/stats/minus/${item.id}/${item.ammount}`)
               button(class="stats-btn" type="submit") 
                 i(class="fas fa-minus")
       .sum-div
         h1(class="stats-heading") Podsumowanie
         p(class="sum-par sum-par-all") Przerobione kontakty: 
-          span=allRecords
+          span(class="stats-sum")=allRecords
         p(class="sum-par sum-not-answered") Brak rozmowy [NO + BB]:  
-          span=notAnsweredCalls          
+          span(class="stats-sum")=notAnsweredCalls 
+          span(class="percent")=allRecords > 0 ? `${(notAnsweredCalls / allRecords)*100}%` : "0%"         
         p(class="sum-par sum-answered") Rozmowa [Pozostałe]:   
-          span=`${allRecords - notAnsweredCalls}`
+          span(class="stats-sum")=`${allRecords - notAnsweredCalls}`
+          span(class="percent")=allRecords > 0 ? `${((allRecords - notAnsweredCalls) / allRecords)*100}%` : "0%"  
         p(class="sum-par sum-answered") Pożądane [Mail + PD]:   
-          span=positiveEnd
+          span(class="stats-sum")=positiveEnd
+          span(class="percent")=allRecords > 0 ? `${(positiveEnd / allRecords)*100}%` : "0%" 
+        form(class="zero-form" action="/stats/zero-stats")
+              button(class="btn btn-success" type="submit") Zeruj wyniki 
+                i(class="fas fa-power-off")
+        
     
   script(src="/javascripts/snow.js")   
   script(src="/javascripts/stats.js")   

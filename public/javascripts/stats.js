@@ -9,9 +9,33 @@ allCases.forEach(name => {
     })
     name.addEventListener('mouseout', () => {
         const descriptionsToHide = [...document.querySelectorAll("[data-show]")];
-        console.log(descriptionsToHide);
         descriptionsToHide.forEach(description => {
             description.style.display = "none";
         })
     })
 })
+
+// fetch('https://jsonplaceholder.typicode.com/users')
+//     .then(response => response.json())
+//     .then(response => {
+//         console.log(response)
+//     });
+
+// const addForm = document.querySelector('form.add-form');
+// addForm.addEventListener('submit', function (e) {
+//     e.preventDefault()
+//     console.log(e.target.action);
+//     const formData = new FormData();
+//     formData.append('name', 'name')
+//     fetch('http://localhost:5000/stats/add', {
+//         method: "get",
+//     })
+
+// })
+const fetchData = () => {
+    fetch(`${document.URL}/add`)
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+        })
+}

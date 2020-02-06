@@ -38,11 +38,11 @@ router.get('/add/:id/:score', function (req, res, next) {
         ammount: score + 1
     }, function () {
         res.redirect('/stats');
+
     });
 
 });
 router.get('/minus/:id/:score', function (req, res, next) {
-    // console.log(req.params.id)
     const idNr = parseInt(req.params.id)
     const score = parseInt(req.params.score);
     Statsenerga.findOneAndUpdate({
@@ -53,6 +53,42 @@ router.get('/minus/:id/:score', function (req, res, next) {
         res.redirect('/stats');
     });
 
+
+});
+
+router.get('/zero-stats/', function (req, res, next) {
+    Statsenerga.find({}, {}, function (err, stats) {
+        const whenCreated = new Date();
+        stats.forEach(stats => {
+            const archiveToPush = {
+                created: whenCreated,
+                ammount: stats.ammount
+            }
+            stats.archive.push(archiveToPush);
+            stats.ammount = 0;
+            stats.save(function (err) {
+                if (err) {
+                    console.error('ERROR!');
+                }
+            });
+        })
+
+        res.redirect('/stats');
+    });
+
+});
+
+
+router.get('/add/', function (req, res, next) {
+    const allData = Statsenerga
+        .find()
+        .sort({
+            id: 1
+        })
+
+    allData.exec((err, data) => {
+        res.json(data)
+    });
 
 });
 module.exports = router;

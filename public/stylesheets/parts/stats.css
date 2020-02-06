@@ -115,3 +115,8 @@
 .stats-wrapper .sum-div span {
   font-weight: bolder;
 }
+
+.stats-wrapper .sum-div span.percent {
+  margin-left: 10px;
+  color: #0d4b67;
+}

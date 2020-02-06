@@ -18,6 +18,10 @@ var importants = new Schema({
         type: String,
         required: true
     },
+    archive: {
+        type: Array,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('importants', importants);
