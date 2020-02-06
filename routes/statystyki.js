@@ -60,6 +60,7 @@ router.get('/zero-stats/', function (req, res, next) {
     Statsenerga.find({}, {}, function (err, stats) {
         const whenCreated = new Date();
         stats.forEach(stats => {
+
             const archiveToPush = {
                 created: whenCreated,
                 ammount: stats.ammount
@@ -71,6 +72,7 @@ router.get('/zero-stats/', function (req, res, next) {
                     console.error('ERROR!');
                 }
             });
+
         })
 
         res.redirect('/stats');
@@ -78,6 +80,23 @@ router.get('/zero-stats/', function (req, res, next) {
 
 });
 
+router.get('/fix/', function (req, res, next) {
+    Statsenerga.find({}, {}, function (err, stats) {
+        stats.forEach(stats => {
+            const length = stats.archive.length - 1;
+            const number = stats.archive[length].ammount
+            stats.ammount = number;
+            stats.save(function (err) {
+                if (err) {
+                    console.error('ERROR!');
+                }
+            });
+        })
+
+        res.redirect('/stats');
+    });
+
+});
 
 router.get('/add/', function (req, res, next) {
     const allData = Statsenerga

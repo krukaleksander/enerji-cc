@@ -23,13 +23,13 @@ block content
           span(class="stats-sum")=allRecords
         p(class="sum-par sum-not-answered") Brak rozmowy [NO + BB]:  
           span(class="stats-sum")=notAnsweredCalls 
-          span(class="percent")=allRecords > 0 ? `${(notAnsweredCalls / allRecords)*100}%` : "0%"         
+          span(class="percent")=allRecords > 0 ? `${((notAnsweredCalls / allRecords)*100).toFixed(2)}%` : "0%"         
         p(class="sum-par sum-answered") Rozmowa [Pozostałe]:   
           span(class="stats-sum")=`${allRecords - notAnsweredCalls}`
-          span(class="percent")=allRecords > 0 ? `${((allRecords - notAnsweredCalls) / allRecords)*100}%` : "0%"  
+          span(class="percent")=allRecords > 0 ? `${(((allRecords - notAnsweredCalls) / allRecords)*100).toFixed(2)}%` : "0%"  
         p(class="sum-par sum-answered") Pożądane [Mail + PD]:   
           span(class="stats-sum")=positiveEnd
-          span(class="percent")=allRecords > 0 ? `${(positiveEnd / allRecords)*100}%` : "0%" 
+          span(class="percent")=allRecords > 0 ? `${((positiveEnd / allRecords)*100).toFixed(2)}%` : "0%" 
         form(class="zero-form" action="/stats/zero-stats")
               button(class="btn btn-success" type="submit") Zeruj wyniki 
                 i(class="fas fa-power-off")
