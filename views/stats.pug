@@ -8,7 +8,8 @@ block content
       each item in data
         div(class="stats-case"  id=`${item.name.toLowerCase()}`)
           span(class="case-ammount")=item.ammount
-          span(class=`case-name case-name${item.id}`)=item.name  
+          span(class=`case-name case-name${item.id}`)=item.name 
+          span(class="case-percent")=allRecords > 0 ? `${((item.ammount / allRecords)*100).toFixed(1)}%` : "0%" 
           span(class='case-description' data-show=`case-name${item.id}`)=item.description        
           .stats-generate
             form(class="add-form" action=`/stats/add/${item.id}/${item.ammount}`)

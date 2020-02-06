@@ -46,6 +46,12 @@
   cursor: context-menu;
 }
 
+.stats-wrapper .cases-wrapper .stats-case .case-percent {
+  flex-grow: 2;
+  padding: 2px;
+  font-weight: bolder;
+}
+
 .stats-wrapper .cases-wrapper .stats-case .case-description {
   display: none;
   position: absolute;
