@@ -98,7 +98,7 @@ router.get('/fix/', function (req, res, next) {
 
 });
 
-router.get('/add/', function (req, res, next) {
+router.get('/show/', function (req, res, next) {
     const allData = Statsenerga
         .find()
         .sort({
@@ -110,4 +110,25 @@ router.get('/add/', function (req, res, next) {
     });
 
 });
+
+router.get('/addone/:id/:score', function (req, res, next) {
+    const idNr = parseInt(req.params.id)
+    const score = parseInt(req.params.score);
+    const allData = Statsenerga
+        .findOneAndUpdate({
+            id: idNr
+        }, {
+            ammount: score + 1
+        })
+    allData.exec((err, data) => {
+        res.json(data)
+        console.log(data)
+    });
+    // Statsenerga.findOneAndUpdate({
+    //     id: idNr
+    // }, {
+    //     ammount: score + 1
+    // });    
+});
+
 module.exports = router;

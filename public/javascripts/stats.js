@@ -1,6 +1,23 @@
 const allCases = [...document.querySelectorAll('span.case-name')];
+const allAmmounts = [...document.querySelectorAll('span.case-ammount')];
+let allbase = {};
+let tableOfDataNumbers = [];
+let flagForInsertAmmounts = 0;
 
-
+const createTableOfNumbers = (data) => {
+    data.forEach(record => {
+        tableOfDataNumbers.push(record.ammount);
+    })
+}
+const insertNumbersToTable = () => {
+    allAmmounts.forEach(ammount => {
+        ammount.textContent = tableOfDataNumbers[flagForInsertAmmounts];
+        flagForInsertAmmounts++
+        if (flagForInsertAmmounts > tableOfDataNumbers.length - 1) {
+            flagForInsertAmmounts = 0;
+        }
+    })
+}
 allCases.forEach(name => {
     name.addEventListener('mouseover', (e) => {
         const nameClass = e.toElement.classList[1];
@@ -15,27 +32,20 @@ allCases.forEach(name => {
     })
 })
 
-// fetch('https://jsonplaceholder.typicode.com/users')
-//     .then(response => response.json())
-//     .then(response => {
-//         console.log(response)
-//     });
-
-// const addForm = document.querySelector('form.add-form');
-// addForm.addEventListener('submit', function (e) {
-//     e.preventDefault()
-//     console.log(e.target.action);
-//     const formData = new FormData();
-//     formData.append('name', 'name')
-//     fetch('http://localhost:5000/stats/add', {
-//         method: "get",
-//     })
-
-// })
+const fetchAll = () => {
+    fetch(`${document.URL}/show`)
+        .then(response => response.json())
+        .then(response => {
+            createTableOfNumbers(response);
+            insertNumbersToTable();
+            // allbase = response;
+        })
+}
 const fetchData = () => {
-    fetch(`${document.URL}/add`)
+    fetch(`${document.URL}/addone/6/1`)
         .then(response => response.json())
         .then(response => {
             console.log(response)
         })
+    fetchAll()
 }
