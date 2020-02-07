@@ -42,6 +42,7 @@
                 padding: 2px;
                 flex-grow: 2;
                 cursor: context-menu;
+
             }
 
             .case-percent {
@@ -112,6 +113,11 @@
 
         #bb {
             background-color: rgba(0, 0, 0, 0.582);
+
+            span.case-percent,
+            span.case-name {
+                color: white;
+            }
         }
     }
 

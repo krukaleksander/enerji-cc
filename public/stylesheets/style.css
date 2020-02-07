@@ -994,6 +994,11 @@ body .stats-wrapper .cases-wrapper #bb {
   background-color: rgba(0, 0, 0, 0.582);
 }
 
+body .stats-wrapper .cases-wrapper #bb span.case-percent,
+body .stats-wrapper .cases-wrapper #bb span.case-name {
+  color: white;
+}
+
 body .stats-wrapper .sum-div {
   background: rgba(245, 245, 245, 0.79);
   padding: 10px;
