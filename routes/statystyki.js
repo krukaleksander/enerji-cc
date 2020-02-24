@@ -122,13 +122,21 @@ router.get('/addone/:id/:score', function (req, res, next) {
         })
     allData.exec((err, data) => {
         res.json(data)
-        console.log(data)
+        // console.log(data)
     });
-    // Statsenerga.findOneAndUpdate({
-    //     id: idNr
-    // }, {
-    //     ammount: score + 1
-    // });    
 });
-
+router.get('/removeone/:id/:score', function (req, res, next) {
+    const idNr = parseInt(req.params.id)
+    const score = parseInt(req.params.score);
+    const allData = Statsenerga
+        .findOneAndUpdate({
+            id: idNr
+        }, {
+            ammount: score - 1
+        })
+    allData.exec((err, data) => {
+        res.json(data)
+        // console.log(data)
+    });
+});
 module.exports = router;

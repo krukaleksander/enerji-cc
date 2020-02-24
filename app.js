@@ -43,7 +43,7 @@ app.use(cookieSession({
   name: 'session',
   keys: config.keySession,
   maxAge: config.maxAgeSession
-}))
+}));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/panel', panelRouter);

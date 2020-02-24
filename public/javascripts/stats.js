@@ -36,16 +36,28 @@ const fetchAll = () => {
     fetch(`${document.URL}/show`)
         .then(response => response.json())
         .then(response => {
+            console.log(response)
             createTableOfNumbers(response);
             insertNumbersToTable();
             // allbase = response;
+            console.log(tableOfDataNumbers)
+            tableOfDataNumbers = [];
         })
 }
-const fetchData = () => {
-    fetch(`${document.URL}/addone/6/1`)
+const fetchDataPlus = () => {
+    fetch(`${document.URL}/addone/6/2`)
         .then(response => response.json())
         .then(response => {
             console.log(response)
         })
     fetchAll()
 }
+const fetchDataMinus = () => {
+    fetch(`${document.URL}/removeone/6/1`)
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+        })
+    fetchAll()
+}
+// show ma złe dane! to w nim trzeba poprawić sprawę!
