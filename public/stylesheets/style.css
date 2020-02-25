@@ -544,8 +544,8 @@ body .christmas-time {
   font-size: 15px;
   text-align: center;
   position: fixed;
-  top: 5px;
-  left: 30px;
+  top: 40px;
+  left: 0px;
 }
 
 body .christmas-time p {
@@ -843,6 +843,7 @@ body .change-motive {
   padding: 10px;
   background: rgba(0, 0, 0, 0.25);
   transition: .5s;
+  z-index: 2;
 }
 
 body .change-motive ul {
@@ -862,6 +863,7 @@ body .change-motive ul li .arrow-motive {
   vertical-align: -3px;
   cursor: pointer;
   transition: .3s;
+  z-index: 3;
 }
 
 body .change-motive ul li .arrow-motive.active {
@@ -881,7 +883,7 @@ body .change-motive.active {
 }
 
 body .stats-wrapper {
-  background-color: rgba(255, 255, 255, 0.50196);
+  background-color: rgba(255, 255, 255, 0.3);
   font-family: Roboto, sans-serif;
   padding: 30px;
 }
@@ -1000,7 +1002,7 @@ body .stats-wrapper .cases-wrapper #bb span.case-name {
 }
 
 body .stats-wrapper .sum-div {
-  background: rgba(245, 245, 245, 0.79);
+  background: rgba(245, 245, 245, 0.39);
   padding: 10px;
 }
 

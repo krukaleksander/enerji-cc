@@ -6,6 +6,7 @@
   padding: 10px;
   background: rgba(0, 0, 0, 0.25);
   transition: .5s;
+  z-index: 2;
 }
 
 .change-motive ul {
@@ -25,6 +26,7 @@
   vertical-align: -3px;
   cursor: pointer;
   transition: .3s;
+  z-index: 3;
 }
 
 .change-motive ul li .arrow-motive.active {
