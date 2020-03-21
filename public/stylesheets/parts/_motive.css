@@ -39,6 +39,11 @@
   right: 10px;
   color: white;
   text-transform: uppercase;
+  background: -webkit-linear-gradient(45deg, red, orange 80%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
 }
 
 .change-motive.active {

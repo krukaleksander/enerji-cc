@@ -29,8 +29,9 @@ div.menu-mobile i.active {
   transform: translateX(-50%);
   z-index: 10;
   min-width: 700px;
-  background: rgba(154, 12, 12, 0.11);
+  background: rgba(74, 67, 67, 0.75);
   color: white;
+  border-radius: 10px;
 }
 
 @media (max-width: 570px) {

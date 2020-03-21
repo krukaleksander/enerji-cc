@@ -10,7 +10,7 @@ body {
   height: 100vh;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url("../images/photovoltaic1.png");
+  background: url("../images/spring.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -133,8 +133,9 @@ body .main-nav {
   transform: translateX(-50%);
   z-index: 10;
   min-width: 700px;
-  background: rgba(154, 12, 12, 0.11);
+  background: rgba(74, 67, 67, 0.75);
   color: white;
+  border-radius: 10px;
 }
 
 @media (max-width: 570px) {
@@ -876,6 +877,11 @@ body .change-motive ul .motive-link {
   right: 10px;
   color: white;
   text-transform: uppercase;
+  background: -webkit-linear-gradient(45deg, red, orange 80%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
 }
 
 body .change-motive.active {
