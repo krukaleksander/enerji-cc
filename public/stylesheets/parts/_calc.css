@@ -82,3 +82,11 @@
   margin-top: 0;
   font-size: 15px;
 }
+
+.wrapper .value-of-calc-data {
+  font-weight: bolder;
+}
+
+.wrapper .marge-mass-span {
+  color: green;
+}

@@ -323,6 +323,14 @@ body .wrapper .credit-desc {
   font-size: 15px;
 }
 
+body .wrapper .value-of-calc-data {
+  font-weight: bolder;
+}
+
+body .wrapper .marge-mass-span {
+  color: green;
+}
+
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;
