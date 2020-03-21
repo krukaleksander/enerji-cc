@@ -5,32 +5,37 @@ block content
     button(type='submit' class='logout-btn') Wyloguj
   
   div(class='wrapper')
-    h3 Minimalny rachunek 150 z&lstrok;!
-    label kwota rachunku: 
-    input(id="bill" type='text')
-    button(id="btn") Przelicz
-    br
-    label Cykl:
-    select(id='select')
-        option(value='1') Miesięczny
-        option(value='2') Dwumiesięczny
-        option(value='12') Roczny
-    p Klient wydaje miesięcznie na prąd: 
-        span(id='monthCost')
-    p Zużycie roczne MWH:
-        span(id='yearIn')      
-    p Moc instalacji opcjonalna [kWp]: 
-        span(id='power')
-    p(id='creditPar') 
-        span(class='orient') Orientacyjna rata kredytu: 
-        span(id='credit')
-        p.credit-desc (kapitał + odsetki na okres 120 miesięcy)
-        div(id='save-money')
-            h4(class="saves") Oszczędności:
-            p(class='saves-desc') (do końca gwarancji na panele - perspektywa 20 lat; separator dla tysięcy)
-            p Przy takich samych cenach energii: 
-                span(id='same-energy')
-            p Przy zmianie cen energii o spodziewane 40%: 
-                span(id='changed-energy')
-        
-  script(src="javascripts/calculator.js")
+    h3 Ofertomat Energa v. 1.0 Jedna cena (C11, C21 itp.)
+    p(class="ofe-description") Proste narzędzie pomagające przygotować ofertę
+    p(class="ofe-description") Minimalna masa marży to 300 zł!
+    div
+      label(for="tariff") Grupa taryfowa: 
+      input(id="tariff" type='text' placeholder="np. C11")
+    div
+      label(for="endOfAgreement") Kiedy kończy się umowa:
+      input(id="endOfAgreement" type="text" placeholder="np. 2021")
+      span(class="alert" id="alertEndOfAgreement")
+    div
+      label(for="priceNow") Cena aktualna klienta:
+      input(id="priceNow" type="text" placeholder="np. 382")
+      span(class="alert" id="alertPriceNow")
+    div
+      label(for="priceInTariff") Cena w cenniku dla taryfy:
+      input(id="priceInTariff" type="text" placeholder="np. 300")
+      span(class="alert" id="alertPriceInTariff")    
+    div
+      label(for="wear") Zużycie:
+      input(id="wear" type="text" placeholder="np. 18.3")
+      span(class="alert" id="alertWear")
+    div
+      label(for="proposePrice") Twoja propozycja:
+      input(id="proposePrice" type="text" placeholder="380")
+      span(class="alert" id="alertProposePrice")
+    button(id="btnCalc") Przelicz
+    p(class="note") Notatka:
+    p(id="summaryCalc")
+
+  script(src="/javascripts/energaCalc.js") 
+    
+
+   
