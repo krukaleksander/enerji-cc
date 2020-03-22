@@ -1,32 +1,37 @@
 const btnCalc = document.getElementById('btnCalc');
 const summaryCalc = document.getElementById('summaryCalc');
-const alertEndOfAgreement = document.getElementById('alertEndOfAgreement');
-const alertPriceNow = document.getElementById('alertPriceNow');
-const alertPriceInTariff = document.getElementById('alertPriceInTariff');
-const alertWear = document.getElementById('alertWear');
-const alertProposePrice = document.getElementById('alertProposePrice');
 const btnCopyCalc = document.getElementById('btnCopyCalc');
-
+const divWhenOption2020 = document.querySelector('.when-option-2020');
+const divWhenOption2019 = document.querySelector('.when-option-2019');
+const option2021 = document.querySelector('.option-2021');
+const option2020 = document.querySelector('.option-2020');
+const option2019 = document.querySelector('.option-2019');
 let wearFactor = 1;
-let tariff, endOfAgreement, priceNow, priceInTariff, wear, proposePrice, margeMass;
+let tariff, endOfAgreement, priceNow, priceInTariff2022, priceInTariff2021, priceInTariff2020, wear, proposePrice, margeMass;
+selectElement('tariff', 'C11');
+selectElement('endOfAgreement', '2021');
 
+
+function selectElement(id, valueToSelect) {
+    let element = document.getElementById(id);
+    element.value = valueToSelect;
+}
 replaceCommasAndParseFn = () => {
-    priceInTariff.value = parseFloat(priceInTariff.value.replace(/\,/g, '.'));
+    priceInTariff2022.value = parseFloat(priceInTariff2022.value.replace(/\,/g, '.'));
+    priceInTariff2021.value = parseFloat(priceInTariff2021.value.replace(/\,/g, '.'));
+    priceInTariff2020.value = parseFloat(priceInTariff2020.value.replace(/\,/g, '.'));
     wear.value = parseFloat(wear.value.replace(/\,/g, '.'));
     priceNow.value = parseFloat(priceNow.value.replace(/\,/g, '.'));
     proposePrice.value = parseFloat(proposePrice.value.replace(/\,/g, '.'));
-}
-verifyValuesFn = () => {
-    if (parseInt(endOfAgreement.value) > 2022 || parseInt(endOfAgreement.value) < 2019) {
-        alertEndOfAgreement.innerText = "napewno taka data jest w pliku?"
-    }
 }
 
 getActualValuesFn = () => {
     tariff = document.getElementById('tariff');
     endOfAgreement = document.getElementById('endOfAgreement');
     priceNow = document.getElementById('priceNow');
-    priceInTariff = document.getElementById('priceInTariff');
+    priceInTariff2022 = document.getElementById('priceInTariff2022');
+    priceInTariff2021 = document.getElementById('priceInTariff2021');
+    priceInTariff2020 = document.getElementById('priceInTariff2020');
     wear = document.getElementById('wear');
     proposePrice = document.getElementById('proposePrice');
     switch (parseInt(endOfAgreement.value)) {
@@ -47,16 +52,41 @@ getActualValuesFn = () => {
 }
 
 calcMargeMass = () => {
-    margeMass = Math.floor((proposePrice.value - priceInTariff.value) * wear.value * wearFactor);
+    margeMass = Math.floor((proposePrice.value - priceInTariff2022.value) * wear.value * wearFactor);
 }
 
 calcFn = () => {
     getActualValuesFn();
     replaceCommasAndParseFn();
-    verifyValuesFn();
-    calcMargeMass();
-    summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${tariff.value}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę <span class="value-of-calc-data">${priceNow.value}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${tariff.value}</span>: <span class ="value-of-calc-data">${priceInTariff.value}</span>, Zużycie roczne: <span class ="value-of-calc-data">${wear.value}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${proposePrice.value}</span>, Mnożnik marży <span class ="value-of-calc-data">${wearFactor}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${margeMass}</span> `
+    if (priceNow.value > 0 && priceInTariff2022.value > 0 && wear.value > 0 && proposePrice.value > 0) {
+
+        calcMargeMass();
+        summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${tariff.value}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow.value}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${tariff.value}</span>: <span class ="value-of-calc-data">${priceInTariff2022.value}</span>, Zużycie roczne: <span class ="value-of-calc-data">${wear.value}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${proposePrice.value}</span>, Mnożnik marży: <span class ="value-of-calc-data">${wearFactor}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${margeMass}</span>, Różnica w cenie: <span class ="value-of-calc-data">${proposePrice.value - priceNow.value}</span> `;
+    } else {
+        return;
+    }
 }
+
+option2019.addEventListener('click', () => {
+    const optionDivs = [divWhenOption2019, divWhenOption2020];
+    optionDivs.forEach(div => {
+        div.style.display = "block";
+    })
+});
+option2020.addEventListener('click', () => {
+    divWhenOption2019.style.display = "none";
+    divWhenOption2020.style.display = "block";
+});
+option2021.addEventListener('click', () => {
+    const optionDivs = [divWhenOption2019, divWhenOption2020];
+    optionDivs.forEach(div => {
+        div.style.display = "none";
+    })
+});
+
+
+
+
 
 
 

@@ -331,6 +331,14 @@ body .wrapper .marge-mass-span {
   color: green;
 }
 
+body .wrapper .when-option-2020 {
+  display: none;
+}
+
+body .wrapper .when-option-2019 {
+  display: none;
+}
+
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;

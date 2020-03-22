@@ -90,3 +90,11 @@
 .wrapper .marge-mass-span {
   color: green;
 }
+
+.wrapper .when-option-2020 {
+  display: none;
+}
+
+.wrapper .when-option-2019 {
+  display: none;
+}
