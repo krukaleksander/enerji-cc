@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo+2:400,700&display=swap&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap&subset=latin-ext");
 * {
@@ -240,7 +241,7 @@ body .main-nav ul li a.disabled {
 
 body .wrapper {
   width: 800px;
-  margin: 50px auto 0;
+  margin: 25px auto 0;
   background: rgba(173, 216, 230, 0.74);
   padding: 20px;
   border: 3px solid black;
@@ -256,6 +257,8 @@ body .wrapper h3 {
 
 body .wrapper input {
   font-size: 20px;
+  text-align: center;
+  width: 100px;
 }
 
 body .wrapper p {
@@ -263,64 +266,9 @@ body .wrapper p {
   line-height: 100%;
 }
 
-body .wrapper button {
-  display: inline-block;
-  width: 100px;
-  box-sizing: border-box;
-  font-size: 20px;
-  padding: 3px;
-  background-color: transparent;
-  border: 1px solid black;
-  cursor: pointer;
-}
-
-body .wrapper button:hover {
-  font-weight: bolder;
-}
-
 body .wrapper #select {
   margin-top: 10px;
   font-size: 20px;
-}
-
-body .wrapper #yearIn,
-body .wrapper #power,
-body .wrapper #monthCost,
-body .wrapper #same-energy,
-body .wrapper #changed-energy {
-  color: green;
-  font-weight: bolder;
-}
-
-body .wrapper #same-energy.active,
-body .wrapper #changed-energy.active {
-  display: inline-block;
-  padding: 2px 4px;
-  border: 2px solid blue;
-}
-
-body .wrapper #creditPar {
-  color: green;
-  font-weight: bolder;
-  margin-bottom: 0;
-}
-
-body .wrapper #creditPar .orient {
-  text-decoration: underline;
-}
-
-body .wrapper #save-money {
-  margin-top: 10px;
-}
-
-body .wrapper #save-money .saves {
-  margin-bottom: 0;
-}
-
-body .wrapper #save-money .saves-desc,
-body .wrapper .credit-desc {
-  margin-top: 0;
-  font-size: 15px;
 }
 
 body .wrapper .value-of-calc-data {
@@ -337,6 +285,33 @@ body .wrapper .when-option-2020 {
 
 body .wrapper .when-option-2019 {
   display: none;
+}
+
+body .wrapper div label {
+  margin-right: 10px;
+  font-family: 'Baloo 2', cursive;
+}
+
+body .wrapper .btn-wrapper {
+  text-align: center;
+}
+
+body .wrapper .btn-wrapper #btnCalc {
+  width: 120px;
+}
+
+body .wrapper p.note {
+  text-align: center;
+  font-family: 'Baloo 2', cursive;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  border-bottom: 2px solid brown;
+  padding-bottom: 10px;
+}
+
+body .wrapper p#summaryCalc {
+  padding: 10px;
 }
 
 body h1.experts-heading {

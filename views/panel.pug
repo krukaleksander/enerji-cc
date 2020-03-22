@@ -6,10 +6,9 @@ block content
   
   div(class='wrapper')
     h3 Ofertomat v. 1.0   
-    p(class="alert alert-danger") Minimalna masa marży to 300 zł!
-    p(class="alert alert-warning") Wyliczona wartość marży jest orientacyjna, jeśli umowa obejmuje pare lat wylicz dokładną masę w oparciu o cennik! Zapewne będzie większa =)
+    p(class="alert alert-danger") v. 1.0 pozwala na wyliczenia w taryfach jednostrefowych i wielostrefowych na płasko!     
     div
-      label(for="tariff") Grupa taryfowa: 
+      label(for="tariff") Grupa taryfowa:  
       select(id="tariff")
         option(value="C11") C11
         option(value="C12a") C12a
@@ -18,33 +17,33 @@ block content
         option(value="C22a") C22a        
         option(value="C22b") C22b        
     div
-      label(for="endOfAgreement") Kiedy kończy się umowa:
+      label(for="endOfAgreement") Kiedy kończy się umowa: 
       select(id="endOfAgreement")
         option(class="option-2021" value=2021) 2021
         option(class="option-2020" value=2020) 2020
         option(class="option-2019" value=2019) 2019
     div
-      label(for="priceNow") Cena aktualna klienta:
+      label(for="priceNow") Cena aktualna klienta: 
       input(id="priceNow" type="text" placeholder="np. 382")
       
     div
-      label(for="priceInTariff") Cena w cenniku na 2022:
+      label(for="priceInTariff") Cena w cenniku na 2022: 
       input(id="priceInTariff2022" type="text" placeholder="np. 300")
     div(class="when-option-2020")
-      label(for="priceInTariff2021") Cena w cenniku na 2021:
+      label(for="priceInTariff2021") Cena w cenniku na 2021: 
       input(id="priceInTariff2021" type="text" placeholder="np. 280" value=0)
     div(class="when-option-2019")
-      label(for="priceInTariff2020") Cena w cenniku na 2020:
+      label(for="priceInTariff2020") Cena w cenniku na 2020: 
       input(id="priceInTariff2020" type="text" placeholder="np. 274" value=0)     
     div
-      label(for="wear") Zużycie:
+      label(for="wear") Zużycie: 
       input(id="wear" type="text" placeholder="np. 18.3")
       
     div
-      label(for="proposePrice") Twoja propozycja:
+      label(for="proposePrice") Twoja propozycja: 
       input(id="proposePrice" type="text" placeholder="380")
-      
-    button(id="btnCalc") Przelicz
+    div(class="btn-wrapper")  
+      button(id="btnCalc" class="btn btn-success") Przelicz
     p(class="note") Notatka:
     p(id="summaryCalc")
     

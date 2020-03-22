@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+2:400,700&display=swap&subset=latin-ext');
+
 .wrapper {
     width: 800px;
-    margin: 50px auto 0;
+    margin: 25px auto 0;
     background: rgba(173, 216, 230, 0.74);
     padding: 20px;
     border: 3px solid black;
@@ -15,6 +17,8 @@
 
     input {
         font-size: 20px;
+        text-align: center;
+        width: 100px;
     }
 
     p {
@@ -22,65 +26,12 @@
         line-height: 100%;
     }
 
-    button {
-        display: inline-block;
-        width: 100px;
-        box-sizing: border-box;
-        font-size: 20px;
-        padding: 3px;
-        background-color: transparent;
-        border: 1px solid black;
-        cursor: pointer;
-
-        &:hover {
-            font-weight: bolder;
-        }
-    }
 
     #select {
         margin-top: 10px;
         font-size: 20px;
     }
 
-    #yearIn,
-    #power,
-    #monthCost,
-    #same-energy,
-    #changed-energy {
-        color: green;
-        font-weight: bolder;
-    }
-
-    #same-energy.active,
-    #changed-energy.active {
-        display: inline-block;
-        padding: 2px 4px;
-        border: 2px solid blue;
-    }
-
-    #creditPar {
-        color: green;
-        font-weight: bolder;
-        margin-bottom: 0;
-    }
-
-    #creditPar .orient {
-        text-decoration: underline;
-    }
-
-    #save-money {
-        margin-top: 10px;
-    }
-
-    #save-money .saves {
-        margin-bottom: 0;
-    }
-
-    #save-money .saves-desc,
-    .credit-desc {
-        margin-top: 0;
-        font-size: 15px;
-    }
 
     .value-of-calc-data {
         font-weight: bolder;
@@ -98,4 +49,34 @@
         display: none;
     }
 
+    div {
+        label {
+            margin-right: 10px;
+            font-family: 'Baloo 2', cursive;
+
+
+        }
+    }
+
+    .btn-wrapper {
+        text-align: center;
+
+        #btnCalc {
+            width: 120px;
+        }
+    }
+
+    p.note {
+        text-align: center;
+        font-family: 'Baloo 2', cursive;
+        font-weight: bolder;
+        font-size: 1.5rem;
+        margin-top: 15px;
+        border-bottom: 2px solid brown;
+        padding-bottom: 10px;
+    }
+
+    p#summaryCalc {
+        padding: 10px;
+    }
 }
