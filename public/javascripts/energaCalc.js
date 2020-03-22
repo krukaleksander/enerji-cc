@@ -22,9 +22,11 @@ function selectElement(id, valueToSelect) {
 
 removeNoteFn = () => {
     getActualValuesFn();
+    console.log(summaryCalc.style.padding);
     let noteRemoversWhenFocus = [tariff, endOfAgreement, priceNow, priceInTariff2022, priceInTariff2021, priceInTariff2020, wear, proposePrice];
     noteRemoversWhenFocus.forEach(remover => {
         remover.addEventListener('focus', () => {
+            summaryCalc.style.padding = "0px";
             summaryCalc.innerHTML = "";
         })
     });
@@ -79,6 +81,7 @@ calcFn = () => {
     if (priceNow.value > 0 && priceInTariff2022.value > 0 && wear.value > 0 && proposePrice.value > 0) {
 
         calcMargeMass();
+        summaryCalc.style.padding = '10px';
         summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${tariff.value}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow.value}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${tariff.value}</span>: <span class ="value-of-calc-data">${priceInTariff2022.value}</span>, Zużycie roczne: <span class ="value-of-calc-data">${wear.value}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${proposePrice.value}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${margeMass}</span>, Różnica w cenie: <span class ="value-of-calc-data client-income-span">${(proposePrice.value - priceNow.value).toFixed(2)}</span> `;
         const margeMassSpan = document.querySelector('.marge-mass-span');
         const clientIncomeSpan = document.querySelector('.client-income-span');

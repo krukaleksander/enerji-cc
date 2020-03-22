@@ -311,7 +311,8 @@ body .wrapper p.note {
 }
 
 body .wrapper p#summaryCalc {
-  padding: 10px;
+  background-color: bisque;
+  border-radius: 10px;
 }
 
 body h1.experts-heading {

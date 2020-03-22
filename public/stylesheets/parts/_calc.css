@@ -71,5 +71,6 @@
 }
 
 .wrapper p#summaryCalc {
-  padding: 10px;
+  background-color: bisque;
+  border-radius: 10px;
 }
