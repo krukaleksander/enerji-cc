@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.get('/logout', function (req, res, next) {
+router.post('/', function (req, res, next) {
     // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
     req.session.admin = 0;
     res.redirect('/');
