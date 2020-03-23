@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Experts = require('../models/experts')
+const Experts = require('../models/experts');
 
 router.all('*', (req, res, next) => {
     if (!req.session.admin) {

@@ -29,13 +29,13 @@ block content
       
     div
       label(for="priceInTariff") Cena w cenniku na 2022: 
-      input(id="priceInTariff2022" type="text" placeholder="np. 300")
+      input(id="priceInTariff2022" type="text" placeholder="np. 300" value=data[0].price)
     div(class="when-option-2020")
       label(for="priceInTariff2021") Cena w cenniku na 2021: 
-      input(id="priceInTariff2021" type="text" placeholder="np. 280" value=0)
+      input(id="priceInTariff2021" type="text" placeholder="np. 280" value=data[1].price)
     div(class="when-option-2019")
       label(for="priceInTariff2020") Cena w cenniku na 2020: 
-      input(id="priceInTariff2020" type="text" placeholder="np. 274" value=0)     
+      input(id="priceInTariff2020" type="text" placeholder="np. 274" value=data[2].price)     
     div
       label(for="wear") Zużycie: 
       input(id="wear" type="text" placeholder="np. 18.3")
@@ -45,7 +45,7 @@ block content
       input(id="proposePrice" type="text" placeholder="380")
     div(class="btn-wrapper")  
       button(id="btnCalc" class="btn btn-success") Przelicz
-    p(class="note") Notatka:
+    p(class="note") Notatka:   
     p(id="summaryCalc")
     
 
