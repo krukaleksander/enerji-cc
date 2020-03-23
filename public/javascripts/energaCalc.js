@@ -60,7 +60,7 @@ getActualValuesFn = () => {
             countsPrice2021 = 1;
             break;
         case 2019:
-            countsPrice2020 = 1;
+            countsPrice2020 = 0.5;
             countsPrice2021 = 1;
             break;
         default:
