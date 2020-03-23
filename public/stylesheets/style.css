@@ -873,6 +873,7 @@ body .change-motive ul .motive-link {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 body .change-motive.active {

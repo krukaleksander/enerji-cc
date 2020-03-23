@@ -10,7 +10,7 @@ const bellImg = document.querySelector('div.bell');
 const femaleLink = document.querySelector('li.female-link');
 const maleLink = document.querySelector('li.male-link');
 const christmasLink = document.querySelector('li.christmas-link');
-const arrowMotive = document.querySelector('.arrow-motive');
+const arrowMotive = document.querySelector('.motive-link');
 const changeMotiveDiv = document.querySelector('.change-motive');
 let flagMotive = true;
 
