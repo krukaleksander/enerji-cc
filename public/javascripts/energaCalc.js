@@ -98,23 +98,22 @@ calcFn = () => {
     }
 }
 
-option2019.addEventListener('click', () => {
-    const optionDivs = [divWhenOption2019, divWhenOption2020];
-    optionDivs.forEach(div => {
-        div.style.display = "block";
-    })
-});
-option2020.addEventListener('click', () => {
-    divWhenOption2019.style.display = "none";
-    divWhenOption2020.style.display = "block";
-});
-option2021.addEventListener('click', () => {
-    const optionDivs = [divWhenOption2019, divWhenOption2020];
-    optionDivs.forEach(div => {
-        div.style.display = "none";
-    })
-});
 
 removeNoteFn();
 
 btnCalc.addEventListener('click', calcFn);
+endOfAgreement.addEventListener('change', () => {
+    const optionDivs = [divWhenOption2019, divWhenOption2020];
+    if (endOfAgreement.value === "2021") {
+        optionDivs.forEach(div => {
+            div.style.display = "none";
+        });
+    } else if (endOfAgreement.value === "2020") {
+        divWhenOption2019.style.display = "none";
+        divWhenOption2020.style.display = "block";
+    } else if (endOfAgreement.value === "2019") {
+        optionDivs.forEach(div => {
+            div.style.display = "block";
+        })
+    }
+})
