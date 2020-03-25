@@ -3,9 +3,6 @@ const summaryCalc = document.getElementById('summaryCalc');
 const btnCopyCalc = document.getElementById('btnCopyCalc');
 const divWhenOption2020 = document.querySelector('.when-option-2020');
 const divWhenOption2019 = document.querySelector('.when-option-2019');
-const option2021 = document.querySelector('.option-2021');
-const option2020 = document.querySelector('.option-2020');
-const option2019 = document.querySelector('.option-2019');
 let countsPrice2021 = 0;
 let countsPrice2020 = 0;
 let tariff, endOfAgreement, priceNow, priceInTariff2022, priceInTariff2021, priceInTariff2020, wear, proposePrice, margeMass;
@@ -59,7 +56,7 @@ getActualValuesFn = () => {
             countsPrice2020 = 0;
             countsPrice2021 = 1;
             break;
-        case 2019:
+        case 9999:
             countsPrice2020 = 0.5;
             countsPrice2021 = 1;
             break;
@@ -82,7 +79,7 @@ calcFn = () => {
 
         calcMargeMass();
         summaryCalc.style.padding = '10px';
-        summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${tariff.value}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow.value}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${tariff.value}</span>: <span class ="value-of-calc-data">${priceInTariff2022.value}</span>, Zużycie roczne: <span class ="value-of-calc-data">${wear.value}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${proposePrice.value}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${margeMass}</span>, Różnica w cenie: <span class ="value-of-calc-data client-income-span">${(proposePrice.value - priceNow.value).toFixed(2)}</span> `;
+        summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${tariff.value}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow.value}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${tariff.value}</span>: <span class ="value-of-calc-data">${priceInTariff2022.value}</span>, Zużycie roczne: <span class ="value-of-calc-data">${wear.value}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${proposePrice.value}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${margeMass}</span>, Różnica w cenie: <span class ="value-of-calc-data client-income-span">${(proposePrice.value - priceNow.value).toFixed(2)}</span> <br>Osoba kontaktowa:`;
         const margeMassSpan = document.querySelector('.marge-mass-span');
         const clientIncomeSpan = document.querySelector('.client-income-span');
         if (margeMass < 300) {
@@ -104,6 +101,7 @@ removeNoteFn();
 btnCalc.addEventListener('click', calcFn);
 endOfAgreement.addEventListener('change', () => {
     const optionDivs = [divWhenOption2019, divWhenOption2020];
+    console.log(endOfAgreement.value)
     if (endOfAgreement.value === "2021") {
         optionDivs.forEach(div => {
             div.style.display = "none";
@@ -111,7 +109,7 @@ endOfAgreement.addEventListener('change', () => {
     } else if (endOfAgreement.value === "2020") {
         divWhenOption2019.style.display = "none";
         divWhenOption2020.style.display = "block";
-    } else if (endOfAgreement.value === "2019") {
+    } else if (endOfAgreement.value === "9999") {
         optionDivs.forEach(div => {
             div.style.display = "block";
         })
