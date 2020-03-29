@@ -15,21 +15,12 @@ router.get('/', function (req, res, next) {
 
   });
 });
-// musisz podać dokładną ścieżkę ulokowania tego!
-router.get('javascripts/calculator.js', function (req, res) {
-  res.sendfile(__dirname + '/../public/javascripts/calculator.js');
-});
-router.get('/javascripts/main.js', function (req, res) {
-  res.sendfile(__dirname + '/../public/javascripts/main.js');
-});
-router.get('images/crown.png', function (req, res) {
-  res.sendfile(__dirname + '/../public/images/crown.png');
-});
+
 router.post('/', function (req, res) {
   const body = req.body;
   if (body.login === login && body.password === password) {
     req.session.admin = 1;
-    res.redirect('/panel/table');
+    res.redirect('panel');
   } else {
     res.redirect('/');
   }

@@ -341,6 +341,11 @@ body .wrapper .change-price-panel .change-price-close:hover {
   transform: scale(1.2);
 }
 
+body .wrapper .change-price-panel input {
+  border: none;
+  border-radius: 4px;
+}
+
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;

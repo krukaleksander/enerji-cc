@@ -37,7 +37,7 @@ replaceCommasAndParseFn = () => {
         if (value.value.length > 0) {
             value.value = replaceAndParseFn(value);
         } else {
-            console.log('Ni kuta');
+            return
         }
     });
 
