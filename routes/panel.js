@@ -38,27 +38,22 @@ router.post('/change-price/', (req, res, next) => {
     }
 
     for (let i = 0; i < priceArr.length; i++) {
-        Mamjuzdosc.findOneAndUpdate({
-            id: i
-        }, {
-            price: removeCommasFn(priceArr[i])
-        }, function () {
+        if (priceArr[i].length > 2) {
+            Mamjuzdosc.findOneAndUpdate({
+                id: i
+            }, {
+                price: removeCommasFn(priceArr[i])
+            }, function () {
+                if (i === priceArr.length - 1) {
+                    res.redirect('/panel')
+                }
+            })
+        } else {
+            console.log('not this time =)')
             if (i === priceArr.length - 1) {
                 res.redirect('/panel')
             }
-        })
+        }
     }
-
-    // res.redirect('/panel');
-
-    // Mamjuzdosc.findOneAndUpdate({
-    //     id: idNr
-    // }, {
-    //     price: price
-    // }, function () {
-    //     res.redirect('/panel');
-
-    // });
-
 })
 module.exports = router;
