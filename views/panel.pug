@@ -47,7 +47,17 @@ block content
       button(id="btnCalc" class="btn btn-success") Przelicz
     p(class="note") Notatka:   
     p(id="summaryCalc")
-    
+    .change-price-panel    
+      h3(class="change-price-heading") Podaj cenę na poszczególne lata:
+      form(action="panel/change-price/" method="post")
+       label(for="idPrice2022") Podaj cenę na 2022:
+       input(id="idPrice2022" type="text" name="price2022" placeholder="cena 2022")
+       label(for="idPrice2020") Podaj cenę na 2021:
+       input(id="idPrice2020" type="text" name="price2021" placeholder="cena 2021")
+       label(for="idPrice2020") Podaj cenę na 2020:
+       input(id="idPrice2020" type="text" name="price2020" placeholder="cena 2020")
+       input(type="submit" value="OK")
+
 
   script(src="/javascripts/energaCalc.js") 
     

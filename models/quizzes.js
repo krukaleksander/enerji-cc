@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var quizzesSchema = new Schema({
     id: {
-        type: Number,
+        type: String,
         required: true
     },
     price: {
