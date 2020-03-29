@@ -19,7 +19,6 @@ function selectElement(id, valueToSelect) {
 
 removeNoteFn = () => {
     getActualValuesFn();
-    console.log(summaryCalc.style.padding);
     let noteRemoversWhenFocus = [tariff, endOfAgreement, priceNow, priceInTariff2022, priceInTariff2021, priceInTariff2020, wear, proposePrice];
     noteRemoversWhenFocus.forEach(remover => {
         remover.addEventListener('focus', () => {
@@ -30,12 +29,18 @@ removeNoteFn = () => {
 }
 
 replaceCommasAndParseFn = () => {
-    priceInTariff2022.value = parseFloat(priceInTariff2022.value.replace(/\,/g, '.'));
-    priceInTariff2021.value = parseFloat(priceInTariff2021.value.replace(/\,/g, '.'));
-    priceInTariff2020.value = parseFloat(priceInTariff2020.value.replace(/\,/g, '.'));
-    wear.value = parseFloat(wear.value.replace(/\,/g, '.'));
-    priceNow.value = parseFloat(priceNow.value.replace(/\,/g, '.'));
-    proposePrice.value = parseFloat(proposePrice.value.replace(/\,/g, '.'));
+    const valuesArr = [priceInTariff2022, priceInTariff2021, priceInTariff2020, wear, priceNow, proposePrice];
+    const replaceAndParseFn = (item) => {
+        return parseFloat(item.value.replace(/\,/g, '.'));
+    };
+    valuesArr.forEach(value => {
+        if (value.value.length > 0) {
+            value.value = replaceAndParseFn(value);
+        } else {
+            console.log('Ni kuta');
+        }
+    });
+
 }
 
 getActualValuesFn = () => {
@@ -101,7 +106,6 @@ removeNoteFn();
 btnCalc.addEventListener('click', calcFn);
 endOfAgreement.addEventListener('change', () => {
     const optionDivs = [divWhenOption2019, divWhenOption2020];
-    console.log(endOfAgreement.value)
     if (endOfAgreement.value === "2021") {
         optionDivs.forEach(div => {
             div.style.display = "none";

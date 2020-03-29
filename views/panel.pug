@@ -4,8 +4,9 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
-    h3 Ofertomat v. 1.0   
-    p(class="alert alert-danger") v. 1.0 pozwala na wyliczenia w taryfach jednostrefowych i wielostrefowych na płasko!     
+    h3 Ofertomat v. 1.1   
+    p(class="alert alert-danger") v. 1.1 Pozwala na edytowanie cen w bazie danych.  
+    button(class="btn btn-dark show-price-change") Edycja cen 
     div
       label(for="tariff") Grupa taryfowa:  
       select(id="tariff")
@@ -48,18 +49,26 @@ block content
     p(class="note") Notatka:   
     p(id="summaryCalc")
     .change-price-panel    
-      h3(class="change-price-heading") Podaj cenę na poszczególne lata:
+      h3(class="change-price-heading") Podaj cenę dla C11 na poszczególne lata:
+      p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
       form(action="panel/change-price/" method="post")
-       label(for="idPrice2022") Podaj cenę na 2022:
-       input(id="idPrice2022" type="text" name="price2022" placeholder="cena 2022")
-       label(for="idPrice2020") Podaj cenę na 2021:
-       input(id="idPrice2020" type="text" name="price2021" placeholder="cena 2021")
-       label(for="idPrice2020") Podaj cenę na 2020:
-       input(id="idPrice2020" type="text" name="price2020" placeholder="cena 2020")
-       input(type="submit" value="OK")
+       div
+        label(for="idPrice2022") Cena na 2022:
+        input(id="idPrice2022" type="text" name="price2022" value=data[0].price)
+       div
+        label(for="idPrice2021") Cena na 2021:
+        input(id="idPrice2021" type="text" name="price2021" value=data[1].price)
+       div
+        label(for="idPrice2020") Cena na 2020:
+        input(id="idPrice2020" type="text" name="price2020" value=data[2].price)
+       div
+        input(id="changePriceBtn" class='btn btn-info' type="submit" value="OK")
+       div(class="change-price-close")
+         img(src="./images/close_cross.png", alt="")
 
 
   script(src="/javascripts/energaCalc.js") 
+  script(src="/javascripts/smallparts/changepricepanel.js")
     
 
    

@@ -80,4 +80,31 @@
         background-color: bisque;
         border-radius: 10px;
     }
+
+    .change-price-panel {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: coral;
+        padding: 15px;
+        border: 2px solid brown;
+        border-radius: 5px;
+        text-align: center;
+        display: none;
+        transition: .5s;
+
+        .change-price-close {
+            position: absolute;
+            bottom: 6px;
+            right: 3px;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+    }
 }
