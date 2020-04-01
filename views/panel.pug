@@ -30,13 +30,13 @@ block content
       
     div
       label(for="priceInTariff") Cena w cenniku na 2022: 
-      input(id="priceInTariff2022" type="text" placeholder="np. 300" value=data[0].price)
+      input(id="priceInTariff2022" type="text" placeholder="np. 300" value=data[0].tariff.price2022)
     div(class="when-option-2020")
       label(for="priceInTariff2021") Cena w cenniku na 2021: 
-      input(id="priceInTariff2021" type="text" placeholder="np. 280" value=data[1].price)
+      input(id="priceInTariff2021" type="text" placeholder="np. 280" value=data[0].tariff.price2021)
     div(class="when-option-2019")
       label(for="priceInTariff2020") Cena w cenniku na 2020: 
-      input(id="priceInTariff2020" type="text" placeholder="np. 274" value=data[2].price)     
+      input(id="priceInTariff2020" type="text" placeholder="np. 274" value=data[0].tariff.price2020)     
     div
       label(for="wear") Zużycie: 
       input(id="wear" type="text" placeholder="np. 18.3")
@@ -46,7 +46,7 @@ block content
       input(id="proposePrice" type="text" placeholder="380")
     div(class="btn-wrapper")  
       button(id="btnCalc" class="btn btn-success") Przelicz
-    p(class="note") Notatka:   
+    p(class="note") Notatka:     
     p(id="summaryCalc")
     .change-price-panel    
       h3(class="change-price-heading") Podaj cenę dla C11 na poszczególne lata:
@@ -54,13 +54,13 @@ block content
       form(action="panel/change-price/" method="post")
        div
         label(for="idPrice2022") Cena na 2022:
-        input(id="idPrice2022" type="text" name="price2022" value=data[0].price)
+        input(id="idPrice2022" type="text" name="price2022" value=data[0].tariff.price2022)
        div
         label(for="idPrice2021") Cena na 2021:
-        input(id="idPrice2021" type="text" name="price2021" value=data[1].price)
+        input(id="idPrice2021" type="text" name="price2021" value=data[0].tariff.price2021)
        div
         label(for="idPrice2020") Cena na 2020:
-        input(id="idPrice2020" type="text" name="price2020" value=data[2].price)
+        input(id="idPrice2020" type="text" name="price2020" value=data[0].tariff.price2020)
        div
         input(id="changePriceBtn" class='btn btn-info' type="submit" value="OK")
        div(class="change-price-close")

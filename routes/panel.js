@@ -36,24 +36,22 @@ router.post('/change-price/', (req, res, next) => {
     const removeCommasFn = (expression) => {
         return expression.replace(/\,/g, '.');
     }
+    console.log(price2022);
+    Mamjuzdosc.findOneAndUpdate({
+        id: "0"
+    }, {
+        "$set": {
+            "tariff.price2022": removeCommasFn(price2022),
+            "tariff.price2021": removeCommasFn(price2021),
+            "tariff.price2020": removeCommasFn(price2020)
 
-    for (let i = 0; i < priceArr.length; i++) {
-        if (priceArr[i].length > 2) {
-            Mamjuzdosc.findOneAndUpdate({
-                id: i
-            }, {
-                price: removeCommasFn(priceArr[i])
-            }, function () {
-                if (i === priceArr.length - 1) {
-                    res.redirect('/panel')
-                }
-            })
-        } else {
-            console.log('not this time =)')
-            if (i === priceArr.length - 1) {
-                res.redirect('/panel')
-            }
         }
-    }
+    }, function () {
+        res.redirect('/panel')
+
+    })
+
+
+
 })
 module.exports = router;
