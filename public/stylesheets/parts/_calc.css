@@ -123,3 +123,10 @@
   display: flex;
   justify-content: center;
 }
+
+.wrapper .tariffc12a-wrapper,
+.wrapper .tariffc12b-wrapper,
+.wrapper .tariffc21-wrapper,
+.wrapper .intakec12ac12b {
+  display: none;
+}

@@ -13,9 +13,7 @@ block content
         option(value="C11") C11
         option(value="C12a") C12a
         option(value="C12b") C12b
-        option(value="C21") C21
-        option(value="C22a") C22a        
-        option(value="C22b") C22b        
+        option(value="C21") C21               
     div
       label(for="endOfAgreement") Kiedy kończy się umowa: 
       select(id="endOfAgreement")
@@ -24,20 +22,22 @@ block content
         option(class="option-2019" value=9999) 9999
       //- input(id="endOfAgreement" value="2021")  
       
-    div
-      label(for="priceNow") Cena aktualna klienta: 
-      input(id="priceNow" type="text" placeholder="np. 382")
-      
-    div
-      label(for="priceInTariff") Cena w cenniku na 2022: 
-      input(id="priceInTariff2022" type="text" placeholder="np. 300" value=data[0].tariff.price2022)
-    div(class="when-option-2020")
-      label(for="priceInTariff2021") Cena w cenniku na 2021: 
-      input(id="priceInTariff2021" type="text" placeholder="np. 280" value=data[0].tariff.price2021)
-    div(class="when-option-2019")
-      label(for="priceInTariff2020") Cena w cenniku na 2020: 
-      input(id="priceInTariff2020" type="text" placeholder="np. 274" value=data[0].tariff.price2020)   
-    .extra-tariff-wrapper
+    
+    .extra-tariff-wrapper.tariffc11-wrapper 
+      p(class="tariff-wrapper-title-main") C11
+      div
+        label(for="priceNow") Cena aktualna klienta: 
+        input(id="priceNow" type="text" placeholder="np. 382")       
+      div
+        label(for="priceInTariff") Cena w cenniku na 2022: 
+        input(id="priceInTariff2022" type="text" placeholder="np. 300" value=data[0].tariff.price2022)
+      div(class="when-option-2020")
+        label(for="priceInTariff2021") Cena w cenniku na 2021: 
+        input(id="priceInTariff2021" type="text" placeholder="np. 280" value=data[0].tariff.price2021)
+      div(class="when-option-2019")
+        label(for="priceInTariff2020") Cena w cenniku na 2020: 
+        input(id="priceInTariff2020" type="text" placeholder="np. 274" value=data[0].tariff.price2020)   
+    .extra-tariff-wrapper.tariffc12a-wrapper
       p(class="tariff-wrapper-title-main") C12a 
       .wrap-all-in-tariff
         .year2022-wrapper 
@@ -73,7 +73,7 @@ block content
           div
             label II strefa
             input(id="priceC12a2020Second" type="text" placeholder="np. 300" value=data[1].tariff.price2022.second)
-    .extra-tariff-wrapper
+    .extra-tariff-wrapper.tariffc12b-wrapper
       p(class="tariff-wrapper-title-main") C12b 
       .wrap-all-in-tariff
         .year2022-wrapper 
@@ -109,30 +109,30 @@ block content
           div
             label II strefa
             input(id="priceC12b2020Second" type="text" placeholder="np. 300" value=data[2].tariff.price2022.second) 
-    .extra-tariff-wrapper
+    .extra-tariff-wrapper.tariffc21-wrapper
       p(class="tariff-wrapper-title-main") C21         
       div
-        label 2022r.
+        label Cena 2022r.
         input(id="priceC212022" type="text" placeholder="np. 300" value=data[3].tariff.price2022)
       div
-        label 2021r.
+        label Cena 2021r.
         input(id="priceC212021" type="text" placeholder="np. 300" value=data[3].tariff.price2021)
       div
-        label 2020r.
+        label Cena 2020r.
         input(id="priceC212020" type="text" placeholder="np. 300" value=data[3].tariff.price2020)    
     div(class="intakec11c21")
       label(for="wear") Zużycie: 
       input(id="wear" type="text" placeholder="np. 18.3")
     div(class="intakec12ac12b")
       div
-        label(for="wear") Zużycie I strefa: 
-        input(id="wear" type="text" placeholder="np. 7.3")
+        label(for="wearFirst") Zużycie I strefa: 
+        input(id="wearFirst" type="text" placeholder="np. 7.3")
       div
-        label(for="wear") Zużycie II strefa: 
-        input(id="wear" type="text" placeholder="np. 18.3")
+        label(for="wearSecond") Zużycie II strefa: 
+        input(id="wearSecond" type="text" placeholder="np. 18.3")
       div
-        label(for="wear") Zużycie suma: 
-        input(id="wear" type="text" placeholder="wyliczę")
+        label(for="wearSum") Zużycie suma: 
+        input(id="wearSum" type="text" placeholder="wyliczę")
       
     div
       label(for="proposePrice") Twoja propozycja: 
@@ -162,6 +162,7 @@ block content
 
   script(src="/javascripts/energaCalc.js") 
   script(src="/javascripts/smallparts/changepricepanel.js")
+  script(src="/javascripts/smallparts/changetariffs.js")
     
 
    

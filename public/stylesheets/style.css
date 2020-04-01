@@ -364,6 +364,13 @@ body .wrapper .extra-tariff-wrapper .wrap-all-in-tariff {
   justify-content: center;
 }
 
+body .wrapper .tariffc12a-wrapper,
+body .wrapper .tariffc12b-wrapper,
+body .wrapper .tariffc21-wrapper,
+body .wrapper .intakec12ac12b {
+  display: none;
+}
+
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;
