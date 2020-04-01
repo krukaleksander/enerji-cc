@@ -105,3 +105,21 @@
   border: none;
   border-radius: 4px;
 }
+
+.wrapper .extra-tariff-wrapper .tariff-wrapper-title-main {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 2px solid green;
+}
+
+.wrapper .extra-tariff-wrapper .tariff-wrapper-title {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.wrapper .extra-tariff-wrapper .wrap-all-in-tariff {
+  display: flex;
+  justify-content: center;
+}

@@ -112,4 +112,26 @@
         }
 
     }
+
+    .extra-tariff-wrapper {
+        .tariff-wrapper-title-main {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            padding-bottom: 5px;
+            border-bottom: 2px solid green;
+        }
+
+        .tariff-wrapper-title {
+            text-align: center;
+            font-weight: bolder;
+        }
+
+        .wrap-all-in-tariff {
+            display: flex;
+            justify-content: center;
+        }
+
+
+    }
 }

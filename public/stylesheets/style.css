@@ -346,6 +346,24 @@ body .wrapper .change-price-panel input {
   border-radius: 4px;
 }
 
+body .wrapper .extra-tariff-wrapper .tariff-wrapper-title-main {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 2px solid green;
+}
+
+body .wrapper .extra-tariff-wrapper .tariff-wrapper-title {
+  text-align: center;
+  font-weight: bolder;
+}
+
+body .wrapper .extra-tariff-wrapper .wrap-all-in-tariff {
+  display: flex;
+  justify-content: center;
+}
+
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;
