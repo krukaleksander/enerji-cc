@@ -36,7 +36,7 @@ router.post('/change-price/', (req, res, next) => {
     const removeCommasFn = (expression) => {
         return expression.replace(/\,/g, '.');
     }
-    console.log(price2022);
+
     Mamjuzdosc.findOneAndUpdate({
         id: "0"
     }, {

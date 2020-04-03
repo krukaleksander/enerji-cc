@@ -367,7 +367,8 @@ body .wrapper .extra-tariff-wrapper .wrap-all-in-tariff {
 body .wrapper .tariffc12a-wrapper,
 body .wrapper .tariffc12b-wrapper,
 body .wrapper .tariffc21-wrapper,
-body .wrapper .intakec12ac12b {
+body .wrapper .intakec12ac12b,
+body .wrapper .propositionc12ac12b {
   display: none;
 }
 

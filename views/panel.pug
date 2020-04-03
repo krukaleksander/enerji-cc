@@ -134,9 +134,20 @@ block content
         label(for="wearSum") Zużycie suma: 
         input(id="wearSum" type="text" placeholder="wyliczę")
       
-    div
+    div(class="propositionc11c21")
       label(for="proposePrice") Twoja propozycja: 
       input(id="proposePrice" type="text" placeholder="380")
+    .propositionc12ac12b
+      p(class="tariff-wrapper-title") Twoja propozycja:
+      div
+        label(for="proposePriceAvr") Średnia
+        input(type="text" id="proposePriceAvr")
+      div
+        label(for="proposePriceFirst") I strefa
+        input(type="text" id="proposePriceFirst")
+      div
+        label(for="proposePriceSecond") II strefa
+        input(type="text" id="proposePriceSecond")
     div(class="btn-wrapper")  
       button(id="btnCalc" class="btn btn-success") Przelicz
     p(class="note") Notatka:     
@@ -163,6 +174,7 @@ block content
   script(src="/javascripts/energaCalc.js") 
   script(src="/javascripts/smallparts/changepricepanel.js")
   script(src="/javascripts/smallparts/changetariffs.js")
+  script(src="/javascripts/smallparts/calcc12a.js")
     
 
    
