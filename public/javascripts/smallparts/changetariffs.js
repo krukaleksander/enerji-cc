@@ -9,6 +9,7 @@
         const intakeTwoSpheres = document.querySelector('.intakec12ac12b');
         const propositionC11C21 = document.querySelector('.propositionc11c21');
         const propositionC12aC12b = document.querySelector('.propositionc12ac12b');
+        const havePricesC12x = document.querySelector('.havePricesc12ac12b');
 
         let tariffsArr = [];
         tariff.addEventListener('change', () => {
@@ -19,6 +20,7 @@
                 intakeOneSphere.style.display = "none";
                 propositionC11C21.style.display = "none";
                 propositionC12aC12b.style.display = "block";
+                havePricesC12x.style.display = "block";
                 tariffsArr.forEach(e => {
                     e.style.display = "none";
                 });
@@ -29,6 +31,7 @@
                 intakeOneSphere.style.display = "none";
                 propositionC11C21.style.display = "none";
                 propositionC12aC12b.style.display = "block";
+                havePricesC12x.style.display = "block";
                 tariffsArr.forEach(e => {
                     e.style.display = "none";
                 });
@@ -39,6 +42,7 @@
                 intakeOneSphere.style.display = "block";
                 propositionC11C21.style.display = "block";
                 propositionC12aC12b.style.display = "none";
+                havePricesC12x.style.display = "none";
                 tariffsArr.forEach(e => {
                     e.style.display = "none";
                 });
@@ -49,6 +53,7 @@
                 intakeOneSphere.style.display = "block";
                 propositionC11C21.style.display = "block";
                 propositionC12aC12b.style.display = "none";
+                havePricesC12x.style.display = "none";
                 tariffsArr.forEach(e => {
                     e.style.display = "none";
                 });

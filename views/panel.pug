@@ -123,31 +123,46 @@ block content
     div(class="intakec11c21")
       label(for="wear") Zużycie: 
       input(id="wear" type="text" placeholder="np. 18.3")
+    div(class="havePricesc12ac12b")
+      p Klient ma cenę:
+      .have-prices-divs-wrapper   
+        div
+          label(for="havePriceAvr") Średnia: 
+          input(id="havePriceAvr" type="text")
+        div
+          label(for="havePriceFirst") I strefa: 
+          input(id="havePriceFirst" type="text")
+        div
+          label(for="havePriceSecond") II strefa: 
+          input(id="havePriceSecond" type="text")
     div(class="intakec12ac12b")
-      div
-        label(for="wearFirst") Zużycie I strefa: 
-        input(id="wearFirst" type="text" placeholder="np. 7.3")
-      div
-        label(for="wearSecond") Zużycie II strefa: 
-        input(id="wearSecond" type="text" placeholder="np. 18.3")
-      div
-        label(for="wearSum") Zużycie suma: 
-        input(id="wearSum" type="text" placeholder="wyliczę")
+      p Zużycie:
+      .intake-divs-wrapper   
+        div
+          label(for="wearFirst") I strefa: 
+          input(id="wearFirst" type="text" placeholder="np. 7.3")
+        div
+          label(for="wearSecond") II strefa: 
+          input(id="wearSecond" type="text" placeholder="np. 18.3")
+        div
+          label(for="wearSum") Suma: 
+          input(id="wearSum" type="text" placeholder="wyliczę")
       
     div(class="propositionc11c21")
       label(for="proposePrice") Twoja propozycja: 
       input(id="proposePrice" type="text" placeholder="380")
     .propositionc12ac12b
       p(class="tariff-wrapper-title") Twoja propozycja:
-      div
-        label(for="proposePriceAvr") Średnia
-        input(type="text" id="proposePriceAvr")
-      div
-        label(for="proposePriceFirst") I strefa
-        input(type="text" id="proposePriceFirst")
-      div
-        label(for="proposePriceSecond") II strefa
-        input(type="text" id="proposePriceSecond")
+      .wrapPropositionsC12x
+        div
+          label(for="proposePriceAvr") Średnia
+          input(type="text" id="proposePriceAvr")
+        div
+          label(for="proposePriceFirst") I strefa
+          input(type="text" id="proposePriceFirst")
+        div
+          label(for="proposePriceSecond") II strefa
+          input(type="text" id="proposePriceSecond")
     div(class="btn-wrapper")  
       button(id="btnCalc" class="btn btn-success") Przelicz
     p(class="note") Notatka:     

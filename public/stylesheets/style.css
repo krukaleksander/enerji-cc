@@ -368,8 +368,27 @@ body .wrapper .tariffc12a-wrapper,
 body .wrapper .tariffc12b-wrapper,
 body .wrapper .tariffc21-wrapper,
 body .wrapper .intakec12ac12b,
-body .wrapper .propositionc12ac12b {
+body .wrapper .propositionc12ac12b,
+body .wrapper .havePricesc12ac12b {
   display: none;
+}
+
+body .wrapper .wrapPropositionsC12x,
+body .wrapper .intake-divs-wrapper,
+body .wrapper .have-prices-divs-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+body .wrapper .wrapPropositionsC12x div,
+body .wrapper .intake-divs-wrapper div,
+body .wrapper .have-prices-divs-wrapper div {
+  margin-left: 5px;
+}
+
+body .wrapper .intakec12ac12 p {
+  text-align: center;
+  font-weight: bolder;
 }
 
 body h1.experts-heading {

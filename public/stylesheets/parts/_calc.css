@@ -128,6 +128,25 @@
 .wrapper .tariffc12b-wrapper,
 .wrapper .tariffc21-wrapper,
 .wrapper .intakec12ac12b,
-.wrapper .propositionc12ac12b {
+.wrapper .propositionc12ac12b,
+.wrapper .havePricesc12ac12b {
   display: none;
+}
+
+.wrapper .wrapPropositionsC12x,
+.wrapper .intake-divs-wrapper,
+.wrapper .have-prices-divs-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper .wrapPropositionsC12x div,
+.wrapper .intake-divs-wrapper div,
+.wrapper .have-prices-divs-wrapper div {
+  margin-left: 5px;
+}
+
+.wrapper .intakec12ac12 p {
+  text-align: center;
+  font-weight: bolder;
 }

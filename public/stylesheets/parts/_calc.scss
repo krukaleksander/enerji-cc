@@ -140,7 +140,27 @@
     .tariffc12b-wrapper,
     .tariffc21-wrapper,
     .intakec12ac12b,
-    .propositionc12ac12b {
+    .propositionc12ac12b,
+    .havePricesc12ac12b {
         display: none;
+    }
+
+    .wrapPropositionsC12x,
+    .intake-divs-wrapper,
+    .have-prices-divs-wrapper {
+        display: flex;
+        justify-content: center;
+
+        div {
+            margin-left: 5px;
+        }
+    }
+
+    .intakec12ac12 {
+        p {
+            text-align: center;
+            font-weight: bolder;
+        }
+
     }
 }
