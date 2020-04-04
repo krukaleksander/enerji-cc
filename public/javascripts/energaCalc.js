@@ -3,9 +3,15 @@ const summaryCalc = document.getElementById('summaryCalc');
 const btnCopyCalc = document.getElementById('btnCopyCalc');
 const divWhenOption2020 = document.querySelector('.when-option-2020');
 const divWhenOption2019 = document.querySelector('.when-option-2019');
+const onePriceCheckbox = document.getElementById('onePriceForAll');
 let countsPrice2021 = 0;
 let countsPrice2020 = 0;
 let tariff, endOfAgreement, priceNow, priceInTariff2022, priceInTariff2021, priceInTariff2020, wear, proposePrice, margeMass;
+let tariffCalcFlag = 0;
+let onePriceFlag = 0;
+let wearFirst, wearSecond, wearSum;
+let haveAvr, haveFirst, haveSecond;
+let proposeAvr, proposeFirst, proposeSecond;
 
 
 selectElement('tariff', 'C11');
@@ -62,7 +68,7 @@ getActualValuesFn = () => {
             countsPrice2021 = 1;
             break;
         case 9999:
-            countsPrice2020 = 0.5;
+            countsPrice2020 = 0.66;
             countsPrice2021 = 1;
             break;
         default:
@@ -78,27 +84,65 @@ calcMargeMass = () => {
 }
 
 calcFn = () => {
-    getActualValuesFn();
-    replaceCommasAndParseFn();
-    if (priceNow.value > 0 && priceInTariff2022.value > 0 && wear.value > 0 && proposePrice.value > 0) {
+    if (tariffCalcFlag === 0) {
 
-        calcMargeMass();
-        summaryCalc.style.padding = '10px';
-        summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${tariff.value}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow.value}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${tariff.value}</span>: <span class ="value-of-calc-data">${priceInTariff2022.value}</span>, Zużycie roczne: <span class ="value-of-calc-data">${wear.value}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${proposePrice.value}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${margeMass}</span>, Różnica w cenie: <span class ="value-of-calc-data client-income-span">${(proposePrice.value - priceNow.value).toFixed(2)}</span> <br>Osoba kontaktowa:`;
-        const margeMassSpan = document.querySelector('.marge-mass-span');
-        const clientIncomeSpan = document.querySelector('.client-income-span');
-        if (margeMass < 300) {
-            margeMassSpan.style.color = "red";
-        }
-        if ((proposePrice.value - priceNow.value) < 0) {
-            clientIncomeSpan.style.color = 'green';
+
+        getActualValuesFn();
+        replaceCommasAndParseFn();
+        if (priceNow.value > 0 && priceInTariff2022.value > 0 && wear.value > 0 && proposePrice.value > 0) {
+
+            calcMargeMass();
+            summaryCalc.style.padding = '10px';
+            summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${tariff.value}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow.value}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${tariff.value}</span>: <span class ="value-of-calc-data">${priceInTariff2022.value}</span>, Zużycie roczne: <span class ="value-of-calc-data">${wear.value}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${proposePrice.value}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${margeMass}</span>, Różnica w cenie: <span class ="value-of-calc-data client-income-span">${(proposePrice.value - priceNow.value).toFixed(2)}</span> <br>Osoba kontaktowa:`;
+            const margeMassSpan = document.querySelector('.marge-mass-span');
+            const clientIncomeSpan = document.querySelector('.client-income-span');
+            if (margeMass < 300) {
+                margeMassSpan.style.color = "red";
+            }
+            if ((proposePrice.value - priceNow.value) < 0) {
+                clientIncomeSpan.style.color = 'green';
+            } else {
+                clientIncomeSpan.style.color = 'red';
+            }
         } else {
-            clientIncomeSpan.style.color = 'red';
+            return;
         }
+    } else if (tariffCalcFlag === 1) {
+        calcc12a()
+    } else if (tariffCalcFlag === 2) {
+        calcc12b()
+    } else if (tariffCalcFlag === 3) {
+        calcc21()
     } else {
-        return;
+        console.log('What the fuck?')
     }
 }
+
+const getElementsForC12x = () => {
+    wearFirst = replaceAndParseMainFn(document.getElementById('wearFirst').value);
+    wearSecond = replaceAndParseMainFn(document.getElementById('wearSecond').value);
+    wearSum = document.getElementById('wearSum');
+    wearSum.value = wearFirst + wearSecond;
+
+    haveAvr = replaceAndParseMainFn(document.getElementById('havePriceAvr').value);
+    haveFirst = replaceAndParseMainFn(document.getElementById('havePriceFirst').value);
+    haveSecond = replaceAndParseMainFn(document.getElementById('havePriceSecond').value);
+
+    proposeAvr = replaceAndParseMainFn(document.getElementById('proposePriceAvr').value);
+    proposeFirst = replaceAndParseMainFn(document.getElementById('proposePriceFirst').value);
+    proposeSecond = replaceAndParseMainFn(document.getElementById('proposePriceSecond').value);
+}
+
+onePriceCheckbox.addEventListener('click', () => {
+    if (onePriceFlag === 0) {
+        onePriceFlag = 1
+    } else {
+        onePriceFlag = 0;
+    }
+})
+
+
+
 
 
 removeNoteFn();

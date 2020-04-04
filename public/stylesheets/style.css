@@ -391,6 +391,17 @@ body .wrapper .intakec12ac12 p {
   font-weight: bolder;
 }
 
+body .wrapper #onePriceForAll {
+  width: 30px;
+  height: 30px;
+}
+
+body .wrapper .label-for-one-price {
+  vertical-align: bottom;
+  color: midnightblue;
+  font-weight: bolder;
+}
+
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;

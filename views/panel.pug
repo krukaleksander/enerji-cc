@@ -128,22 +128,22 @@ block content
       .have-prices-divs-wrapper   
         div
           label(for="havePriceAvr") Średnia: 
-          input(id="havePriceAvr" type="text")
+          input(id="havePriceAvr" type="text" value=0)
         div
           label(for="havePriceFirst") I strefa: 
-          input(id="havePriceFirst" type="text")
+          input(id="havePriceFirst" type="text" value=0)
         div
           label(for="havePriceSecond") II strefa: 
-          input(id="havePriceSecond" type="text")
+          input(id="havePriceSecond" type="text" value=0)
     div(class="intakec12ac12b")
       p Zużycie:
       .intake-divs-wrapper   
         div
           label(for="wearFirst") I strefa: 
-          input(id="wearFirst" type="text" placeholder="np. 7.3")
+          input(id="wearFirst" type="text" placeholder="np. 7.3" value=0)
         div
           label(for="wearSecond") II strefa: 
-          input(id="wearSecond" type="text" placeholder="np. 18.3")
+          input(id="wearSecond" type="text" placeholder="np. 18.3" value=0)
         div
           label(for="wearSum") Suma: 
           input(id="wearSum" type="text" placeholder="wyliczę")
@@ -156,13 +156,16 @@ block content
       .wrapPropositionsC12x
         div
           label(for="proposePriceAvr") Średnia
-          input(type="text" id="proposePriceAvr")
+          input(type="text" id="proposePriceAvr" value=0)
         div
           label(for="proposePriceFirst") I strefa
-          input(type="text" id="proposePriceFirst")
+          input(type="text" id="proposePriceFirst" value=0)
         div
           label(for="proposePriceSecond") II strefa
-          input(type="text" id="proposePriceSecond")
+          input(type="text" id="proposePriceSecond" value=0)
+      .wrap-checkbox
+        label(for="onePriceForAll" class="label-for-one-price") Na płasko
+        input(type="checkbox" id="onePriceForAll")
     div(class="btn-wrapper")  
       button(id="btnCalc" class="btn btn-success") Przelicz
     p(class="note") Notatka:     

@@ -21,6 +21,7 @@
                 propositionC11C21.style.display = "none";
                 propositionC12aC12b.style.display = "block";
                 havePricesC12x.style.display = "block";
+                tariffCalcFlag = 1;
                 tariffsArr.forEach(e => {
                     e.style.display = "none";
                 });
@@ -32,6 +33,7 @@
                 propositionC11C21.style.display = "none";
                 propositionC12aC12b.style.display = "block";
                 havePricesC12x.style.display = "block";
+                tariffCalcFlag = 2;
                 tariffsArr.forEach(e => {
                     e.style.display = "none";
                 });
@@ -43,6 +45,7 @@
                 propositionC11C21.style.display = "block";
                 propositionC12aC12b.style.display = "none";
                 havePricesC12x.style.display = "none";
+                tariffCalcFlag = 3;
                 tariffsArr.forEach(e => {
                     e.style.display = "none";
                 });
@@ -54,6 +57,7 @@
                 propositionC11C21.style.display = "block";
                 propositionC12aC12b.style.display = "none";
                 havePricesC12x.style.display = "none";
+                tariffCalcFlag = 0;
                 tariffsArr.forEach(e => {
                     e.style.display = "none";
                 });
