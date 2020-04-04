@@ -122,7 +122,7 @@ const getElementsForC12x = () => {
     wearFirst = replaceAndParseMainFn(document.getElementById('wearFirst').value);
     wearSecond = replaceAndParseMainFn(document.getElementById('wearSecond').value);
     wearSum = document.getElementById('wearSum');
-    wearSum.value = wearFirst + wearSecond;
+    wearSum.value = (wearFirst + wearSecond).toFixed(2);
 
     haveAvr = replaceAndParseMainFn(document.getElementById('havePriceAvr').value);
     haveFirst = replaceAndParseMainFn(document.getElementById('havePriceFirst').value);
@@ -140,6 +140,19 @@ onePriceCheckbox.addEventListener('click', () => {
         onePriceFlag = 0;
     }
 })
+
+
+const complexSummaryFn = (message) => {
+    summaryCalc.style.padding = '10px';
+    summaryCalc.innerHTML = message;
+    const margeMassSpan = document.querySelector('.marge-mass-span');
+    if (margeMass < 300) {
+        margeMassSpan.style.color = "red";
+    } else {
+        margeMassSpan.style.color = "green"
+    }
+
+}
 
 
 
