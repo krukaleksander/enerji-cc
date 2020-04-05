@@ -22,15 +22,17 @@ function selectElement(id, valueToSelect) {
     let element = document.getElementById(id);
     element.value = valueToSelect;
 }
-
+const clearNote = () => {
+    summaryCalc.style.padding = "0px";
+    summaryCalc.innerHTML = "";
+};
 removeNoteFn = () => {
     getActualValuesFn();
     let noteRemoversWhenFocus = [tariff, endOfAgreement, priceNow, priceInTariff2022, priceInTariff2021, priceInTariff2020, wear, proposePrice];
-    noteRemoversWhenFocus.forEach(remover => {
-        remover.addEventListener('focus', () => {
-            summaryCalc.style.padding = "0px";
-            summaryCalc.innerHTML = "";
-        })
+    const allInputs = [...document.getElementsByClassName('note-remover')];
+    const allRemovers = noteRemoversWhenFocus.concat(allInputs);
+    allRemovers.forEach(remover => {
+        remover.addEventListener('focus', clearNote);
     });
 }
 
@@ -151,6 +153,7 @@ const complexSummaryFn = (message) => {
     } else {
         margeMassSpan.style.color = "green"
     }
+    summaryCalc.scrollIntoView();
 
 }
 

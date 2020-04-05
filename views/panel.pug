@@ -140,29 +140,29 @@ block content
       .intake-divs-wrapper   
         div
           label(for="wearFirst") I strefa: 
-          input(id="wearFirst" type="text" placeholder="np. 7.3" value=0)
+          input(id="wearFirst" class="note-remover" type="text" placeholder="np. 7.3" value=0)
         div
           label(for="wearSecond") II strefa: 
-          input(id="wearSecond" type="text" placeholder="np. 18.3" value=0)
+          input(id="wearSecond" class="note-remover" type="text" placeholder="np. 18.3" value=0)
         div
           label(for="wearSum") Suma: 
-          input(id="wearSum" type="text" placeholder="wyliczę")
+          input(id="wearSum" class="note-remover" type="text" placeholder="wyliczę")
       
     div(class="propositionc11c21")
       label(for="proposePrice") Twoja propozycja: 
-      input(id="proposePrice" type="text" placeholder="380")
+      input(id="proposePrice" class="note-remover" type="text" placeholder="380")
     .propositionc12ac12b
       p(class="tariff-wrapper-title") Twoja propozycja:
       .wrapPropositionsC12x
         div
           label(for="proposePriceAvr") Średnia
-          input(type="text" id="proposePriceAvr" value=0)
+          input(type="text" class="note-remover" id="proposePriceAvr" value=0)
         div
           label(for="proposePriceFirst") I strefa
-          input(type="text" id="proposePriceFirst" value=0)
+          input(type="text" class="note-remover" id="proposePriceFirst" value=0)
         div
           label(for="proposePriceSecond") II strefa
-          input(type="text" id="proposePriceSecond" value=0)
+          input(type="text" class="note-remover" id="proposePriceSecond" value=0)
       .wrap-checkbox
         label(for="onePriceForAll" class="label-for-one-price") Na płasko
         input(type="checkbox" id="onePriceForAll")
@@ -193,6 +193,7 @@ block content
   script(src="/javascripts/smallparts/changepricepanel.js")
   script(src="/javascripts/smallparts/changetariffs.js")
   script(src="/javascripts/smallparts/calcc12a.js")
+  script(src="/javascripts/smallparts/calcc12b.js")
     
 
    
