@@ -92,8 +92,10 @@
         border-radius: 5px;
         text-align: center;
         display: none;
-        width: 600px;
+        width: 700px;
         transition: .5s;
+
+
 
         .change-price-close {
             position: absolute;
@@ -132,7 +134,14 @@
 
     .wrap-all-in-tariff {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
+
+        .year2022-wrapper,
+        .year2021-wrapper,
+        .year2020-wrapper {
+            border: 2px solid black;
+            padding: 5px;
+        }
     }
 
     .tariffc12a-wrapper,
