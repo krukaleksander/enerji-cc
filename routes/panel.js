@@ -29,11 +29,8 @@ router.post('/', function (req, res, next) {
 });
 
 router.post('/change-price/', (req, res, next) => {
-    const price2022 = req.body.price2022;
-    const price2021 = req.body.price2021;
-    const price2020 = req.body.price2020;
-    console.log(req.body);
-    const priceArr = [price2022, price2021, price2020];
+    const requestBody = req.body;
+    console.log(requestBody);
     const removeCommasFn = (expression) => {
         return expression.replace(/\,/g, '.');
     }
@@ -42,15 +39,52 @@ router.post('/change-price/', (req, res, next) => {
         id: "0"
     }, {
         "$set": {
-            "tariff.price2022": removeCommasFn(price2022),
-            "tariff.price2021": removeCommasFn(price2021),
-            "tariff.price2020": removeCommasFn(price2020)
+            "tariff.price2022": removeCommasFn(requestBody.price2022),
+            "tariff.price2021": removeCommasFn(requestBody.price2021),
+            "tariff.price2020": removeCommasFn(requestBody.price2020)
 
         }
     }, function () {
-        res.redirect('/panel')
+        Mamjuzdosc.findOneAndUpdate({
+            id: "1"
+        }, {
+            "$set": {
+                "tariff.price2022.avr": removeCommasFn(requestBody.pricec12a2022Avr),
+                "tariff.price2022.first": removeCommasFn(requestBody.pricec12a2022First),
+                "tariff.price2022.second": removeCommasFn(requestBody.pricec12a2022Second),
+                "tariff.price2021.avr": removeCommasFn(requestBody.pricec12a2021Avr),
+                "tariff.price2021.first": removeCommasFn(requestBody.pricec12a2021First),
+                "tariff.price2021.second": removeCommasFn(requestBody.pricec12a2021Second),
+                "tariff.price2020.avr": removeCommasFn(requestBody.pricec12a2020Avr),
+                "tariff.price2020.first": removeCommasFn(requestBody.pricec12a2020First),
+                "tariff.price2020.second": removeCommasFn(requestBody.pricec12a2020Second),
 
-    })
+            }
+        }, function () {
+            Mamjuzdosc.findOneAndUpdate({
+                id: "2"
+            }, {
+                "$set": {
+                    "tariff.price2022.avr": removeCommasFn(requestBody.pricec12b2022Avr),
+                    "tariff.price2022.first": removeCommasFn(requestBody.pricec12b2022First),
+                    "tariff.price2022.second": removeCommasFn(requestBody.pricec12b2022Second),
+                    "tariff.price2021.avr": removeCommasFn(requestBody.pricec12b2021Avr),
+                    "tariff.price2021.first": removeCommasFn(requestBody.pricec12b2021First),
+                    "tariff.price2021.second": removeCommasFn(requestBody.pricec12b2021Second),
+                    "tariff.price2020.avr": removeCommasFn(requestBody.pricec12b2020Avr),
+                    "tariff.price2020.first": removeCommasFn(requestBody.pricec12b2020First),
+                    "tariff.price2020.second": removeCommasFn(requestBody.pricec12b2020Second),
+
+                }
+            }, function () {
+                res.redirect('/panel')
+
+            })
+
+        })
+
+    });
+
 
 
 
