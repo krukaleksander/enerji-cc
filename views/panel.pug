@@ -5,7 +5,7 @@ block content
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
     h3 Ofertomat v. 1.2   
-    p(class="alert alert-danger") v. 1.2 Pozwala na obliczenia C11, C12a, C12b.  
+    p(class="alert alert-danger") v.1.2 Pozwala na obliczenia C11, C12a, C12b. Rok 2020 otrzymał mnożnik 0.66.  
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
       label(for="tariff") Grupa taryfowa:  
@@ -66,13 +66,13 @@ block content
           p(class="tariff-wrapper-title") 2020 r.
           div
             label Średnia 
-            input(id="priceC12a2020Avr" type="text" placeholder="np. 300" value=data[1].tariff.price2022.avr)
+            input(id="priceC12a2020Avr" type="text" placeholder="np. 300" value=data[1].tariff.price2020.avr)
           div
             label I strefa 
-            input(id="priceC12a2020First" type="text" placeholder="np. 300" value=data[1].tariff.price2022.first)
+            input(id="priceC12a2020First" type="text" placeholder="np. 300" value=data[1].tariff.price2020.first)
           div
             label II strefa
-            input(id="priceC12a2020Second" type="text" placeholder="np. 300" value=data[1].tariff.price2022.second)
+            input(id="priceC12a2020Second" type="text" placeholder="np. 300" value=data[1].tariff.price2020.second)
     .extra-tariff-wrapper.tariffc12b-wrapper
       p(class="tariff-wrapper-title-main") C12b 
       .wrap-all-in-tariff
@@ -102,13 +102,13 @@ block content
           p(class="tariff-wrapper-title") 2020 r.
           div
             label Średnia 
-            input(id="priceC12b2020Avr" type="text" placeholder="np. 300" value=data[2].tariff.price2022.avr)
+            input(id="priceC12b2020Avr" type="text" placeholder="np. 300" value=data[2].tariff.price2020.avr)
           div
             label I strefa 
-            input(id="priceC12b2020First" type="text" placeholder="np. 300" value=data[2].tariff.price2022.first)
+            input(id="priceC12b2020First" type="text" placeholder="np. 300" value=data[2].tariff.price2020.first)
           div
             label II strefa
-            input(id="priceC12b2020Second" type="text" placeholder="np. 300" value=data[2].tariff.price2022.second) 
+            input(id="priceC12b2020Second" type="text" placeholder="np. 300" value=data[2].tariff.price2020.second) 
     .extra-tariff-wrapper.tariffc21-wrapper
       p(class="tariff-wrapper-title-main") C21         
       div
@@ -172,19 +172,92 @@ block content
       button(id="btnCalc" class="btn btn-success") Przelicz      
     p(class="note") Notatka:     
     p(id="summaryCalc")       
-    .change-price-panel    
-      h3(class="change-price-heading") Podaj cenę dla C11 na poszczególne lata:
+    .change-price-panel          
       p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
       form(action="panel/change-price/" method="post")
-       div
-        label(for="idPrice2022") Cena na 2022:
-        input(id="idPrice2022" type="text" name="price2022" value=data[0].tariff.price2022)
-       div
-        label(for="idPrice2021") Cena na 2021:
-        input(id="idPrice2021" type="text" name="price2021" value=data[0].tariff.price2021)
-       div
-        label(for="idPrice2020") Cena na 2020:
-        input(id="idPrice2020" type="text" name="price2020" value=data[0].tariff.price2020)
+       h3(class="change-price-heading") Dla C11:
+       .wrap-change-price-c11
+        div
+          label(for="idPrice2022") Cena na 2022:
+          input(id="idPrice2022" type="text" name="price2022" value=data[0].tariff.price2022)
+        div
+          label(for="idPrice2021") Cena na 2021:
+          input(id="idPrice2021" type="text" name="price2021" value=data[0].tariff.price2021)
+        div
+          label(for="idPrice2020") Cena na 2020:
+          input(id="idPrice2020" type="text" name="price2020" value=data[0].tariff.price2020)
+       h3(class="change-price-heading") Dla C12a:
+       .wrap-change-price-c12a
+         .wrap-all-in-tariff
+          .year2022-wrapper 
+            p(class="tariff-wrapper-title") 2022 r. 
+            div
+              label Średnia 
+              input(id="priceC12a2022AvrChange" name="pricec12a2022Avr" type="text" placeholder="np. 300" value=data[1].tariff.price2022.avr)
+            div
+              label I strefa 
+              input(id="priceC12a2022FirstChange" name="pricec12a2022First" type="text" placeholder="np. 300" value=data[1].tariff.price2022.first)
+            div
+              label II strefa
+              input(id="priceC12a2022SecondChange" name="pricec12a2022Second" type="text" placeholder="np. 300" value=data[1].tariff.price2022.second)
+          .year2021-wrapper 
+            p(class="tariff-wrapper-title") 2021 r.
+            div
+              label Średnia 
+              input(id="priceC12a2021AvrChange" type="text" name="pricec12a2021Avr" placeholder="np. 300" value=data[1].tariff.price2021.avr)
+            div
+              label I strefa 
+              input(id="priceC12a2021FirstChange" name="pricec12a2021First" type="text" placeholder="np. 300" value=data[1].tariff.price2021.first)
+            div
+              label II strefa
+              input(id="priceC12a2021SecondChange" name="pricec12a2021Second" type="text" placeholder="np. 300" value=data[1].tariff.price2021.second)
+          .year2020-wrapper 
+            p(class="tariff-wrapper-title") 2020 r.
+            div
+              label Średnia 
+              input(id="priceC12a2020AvrChange" name="pricec12a2020Avr" type="text" placeholder="np. 300" value=data[1].tariff.price2020.avr)
+            div
+              label I strefa 
+              input(id="priceC12a2020FirstChange" name="pricec12a2020First" type="text" placeholder="np. 300" value=data[1].tariff.price2020.first)
+            div
+              label II strefa
+              input(id="priceC12a2020SecondChange" name="pricec12a2020Second" type="text" placeholder="np. 300" value=data[1].tariff.price2020.second)
+       h3(class="change-price-heading") Dla C12b:
+       .wrap-change-price-c12b
+        .wrap-all-in-tariff
+          .year2022-wrapper 
+            p(class="tariff-wrapper-title") 2022 r. 
+            div
+              label Średnia 
+              input(id="priceC12b2022AvrChange" type="text" name="pricec12b2022Avr" placeholder="np. 300" value=data[2].tariff.price2022.avr)
+            div
+              label I strefa 
+              input(id="priceC12b2022FirstChange" type="text" name="pricec12b2022First" placeholder="np. 300" value=data[2].tariff.price2022.first)
+            div
+              label II strefa
+              input(id="priceC12b2022SecondChange" type="text" name="pricec12b2022Second" placeholder="np. 300" value=data[2].tariff.price2022.second)
+          .year2021-wrapper 
+            p(class="tariff-wrapper-title") 2021 r.
+            div
+              label Średnia 
+              input(id="priceC12b2021AvrChange" type="text" name="pricec12b2021Avr" placeholder="np. 300" value=data[2].tariff.price2021.avr)
+            div
+              label I strefa 
+              input(id="priceC12b2021FirstChange" type="text" name="pricec12b2021First" placeholder="np. 300" value=data[2].tariff.price2021.first)
+            div
+              label II strefa
+              input(id="priceC12b2021SecondChange" type="text" name="pricec12b2021Second" placeholder="np. 300" value=data[2].tariff.price2021.second)
+          .year2020-wrapper 
+            p(class="tariff-wrapper-title") 2020 r.
+            div
+              label Średnia 
+              input(id="priceC12b2020AvrChange" type="text" name="pricec12b2020Avr" placeholder="np. 300" value=data[2].tariff.price2020.avr)
+            div
+              label I strefa 
+              input(id="priceC12b2020FirstChange" type="text" name="pricec12b2020First" placeholder="np. 300" value=data[2].tariff.price2020.first)
+            div
+              label II strefa
+              input(id="priceC12b2020SecondChange" type="text" name="pricec12b2020Second" placeholder="np. 300" value=data[2].tariff.price2020.second)
        div
         input(id="changePriceBtn" class='btn btn-info' type="submit" value="OK")
        div(class="change-price-close")

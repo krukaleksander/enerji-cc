@@ -62,6 +62,7 @@
                     e.style.display = "none";
                 });
             }
+            summaryCalc.scrollIntoView();
         })
 
 

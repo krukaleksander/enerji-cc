@@ -92,6 +92,7 @@
         border-radius: 5px;
         text-align: center;
         display: none;
+        width: 600px;
         transition: .5s;
 
         .change-price-close {
@@ -122,18 +123,16 @@
             border-bottom: 2px solid green;
         }
 
-        .tariff-wrapper-title {
-            text-align: center;
-            font-weight: bolder;
-        }
+    }
 
-        .wrap-all-in-tariff {
-            display: flex;
-            justify-content: center;
-        }
+    .tariff-wrapper-title {
+        text-align: center;
+        font-weight: bolder;
+    }
 
-
-
+    .wrap-all-in-tariff {
+        display: flex;
+        justify-content: center;
     }
 
     .tariffc12a-wrapper,
@@ -180,5 +179,14 @@
         margin: 5px auto;
     }
 
+    .wrap-change-price-c11 {
+        display: flex;
+        margin-bottom: 5px;
+    }
+
+    .change-price-heading,
+    #changePriceBtn {
+        margin-top: 10px;
+    }
 
 }

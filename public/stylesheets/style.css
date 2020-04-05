@@ -326,6 +326,7 @@ body .wrapper .change-price-panel {
   border-radius: 5px;
   text-align: center;
   display: none;
+  width: 600px;
   transition: .5s;
 }
 
@@ -354,12 +355,12 @@ body .wrapper .extra-tariff-wrapper .tariff-wrapper-title-main {
   border-bottom: 2px solid green;
 }
 
-body .wrapper .extra-tariff-wrapper .tariff-wrapper-title {
+body .wrapper .tariff-wrapper-title {
   text-align: center;
   font-weight: bolder;
 }
 
-body .wrapper .extra-tariff-wrapper .wrap-all-in-tariff {
+body .wrapper .wrap-all-in-tariff {
   display: flex;
   justify-content: center;
 }
@@ -405,6 +406,16 @@ body .wrapper .label-for-one-price {
 body .wrapper #clearInputsBtn {
   display: block;
   margin: 5px auto;
+}
+
+body .wrapper .wrap-change-price-c11 {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+body .wrapper .change-price-heading,
+body .wrapper #changePriceBtn {
+  margin-top: 10px;
 }
 
 body h1.experts-heading {

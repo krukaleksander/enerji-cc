@@ -86,6 +86,7 @@
   border-radius: 5px;
   text-align: center;
   display: none;
+  width: 600px;
   transition: .5s;
 }
 
@@ -114,12 +115,12 @@
   border-bottom: 2px solid green;
 }
 
-.wrapper .extra-tariff-wrapper .tariff-wrapper-title {
+.wrapper .tariff-wrapper-title {
   text-align: center;
   font-weight: bolder;
 }
 
-.wrapper .extra-tariff-wrapper .wrap-all-in-tariff {
+.wrapper .wrap-all-in-tariff {
   display: flex;
   justify-content: center;
 }
@@ -165,4 +166,14 @@
 .wrapper #clearInputsBtn {
   display: block;
   margin: 5px auto;
+}
+
+.wrapper .wrap-change-price-c11 {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.wrapper .change-price-heading,
+.wrapper #changePriceBtn {
+  margin-top: 10px;
 }

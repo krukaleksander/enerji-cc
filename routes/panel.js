@@ -32,6 +32,7 @@ router.post('/change-price/', (req, res, next) => {
     const price2022 = req.body.price2022;
     const price2021 = req.body.price2021;
     const price2020 = req.body.price2020;
+    console.log(req.body);
     const priceArr = [price2022, price2021, price2020];
     const removeCommasFn = (expression) => {
         return expression.replace(/\,/g, '.');
