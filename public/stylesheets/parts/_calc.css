@@ -161,3 +161,8 @@
   color: midnightblue;
   font-weight: bolder;
 }
+
+.wrapper #clearInputsBtn {
+  display: block;
+  margin: 5px auto;
+}

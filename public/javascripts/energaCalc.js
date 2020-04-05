@@ -178,4 +178,5 @@ endOfAgreement.addEventListener('change', () => {
             div.style.display = "block";
         })
     }
+    summaryCalc.scrollIntoView();
 })

@@ -4,8 +4,8 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
-    h3 Ofertomat v. 1.1   
-    p(class="alert alert-danger") v. 1.1 Pozwala na edytowanie cen w bazie danych.  
+    h3 Ofertomat v. 1.2   
+    p(class="alert alert-danger") v. 1.2 Pozwala na obliczenia C11, C12a, C12b.  
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
       label(for="tariff") Grupa taryfowa:  
@@ -128,25 +128,25 @@ block content
       .have-prices-divs-wrapper   
         div
           label(for="havePriceAvr") Średnia: 
-          input(id="havePriceAvr" type="text" value=0)
+          input(id="havePriceAvr" class="set-to-zero" type="text" value=0)
         div
           label(for="havePriceFirst") I strefa: 
-          input(id="havePriceFirst" type="text" value=0)
+          input(id="havePriceFirst" class="set-to-zero" type="text" value=0)
         div
           label(for="havePriceSecond") II strefa: 
-          input(id="havePriceSecond" type="text" value=0)
+          input(id="havePriceSecond" class="set-to-zero" type="text" value=0)
     div(class="intakec12ac12b")
       p Zużycie:
       .intake-divs-wrapper   
         div
           label(for="wearFirst") I strefa: 
-          input(id="wearFirst" class="note-remover" type="text" placeholder="np. 7.3" value=0)
+          input(id="wearFirst" class="note-remover set-to-zero" type="text" placeholder="np. 7.3" value=0)
         div
           label(for="wearSecond") II strefa: 
-          input(id="wearSecond" class="note-remover" type="text" placeholder="np. 18.3" value=0)
+          input(id="wearSecond" class="note-remover set-to-zero" type="text" placeholder="np. 18.3" value=0)
         div
           label(for="wearSum") Suma: 
-          input(id="wearSum" class="note-remover" type="text" placeholder="wyliczę")
+          input(id="wearSum" class="note-remover set-to-zero" type="text" placeholder="wyliczę")
       
     div(class="propositionc11c21")
       label(for="proposePrice") Twoja propozycja: 
@@ -156,20 +156,22 @@ block content
       .wrapPropositionsC12x
         div
           label(for="proposePriceAvr") Średnia
-          input(type="text" class="note-remover" id="proposePriceAvr" value=0)
+          input(type="text" class="note-remover set-to-zero" id="proposePriceAvr" value=0)
         div
           label(for="proposePriceFirst") I strefa
-          input(type="text" class="note-remover" id="proposePriceFirst" value=0)
+          input(type="text" class="note-remover set-to-zero" id="proposePriceFirst" value=0)
         div
           label(for="proposePriceSecond") II strefa
-          input(type="text" class="note-remover" id="proposePriceSecond" value=0)
+          input(type="text" class="note-remover set-to-zero" id="proposePriceSecond" value=0)
       .wrap-checkbox
         label(for="onePriceForAll" class="label-for-one-price") Na płasko
         input(type="checkbox" id="onePriceForAll")
+        .wrap-new-calc
+        button(class="btn btn-danger" id="clearInputsBtn") Nowe wyliczenie 
     div(class="btn-wrapper")  
-      button(id="btnCalc" class="btn btn-success") Przelicz
+      button(id="btnCalc" class="btn btn-success") Przelicz      
     p(class="note") Notatka:     
-    p(id="summaryCalc")
+    p(id="summaryCalc")       
     .change-price-panel    
       h3(class="change-price-heading") Podaj cenę dla C11 na poszczególne lata:
       p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
@@ -194,6 +196,7 @@ block content
   script(src="/javascripts/smallparts/changetariffs.js")
   script(src="/javascripts/smallparts/calcc12a.js")
   script(src="/javascripts/smallparts/calcc12b.js")
+  script(src="/javascripts/smallparts/setToZero.js")
     
 
    

@@ -402,6 +402,11 @@ body .wrapper .label-for-one-price {
   font-weight: bolder;
 }
 
+body .wrapper #clearInputsBtn {
+  display: block;
+  margin: 5px auto;
+}
+
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;
