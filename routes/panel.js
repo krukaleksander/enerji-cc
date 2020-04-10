@@ -89,4 +89,9 @@ router.post('/change-price/', (req, res, next) => {
 
 
 })
+router.get('/get-prices', (req, res, next) => {
+    Mamjuzdosc.find({}, (err, data) => {
+        res.send(data);
+    })
+})
 module.exports = router;

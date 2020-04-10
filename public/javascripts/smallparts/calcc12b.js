@@ -34,7 +34,7 @@ const calcBothC12b = () => {
     getActualValuesFn();
     const money2022 = ((proposeFirst - priceC12b2022.first) * wearFirst) + ((proposeSecond - priceC12b2022.second) * wearSecond);
     const money2021 = (((proposeFirst - priceC12b2021.first) * wearFirst) + ((proposeSecond - priceC12b2021.second) * wearSecond)) * countsPrice2021;
-    const money2020 = (((proposeFirst - priceC12b2020.first) * wearFirst) + ((proposeSecond - priceC12b2022.second) * wearSecond)) * countsPrice2020;
+    const money2020 = (((proposeFirst - priceC12b2020.first) * wearFirst) + ((proposeSecond - priceC12b2020.second) * wearSecond)) * countsPrice2020;
     margeMassC12bSum = (money2022 + money2021 + money2020).toFixed(2);
     margeMassForNote = margeMassC12bSum;
 }
