@@ -164,6 +164,7 @@ const complexSummaryFn = (message) => {
 removeNoteFn();
 
 btnCalc.addEventListener('click', calcFn);
+
 endOfAgreement.addEventListener('change', () => {
     const optionDivs = [divWhenOption2019, divWhenOption2020];
     if (endOfAgreement.value === "2021") {
@@ -178,5 +179,4 @@ endOfAgreement.addEventListener('change', () => {
             div.style.display = "block";
         })
     }
-    summaryCalc.scrollIntoView();
 })

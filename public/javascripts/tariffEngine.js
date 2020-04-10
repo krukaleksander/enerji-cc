@@ -1,8 +1,9 @@
 class Tariff {
-    constructor(numberOfSpheres, indexOfData) {
+    constructor(numberOfSpheres, indexOfData, name) {
         this.numberOfSpheres = numberOfSpheres;
         this.indexOfData = indexOfData;
         this.pricesFromDbDone = this.getPricesFromDb();
+        this.name = name;
 
     }
     getPricesFromDb = () => {
@@ -18,6 +19,26 @@ class Tariff {
                 console.log('Błąd w Fetch' + err)
             })
         return true;
+    };
+    checkEndOfAgreement = () => {
+        switch (parseInt(endOfAgreement.value)) {
+            case 2021:
+                this.countsPrice2020 = 0;
+                this.countsPrice2021 = 0;
+                break;
+            case 2020:
+                this.countsPrice2020 = 0;
+                this.countsPrice2021 = 1;
+                break;
+            case 9999:
+                this.countsPrice2020 = 0.66;
+                this.countsPrice2021 = 1;
+                break;
+            default:
+                this.countsPrice2020 = 0;
+                this.countsPrice2021 = 0;
+
+        }
     };
     getWear = () => {
         if (this.numberOfSpheres === 1) {
@@ -38,26 +59,44 @@ class Tariff {
         }
     };
     calcOneSphere = () => {
-        this.margeMass = Math.floor(((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022)) * this.wearOneSphere) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021)) * this.wearOneSphere * countsPrice2021) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020)) * this.wearOneSphere * countsPrice2020));
+        this.margeMass = Math.floor(((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022)) * this.wearOneSphere) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021)) * this.wearOneSphere * this.countsPrice2021) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020)) * this.wearOneSphere * this.countsPrice2020));
     };
     calcTwoSpheres = () => {
         if (onePriceFlag === 1) {
             const money2022 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022.avr)) * this.wearTwoSpheresSum;
-            const money2021 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.avr)) * this.wearTwoSpheresSum * countsPrice2021;
-            const money2020 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.avr)) * this.wearTwoSpheresSum * countsPrice2020;
+            const money2021 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.avr)) * this.wearTwoSpheresSum * this.countsPrice2021;
+            const money2020 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.avr)) * this.wearTwoSpheresSum * this.countsPrice2020;
             this.margeMass = (money2022 + money2021 + money2020).toFixed(2);
             margeMassForNote = this.margeMass;
 
         } else {
             console.log('w podziale na strefy');
             const money2022 = ((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022.second)) * this.weareTwoSpeheresSecond);
-            const money2021 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.second)) * this.weareTwoSpeheresSecond)) * countsPrice2021;
-            const money2020 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.second)) * this.weareTwoSpeheresSecond)) * countsPrice2020;
+            const money2021 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.second)) * this.weareTwoSpeheresSecond)) * this.countsPrice2021;
+            const money2020 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.second)) * this.weareTwoSpeheresSecond)) * this.countsPrice2020;
             this.margeMass = (money2022 + money2021 + money2020).toFixed(2);
             margeMassForNote = this.margeMass;
         }
+    };
+    createNote = () => {
+        if (this.numberOfSpheres === 1) {
+            const priceNow = document.getElementById('priceNow').value;
+            summaryCalc.style.padding = '10px';
+            summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${this.name}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${this.name}</span>: <span class ="value-of-calc-data">${this.pricesFromDb.tariff.price2022}</span>, Zużycie roczne: <span class ="value-of-calc-data">${this.wearOneSphere}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${this.proposeOneSphere}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span><br></span> <br>Osoba kontaktowa:`;
+            summaryCalc.scrollIntoView();
+        } else if (this.numberOfSpheres === 2) {
+            const havePriceAvr = document.getElementById('havePriceAvr').value;
+            const havePriceFirst = document.getElementById('havePriceFirst').value;
+            const havePriceSecond = document.getElementById('havePriceSecond').value;
+            let spanF = `<span class="value-of-calc-data">`;
+            let spanE = `</span>`;
+            summaryCalc.style.padding = '10px';
+            summaryCalc.innerHTML = `Grupa taryfowa: ${spanF}${this.name}${spanE}, <br>Umowa kończy się: ${spanF}${endOfAgreement.value}${spanE}, <br>Klient posiada aktualnie ceny: Średnia: ${spanF}${havePriceAvr}${spanE} I strefa: ${spanF}${havePriceFirst}${spanE} II strefa: ${spanF}${havePriceSecond}${spanE}, <br>Ceny w cenniku na 2022 dla taryfy ${spanF}${this.name}${spanE}: Średnia: ${spanF}${this.pricesFromDb.tariff.price2022.avr}${spanE} I strefa ${spanF}${this.pricesFromDb.tariff.price2022.first}${spanE} II strefa: ${spanF}${this.pricesFromDb.tariff.price2022.second}${spanE}, <br>Zużycie roczne: <span class ="value-of-calc-data">${this.wearTwoSpheresSum}</span> MWh. <br>Propozycja cenowa: Średnia: ${spanE}${this.proposeTwoSpheresAvr}${spanE} I strefa: ${spanF}${this.proposeTwoSpheresFirst}${spanE} II strefa: ${spanF}${this.proposeTwoSpheresSecond}${spanE}, <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span><br>Osoba kontaktowa:`;
+            summaryCalc.scrollIntoView();
+        }
     }
     mainCalcFn = () => {
+        this.checkEndOfAgreement();
         this.getWear();
         this.getProposition();
         if (this.numberOfSpheres === 1) {
@@ -65,12 +104,13 @@ class Tariff {
         } else if (this.numberOfSpheres === 2) {
             this.calcTwoSpheres();
         }
+        this.createNote();
 
 
     }
 
 }
 
-const c11Engine = new Tariff(1, 0);
-const c12aEngine = new Tariff(2, 1);
-const c12bEngine = new Tariff(2, 2);
+const c11Engine = new Tariff(1, 0, 'C11');
+const c12aEngine = new Tariff(2, 1, 'C12a');
+const c12bEngine = new Tariff(2, 2, 'C12b');
