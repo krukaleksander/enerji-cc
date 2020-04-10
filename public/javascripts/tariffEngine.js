@@ -46,7 +46,8 @@ class Tariff {
         } else if (this.numberOfSpheres === 2) {
             this.weareTwoSpeheresFirst = replaceAndParseMainFn(document.getElementById('wearFirst').value);
             this.weareTwoSpeheresSecond = replaceAndParseMainFn(document.getElementById('wearSecond').value);
-            this.wearTwoSpheresSum = this.weareTwoSpeheresFirst + this.weareTwoSpeheresSecond;
+            this.wearTwoSpheresSum = (this.weareTwoSpeheresFirst + this.weareTwoSpeheresSecond).toFixed(2);
+            document.getElementById('wearSum').value = this.wearTwoSpheresSum;
         }
     };
     getProposition = () => {
@@ -67,15 +68,12 @@ class Tariff {
             const money2021 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.avr)) * this.wearTwoSpheresSum * this.countsPrice2021;
             const money2020 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.avr)) * this.wearTwoSpheresSum * this.countsPrice2020;
             this.margeMass = (money2022 + money2021 + money2020).toFixed(2);
-            margeMassForNote = this.margeMass;
 
         } else {
-            console.log('w podziale na strefy');
             const money2022 = ((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022.second)) * this.weareTwoSpeheresSecond);
             const money2021 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.second)) * this.weareTwoSpeheresSecond)) * this.countsPrice2021;
             const money2020 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.second)) * this.weareTwoSpeheresSecond)) * this.countsPrice2020;
             this.margeMass = (money2022 + money2021 + money2020).toFixed(2);
-            margeMassForNote = this.margeMass;
         }
     };
     createNote = () => {
@@ -91,7 +89,7 @@ class Tariff {
             let spanF = `<span class="value-of-calc-data">`;
             let spanE = `</span>`;
             summaryCalc.style.padding = '10px';
-            summaryCalc.innerHTML = `Grupa taryfowa: ${spanF}${this.name}${spanE}, <br>Umowa kończy się: ${spanF}${endOfAgreement.value}${spanE}, <br>Klient posiada aktualnie ceny: Średnia: ${spanF}${havePriceAvr}${spanE} I strefa: ${spanF}${havePriceFirst}${spanE} II strefa: ${spanF}${havePriceSecond}${spanE}, <br>Ceny w cenniku na 2022 dla taryfy ${spanF}${this.name}${spanE}: Średnia: ${spanF}${this.pricesFromDb.tariff.price2022.avr}${spanE} I strefa ${spanF}${this.pricesFromDb.tariff.price2022.first}${spanE} II strefa: ${spanF}${this.pricesFromDb.tariff.price2022.second}${spanE}, <br>Zużycie roczne: <span class ="value-of-calc-data">${this.wearTwoSpheresSum}</span> MWh. <br>Propozycja cenowa: Średnia: ${spanE}${this.proposeTwoSpheresAvr}${spanE} I strefa: ${spanF}${this.proposeTwoSpheresFirst}${spanE} II strefa: ${spanF}${this.proposeTwoSpheresSecond}${spanE}, <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span><br>Osoba kontaktowa:`;
+            summaryCalc.innerHTML = `Grupa taryfowa: ${spanF}${this.name}${spanE}, <br>Umowa kończy się: ${spanF}${endOfAgreement.value}${spanE}, <br>Klient posiada aktualnie ceny: Średnia: ${spanF}${havePriceAvr}${spanE} I strefa: ${spanF}${havePriceFirst}${spanE} II strefa: ${spanF}${havePriceSecond}${spanE}, <br>Ceny w cenniku na 2022 dla taryfy ${spanF}${this.name}${spanE}: Średnia: ${spanF}${this.pricesFromDb.tariff.price2022.avr}${spanE} I strefa ${spanF}${this.pricesFromDb.tariff.price2022.first}${spanE} II strefa: ${spanF}${this.pricesFromDb.tariff.price2022.second}${spanE}, <br>Zużycie roczne: <span class ="value-of-calc-data">${this.wearTwoSpheresSum}</span> MWh. <br>Propozycja cenowa: Średnia: ${spanF}${this.proposeTwoSpheresAvr}${spanE} I strefa: ${spanF}${this.proposeTwoSpheresFirst}${spanE} II strefa: ${spanF}${this.proposeTwoSpheresSecond}${spanE}, <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span><br>Osoba kontaktowa:`;
             summaryCalc.scrollIntoView();
         }
     }

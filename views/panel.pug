@@ -26,7 +26,7 @@ block content
       p(class="tariff-wrapper-title-main") C11
       div
         label(for="priceNow") Cena aktualna klienta: 
-        input(id="priceNow" type="text" placeholder="np. 382")       
+        input(id="priceNow" class="note-remover" type="text" placeholder="np. 382")       
       div
         label(for="priceInTariff") Cena w cenniku na 2022: 
         input(id="priceInTariff2022" type="text" placeholder="np. 300" value=data[0].tariff.price2022)
@@ -121,7 +121,7 @@ block content
         input(id="priceC212020" type="text" placeholder="np. 300" value=data[3].tariff.price2020)    
     div(class="intakec11c21")
       label(for="wear") Zużycie: 
-      input(id="wear" type="text" placeholder="np. 18.3")
+      input(id="wear" class="note-remover" type="text" placeholder="np. 18.3")
     div(class="havePricesc12ac12b")
       p(class="tariff-wrapper-title") Klient ma cenę:
       .have-prices-divs-wrapper   
@@ -265,9 +265,7 @@ block content
 
   script(src="/javascripts/energaCalc.js") 
   script(src="/javascripts/smallparts/changepricepanel.js")
-  script(src="/javascripts/smallparts/changetariffs.js")
-  script(src="/javascripts/smallparts/calcc12a.js")
-  script(src="/javascripts/smallparts/calcc12b.js")
+  script(src="/javascripts/smallparts/changetariffs.js")  
   script(src="/javascripts/smallparts/setToZero.js")
   script(src="/javascripts/tariffEngine.js") 
     
