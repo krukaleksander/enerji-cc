@@ -87,4 +87,9 @@ endOfAgreement.addEventListener('change', () => {
             div.style.display = "block";
         })
     }
-})
+});
+window.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        calcForTariff();
+    }
+});
