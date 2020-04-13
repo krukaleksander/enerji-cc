@@ -4,8 +4,8 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
-    h3 Ofertomat v. 1.2   
-    p(class="alert alert-danger") v.1.2 Pozwala na obliczenia C11, C12a, C12b. Rok 2020 otrzymał mnożnik 0.66.  
+    h3 Ofertomat v. 2.0   
+    p(class="alert alert-success") v.2.0 Pozwala na obliczenia w taryfach jedno i dwustrefowych. Ceny edytuje się guzikiem "Edycja cen"  
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
       label(for="tariff") Grupa taryfowa:  
@@ -94,6 +94,11 @@ block content
        include parts/changec11.pug
        include parts/changec12a.pug
        include parts/changec12b.pug       
+       include parts/changec21.pug       
+       include parts/changec22a.pug       
+       include parts/changec22b.pug       
+       include parts/changecb21.pug       
+       include parts/changeb22.pug       
        div
         input(id="changePriceBtn" class='btn btn-info' type="submit" value="OK")
        div(class="change-price-close")

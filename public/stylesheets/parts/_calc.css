@@ -87,6 +87,8 @@
   text-align: center;
   display: none;
   width: 700px;
+  height: 90vh;
+  overflow: scroll;
   transition: .5s;
 }
 
