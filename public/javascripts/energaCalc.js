@@ -62,9 +62,17 @@ const calcForTariff = () => {
     } else if (tariffCalcFlag === 2) {
         c12bEngine.mainCalcFn();
     } else if (tariffCalcFlag === 3) {
-        console.log('Pracuje nad tym');
+        c21Engine.mainCalcFn();
+    } else if (tariffCalcFlag === 4) {
+        c22aEngine.mainCalcFn();
+    } else if (tariffCalcFlag === 5) {
+        c22bEngine.mainCalcFn();
+    } else if (tariffCalcFlag === 6) {
+        b21Engine.mainCalcFn();
+    } else if (tariffCalcFlag === 7) {
+        b22Engine.mainCalcFn();
     } else {
-        console.log('What the fuck?');
+        console.log('co jest kurka wódka?')
     }
 }
 

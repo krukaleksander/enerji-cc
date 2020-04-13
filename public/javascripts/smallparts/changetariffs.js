@@ -1,69 +1,75 @@
 (
     () => {
+        const allTariffNames = ['c11', 'c12a', 'c12b', 'c21', 'c22a', 'c22b', 'b21', 'b22'];
         const tariff = document.getElementById('tariff');
-        const tariffC12a = document.querySelector('.tariffc12a-wrapper');
-        const tariffC11 = document.querySelector('.tariffc11-wrapper');
-        const tariffC12b = document.querySelector('.tariffc12b-wrapper');
-        const tariffC21 = document.querySelector('.tariffc21-wrapper');
         const intakeOneSphere = document.querySelector('.intakec11c21');
         const intakeTwoSpheres = document.querySelector('.intakec12ac12b');
         const propositionC11C21 = document.querySelector('.propositionc11c21');
         const propositionC12aC12b = document.querySelector('.propositionc12ac12b');
         const havePricesC12x = document.querySelector('.havePricesc12ac12b');
+        const havePricesC11 = document.querySelector('.have-prices-c11');
 
-        let tariffsArr = [];
+        const setDisplayOfTariffs = (tariffArr, showTariffName) => {
+            tariffArr.forEach(tariffName => {
+                document.querySelector(`.tariff${tariffName}-wrapper`).style.display = "none";
+            });
+            document.querySelector(`.tariff${showTariffName}-wrapper`).style.display = "block";
+            setIntakeAndProposition(showTariffName);
+        };
+        const setIntakeAndProposition = (tariffName) => {
+            if (tariffName[2] === "1") {
+                intakeTwoSpheres.style.display = "none";
+                intakeOneSphere.style.display = "block";
+                propositionC11C21.style.display = "block";
+                propositionC12aC12b.style.display = "none";
+                havePricesC12x.style.display = "none";
+                havePricesC11.style.display = "block";
+            } else if (tariffName[2] === "2") {
+                intakeTwoSpheres.style.display = "block";
+                intakeOneSphere.style.display = "none";
+                propositionC11C21.style.display = "none";
+                propositionC12aC12b.style.display = "block";
+                havePricesC12x.style.display = "block";
+                havePricesC11.style.display = "none";
+            };
+        };
+
         tariff.addEventListener('change', () => {
             if (tariff.value === "C12a") {
-                tariffsArr = [tariffC11, tariffC12b, tariffC21];
-                tariffC12a.style.display = "block";
-                intakeTwoSpheres.style.display = "block";
-                intakeOneSphere.style.display = "none";
-                propositionC11C21.style.display = "none";
-                propositionC12aC12b.style.display = "block";
-                havePricesC12x.style.display = "block";
+                setDisplayOfTariffs(allTariffNames, 'c12a');
                 tariffCalcFlag = 1;
-                tariffsArr.forEach(e => {
-                    e.style.display = "none";
-                });
+
             } else if (tariff.value === "C12b") {
-                tariffsArr = [tariffC11, tariffC12a, tariffC21];
-                tariffC12b.style.display = "block";
-                intakeTwoSpheres.style.display = "block";
-                intakeOneSphere.style.display = "none";
-                propositionC11C21.style.display = "none";
-                propositionC12aC12b.style.display = "block";
-                havePricesC12x.style.display = "block";
+                setDisplayOfTariffs(allTariffNames, 'c12b');
                 tariffCalcFlag = 2;
-                tariffsArr.forEach(e => {
-                    e.style.display = "none";
-                });
+
             } else if (tariff.value === "C21") {
-                tariffsArr = [tariffC11, tariffC12b, tariffC12a];
-                tariffC21.style.display = "block";
-                intakeTwoSpheres.style.display = "none";
-                intakeOneSphere.style.display = "block";
-                propositionC11C21.style.display = "block";
-                propositionC12aC12b.style.display = "none";
-                havePricesC12x.style.display = "none";
+                setDisplayOfTariffs(allTariffNames, 'c21');
                 tariffCalcFlag = 3;
-                tariffsArr.forEach(e => {
-                    e.style.display = "none";
-                });
+
             } else if (tariff.value === "C11") {
-                tariffsArr = [tariffC12a, tariffC12b, tariffC21];
-                tariffC11.style.display = "block";
-                intakeTwoSpheres.style.display = "none";
-                intakeOneSphere.style.display = "block";
-                propositionC11C21.style.display = "block";
-                propositionC12aC12b.style.display = "none";
-                havePricesC12x.style.display = "none";
+                setDisplayOfTariffs(allTariffNames, 'c11');
                 tariffCalcFlag = 0;
-                tariffsArr.forEach(e => {
-                    e.style.display = "none";
-                });
+
+            } else if (tariff.value === "C22a") {
+                setDisplayOfTariffs(allTariffNames, 'c22a');
+                tariffCalcFlag = 4;
+
+            } else if (tariff.value === "C22b") {
+                setDisplayOfTariffs(allTariffNames, 'c22b');
+                tariffCalcFlag = 5;
+
+            } else if (tariff.value === "B21") {
+                setDisplayOfTariffs(allTariffNames, 'b21');
+                tariffCalcFlag = 6;
+
+            } else if (tariff.value === "B22") {
+                setDisplayOfTariffs(allTariffNames, 'b22');
+                tariffCalcFlag = 7;
+
             }
             summaryCalc.scrollIntoView();
-        })
+        });
 
 
 
