@@ -384,7 +384,8 @@ body .wrapper .tariffb21-wrapper,
 body .wrapper .tariffb22-wrapper,
 body .wrapper .intakec12ac12b,
 body .wrapper .propositionc12ac12b,
-body .wrapper .havePricesc12ac12b {
+body .wrapper .havePricesc12ac12b,
+body .wrapper #info35zl {
   display: none;
 }
 

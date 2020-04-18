@@ -5,7 +5,7 @@ block content
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
     h3 Ofertomat v. 2.1   
-    p(class="alert alert-success") v.2.1 Dzięki Kalinie dodana taryfa B11  
+    p(class="alert alert-success") v.2.1 Dodano B11 - dzięki Kalina. Na życzenie dodaje informacje o opłacie handlowej.  
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
       label(for="tariff") Grupa taryfowa:  
@@ -89,7 +89,8 @@ block content
     div(class="btn-wrapper")  
       button(id="btnCalc" class="btn btn-success") Przelicz      
     p(class="note") Notatka:     
-    p(id="summaryCalc")       
+    p(id="summaryCalc")
+    button(id="info35zl" class="btn btn-info") Opłata handlowa       
     .change-price-panel          
       p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
       form(action="panel/change-price/" method="post")
@@ -107,11 +108,9 @@ block content
        div(class="change-price-close")
          img(src="./images/close_cross.png", alt="") 
 
-  script(src="/javascripts/energaCalc.js") 
+  script(src="/javascripts/energaCalc.js")   
+  script(src="/javascripts/smallparts/add35zlinfo.js")
   script(src="/javascripts/smallparts/changepricepanel.js")
   script(src="/javascripts/smallparts/changetariffs.js")  
   script(src="/javascripts/smallparts/setToZero.js")
   script(src="/javascripts/tariffEngine.js") 
-    
-
-   
