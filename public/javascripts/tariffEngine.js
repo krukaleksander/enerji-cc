@@ -116,4 +116,5 @@ const c21Engine = new Tariff(1, 3, 'C21');
 const c22aEngine = new Tariff(2, 4, 'C22a');
 const c22bEngine = new Tariff(2, 5, 'C22b');
 const b21Engine = new Tariff(1, 6, 'B21');
+const b11Engine = new Tariff(1, 8, 'B11');
 const b22Engine = new Tariff(2, 7, 'B22');

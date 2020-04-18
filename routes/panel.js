@@ -157,7 +157,21 @@ router.post('/change-price/', (req, res, next) => {
                                         }
                                     }, function () {
 
-                                        res.redirect('/panel')
+
+                                        Mamjuzdosc.findOneAndUpdate({
+                                            id: "8"
+                                        }, {
+                                            "$set": {
+                                                "tariff.price2022": higherPricer(removeCommasFn(requestBody.b11price2022)),
+                                                "tariff.price2021": higherPricer(removeCommasFn(requestBody.b11price2021)),
+                                                "tariff.price2020": higherPricer(removeCommasFn(requestBody.b11price2020))
+
+                                            }
+                                        }, function () {
+
+                                            res.redirect('/panel')
+
+                                        })
 
                                     })
 

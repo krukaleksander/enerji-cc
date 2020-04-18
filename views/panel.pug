@@ -4,8 +4,8 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
-    h3 Ofertomat v. 2.0   
-    p(class="alert alert-success") v.2.0 Pozwala na obliczenia w taryfach jedno i dwustrefowych. Ceny edytuje się guzikiem "Edycja cen"  
+    h3 Ofertomat v. 2.1   
+    p(class="alert alert-success") v.2.1 Dzięki Kalinie dodana taryfa B11  
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
       label(for="tariff") Grupa taryfowa:  
@@ -15,7 +15,8 @@ block content
         option(value="C12b") C12b                       
         option(value="C21") C21                       
         option(value="C22a") C22a                      
-        option(value="C22b") C22b                       
+        option(value="C22b") C22b 
+        option(value="B11") B11                      
         option(value="B21") B21                       
         option(value="B22") B22                       
     div
@@ -29,7 +30,8 @@ block content
     include parts/c12b
     include parts/c21   
     include parts/c22a   
-    include parts/c22b   
+    include parts/c22b 
+    include parts/b11  
     include parts/b21   
     include parts/b22   
     .have-prices-c11 
@@ -96,7 +98,8 @@ block content
        include parts/changec12b.pug       
        include parts/changec21.pug       
        include parts/changec22a.pug       
-       include parts/changec22b.pug       
+       include parts/changec22b.pug 
+       include parts/changeb11.pug      
        include parts/changecb21.pug       
        include parts/changeb22.pug       
        div

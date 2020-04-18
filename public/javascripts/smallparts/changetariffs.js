@@ -1,6 +1,6 @@
 (
     () => {
-        const allTariffNames = ['c11', 'c12a', 'c12b', 'c21', 'c22a', 'c22b', 'b21', 'b22'];
+        const allTariffNames = ['c11', 'c12a', 'c12b', 'c21', 'c22a', 'c22b', 'b21', 'b22', 'b11'];
         const tariff = document.getElementById('tariff');
         const intakeOneSphere = document.querySelector('.intakec11c21');
         const intakeTwoSpheres = document.querySelector('.intakec12ac12b');
@@ -66,6 +66,10 @@
             } else if (tariff.value === "B22") {
                 setDisplayOfTariffs(allTariffNames, 'b22');
                 tariffCalcFlag = 7;
+
+            } else if (tariff.value === "B11") {
+                setDisplayOfTariffs(allTariffNames, 'b11');
+                tariffCalcFlag = 8;
 
             }
             summaryCalc.scrollIntoView();
