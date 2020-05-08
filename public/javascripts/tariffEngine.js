@@ -93,6 +93,19 @@ class Tariff {
             summaryCalc.scrollIntoView();
         }
     }
+    checkWhatIsBetter = () => {
+        if (this.numberOfSpheres === 2) {
+            this.getWear();
+            this.getProposition();
+            const wearSum = Number(this.wearTwoSpheresSum);
+            const costAvr = (wearSum * this.proposeTwoSpheresAvr).toFixed(2);
+            const costInSpheres = ((this.weareTwoSpeheresFirst * this.proposeTwoSpheresFirst) + (this.weareTwoSpeheresSecond * this.proposeTwoSpheresSecond)).toFixed(2);
+            console.log(`Na płasko klient zapłaci za rok: ${costAvr}`);
+            console.log(`W podziale na strefy klient zapłaci za rok: ${costInSpheres}`);
+        } else {
+            return
+        }
+    }
     mainCalcFn = () => {
         this.checkEndOfAgreement();
         this.getWear();

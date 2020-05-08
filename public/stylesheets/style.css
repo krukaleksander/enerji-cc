@@ -1014,7 +1014,7 @@ body .stats-wrapper .stats-heading {
 
 body .stats-wrapper .cases-wrapper {
   padding: 10px;
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
   border: 2px solid black;
   border-radius: 5px;
@@ -1092,11 +1092,11 @@ body .stats-wrapper .cases-wrapper #kontakt {
   background-color: rgba(255, 235, 59, 0.43);
 }
 
-body .stats-wrapper .cases-wrapper #mail {
+body .stats-wrapper .cases-wrapper #klient {
   background-color: rgba(1, 128, 1, 0.721);
 }
 
-body .stats-wrapper .cases-wrapper #pd {
+body .stats-wrapper .cases-wrapper #spotkanie {
   background-color: rgba(1, 128, 1, 0.921);
 }
 

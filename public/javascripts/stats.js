@@ -1,3 +1,8 @@
+(() => {
+    document.getElementById('klient sprawdza').style.backgroundColor = 'rgba(1, 128, 1, 0.721)';
+})()
+
+
 const allCases = [...document.querySelectorAll('span.case-name')];
 const allAmmounts = [...document.querySelectorAll('span.case-ammount')];
 let allbase = {};

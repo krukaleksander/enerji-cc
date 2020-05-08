@@ -2,7 +2,7 @@ extends layout
 
 block content
   .stats-wrapper.container.container-fluid 
-    h1(class="stats-heading") Statystyki    
+    h1(class="stats-heading") Statystyki TPA    
     p(class="alert alert-success") Jeśli nie wiesz co oznacza status po prostu najedź na niego myszką =)
     .cases-wrapper
       each item in data
@@ -28,7 +28,7 @@ block content
         p(class="sum-par sum-answered") Rozmowa [Pozostałe]:   
           span(class="stats-sum")=`${allRecords - notAnsweredCalls}`
           span(class="percent")=allRecords > 0 ? `${(((allRecords - notAnsweredCalls) / allRecords)*100).toFixed(2)}%` : "0%"  
-        p(class="sum-par sum-answered") Pożądane [Mail + PD]:   
+        p(class="sum-par sum-answered") Pożądane [Klient sprawdza + Spotkanie]:   
           span(class="stats-sum")=positiveEnd
           span(class="percent")=allRecords > 0 ? `${((positiveEnd / allRecords)*100).toFixed(2)}%` : "0%" 
         form(class="zero-form" action="/stats/zero-stats")
