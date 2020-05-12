@@ -1,0 +1,58 @@
+.main-nav__new-link {
+    background: -webkit-linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(183, 157, 230, 1) 0%, rgba(187, 89, 237, 1) 35%, rgba(145, 165, 224, 1) 100%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.mwh-title {
+    text-align: center;
+    background: rgba(240, 248, 255, 0.569);
+    max-width: 550px;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-size: 30px;
+    padding: 10px;
+    font-weight: bolder;
+}
+
+.calcFV {
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(183, 157, 230, 1) 0%, rgba(187, 89, 237, 1) 35%, rgba(145, 165, 224, 1) 100%);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid rgb(45, 8, 45);
+    box-shadow: 0 3px 2px 2px;
+    border-radius: 10px;
+    padding: 10px;
+
+    &__title {
+        font-size: 20px;
+        text-align: center;
+        font-weight: bolder;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgb(128, 0, 128);
+        border-bottom: 2px solid purple;
+        text-shadow: -2px 2px 1px aliceblue;
+    }
+
+    .fv-class {
+        font-weight: bolder;
+        letter-spacing: 1px;
+    }
+
+    .fv-class--compl {
+        color: rgb(17, 1, 17);
+    }
+
+    .fv-class--just-sales {
+        color: rgb(27, 10, 225);
+    }
+
+    .fv-class--extra-line {
+        border-bottom: 2px solid rgb(70, 55, 53);
+        padding-bottom: 15px;
+    }
+}

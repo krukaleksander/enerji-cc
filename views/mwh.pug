@@ -4,22 +4,22 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj
   script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js")
-  h1(class="mwh-title") Sekcja liczenia MWh  
+  h1(class="mwh-title") MWh z kwoty rachunku [orientacyjne!]  
   div(ng-app="myApp" ng-controller="myCtrl" class="ofertomat-wrapper")      
     div(class="calcFV")     
-      p Kwota rachunku brutto: 
+      p(class="calcFV__title") Wpisz kwotę rachunku BRUTTO: 
       input(id="brutto" ng-model="brutto")
       p Netto: {{(brutto / 1.23).toFixed(2)}}    
-      p(class="fv-class") Orientacyjna liczba MWh (kompleks):
-       span {{((brutto / 1.23 * 0.6) / 350).toFixed(2)}} 
-      p(class="fv-class") Rocznie MWh faktura 2 miesiace:
-       span {{((brutto / 1.23 * 0.6 * 6) / 350).toFixed(2)}}  
-      p(class="fv-class") Rocznie MWh faktura 1 miesiąc:
-        span {{((brutto / 1.23 * 0.6 * 12) / 350).toFixed(2)}}    
-      p(class="fv-class") Orientacyjna liczba MWh (sprzedaż):
-        span {{((brutto / 1.23) / 350).toFixed(2)}} 
-      p(class="fv-class") Rocznie MWh faktura 2 miesiace:
-        span {{((brutto / 1.23) / 350 * 6).toFixed(2)}}  
-      p(class="fv-class") Rocznie MWh faktura 1 miesiac:
-        span {{((brutto / 1.23) / 350 * 12).toFixed(2)}}  
+      p(class="fv-class fv-class--compl") Orientacyjna liczba MWh (kompleks):
+       span  {{((brutto / 1.23 * 0.6) / 350).toFixed(2)}} 
+      p(class="fv-class fv-class--compl") Rocznie MWh faktura 2 miesiace:
+       span  {{((brutto / 1.23 * 0.6 * 6) / 350).toFixed(2)}}  
+      p(class="fv-class fv-class--compl fv-class--extra-line" ) Rocznie MWh faktura 1 miesiąc:
+        span  {{((brutto / 1.23 * 0.6 * 12) / 350).toFixed(2)}}    
+      p(class="fv-class fv-class--just-sales") Orientacyjna liczba MWh (sprzedaż):
+        span  {{((brutto / 1.23) / 350).toFixed(2)}} 
+      p(class="fv-class fv-class--just-sales") Rocznie MWh faktura 2 miesiace:
+        span  {{((brutto / 1.23) / 350 * 6).toFixed(2)}}  
+      p(class="fv-class fv-class--just-sales") Rocznie MWh faktura 1 miesiac:
+        span  {{((brutto / 1.23) / 350 * 12).toFixed(2)}}  
   script(src="/javascripts/mwh.js")   

@@ -34,6 +34,8 @@ body {
         &:hover {
             box-shadow: inset 1px 1px 10px 0px;
         }
+
+
     }
 
     @import './parts/login';
@@ -46,5 +48,6 @@ body {
     @import './parts/church';
     @import './parts/motive';
     @import './parts/stats';
+    @import './parts/mwh';
 
 }
