@@ -25,6 +25,7 @@ var calendarRouter = require('./routes/calendar');
 var churchRouter = require('./routes/church');
 var newRouter = require('./routes/new.js');
 var statystykiRouter = require('./routes/statystyki.js');
+var mwhRouter = require('./routes/mwh.js');
 
 
 
@@ -58,6 +59,7 @@ app.use('/panel/calendar', calendarRouter);
 app.use('/panel/church', churchRouter);
 app.use('/panel/church/new', newRouter);
 app.use('/stats', statystykiRouter);
+app.use('/mwh', mwhRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,0 +1,25 @@
+extends layout
+block content
+  link(href="https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap&subset=latin-ext" rel="stylesheet")
+  form(method='post')
+    button(type='submit' class='logout-btn') Wyloguj
+  script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js")
+  h1(class="mwh-title") Sekcja liczenia MWh  
+  div(ng-app="myApp" ng-controller="myCtrl" class="ofertomat-wrapper")      
+    div(class="calcFV")     
+      p Kwota rachunku brutto: 
+      input(id="brutto" ng-model="brutto")
+      p Netto: {{(brutto / 1.23).toFixed(2)}}    
+      p(class="fv-class") Orientacyjna liczba MWh (kompleks):
+       span {{((brutto / 1.23 * 0.6) / 350).toFixed(2)}} 
+      p(class="fv-class") Rocznie MWh faktura 2 miesiace:
+       span {{((brutto / 1.23 * 0.6 * 6) / 350).toFixed(2)}}  
+      p(class="fv-class") Rocznie MWh faktura 1 miesiąc:
+        span {{((brutto / 1.23 * 0.6 * 12) / 350).toFixed(2)}}    
+      p(class="fv-class") Orientacyjna liczba MWh (sprzedaż):
+        span {{((brutto / 1.23) / 350).toFixed(2)}} 
+      p(class="fv-class") Rocznie MWh faktura 2 miesiace:
+        span {{((brutto / 1.23) / 350 * 6).toFixed(2)}}  
+      p(class="fv-class") Rocznie MWh faktura 1 miesiac:
+        span {{((brutto / 1.23) / 350 * 12).toFixed(2)}}  
+  script(src="/javascripts/mwh.js")   

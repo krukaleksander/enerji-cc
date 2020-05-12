@@ -1,3 +1,4 @@
+// ponizsze funkcja dodaje kolor do elementu ktory ma id z whitespace
 (() => {
     document.getElementById('klient sprawdza').style.backgroundColor = 'rgba(1, 128, 1, 0.721)';
 })()
