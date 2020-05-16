@@ -6,8 +6,13 @@ div.menu-mobile {
     height: 50px;
     position: fixed;
     right: 5px;
-    top: 5px;
+    bottom: 5px;
     z-index: 1;
+
+    img {
+        width: 100%;
+        border-radius: 50%;
+    }
 
     @include iphoneX {
         display: block;
@@ -119,5 +124,17 @@ div.menu-mobile {
 
         }
 
+    }
+}
+
+.main-nav.show {
+    top: 0px;
+    min-width: 50vw;
+    left: 40%;
+    background: rgba(64, 57, 57, 0.89);
+
+    a {
+        font-size: 20px;
+        color: orange;
     }
 }

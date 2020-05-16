@@ -4,8 +4,13 @@ div.menu-mobile {
   height: 50px;
   position: fixed;
   right: 5px;
-  top: 5px;
+  bottom: 5px;
   z-index: 1;
+}
+
+div.menu-mobile img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 @media (max-width: 600px) {
@@ -132,4 +137,16 @@ div.menu-mobile i.active {
 .main-nav ul li a.disabled {
   text-decoration: line-through;
   cursor: default;
+}
+
+.main-nav.show {
+  top: 0px;
+  min-width: 50vw;
+  left: 40%;
+  background: rgba(64, 57, 57, 0.89);
+}
+
+.main-nav.show a {
+  font-size: 20px;
+  color: orange;
 }

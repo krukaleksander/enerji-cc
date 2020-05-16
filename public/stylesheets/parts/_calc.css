@@ -10,6 +10,37 @@
   font-family: Arial, sans-serif;
 }
 
+@media (max-width: 460px) {
+  .wrapper {
+    max-width: 95vw;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 460px) {
+  .wrapper__title {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .wrapper .intakec11c21,
+  .wrapper .propositionc11c21 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 460px) {
+  .wrapper .show-price-change {
+    display: none;
+  }
+}
+
 .wrapper h3 {
   text-align: center;
   color: #830707;
@@ -54,6 +85,12 @@
 
 .wrapper .btn-wrapper {
   text-align: center;
+}
+
+@media (max-width: 460px) {
+  .wrapper .btn-wrapper {
+    margin-top: 10px;
+  }
 }
 
 .wrapper .btn-wrapper #btnCalc {

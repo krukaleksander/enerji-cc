@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+2:400,700&display=swap&subset=latin-ext');
+@import './breakepoints';
 
 .wrapper {
     width: 800px;
@@ -9,6 +10,35 @@
     box-shadow: 4px 4px black;
     font-size: 20px;
     font-family: Arial, sans-serif;
+
+    @include mq('xsmall') {
+        max-width: 95vw;
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 auto;
+    }
+
+    &__title {
+        @include mq('xsmall') {
+            display: none;
+        }
+    }
+
+    .intakec11c21,
+    .propositionc11c21 {
+        @include mq('xsmall') {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .show-price-change {
+        @include mq('xsmall') {
+            display: none;
+        }
+    }
 
     h3 {
         text-align: center;
@@ -60,6 +90,10 @@
 
     .btn-wrapper {
         text-align: center;
+
+        @include mq('xsmall') {
+            margin-top: 10px;
+        }
 
         #btnCalc {
             width: 120px;

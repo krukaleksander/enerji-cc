@@ -1,3 +1,5 @@
+@import './parts/breakepoints';
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,6 +18,10 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    @include mq('xsmall') {
+        background: linear-gradient(red, blue);
+    }
 
     .logout-btn {
         position: fixed;
