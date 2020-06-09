@@ -4,11 +4,14 @@ function savingsReplaceAndParseFn(item) {
     return parseFloat(item.replace(/\,/g, '.'));
 };
 
+
+
 // deklaruje zmienne, które mi są potrzebne globalnie
 
 let savingsWearOneSphere, savingsWearFirstSphere, savingsWearSecondSphere, savingsClientPriceOneSphere, savingsClientPriceAvr, savingsClientPriceFirst, savingsClientPriceSecond;
 let savingsPropositionOnesphere, savingsPropositionFirstSphere, savingsPropositionSecondSphere, savingsPropositionAvr;
 let savingsTradeFee, savingsTariffName;
+let savingsSummary;
 
 // funkcja pobierająca najświeższe dane 
 
@@ -45,6 +48,10 @@ function savingsGetActualData() {
 
     savingsTariffName = document.getElementById('tariff').value;
 
+    // pobieram podsumowanie 
+
+    savingsSummary = document.getElementById('summaryCalc');
+
 }
 
 //pobieram button 
@@ -53,16 +60,15 @@ const savingsCalcBtn = document.getElementById('activeCalcSavings');
 
 
 
-// główna funkcja owijająca nastawiona na zmianę checkboxa
+// główna funkcja owijająca nastawiona na kliknięcie guzika
 
 savingsCalcBtn.addEventListener('click', function () {
 
-    console.log('kliknąłeś guzik zaczynam działać');
     //pobieram aktualne dane
     savingsGetActualData();
     //oblicza oszczędność z opłaty handlowej
     const savingsTradeFeeAnnual = (Number(savingsTradeFee) * 12).toFixed(2);
-    console.log(savingsTradeFeeAnnual);
+
     // wylicze oszczędności na prądzie
 
     //ustawiam zależność od tego czy jest to dwustrefowa czy jednostrefowa
@@ -70,17 +76,20 @@ savingsCalcBtn.addEventListener('click', function () {
     if (savingsTariffName[2] === "1") {
         // wyliczenia dla taryfy jednostefowej
         const savingsForOneSphereTarriff = ((savingsClientPriceOneSphere - savingsPropositionOnesphere) * savingsWearOneSphere).toFixed(2);
-        console.log(savingsForOneSphereTarriff);
+        const actualNote = savingsSummary.innerHTML;
+        savingsSummary.innerHTML = actualNote + `<br> <p class="savings-par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savingsForOneSphereTarriff}</span></p>`
 
 
     } else {
         //wyliczenia dla taryfy dwustefowej
         if (onePriceFlag === 0) {
             const savinfsForTwoSpheresTarriff = (((savingsClientPriceFirst - savingsPropositionFirstSphere) * savingsWearFirstSphere) + ((savingsClientPriceSecond - savingsPropositionSecondSphere) * savingsWearSecondSphere)).toFixed(2);
-            console.log(savinfsForTwoSpheresTarriff);
+            const actualNote = savingsSummary.innerHTML;
+            savingsSummary.innerHTML = actualNote + `<br> <p class="savings-par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savinfsForTwoSpheresTarriff}</span></p>`
         } else {
             const savinfsForTwoSpheresTarriffAvr = ((savingsClientPriceAvr - savingsPropositionAvr) * (savingsWearFirstSphere + savingsWearSecondSphere)).toFixed(2);
-            console.log(savinfsForTwoSpheresTarriffAvr);
+            const actualNote = savingsSummary.innerHTML;
+            savingsSummary.innerHTML = actualNote + `<br> <p class="savings-par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savinfsForTwoSpheresTarriffAvr}</span></p>`
         }
 
 
