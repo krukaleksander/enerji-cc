@@ -10,7 +10,7 @@
   font-family: Arial, sans-serif;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 640px) {
   .wrapper {
     max-width: 95vw;
     position: absolute;
@@ -21,13 +21,13 @@
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 640px) {
   .wrapper__title {
     display: none;
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 640px) {
   .wrapper .intakec11c21,
   .wrapper .propositionc11c21 {
     display: flex;
@@ -35,7 +35,7 @@
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 640px) {
   .wrapper .show-price-change {
     display: none;
   }
@@ -87,7 +87,7 @@
   text-align: center;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 640px) {
   .wrapper .btn-wrapper {
     margin-top: 10px;
   }
@@ -228,4 +228,8 @@
 .wrapper .change-price-heading,
 .wrapper #changePriceBtn {
   margin-top: 10px;
+}
+
+.wrapper .label-for-trade-fee {
+  color: darkgreen;
 }

@@ -493,6 +493,10 @@ body .wrapper #changePriceBtn {
   margin-top: 10px;
 }
 
+body .wrapper .label-for-trade-fee {
+  color: darkgreen;
+}
+
 body h1.experts-heading {
   text-align: center;
   margin-bottom: 5px;

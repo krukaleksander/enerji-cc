@@ -11,6 +11,7 @@ let tariffCalcFlag = 0;
 let onePriceFlag = 0;
 let info35zlFlag = true;
 
+onePriceCheckbox.checked = false;
 selectElement('tariff', 'C11');
 selectElement('endOfAgreement', '2021');
 

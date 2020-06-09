@@ -4,8 +4,8 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
-    h3 Ofertomat v. 2.1   
-    p(class="alert alert-success wrapper__title") v.2.1 Dodano B11 - dzięki Kalina. Na życzenie dodaje informacje o opłacie handlowej.  
+    h3 Ofertomat v. 3.0   
+    p(class="alert alert-success wrapper__title") W wersji 3 ofertomat jest przygotowany pod TPA. Wylicza oszczędności klienta. Zaznacz checkbox i wpisz opłatę handlową.  
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
       label(for="tariff") Grupa taryfowa:  
@@ -24,7 +24,12 @@ block content
       select(id="endOfAgreement")
         option(class="option-2021" value=2021) 2021
         option(class="option-2020" value=2020) 2020
-        option(class="option-2019" value=9999) 9999    
+        option(class="option-2019" value=9999) 9999   
+    div
+      button(id="activeCalcSavings" class="btn btn-success") Oszczędności 
+    div
+      label(for="tradeFee" class="label-for-trade-fee") Opłata handlowa
+      input(id="tradeFee" class="set-to-zero" type="text" value=0)
     include parts/c11   
     include parts/c12a
     include parts/c12b
@@ -39,7 +44,7 @@ block content
         label(for="priceNow") Cena aktualna klienta: 
         input(id="priceNow" class="note-remover" type="text" placeholder="np. 382" value=0)
     div(class="intakec11c21")
-      label(for="wear") Zużycie: 
+      label(for="wear") Zużycie MWh: 
       input(id="wear" class="note-remover" type="text" placeholder="np. 18.3" value=0)      
     div(class="havePricesc12ac12b")
       p(class="tariff-wrapper-title") Klient ma cenę:
@@ -115,4 +120,5 @@ block content
   //- script(src="/javascripts/smallparts/setToZero.js")
   //- script(src="/javascripts/tariffEngine.js") 
   script(src="/javascripts/babelTest.js")
+  //- script(src="/javascripts/smallparts/calcSavings.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous")
