@@ -6,5 +6,6 @@
         inputsToClear.forEach(input => {
             input.value = 0;
         })
-    })
+    });
+    clearNote();
 })()

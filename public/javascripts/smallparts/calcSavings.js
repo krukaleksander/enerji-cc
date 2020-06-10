@@ -77,7 +77,7 @@ savingsCalcBtn.addEventListener('click', function () {
         // wyliczenia dla taryfy jednostefowej
         const savingsForOneSphereTarriff = ((savingsClientPriceOneSphere - savingsPropositionOnesphere) * savingsWearOneSphere).toFixed(2);
         const actualNote = savingsSummary.innerHTML;
-        savingsSummary.innerHTML = actualNote + `<br> <p class="savings-par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savingsForOneSphereTarriff}</span></p>`
+        savingsSummary.innerHTML = actualNote + `<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savingsForOneSphereTarriff}</span></p></div>`
 
 
     } else {
@@ -85,11 +85,11 @@ savingsCalcBtn.addEventListener('click', function () {
         if (onePriceFlag === 0) {
             const savinfsForTwoSpheresTarriff = (((savingsClientPriceFirst - savingsPropositionFirstSphere) * savingsWearFirstSphere) + ((savingsClientPriceSecond - savingsPropositionSecondSphere) * savingsWearSecondSphere)).toFixed(2);
             const actualNote = savingsSummary.innerHTML;
-            savingsSummary.innerHTML = actualNote + `<br> <p class="savings-par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savinfsForTwoSpheresTarriff}</span></p>`
+            savingsSummary.innerHTML = actualNote + `<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savinfsForTwoSpheresTarriff}</span></p></div>`
         } else {
             const savinfsForTwoSpheresTarriffAvr = ((savingsClientPriceAvr - savingsPropositionAvr) * (savingsWearFirstSphere + savingsWearSecondSphere)).toFixed(2);
             const actualNote = savingsSummary.innerHTML;
-            savingsSummary.innerHTML = actualNote + `<br> <p class="savings-par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savinfsForTwoSpheresTarriffAvr}</span></p>`
+            savingsSummary.innerHTML = actualNote + `<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>${savingsTradeFeeAnnual}.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>${savinfsForTwoSpheresTarriffAvr}</span></p></div>`
         }
 
 

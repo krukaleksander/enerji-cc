@@ -24,9 +24,7 @@ block content
       select(id="endOfAgreement")
         option(class="option-2021" value=2021) 2021
         option(class="option-2020" value=2020) 2020
-        option(class="option-2019" value=9999) 9999   
-    div
-      button(id="activeCalcSavings" class="btn btn-success") Oszczędności 
+        option(class="option-2019" value=9999) 9999     
     div
       label(for="tradeFee" class="label-for-trade-fee") Opłata handlowa
       input(id="tradeFee" class="set-to-zero" type="text" value=0)
@@ -95,7 +93,8 @@ block content
       button(id="btnCalc" class="btn btn-success") Przelicz      
     p(class="note") Notatka:     
     p(id="summaryCalc")
-    button(id="info35zl" class="btn btn-info") Opłata handlowa       
+    div
+      button(id="activeCalcSavings" class="btn btn-success") Oszczędności       
     .change-price-panel          
       p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
       form(action="panel/change-price/" method="post")

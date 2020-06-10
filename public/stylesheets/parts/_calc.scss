@@ -240,10 +240,41 @@
         margin-top: 10px;
     }
 
+    .wrap-checkbox {
+        @include mq(xsmall) {
+            margin-top: 10px;
+        }
+
+        #onePriceForAll {
+            @include mq(xsmall) {
+                transform: scale(1.5);
+                width: 0px;
+                height: 0px;
+                vertical-align: super;
+            }
+        }
+    }
 
     .label-for-trade-fee {
         color: darkgreen;
     }
 
+    #activeCalcSavings {
+        display: none;
+    }
 
+    .savings-note {
+        border-top: 2px solid gray;
+        padding: 5px;
+
+        p {
+            margin: 0px;
+            color: indianred;
+
+            span {
+                font-weight: bolder;
+                color: green;
+            }
+        }
+    }
 }

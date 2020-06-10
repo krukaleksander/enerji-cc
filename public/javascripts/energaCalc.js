@@ -6,7 +6,7 @@ const divWhenOption2019 = document.querySelector('.when-option-2019');
 const onePriceCheckbox = document.getElementById('onePriceForAll');
 const tariff = document.getElementById('tariff');
 const endOfAgreement = document.getElementById('endOfAgreement');
-const btn35zl = document.getElementById('info35zl');
+const btnSavings = document.getElementById('activeCalcSavings');
 let tariffCalcFlag = 0;
 let onePriceFlag = 0;
 let info35zlFlag = true;
@@ -26,7 +26,7 @@ function selectElement(id, valueToSelect) {
 const clearNote = () => {
     summaryCalc.style.padding = "0px";
     summaryCalc.innerHTML = "";
-    btn35zl.style.display = 'none';
+    btnSavings.style.display = 'none';
     info35zlFlag = true;
 };
 removeNoteFn = () => {
@@ -59,7 +59,7 @@ onePriceCheckbox.addEventListener('click', () => {
 });
 
 const calcForTariff = () => {
-    btn35zl.style.display = 'block';
+    btnSavings.style.display = 'block';
     if (tariffCalcFlag === 0) {
         c11Engine.mainCalcFn();
 

@@ -493,8 +493,42 @@ body .wrapper #changePriceBtn {
   margin-top: 10px;
 }
 
+@media (max-width: 640px) {
+  body .wrapper .wrap-checkbox {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  body .wrapper .wrap-checkbox #onePriceForAll {
+    transform: scale(1.5);
+    width: 0px;
+    height: 0px;
+    vertical-align: super;
+  }
+}
+
 body .wrapper .label-for-trade-fee {
   color: darkgreen;
+}
+
+body .wrapper #activeCalcSavings {
+  display: none;
+}
+
+body .wrapper .savings-note {
+  border-top: 2px solid gray;
+  padding: 5px;
+}
+
+body .wrapper .savings-note p {
+  margin: 0px;
+  color: indianred;
+}
+
+body .wrapper .savings-note p span {
+  font-weight: bolder;
+  color: green;
 }
 
 body h1.experts-heading {
