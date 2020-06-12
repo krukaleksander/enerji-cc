@@ -4,9 +4,24 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
-    h3 Ofertomat v. 3.0   
-    p(class="alert alert-success wrapper__title") W wersji 3 ofertomat jest przygotowany pod TPA. Wylicza oszczędności klienta.   
+    h3 Ofertomat v. 3.1   
+    p(class="alert alert-success wrapper__title") Wersja 3.1 została wzbogacona o sumę oszczędności klienta i kalkulator zużyć - wpisujesz zużycia z faktury a on Ci poda roczne.   
     button(class="btn btn-dark show-price-change") Edycja cen 
+    div
+      button(class="btn btn-info show-calc-wear") Przelicz zużycie  
+        i(class="fas fa-fingerprint")
+    .calc-wear
+      div(class="calc-wear__hide")
+        i(class="fas fa-minus-circle")
+      p(class="calc-wear__par") Podaj dane wprost z faktury (w kWh), program poda Ci zużycie roczne w mWh.
+      div
+        label I strefa:
+        input(class="calc-wear__input calc-wear__input--first-sphere" value=0)
+      div
+        label II strefa:
+        input(class="calc-wear__input calc-wear__input--second-sphere" value=0)
+      button(class="btn btn-info calc-wear__btn") Przelicz
+      p(class="calc-wear__score")
     div
       label(for="tariff") Grupa taryfowa:  
       select(id="tariff" class="note-remover")

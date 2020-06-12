@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Baloo+2:400,700&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Anton&display=swap&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap&subset=latin-ext");
 * {
@@ -11,7 +12,7 @@ body {
   height: 100vh;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url("../images/spring.jpg");
+  background: url("../images/bora.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +21,12 @@ body {
 
 @media (max-width: 640px) {
   body {
-    background: linear-gradient(red, blue);
+    background: #f46b45;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eea849, #f46b45);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eea849, #f46b45);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 }
 
@@ -265,7 +271,12 @@ body .main-nav.show a {
 body .wrapper {
   width: 800px;
   margin: 25px auto 0;
-  background: rgba(173, 216, 230, 0.74);
+  background: #c2e59c;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(100, 179, 244, 0.8), rgba(194, 229, 156, 0.8));
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(100, 179, 244, 0.8), rgba(194, 229, 156, 0.8));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 20px;
   border: 3px solid black;
   box-shadow: 4px 4px black;
@@ -281,6 +292,9 @@ body .wrapper {
     left: 50%;
     transform: translateX(-50%);
     margin: 0 auto;
+    box-shadow: none;
+    border: 1px solid black;
+    border-radius: 10px;
   }
 }
 
@@ -305,8 +319,10 @@ body .wrapper {
 }
 
 body .wrapper h3 {
+  font-family: 'Metal Mania', cursive;
   text-align: center;
-  color: #830707;
+  color: #4148ae;
+  text-shadow: 1px 1px #d5e8c2;
 }
 
 body .wrapper input {
@@ -529,6 +545,72 @@ body .wrapper .savings-note p {
 body .wrapper .savings-note p span {
   font-weight: bolder;
   color: green;
+}
+
+body .wrapper .show-calc-wear {
+  margin: 10px 0px;
+}
+
+body .wrapper .calc-wear {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  width: 500px;
+  background-color: bisque;
+  padding: 15px;
+  box-shadow: -1px 2px 8px aliceblue;
+}
+
+@media (max-width: 640px) {
+  body .wrapper .calc-wear {
+    max-width: 300px;
+  }
+}
+
+body .wrapper .calc-wear__hide {
+  max-width: 30px;
+  font-size: 20px;
+  color: #1f5e68;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+body .wrapper .calc-wear__btn {
+  width: 100px;
+}
+
+body .wrapper .calc-wear__score {
+  color: cadetblue;
+}
+
+@media (max-width: 640px) {
+  body .wrapper .calc-wear__score {
+    text-align: center;
+  }
+}
+
+body .wrapper .calc-wear__score span {
+  color: #2b4a0d;
+  font-weight: bolder;
+}
+
+@media (max-width: 640px) {
+  body .wrapper .calc-wear__score span {
+    display: block;
+    padding-top: 6px;
+  }
+}
+
+@keyframes showCalcWear {
+  0% {
+    transform: scale(0);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 body h1.experts-heading {
