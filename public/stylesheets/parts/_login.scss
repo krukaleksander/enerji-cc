@@ -1,4 +1,5 @@
 @import './mixins';
+@import './breakepoints';
 
 .login-wrapper {
     width: 450px;
@@ -23,7 +24,7 @@
         margin: 10px auto 0;
     }
 
-    ;
+
 
     input {
         display: block;
@@ -34,6 +35,8 @@
             width: 250px;
             font-size: 20px;
         }
+
+
     }
 
 
@@ -61,4 +64,13 @@
 
 .login-wrapper.male {
     background: rgba(255, 255, 255, 0.3);
+}
+
+@include mq(xsmall) {
+
+    input[type='text'],
+    input[type='number'],
+    textarea {
+        font-size: 18px;
+    }
 }

@@ -63,3 +63,11 @@
 .login-wrapper.male {
   background: rgba(255, 255, 255, 0.3);
 }
+
+@media (max-width: 640px) {
+  input[type='text'],
+  input[type='number'],
+  textarea {
+    font-size: 18px;
+  }
+}

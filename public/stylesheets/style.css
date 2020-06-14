@@ -116,6 +116,14 @@ body .login-wrapper.male {
   background: rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 640px) {
+  body input[type='text'],
+  body input[type='number'],
+  body textarea {
+    font-size: 18px;
+  }
+}
+
 body div.menu-mobile {
   display: none;
   width: 50px;
