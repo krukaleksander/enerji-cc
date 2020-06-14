@@ -119,6 +119,7 @@ body .login-wrapper.male {
 @media (max-width: 640px) {
   body input[type='text'],
   body input[type='number'],
+  body input[type='password'],
   body textarea {
     font-size: 18px;
   }

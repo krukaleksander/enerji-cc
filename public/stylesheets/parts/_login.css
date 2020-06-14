@@ -67,6 +67,7 @@
 @media (max-width: 640px) {
   input[type='text'],
   input[type='number'],
+  input[type='password'],
   textarea {
     font-size: 18px;
   }
