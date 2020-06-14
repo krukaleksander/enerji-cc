@@ -549,7 +549,7 @@
             e.value = 0
         })), m()
     }));
-    var N, M, L, B, D, z, q, R, W, G, H, V, $, K, U = function e(t, n, o) {
+    var N, M, L, B, D, z, q, R, W, H, G, V, $, K, U = function e(t, n, o) {
             var c = this;
             ! function (e, t) {
                 if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
@@ -632,20 +632,20 @@
         return parseFloat(e.replace(/\,/g, "."))
     }
     document.getElementById("activeCalcSavings").addEventListener("click", (function () {
-        N = oe(document.getElementById("wear").value), M = oe(document.getElementById("wearFirst").value), L = oe(document.getElementById("wearSecond").value), B = oe(document.getElementById("priceNow").value), D = oe(document.getElementById("havePriceAvr").value), z = oe(document.getElementById("havePriceFirst").value), q = oe(document.getElementById("havePriceSecond").value), R = oe(document.getElementById("proposePrice").value), W = oe(document.getElementById("proposePriceFirst").value), G = oe(document.getElementById("proposePriceSecond").value), H = oe(document.getElementById("proposePriceAvr").value), V = oe(document.getElementById("tradeFee").value), $ = document.getElementById("tariff").value, K = document.getElementById("summaryCalc");
-        var e = (12 * Number(V)).toFixed(2);
-        if ("1" === $[2]) {
-            var t = ((B - R) * N).toFixed(2),
-                n = K.innerHTML;
-            K.innerHTML = n + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(e, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(t, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(t) + Number(e), "</span></p></div>")
-        } else if (0 === v) {
-            var r = ((z - W) * M + (q - G) * L).toFixed(2),
+        N = oe(document.getElementById("wear").value), M = oe(document.getElementById("wearFirst").value), L = oe(document.getElementById("wearSecond").value), B = oe(document.getElementById("priceNow").value), D = oe(document.getElementById("havePriceAvr").value), z = oe(document.getElementById("havePriceFirst").value), q = oe(document.getElementById("havePriceSecond").value), R = oe(document.getElementById("proposePrice").value), W = oe(document.getElementById("proposePriceFirst").value), H = oe(document.getElementById("proposePriceSecond").value), G = oe(document.getElementById("proposePriceAvr").value), V = oe(document.getElementById("tradeFee").value), $ = document.getElementById("tariff").value, K = document.getElementById("summaryCalc");
+        var e, t, n = (12 * Number(V)).toFixed(2);
+        if (K.innerHTML = (e = K.innerHTML, -13 != (t = e.indexOf("savings-note") - 12) ? e.slice(0, t) : e), "1" === $[2]) {
+            var r = ((B - R) * N).toFixed(2),
                 o = K.innerHTML;
-            K.innerHTML = o + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(e, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(r, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(r) + Number(e), "</span></p></div>")
-        } else {
-            var c = ((D - H) * (M + L)).toFixed(2),
+            K.innerHTML = o + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(r, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(r) + Number(n), "</span></p></div>")
+        } else if (0 === v) {
+            var c = ((z - W) * M + (q - H) * L).toFixed(2),
                 a = K.innerHTML;
-            K.innerHTML = a + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(e, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(c, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(c) + Number(e), "</span></p></div>")
+            K.innerHTML = a + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(c, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(c) + Number(n), "</span></p></div>")
+        } else {
+            var i = ((D - G) * (M + L)).toFixed(2),
+                u = K.innerHTML;
+            K.innerHTML = u + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(i, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(i) + Number(n), "</span></p></div>")
         }
     }));
     var ce = {
@@ -992,9 +992,9 @@
         q = l("symbols"),
         R = l("op-symbols"),
         W = Object.prototype,
-        G = "function" == typeof j && !!T.f,
-        H = r.QObject,
-        V = !H || !H.prototype || !H.prototype.findChild,
+        H = "function" == typeof j && !!T.f,
+        G = r.QObject,
+        V = !G || !G.prototype || !G.prototype.findChild,
         $ = c && s((function () {
             return 7 != O(A({}, "a", {
                 get: function () {
@@ -1011,7 +1011,7 @@
             var t = q[e] = O(j.prototype);
             return t._k = e, t
         },
-        U = G && "symbol" == typeof j.iterator ? function (e) {
+        U = H && "symbol" == typeof j.iterator ? function (e) {
             return "symbol" == typeof e
         } : function (e) {
             return e instanceof j
@@ -1044,7 +1044,7 @@
             for (var t, n = e === W, r = C(n ? R : w(e)), c = [], a = 0; r.length > a;) !o(q, t = r[a++]) || n && !o(W, t) || c.push(q[t]);
             return c
         };
-    G || (i((j = function () {
+    H || (i((j = function () {
         if (this instanceof j) throw TypeError("Symbol is not a constructor!");
         var e = p(arguments.length > 0 ? arguments[0] : void 0),
             t = function (n) {
@@ -1058,12 +1058,12 @@
         return this._k
     })), F.f = X, P.f = Z, n(33).f = I.f = Q, n(32).f = Y, T.f = ee, c && !n(19) && i(W, "propertyIsEnumerable", Y, !0), v.f = function (e) {
         return K(d(e))
-    }), a(a.G + a.W + a.F * !G, {
+    }), a(a.G + a.W + a.F * !H, {
         Symbol: j
     });
     for (var te = "hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","), ne = 0; te.length > ne;) d(te[ne++]);
     for (var re = _(d.store), oe = 0; re.length > oe;) y(re[oe++]);
-    a(a.S + a.F * !G, "Symbol", {
+    a(a.S + a.F * !H, "Symbol", {
         for: function (e) {
             return o(z, e += "") ? z[e] : z[e] = j(e)
         },
@@ -1078,7 +1078,7 @@
         useSimple: function () {
             V = !1
         }
-    }), a(a.S + a.F * !G, "Object", {
+    }), a(a.S + a.F * !H, "Object", {
         create: function (e, t) {
             return void 0 === t ? O(e) : J(O(e), t)
         },
@@ -1095,7 +1095,7 @@
         getOwnPropertySymbols: function (e) {
             return T.f(b(e))
         }
-    }), N && a(a.S + a.F * (!G || s((function () {
+    }), N && a(a.S + a.F * (!H || s((function () {
         var e = j();
         return "[null]" != M([e]) || "{}" != M({
             a: e

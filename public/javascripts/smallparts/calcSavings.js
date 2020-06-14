@@ -69,6 +69,10 @@ savingsCalcBtn.addEventListener('click', function () {
     //oblicza oszczędność z opłaty handlowej
     const savingsTradeFeeAnnual = (Number(savingsTradeFee) * 12).toFixed(2);
 
+    // jeżeli notatka o oszczędnościach istnieje to ją usuwam zanim dodam nową
+
+    savingsSummary.innerHTML = doNotDoubleSavings(savingsSummary.innerHTML);
+
     // wylicze oszczędności na prądzie
 
     //ustawiam zależność od tego czy jest to dwustrefowa czy jednostrefowa
@@ -97,4 +101,20 @@ savingsCalcBtn.addEventListener('click', function () {
     }
 
 
-})
+});
+
+// funkcja ma za zadanie przeciwdzaiłać dublowaniu sie paragrafów z wyliczeniem oszczędności.
+function doNotDoubleSavings(note) {
+    //wyszukuje index klasy i odejmuje 12 znaków aby wycinać cały fragment kodu
+    const indexOfParClass = note.indexOf('savings-note') - 12;
+    if (indexOfParClass != -13) {
+        // wycinam notatkę od początku notatatki do początku wyliczenia oszczędności
+        const pureNote = note.slice(0, indexOfParClass);
+        // zwracam czystą notatkę bez wstawki
+        return pureNote;
+
+    } else {
+        return note;
+    }
+
+}

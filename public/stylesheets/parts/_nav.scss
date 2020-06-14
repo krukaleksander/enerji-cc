@@ -1,4 +1,5 @@
 @import './mixins';
+@import './breakepoints';
 
 div.menu-mobile {
     display: none;
@@ -14,7 +15,7 @@ div.menu-mobile {
         border-radius: 50%;
     }
 
-    @include iphoneX {
+    @include mq(xsmall) {
         display: block;
     }
 
@@ -34,23 +35,31 @@ div.menu-mobile {
     transform: translateX(-50%);
     z-index: 10;
     min-width: 700px;
-
-    @include common {
-        top: -400px;
-        transition: .3s;
-    }
-
     // background: rgb(37, 157, 42);
     background: rgba(74, 67, 67, 0.75);
     color: white;
     border-radius: 10px;
 
+    @include mq(xsmall) {
+        background: rgba(0, 0, 0, 0.75);
+        transform: unset;
+        min-width: 200px;
+        top: 50px;
+        left: unset;
+        right: -500px;
+        transition: .3s;
+    }
+
+
+
+
     ul {
         display: flex;
+        justify-content: center;
         list-style: none;
         margin-bottom: 0;
 
-        @include iphoneX {
+        @include mq(xsmall) {
             flex-direction: column;
         }
 
@@ -82,16 +91,16 @@ div.menu-mobile {
                 width: 125px;
             }
 
-            @include iphoneX {
-                width: 260px;
+            @include mq(xsmall) {
+                width: auto;
                 border-right: none;
-                border-bottom: 2px solid white;
             }
 
             a {
                 text-decoration: none;
                 color: white;
                 font-size: 20px;
+                font-family: 'Baloo 2', cursive;
 
                 @include ipadPro {
                     font-size: 30px;
@@ -107,6 +116,10 @@ div.menu-mobile {
 
                 @include iphoneX {
                     font-size: 25px;
+                }
+
+                @include mq(xsmall) {
+                    font-size: 20px
                 }
 
                 &:hover {
@@ -128,13 +141,12 @@ div.menu-mobile {
 }
 
 .main-nav.show {
-    top: 0px;
-    min-width: 50vw;
-    left: 40%;
-    background: rgba(64, 57, 57, 0.89);
+    top: 50px;
+    right: 0px;
+    // background: rgba(64, 57, 57, 0.89);
 
-    a {
-        font-size: 20px;
-        color: orange;
-    }
+    // a {
+    //     font-size: 20px;
+    //     color: orange;
+    // }
 }
