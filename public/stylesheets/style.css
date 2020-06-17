@@ -327,6 +327,10 @@ body .wrapper {
   }
 }
 
+body .wrapper .show-price-change {
+  display: none;
+}
+
 @media (max-width: 640px) {
   body .wrapper .show-price-change {
     display: none;

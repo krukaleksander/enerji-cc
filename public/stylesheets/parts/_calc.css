@@ -44,6 +44,10 @@
   }
 }
 
+.wrapper .show-price-change {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .wrapper .show-price-change {
     display: none;

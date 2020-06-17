@@ -44,6 +44,8 @@
     }
 
     .show-price-change {
+        display: none;
+
         @include mq('xsmall') {
             display: none;
         }
