@@ -3,7 +3,7 @@
     top: 55%;
     left: 53%;
     transform: translate(-50%, -50%);
-    background-color: lemonchiffon;
+    background-color: rgb(255, 250, 205);
     height: 350px;
     width: 320px;
     text-align: center;
@@ -38,7 +38,7 @@
     }
 
     input {
-        background-color: lightgrey;
+        background-color: rgb(245, 222, 177);
     }
 
     &__btn {
@@ -47,7 +47,7 @@
         width: 180px;
         height: 50px;
         margin: 25px auto;
-        background-color: #edc176;
+        background-color: rgb(237, 193, 118);
         border: none;
         border-radius: 5px;
         letter-spacing: 1px;

@@ -1,4 +1,4 @@
-// zmienna odpowiadająca za mnożnik w 9999 w tym momencie wyliczona od miesiąca sierpnia
+// zmienna odpowiadająca za mnożnik w 9999 w tym momencie wyliczona od miesiąca września
 const factor999 = 0.33;
 
 class Tariff {
