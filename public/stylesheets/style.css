@@ -503,8 +503,8 @@ body .wrapper .intakec12ac12 p {
 }
 
 body .wrapper #onePriceForAll {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 body .wrapper .label-for-one-price {
@@ -536,10 +536,8 @@ body .wrapper #changePriceBtn {
 
 @media (max-width: 640px) {
   body .wrapper .wrap-checkbox #onePriceForAll {
-    transform: scale(1.5);
-    width: 0px;
-    height: 0px;
-    vertical-align: super;
+    width: 25px;
+    height: 25px;
   }
 }
 

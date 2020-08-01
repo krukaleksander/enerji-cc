@@ -220,8 +220,8 @@
 }
 
 .wrapper #onePriceForAll {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .wrapper .label-for-one-price {
@@ -253,10 +253,8 @@
 
 @media (max-width: 640px) {
   .wrapper .wrap-checkbox #onePriceForAll {
-    transform: scale(1.5);
-    width: 0px;
-    height: 0px;
-    vertical-align: super;
+    width: 25px;
+    height: 25px;
   }
 }
 
