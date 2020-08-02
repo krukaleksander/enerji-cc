@@ -52,6 +52,60 @@
   letter-spacing: 1px;
 }
 
+.login-crm .show-about-project {
+  background-color: darksalmon;
+  color: green 38;
+  font-size: 22px;
+  padding: 5px;
+  border: none;
+  border-radius: 30px;
+  transition: .3s;
+}
+
+.login-crm .show-about-project span,
+.login-crm .show-about-project i {
+  color: antiquewhite;
+}
+
+.login-crm .show-about-project:hover {
+  box-shadow: 2px 2px 2px 2px;
+}
+
+.login-crm .about-project {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #e5fdd0;
+  width: 600px;
+  padding: 20px;
+  transform: translateX(-160px);
+}
+
+.login-crm .about-project__title {
+  color: #fc0007;
+  padding-bottom: 10px;
+  border-bottom: 4px solid black;
+}
+
+.login-crm .about-project__description {
+  margin-top: 10px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 125%;
+}
+
+.login-crm .about-project__subtitle {
+  font-size: 25px;
+  color: #fc0007;
+  letter-spacing: 5px;
+}
+
+.login-crm .about-project__list {
+  list-style: inside;
+  text-align: left;
+  font-size: 20px;
+}
+
 @keyframes reserved {
   0% {
     transform: rotateY(0deg);

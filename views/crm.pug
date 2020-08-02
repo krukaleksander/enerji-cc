@@ -12,3 +12,19 @@ block content
         input(id='passwordCrm' type='password' placeholder='hasło' name="password")
         button(class="login-crm__btn" type='submit') Zajeżdżam! 
           i(class="fas fa-glass-cheers")
+        button(class="show-about-project") 
+          i(class="fab fa-firefox")  
+          span  projekcie
+          
+        .about-project
+          h1(class="about-project__title") O projekcie
+          p(class="about-project__description") Projekt ma na celu ułatwienie zarządzania zimną bazą z ogłoszeń. Z założenia klient, z którym mamy nawiązaną jakąś relację, musi być i tak przeniesiony do Vision. 
+          h2(class="about-project__subtitle") Funkcjonalność:
+          ul(class="about-project__list")
+            li(class="about-project__item") Identyfikatorem klienta jest jego nr tel;
+            li(class="about-project__item") Konflikt przy próbie dodania ponownie tego samego nr;
+            li(class="about-project__item") Sortowanie klientów po dzielnicach;
+            li(class="about-project__item") Sortowanie klientów po statusach;
+            li(class="about-project__item") Szybki eksport bazy do pliku JSON;
+            li(class="about-project__item") Możliwość importu bazy z pliku JSON - tysiące rekordów w niespełna minutę;
+            li(class="about-project__item") Statystyki - przyrost bazy dzienny, miesięczny ect.           
