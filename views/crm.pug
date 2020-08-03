@@ -5,18 +5,18 @@ block content
   .login-crm
     div(class="login-crm__title") 
       span ZajazdCRM
-      span ®
-    //- form(method='post')
-    .form
+      span ®   
+    form(method='post')
         input(id='usernameCrm' type='text' placeholder='login' name="login")
         input(id='passwordCrm' type='password' placeholder='hasło' name="password")
         button(class="login-crm__btn" type='submit') Zajeżdżam! 
           i(class="fas fa-glass-cheers")
-        button(class="show-about-project") 
+        div(class="show-about-project") 
           i(class="fab fa-firefox")  
           span  projekcie
           
         .about-project
+          .about-project__close Zamknij
           h1(class="about-project__title") O projekcie
           p(class="about-project__description") Projekt ma na celu ułatwienie zarządzania zimną bazą z ogłoszeń. Z założenia klient, z którym mamy nawiązaną jakąś relację, musi być i tak przeniesiony do Vision. 
           h2(class="about-project__subtitle") Funkcjonalność:
@@ -28,3 +28,4 @@ block content
             li(class="about-project__item") Szybki eksport bazy do pliku JSON;
             li(class="about-project__item") Możliwość importu bazy z pliku JSON - tysiące rekordów w niespełna minutę;
             li(class="about-project__item") Statystyki - przyrost bazy dzienny, miesięczny ect.           
+  script(src="/javascripts/crmLogin.js")  
