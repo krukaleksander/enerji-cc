@@ -1517,6 +1517,18 @@ body .login-crm .about-project__list {
   font-size: 20px;
 }
 
+body .crm-panel-wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  font-family: 'Anton', sans-serif;
+}
+
+body .crm-panel-wrapper__title {
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f0f0;
+}
+
 @keyframes reserved {
   0% {
     transform: rotateY(0deg);
