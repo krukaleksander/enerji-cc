@@ -7,9 +7,11 @@ block content
    .crm-panel-wrapper
      h1(class="crm-panel-wrapper__title") ZajazdCRM Panel
      div(class="chat-container")
+       .chat-container__message-container
        form(method='post' action="/chat" class="send-container")
          input(type="text" class="send-container__input")
-         button(type="submit" class="send-container__btn") Wyślij
+         button(type="submit" class="send-container__btn") 
+           i(class="fas fa-paper-plane")
    script(defer src="http://localhost:5010/socket.io/socket.io.js")  
    script(defer src="/javascripts/chat.js")  
        

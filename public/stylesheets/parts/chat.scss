@@ -1,0 +1,47 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 2px solid antiquewhite;
+    background-color: rgb(90, 80, 80);
+    color: rgb(221, 221, 150);
+    padding: 10px;
+    height: 250px;
+    border-radius: 3px;
+
+    &__message--Olek {
+        color: rgb(221, 221, 150);
+    }
+
+    &__message--Julka {
+        color: rgb(107, 216, 180);
+    }
+
+    &__message--Bartek {
+        color: rgb(168, 166, 233);
+    }
+
+    &__message--Kuba {
+        color: rgb(221, 221, 150)
+    }
+
+    &__message--Patryk {
+        color: rgb(71, 169, 216);
+    }
+
+    .send-container {
+        margin-top: 10px;
+
+        &__input {
+            width: 90%;
+        }
+
+        &__btn {
+            padding: 4px 10px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 2px;
+            letter-spacing: 2px;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 2px solid antiquewhite;
+  background-color: #5a5050;
+  color: #dddd96;
+  padding: 10px;
+  height: 250px;
+  border-radius: 3px;
+}
+
+.chat-container__message--Olek {
+  color: #dddd96;
+}
+
+.chat-container__message--Julka {
+  color: #6bd8b4;
+}
+
+.chat-container__message--Bartek {
+  color: #a8a6e9;
+}
+
+.chat-container__message--Kuba {
+  color: #dddd96;
+}
+
+.chat-container__message--Patryk {
+  color: #47a9d8;
+}
+
+.chat-container .send-container {
+  margin-top: 10px;
+}
+
+.chat-container .send-container__input {
+  width: 90%;
+}
+
+.chat-container .send-container__btn {
+  padding: 4px 10px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 2px;
+  letter-spacing: 2px;
+}

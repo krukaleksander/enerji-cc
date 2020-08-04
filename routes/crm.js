@@ -25,6 +25,7 @@ router.post('/', function (req, res, next) {
         if (account.login === login && account.password === password) {
             //zmień stats na wnętrze panelu!
             req.session.userName = login;
+            req.session.userData = account;
             res.redirect('/crm/panel');
             return;
         }

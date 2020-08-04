@@ -4,7 +4,9 @@ let accounts = [];
 const crmAccounts = require('../models/crmAccounts');
 
 router.all('*', (req, res, next) => {
+    console.log('to jest wynik req.session.userName:' + req.session.userName);
     if (!req.session.userName) {
+
         res.redirect('/crm');
         return;
     }
@@ -14,7 +16,6 @@ router.all('*', (req, res, next) => {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    console.log(req.session.userName);
     crmAccounts.find({}, (err, data) => {
         accounts = data;
         res.render('crmpanel', {
@@ -25,7 +26,11 @@ router.get('/', function (req, res, next) {
 
 
 });
-
+router.get('/get-chat-name', function (req, res, next) {
+    res.send({
+        userName: req.session.userData.chatName
+    });
+})
 router.post('/', function (req, res, next) {
     // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
     req.session.userName = '';

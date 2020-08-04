@@ -1,32 +1,46 @@
 const socket = io('http://localhost:5010');
 
-const chatContainer = document.querySelector('.chat-container');
+const chatContainer = document.querySelector('.chat-container__message-container');
 const messageForm = document.querySelector('.send-container');
 const messageInput = document.querySelector('.send-container__input');
 
-const name = 'Lucjusz';
-appendMessage('Połączono');
+let name = "";
+
+fetch(`${window.location}/get-chat-name`)
+    .then(response => response.json())
+    .then(data => name = data.userName);
+
+
 socket.emit('new-user', name);
 
 socket.on('chat-message', data => {
     appendMessage(`${data.name}: ${data.message}`);
 });
-socket.on('user-connected', name => {
-    appendMessage(`${name} dołączył/-a`);
-});
-socket.on('user-disconnected', name => {
-    appendMessage(`${name} opuścił/-a chat`);
-});
+
 messageForm.addEventListener('submit', e => {
+
+
     e.preventDefault();
     const message = messageInput.value;
-    appendMessage(`Ty: ${message}`);
+    appendMessage(`${name}: ${message}`);
     socket.emit('send-chat-message', message);
     messageInput.value = '';
 });
 
 function appendMessage(message) {
     const messageEl = document.createElement('div');
-    messageEl.innerText = message;
+    messageEl.setAttribute('class', `chat-container__message--${name}`);
+    messageEl.innerText = `${createDate()} ${message}`;
     chatContainer.append(messageEl);
 };
+
+function createDate() {
+    const date = new Date;
+    // const dateInCalendar = date.toLocaleDateString("pl-PL");
+    const dateInCalendar = '';
+    const seconds = date.getSeconds();
+    const minutes = date.getMinutes();
+    const hour = date.getHours();
+    const fullDate = `${dateInCalendar} ${hour < 10 ? 0 + hour.toString() : hour}:${minutes < 10 ? 0 + minutes.toString() : minutes}:${seconds < 10 ? 0 + seconds.toString() : seconds}`;
+    return fullDate;
+}
