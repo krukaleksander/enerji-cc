@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 let accounts = [];
+let archiveMessages = [];
 const crmAccounts = require('../models/crmAccounts');
+const messagesAll = require('../models/messages');
 
 router.all('*', (req, res, next) => {
-    console.log('to jest wynik req.session.userName:' + req.session.userName);
     if (!req.session.userName) {
-
         res.redirect('/crm');
         return;
     }
@@ -22,13 +22,14 @@ router.get('/', function (req, res, next) {
             title: 'ZajazdCRM Panel',
 
         });
-    })
-
+    });
+    updateArchiveMsg();
 
 });
 router.get('/get-chat-name', function (req, res, next) {
     res.send({
-        userName: req.session.userData.chatName
+        userName: req.session.userData.chatName,
+        archiveMessages: archiveMessages
     });
 })
 router.post('/', function (req, res, next) {
@@ -55,6 +56,26 @@ io.on('connection', socket => {
             name: users[socket.id]
         });
     });
+    socket.on('send-chat-message-to-db', message => {
+        let promises = [];
+        const messagesToDb = archiveMessages.concat(message);
+        promises.push(messagesAll.findByIdAndUpdate('5f28e4aec5260905397de28b', {
+            messages: messagesToDb
+        }, (err, data) => {
+            console.log('baza została odnaleziona i nadpisana!!!!!!!!!!!')
+            if (err) {
+                console.log(err);
+            }
+        }).catch(reject => console.log(reject)));
+        Promise.all(promises).then(function () {
+            updateArchiveMsg();
+        }).catch(err => {
+
+            console.log(err);
+        });
+
+        //przeklejone z hogwart game koniec
+    });
     socket.on('disconnect', () => {
         socket.broadcast.emit('user-disconnected', users[socket.id]);
         delete users[socket.id];
@@ -68,4 +89,13 @@ router.post('/chat', function (req, res, next) {
     res.redirect('/crm');
     return;
 });
+
+function updateArchiveMsg() {
+    messagesAll.find({}, (err, data) => {
+        archiveMessages = data[0].messages;
+        if (err) {
+            throw ('Błąd!' + err);
+        };
+    });
+}
 module.exports = router;

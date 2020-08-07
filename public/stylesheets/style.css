@@ -1554,6 +1554,34 @@ body .chat-container {
   padding: 10px;
   height: 250px;
   border-radius: 3px;
+  width: 1200px;
+  position: fixed;
+  bottom: -250px;
+  transition: .3s;
+}
+
+body .chat-container__hide {
+  position: absolute;
+  top: -55px;
+  right: -25px;
+  border: 2px solid burlywood;
+  text-align: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background: chocolate;
+  cursor: pointer;
+  transition: .3s;
+}
+
+body .chat-container__hide:hover {
+  border-color: lime;
+  color: lime;
+}
+
+body .chat-container__message-container {
+  overflow-y: scroll;
 }
 
 body .chat-container__message--Olek {
