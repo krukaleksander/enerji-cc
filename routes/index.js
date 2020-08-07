@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
     login = data[0].login;
     password = data[0].password;
     res.render('index', {
-      title: 'EnerjiCC Panel',
+      title: '🔥 EnerjiCC Panel 🔥',
     });
 
   });

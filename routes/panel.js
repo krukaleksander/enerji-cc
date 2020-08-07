@@ -13,7 +13,7 @@ router.all('*', (req, res, next) => {
 router.get('/', function (req, res, next) {
     Mamjuzdosc.find({}, (err, data) => {
         res.render('panel', {
-            title: 'EnerjiCC Ofertomat',
+            title: '🔥 EnerjiCC Ofertomat 🔥',
             data
         });
     })
