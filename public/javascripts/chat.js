@@ -46,8 +46,7 @@ hideChatBtn.addEventListener('click', () => {
 
 
 socket.on('chat-message', data => {
-    appendMessage(`${createDate()}:${data.message}`, true, data.name);
-    console.log(data);
+    appendMessage(`${createDate()} ${data.message}`, true, data.name);
 });
 
 messageForm.addEventListener('submit', e => {
