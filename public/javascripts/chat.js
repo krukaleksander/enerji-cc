@@ -11,17 +11,21 @@ let archive = [];
 
 
 
+const getNameAndArchive = () => {
+    fetch(`${window.location}/get-chat-name`)
+        .then(response => response.json())
+        .then(data => {
+            name = data.userName;
+            archive = data.archiveMessages
 
-fetch(`${window.location}/get-chat-name`)
-    .then(response => response.json())
-    .then(data => {
-        name = data.userName;
-        archive = data.archiveMessages
+        })
+        .then(() => socket.emit('new-user', name))
+        //to co jest przekazywane w then zawsze musi być funkcją!
+        .then(() => insertArchive())
+        .then(() => scrollToBottom(chatContainer));
+};
+getNameAndArchive();
 
-    })
-    //to co jest przekazywane w then zawsze musi być funkcją!
-    .then(() => insertArchive())
-    .then(() => scrollToBottom(chatContainer));
 
 
 hideChatBtn.addEventListener('click', () => {
@@ -38,11 +42,12 @@ hideChatBtn.addEventListener('click', () => {
     }
 
 })
+// ta linijka przekazuje 
 
-socket.emit('new-user', name);
 
 socket.on('chat-message', data => {
-    appendMessage(`${data.name}: ${data.message}`);
+    appendMessage(`${createDate()}:${data.message}`, true, data.name);
+    console.log(data);
 });
 
 messageForm.addEventListener('submit', e => {
@@ -53,8 +58,9 @@ messageForm.addEventListener('submit', e => {
         name: name,
         message: message
     };
+    const messageToOtherUser = `${messageToDb.name}: ${messageToDb.message}`;
     appendMessage(`${name}: ${message}`);
-    socket.emit('send-chat-message', message);
+    socket.emit('send-chat-message', messageToOtherUser);
     socket.emit('send-chat-message-to-db', messageToDb);
     messageInput.value = '';
 });
@@ -62,9 +68,11 @@ messageForm.addEventListener('submit', e => {
 function appendMessage(message, flag = false, nameArch = '') {
     const messageEl = document.createElement('div');
     if (flag) {
+
         messageEl.setAttribute('class', `chat-container__message--${nameArch}`);
         messageEl.innerText = message;
     } else {
+
         messageEl.setAttribute('class', `chat-container__message--${name}`);
         messageEl.innerText = `${createDate()} ${message}`;
     }
