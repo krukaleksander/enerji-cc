@@ -5,10 +5,41 @@ let archiveMessages = [];
 const crmAccounts = require('../models/crmAccounts');
 const messagesAll = require('../models/messages');
 
+
+// check the ip start
+
+const {
+    networkInterfaces
+} = require('os');
+
+const nets = networkInterfaces();
+const results = Object.create(null); // or just '{}', an empty object
+
+for (const name of Object.keys(nets)) {
+    for (const net of nets[name]) {
+        // skip over non-ipv4 and internal (i.e. 127.0.0.1) addresses
+        if (net.family === 'IPv4' && !net.internal) {
+            if (!results[name]) {
+                results[name] = [];
+            }
+
+            results[name].push(net.address);
+        }
+    }
+}
+
+router.get('/get-ip', function (req, res, next) {
+    return res.send({
+        ip: results
+    });
+});
+
+// check the ip end
+
+
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {
-        res.redirect('/crm');
-        return;
+        return res.redirect('/crm');
     }
 
     next();
@@ -16,27 +47,27 @@ router.all('*', (req, res, next) => {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+    updateArchiveMsg();
     crmAccounts.find({}, (err, data) => {
         accounts = data;
-        res.render('crmpanel', {
+        return res.render('crmpanel', {
             title: 'ZajazdCRM Panel 🍹🥃🍸',
 
         });
     });
-    updateArchiveMsg();
+
 
 });
 router.get('/get-chat-name', function (req, res, next) {
-    res.send({
+    return res.send({
         userName: req.session.userData.chatName,
         archiveMessages: archiveMessages
     });
-})
+});
 router.post('/', function (req, res, next) {
     // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
     req.session.userName = '';
-    res.redirect('/crm');
-    return;
+    return res.redirect('/crm');
 });
 
 // socket
@@ -62,7 +93,6 @@ io.on('connection', socket => {
         promises.push(messagesAll.findByIdAndUpdate('5f28e4aec5260905397de28b', {
             messages: messagesToDb
         }, (err, data) => {
-            console.log('baza została odnaleziona i nadpisana!!!!!!!!!!!')
             if (err) {
                 console.log(err);
             }
@@ -74,7 +104,6 @@ io.on('connection', socket => {
             console.log(err);
         });
 
-        //przeklejone z hogwart game koniec
     });
     socket.on('disconnect', () => {
         socket.broadcast.emit('user-disconnected', users[socket.id]);
@@ -85,9 +114,7 @@ io.on('connection', socket => {
 
 // socket koniec
 router.post('/chat', function (req, res, next) {
-
-    res.redirect('/crm');
-    return;
+    return res.redirect('/crm');
 });
 
 function updateArchiveMsg() {
