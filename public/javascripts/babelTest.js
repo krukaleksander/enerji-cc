@@ -572,7 +572,7 @@
                         c.countsPrice2020 = 0, c.countsPrice2021 = 1;
                         break;
                     case 9999:
-                        c.countsPrice2020 = .33, c.countsPrice2021 = 1;
+                        c.countsPrice2020 = .25, c.countsPrice2021 = 1;
                         break;
                     default:
                         c.countsPrice2020 = 0, c.countsPrice2021 = 0
