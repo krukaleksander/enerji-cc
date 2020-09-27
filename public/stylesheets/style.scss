@@ -14,7 +14,7 @@ body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     // up świąteczny 
-    background: url('../images/bora.jpg');
+    background: url('../images/autumn.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -64,5 +64,6 @@ body {
     @import './parts/mwh';
     @import './parts/crm';
     @import './parts/chat';
+    @import './parts/rippleBtn';
 
 }

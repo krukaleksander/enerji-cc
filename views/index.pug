@@ -6,5 +6,7 @@ block content
     form(method='post')
       input(id='username' type='text' placeholder='login' name="login")
       input(id='password' type='password' placeholder='hasło' name="password")
-      button(class="submit-btn" type='submit') Zaloguj      
+      .ripple-container
+        button(class="ripple-container__btn ripple-container__btn--second" type='submit') Zaloguj 
+  script(src="/javascripts/smallparts/rippleBtn.js")     
        
