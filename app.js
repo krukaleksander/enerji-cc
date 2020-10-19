@@ -13,13 +13,13 @@ mongoose.connect(config.db, {
 });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-var indexRouter = require('./routes/index');
+var ofertomatLoginRouter = require('./routes/ofertomatLogin');
 var panelRouter = require('./routes/panel');
 var tableRouter = require('./routes/table');
 var statystykiRouter = require('./routes/statystyki.js');
 var mwhRouter = require('./routes/mwh.js');
-const crmRouter = require('./routes/crm');
-const crmpanelRouter = require('./routes/crmpanel');
+const crmLoginRouter = require('./routes/crmLogin');
+const crmPanelRouter = require('./routes/crmPanel');
 
 
 
@@ -41,13 +41,13 @@ app.use(cookieSession({
   keys: config.keySession,
   maxAge: config.maxAgeSession
 }));
-app.use('/', indexRouter);
+app.use('/', ofertomatLoginRouter);
 app.use('/panel', panelRouter);
 app.use('/panel/table', tableRouter);
 app.use('/stats', statystykiRouter);
 app.use('/mwh', mwhRouter);
-app.use('/crm', crmRouter);
-app.use('/crm/panel', crmpanelRouter);
+app.use('/crm', crmLoginRouter);
+app.use('/crm/panel', crmPanelRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
