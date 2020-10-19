@@ -14,9 +14,9 @@ mongoose.connect(config.db, {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 var ofertomatLoginRouter = require('./routes/ofertomatLogin');
-var panelRouter = require('./routes/panel');
-var tableRouter = require('./routes/table');
-var statystykiRouter = require('./routes/statystyki.js');
+var panelRouter = require('./routes/ofertomat');
+var tableRouter = require('./routes/eTable');
+var statystykiRouter = require('./routes/statistics.js');
 var mwhRouter = require('./routes/mwh.js');
 const crmLoginRouter = require('./routes/crmLogin');
 const crmPanelRouter = require('./routes/crmPanel');
