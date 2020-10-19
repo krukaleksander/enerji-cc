@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var quizzesSchema = new Schema({
+var allTariffPricesSchema = new Schema({
     id: {
         type: String,
         required: true
@@ -13,4 +13,4 @@ var quizzesSchema = new Schema({
 
 });
 
-module.exports = mongoose.model('Quizzes', quizzesSchema);
+module.exports = mongoose.model('Quizzes', allTariffPricesSchema);

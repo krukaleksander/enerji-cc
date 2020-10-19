@@ -3,7 +3,7 @@ const router = express.Router();
 let accounts = [];
 let archiveMessages = [];
 const crmAccounts = require('../models/crmAccounts');
-const messagesAll = require('../models/messages');
+const messagesAll = require('../models/messagesCrm');
 
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {

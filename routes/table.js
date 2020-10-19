@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Players = require('../models/players');
+const Players = require('../models/eTableAccounts');
 let position = 0;
 
 // const gettingDay = new Date().getDay();

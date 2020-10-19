@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const Mamjuzdosc = require('../models/quizzes');
+const allTariffPrices = require('../models/allTariffPrices');
+
+// api is multiplying price by 1.5% 
+const priceMultiplier = 1.015;
+
 router.all('*', (req, res, next) => {
     if (!req.session.admin) {
         res.redirect('/');
@@ -11,7 +15,7 @@ router.all('*', (req, res, next) => {
 })
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    Mamjuzdosc.find({}, (err, data) => {
+    allTariffPrices.find({}, (err, data) => {
         res.render('panel', {
             title: '🔥 EnerjiCC Ofertomat 🔥',
             data
@@ -30,7 +34,7 @@ router.post('/', function (req, res, next) {
 
 const higherPricer = (number) => {
     const numberToChange = number;
-    return (Number(numberToChange) * 1.03).toFixed(2);
+    return (Number(numberToChange) * priceMultiplier).toFixed(2);
 }
 
 router.post('/change-price/', (req, res, next) => {
@@ -194,7 +198,7 @@ router.post('/change-price/', (req, res, next) => {
 
 })
 router.get('/get-prices', (req, res, next) => {
-    Mamjuzdosc.find({}, (err, data) => {
+    allTariffPrices.find({}, (err, data) => {
         res.send(data);
     })
 })

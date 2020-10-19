@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const Longinus = require('../models/longinus');
+const loginOfertomat = require('../models/loginOfertomat');
 let login, password;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  Longinus.find({}, (err, data) => {
+  loginOfertomat.find({}, (err, data) => {
     login = data[0].login;
     password = data[0].password;
     res.render('index', {

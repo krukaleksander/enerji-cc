@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var longinusSchema = new Schema({
+var longinOfertomat = new Schema({
     login: {
         type: String,
         required: true
@@ -13,4 +13,4 @@ var longinusSchema = new Schema({
 
 });
 
-module.exports = mongoose.model('Longinus', longinusSchema);
+module.exports = mongoose.model('Longinus', longinOfertomat);

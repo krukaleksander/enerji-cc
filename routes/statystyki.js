@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Statsenerga = require('../models/importants');
+const Statsenerga = require('../models/stats');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {

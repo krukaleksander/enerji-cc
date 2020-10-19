@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var playersSchema = new Schema({
+var eTableAccountsSchema = new Schema({
     id: {
         type: Number,
         required: true
@@ -45,4 +45,4 @@ var playersSchema = new Schema({
 
 });
 
-module.exports = mongoose.model('Players', playersSchema);
+module.exports = mongoose.model('Players', eTableAccountsSchema);

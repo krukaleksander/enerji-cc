@@ -14,16 +14,8 @@ mongoose.connect(config.db, {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var panelRouter = require('./routes/panel');
-var expertsRouter = require('./routes/experts');
 var tableRouter = require('./routes/table');
-var newsRouter = require('./routes/news');
-var addRouter = require('./routes/add');
-var necinfoRouter = require('./routes/necinfo');
-var calendarRouter = require('./routes/calendar');
-var churchRouter = require('./routes/church');
-var newRouter = require('./routes/new.js');
 var statystykiRouter = require('./routes/statystyki.js');
 var mwhRouter = require('./routes/mwh.js');
 const crmRouter = require('./routes/crm');
@@ -50,16 +42,8 @@ app.use(cookieSession({
   maxAge: config.maxAgeSession
 }));
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/panel', panelRouter);
-app.use('/panel/experts', expertsRouter);
 app.use('/panel/table', tableRouter);
-app.use('/panel/news', newsRouter);
-app.use('/panel/news/add', addRouter);
-app.use('/panel/necessary', necinfoRouter);
-app.use('/panel/calendar', calendarRouter);
-app.use('/panel/church', churchRouter);
-app.use('/panel/church/new', newRouter);
 app.use('/stats', statystykiRouter);
 app.use('/mwh', mwhRouter);
 app.use('/crm', crmRouter);
