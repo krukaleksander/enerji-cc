@@ -27,14 +27,14 @@ const clearNote = () => {
     btnSavings.style.display = 'none';
     info35zlFlag = true;
 };
-removeNoteFn = () => {
+const removeNoteFn = () => {
     const allRemovers = [...document.getElementsByClassName('note-remover')];
     allRemovers.forEach(remover => {
         remover.addEventListener('focus', clearNote);
     });
 }
 
-replaceCommasAndParseFn = () => {
+const replaceCommasAndParseFn = () => {
     const valuesArr = [priceInTariff2022, priceInTariff2021, priceInTariff2020, wear, priceNow, proposePrice];
     const replaceAndParseFn = (item) => {
         return parseFloat(item.value.replace(/\,/g, '.'));

@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "AMD",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "allowJs": true,
+        "outFile": "index.js"
+    },
+    "files": [
+        "energaCalc.js",
+        "./smallparts/calcSavings.js",
+        "./smallparts/calcWear.js",
+        "./smallparts/changepricepanel.js",
+        "./smallparts/changetariffs.js",
+        "./smallparts/rippleBtn.js",
+        "./smallparts/setToZero.js",
+        "tariffEngine.js"
+    ]
+}
