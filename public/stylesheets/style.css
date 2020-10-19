@@ -31,6 +31,10 @@ body {
   }
 }
 
+body .login-header {
+  font-size: 2rem;
+}
+
 body .logout-btn {
   position: fixed;
   top: 5px;
@@ -295,7 +299,8 @@ body .wrapper {
   padding: 20px;
   border: 3px solid black;
   box-shadow: 4px 4px black;
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: bolder;
   font-family: Arial, sans-serif;
 }
 
@@ -310,6 +315,7 @@ body .wrapper {
     box-shadow: none;
     border: 1px solid black;
     border-radius: 10px;
+    font-size: 15px;
   }
 }
 
@@ -345,9 +351,16 @@ body .wrapper h3 {
 }
 
 body .wrapper input {
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   width: 100px;
+}
+
+@media (max-width: 640px) {
+  body .wrapper input {
+    font-size: 17px;
+    width: 70px;
+  }
 }
 
 body .wrapper p {
@@ -454,6 +467,7 @@ body .wrapper .wrap-all-in-tariff {
   justify-content: space-around;
 }
 
+body .wrapper .wrap-all-in-tariff .year2023-wrapper,
 body .wrapper .wrap-all-in-tariff .year2022-wrapper,
 body .wrapper .wrap-all-in-tariff .year2021-wrapper,
 body .wrapper .wrap-all-in-tariff .year2020-wrapper {
@@ -1617,10 +1631,16 @@ body .chat-container .send-container__btn {
 }
 
 body .ripple-container {
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  body .ripple-container {
+    margin-top: 0px;
+  }
 }
 
 body .ripple-container__btn {

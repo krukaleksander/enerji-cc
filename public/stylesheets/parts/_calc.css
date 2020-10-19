@@ -12,7 +12,8 @@
   padding: 20px;
   border: 3px solid black;
   box-shadow: 4px 4px black;
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: bolder;
   font-family: Arial, sans-serif;
 }
 
@@ -27,6 +28,7 @@
     box-shadow: none;
     border: 1px solid black;
     border-radius: 10px;
+    font-size: 15px;
   }
 }
 
@@ -62,9 +64,16 @@
 }
 
 .wrapper input {
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   width: 100px;
+}
+
+@media (max-width: 640px) {
+  .wrapper input {
+    font-size: 17px;
+    width: 70px;
+  }
 }
 
 .wrapper p {
@@ -171,6 +180,7 @@
   justify-content: space-around;
 }
 
+.wrapper .wrap-all-in-tariff .year2023-wrapper,
 .wrapper .wrap-all-in-tariff .year2022-wrapper,
 .wrapper .wrap-all-in-tariff .year2021-wrapper,
 .wrapper .wrap-all-in-tariff .year2020-wrapper {

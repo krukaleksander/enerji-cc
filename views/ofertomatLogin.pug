@@ -2,7 +2,7 @@ extends layout
 
 block content
   div(class='login-wrapper')
-    h1= title
+    h1(class='login-header')= title
     form(method='post')
       input(id='username' type='text' placeholder='login' name="login")
       input(id='password' type='password' placeholder='hasło' name="password")
