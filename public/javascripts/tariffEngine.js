@@ -1,5 +1,5 @@
 // zmienna odpowiadająca za mnożnik w 9999 w tym momencie wyliczona od miesiąca października
-const factor999 = 0.25;
+const factor999 = 0.16;
 
 class Tariff {
     constructor(numberOfSpheres, indexOfData, name) {
