@@ -85,14 +85,6 @@
   color: green;
 }
 
-.wrapper .when-option-2020 {
-  display: none;
-}
-
-.wrapper .when-option-2019 {
-  display: none;
-}
-
 .wrapper div label {
   margin-right: 10px;
   font-family: 'Baloo 2', cursive;

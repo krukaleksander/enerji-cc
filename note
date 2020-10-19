@@ -4,6 +4,10 @@ Wprowadzenie roku 2023
 * dodanie w selecie - ok
 * pozmieniac pugi dodawania - ok
 * pozmieniac pugi wyświetlania - ok
-* uwzględnienie w silniku taryf
+* uwzględnienie w silniku taryf - ok
 * uwzględnienie w rote ofertomat.js - ok
-* debugowanie
+* debugowanie - ok
+* css
+
+
+// usunąłem z energaCalc funkcję jak mi się zdaje niepotrzebną. należy przepuścić to przez babel i sprawdzić co się dzieje

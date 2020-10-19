@@ -1,8 +1,6 @@
 const btnCalc = document.getElementById('btnCalc');
 const summaryCalc = document.getElementById('summaryCalc');
 const btnCopyCalc = document.getElementById('btnCopyCalc');
-const divWhenOption2020 = document.querySelector('.when-option-2020');
-const divWhenOption2019 = document.querySelector('.when-option-2019');
 const onePriceCheckbox = document.getElementById('onePriceForAll');
 const tariff = document.getElementById('tariff');
 const endOfAgreement = document.getElementById('endOfAgreement');
@@ -89,21 +87,6 @@ removeNoteFn();
 
 btnCalc.addEventListener('click', calcForTariff);
 
-endOfAgreement.addEventListener('change', () => {
-    const optionDivs = [divWhenOption2019, divWhenOption2020];
-    if (endOfAgreement.value === "2021") {
-        optionDivs.forEach(div => {
-            div.style.display = "none";
-        });
-    } else if (endOfAgreement.value === "2020") {
-        divWhenOption2019.style.display = "none";
-        divWhenOption2020.style.display = "block";
-    } else if (endOfAgreement.value === "9999") {
-        optionDivs.forEach(div => {
-            div.style.display = "block";
-        })
-    }
-});
 window.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         calcForTariff();
