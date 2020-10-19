@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Players = require('../models/eTableAccounts');
+const Accounts = require('../models/eTableAccounts');
 let position = 0;
 
 // const gettingDay = new Date().getDay();
@@ -19,7 +19,7 @@ router.all('*', (req, res, next) => {
 })
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    Players.find({}, (err, data) => {
+    Accounts.find({}, (err, data) => {
         let dataDay = data.slice(); //tworzysz kopie data, inaczej przypisujesz referencje i sie wszystko psuje
         let dataWeek = data.slice();
         let dataMonth = data.slice();
@@ -142,7 +142,7 @@ router.get('/', function (req, res, next) {
         // const aver = (i) => (i / avrNum).toFixed(1);
         // koniec fragment średnia
 
-        res.render('table', {
+        res.render('eTable', {
             title: 'EnerjiCC e-tablica',
             dataModDay,
             dataModWeek,
@@ -172,7 +172,7 @@ router.get('/add/:id/:score', function (req, res, next) {
     // console.log(req.params.id)
     const idNr = parseInt(req.params.id)
     const score = parseInt(req.params.score);
-    Players.findOneAndUpdate({
+    Accounts.findOneAndUpdate({
         id: idNr
     }, {
         points: score + 1
@@ -195,7 +195,7 @@ router.get('/minus/:id/:score', function (req, res, next) {
     // console.log(req.params.id)
     const idNr = parseInt(req.params.id)
     const score = parseInt(req.params.score);
-    Players.findOneAndUpdate({
+    Accounts.findOneAndUpdate({
         id: idNr
     }, {
         points: score - 1
@@ -207,7 +207,7 @@ router.get('/minus/:id/:score', function (req, res, next) {
 });
 // zamknięcie sesji tablicy dobowej
 router.get('/close-session/', function (req, res, next) {
-    Players.find({}, {}, function (err, player) {
+    Accounts.find({}, {}, function (err, player) {
         player.forEach(player => {
             player.pointsWeek += player.points;
             player.pointsMonth += player.points;
@@ -229,7 +229,7 @@ router.get('/close-session/', function (req, res, next) {
 });
 // zamknięcie sesji tablicy tygodiowej
 router.get('/close-session-week/', function (req, res, next) {
-    Players.find({}, {}, function (err, player) {
+    Accounts.find({}, {}, function (err, player) {
         player.forEach(player => {
             player.allPoints += player.pointsWeek;
             player.pointsWeek = 0;
@@ -247,7 +247,7 @@ router.get('/close-session-week/', function (req, res, next) {
 });
 // zamknięcie sesji tablicy miesięcznej
 router.get('/close-session-month/', function (req, res, next) {
-    Players.find({}, {}, function (err, player) {
+    Accounts.find({}, {}, function (err, player) {
         player.forEach(player => {
             if (player.pointsMonth > 0) {
                 player.archive.push(player.pointsMonth);

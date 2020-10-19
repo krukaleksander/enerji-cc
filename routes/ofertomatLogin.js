@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
   loginOfertomat.find({}, (err, data) => {
     login = data[0].login;
     password = data[0].password;
-    res.render('index', {
+    res.render('ofertomatLogin', {
       title: '🔥 P5panel 🔥',
     });
 

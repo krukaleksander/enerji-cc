@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
             }
 
         })
-        res.render('stats', {
+        res.render('statistics', {
             title: 'EnerjiCC Stats',
             data,
             allRecords,

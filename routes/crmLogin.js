@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
     }
     crmAccounts.find({}, (err, data) => {
         accounts = data;
-        res.render('crm', {
+        res.render('crmLogin', {
             title: 'ZajazdCRM 🍹🥃🍸'
         });
     })

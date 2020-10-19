@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
     updateArchiveMsg();
     crmAccounts.find({}, (err, data) => {
         accounts = data;
-        return res.render('crmpanel', {
+        return res.render('crmPanel', {
             title: 'ZajazdCRM Panel 🍹🥃🍸',
 
         });

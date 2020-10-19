@@ -16,7 +16,7 @@ router.all('*', (req, res, next) => {
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     allTariffPrices.find({}, (err, data) => {
-        res.render('panel', {
+        res.render('ofertomat', {
             title: '🔥 EnerjiCC Ofertomat 🔥',
             data
         });
