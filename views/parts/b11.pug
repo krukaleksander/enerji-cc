@@ -1,6 +1,9 @@
 - var dataNumber = 8
 .extra-tariff-wrapper.tariffb11-wrapper
-      p(class="tariff-wrapper-title-main") B11         
+      p(class="tariff-wrapper-title-main") B11   
+      div
+        label Cena 2023r.
+        input(type="text" placeholder="np. 300" value=data[dataNumber].tariff.price2023)      
       div
         label Cena 2022r.
         input(type="text" placeholder="np. 300" value=data[dataNumber].tariff.price2022)

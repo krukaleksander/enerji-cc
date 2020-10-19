@@ -1,5 +1,8 @@
 .extra-tariff-wrapper.tariffc11-wrapper 
-      p(class="tariff-wrapper-title-main") C11          
+      p(class="tariff-wrapper-title-main") C11   
+      div
+        label(for="priceInTariff") Cena w cenniku na 2023: 
+        input(id="priceInTariff2023" type="text" placeholder="np. 300" value=data[0].tariff.price2023)       
       div
         label(for="priceInTariff") Cena w cenniku na 2022: 
         input(id="priceInTariff2022" type="text" placeholder="np. 300" value=data[0].tariff.price2022)

@@ -1,6 +1,17 @@
 .extra-tariff-wrapper.tariffc12b-wrapper
       p(class="tariff-wrapper-title-main") C12b 
       .wrap-all-in-tariff
+        .year2023-wrapper 
+          p(class="tariff-wrapper-title") 2023 r. 
+          div
+            label Średnia 
+            input(id="priceC12b2023Avr" type="text" placeholder="np. 300" value=data[2].tariff.price2023.avr)
+          div
+            label I strefa 
+            input(id="priceC12b2023First" type="text" placeholder="np. 300" value=data[2].tariff.price2023.first)
+          div
+            label II strefa
+            input(id="priceC12b2023Second" type="text" placeholder="np. 300" value=data[2].tariff.price2023.second)
         .year2022-wrapper 
           p(class="tariff-wrapper-title") 2022 r. 
           div

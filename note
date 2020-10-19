@@ -1,4 +1,9 @@
-crmAccount
-messagesCrm
-loginOfertomat 
-stats
+Wprowadzenie roku 2023
+
+* dodanie takowego w bazie - ok
+* dodanie w selecie - ok
+* pozmieniac pugi dodawania - ok
+* pozmieniac pugi wyświetlania - ok
+* uwzględnienie w silniku taryf
+* uwzględnienie w rote ofertomat.js - ok
+* debugowanie

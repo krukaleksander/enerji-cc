@@ -2,6 +2,17 @@
 .extra-tariff-wrapper.tariffb22-wrapper
       p(class="tariff-wrapper-title-main") B22 
       .wrap-all-in-tariff
+        .year2023-wrapper 
+          p(class="tariff-wrapper-title") 2023 r. 
+          div
+            label Średnia 
+            input(type="text" placeholder="np. 300" value=data[dataNumber].tariff.price2023.avr)
+          div
+            label I strefa 
+            input(type="text" placeholder="np. 300" value=data[dataNumber].tariff.price2023.first)
+          div
+            label II strefa
+            input(type="text" placeholder="np. 300" value=data[dataNumber].tariff.price2023.second)
         .year2022-wrapper 
           p(class="tariff-wrapper-title") 2022 r. 
           div
