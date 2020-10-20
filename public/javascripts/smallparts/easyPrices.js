@@ -1,14 +1,24 @@
+function setOneTariffInputs(tariff, prices) {
+    let pricesRev = prices.reverse();
+    const inputs = [...document.querySelectorAll(`.wrap-change-price-${tariff} div input`)];
+    inputs.forEach((input, index) => {
+        input.value = pricesRev[index];
+    })
+}
+
 var easyPrices = {
     input: document.querySelector('.easy-prices__input'),
     btn: document.querySelector('.easy-prices__btn'),
     value: [],
     pricesAsObject: {},
+    pricesAsArr: [],
     init: function () {
         //destrukturyzacja
         var input = easyPrices.input,
             btn = easyPrices.btn,
             value = easyPrices.value,
-            pricesAsObject = easyPrices.pricesAsObject;
+            pricesAsObject = easyPrices.pricesAsObject,
+            pricesAsArr = easyPrices.pricesAsArr;
         btn.addEventListener('click', function () {
             var flag = document.querySelector('.easy-prices__select-sphere').value;
             var tariff = document.querySelector('.easy-prices__select-tariff').value;
@@ -16,13 +26,9 @@ var easyPrices = {
             value = input.value.split(" ");
             if (flag === 'one') {
                 //przerobienie tablicy z cenami na obiekt
-                pricesAsObject = {
-                    price2020: value[1],
-                    price2021: value[3],
-                    price2022: value[5],
-                    price2023: value[7]
-                };
-                console.log(pricesAsObject);
+                pricesAsArr = [value[1], value[3], value[5], value[7]];
+                setOneTariffInputs(tariff, pricesAsArr);
+                console.log(pricesAsArr);
             } else if (flag === 'two') {
                 //funkcja, która w grupach dwutaryfowych zwraca tablicę z cenami
                 var changeStringPrices = function (prices) {
