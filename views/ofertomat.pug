@@ -113,6 +113,23 @@ block content
       button(id="activeCalcSavings" class="btn btn-success") Oszczędności       
     .change-price-panel          
       p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
+      .easy-prices
+        h3(class='easy-prices__title') Szybkie wgrywanie cen BETA
+        select(class='easy-prices__select-sphere')
+          option(value="one") Jednostrfowa
+          option(value="two") Dwustrefowa
+        select(class='easy-prices__select-tariff')
+          option(value="c11") C11
+          option(value="c12a") C12a
+          option(value="c12b") C12b
+          option(value="c21") C21
+          option(value="c22a") C22a
+          option(value="c22b") C22b
+          option(value="b11") B11
+          option(value="b21") B21
+          option(value="b22") B22
+        input(type="text" class="easy-prices__input")
+        button(class="easy-prices__btn") Wgraj ceny
       form(action="panel/change-price/" method="post")
        include parts/changec11.pug
        include parts/changec12a.pug
@@ -134,6 +151,8 @@ block content
   //- script(src="/javascripts/smallparts/setToZero.js")
   //- script(src="/javascripts/tariffEngine.js")  
   script(src="/javascripts/babbleTest.js")
+  script(src="/javascripts/smallparts/easyPrices.js")
+  script(src="/javascripts/smallparts/easyPricesFront.js")
   //- script(src="/javascripts/smallparts/calcSavings.js")
   //- script(src="/javascripts/smallparts/calcWear.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous")

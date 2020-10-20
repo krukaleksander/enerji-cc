@@ -47,7 +47,7 @@
 }
 
 .wrapper .show-price-change {
-  display: none;
+  display: block;
 }
 
 @media (max-width: 640px) {
