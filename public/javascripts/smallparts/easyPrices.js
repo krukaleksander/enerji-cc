@@ -1,10 +1,21 @@
-function setOneTariffInputs(tariff, prices) {
+function setTariffInputs(tariff, prices, flag) {
     let pricesRev = prices.reverse();
+    let pricesInOneTable = [];
+    const insertToInputs = (prices) => {
+        inputs.forEach((input, index) => {
+            input.value = prices[index];
+        });
+    };
     const inputs = [...document.querySelectorAll(`.wrap-change-price-${tariff} div input`)];
-    inputs.forEach((input, index) => {
-        input.value = pricesRev[index];
-    })
-}
+    if (flag === 'one') {
+        insertToInputs(pricesRev);
+    } else {
+        pricesRev.forEach(table => pricesInOneTable = pricesInOneTable.concat(table));
+        insertToInputs(pricesInOneTable);
+
+    }
+};
+
 
 var easyPrices = {
     input: document.querySelector('.easy-prices__input'),
@@ -27,20 +38,14 @@ var easyPrices = {
             if (flag === 'one') {
                 //przerobienie tablicy z cenami na obiekt
                 pricesAsArr = [value[1], value[3], value[5], value[7]];
-                setOneTariffInputs(tariff, pricesAsArr);
-                console.log(pricesAsArr);
+                setTariffInputs(tariff, pricesAsArr, flag);
             } else if (flag === 'two') {
                 //funkcja, która w grupach dwutaryfowych zwraca tablicę z cenami
                 var changeStringPrices = function (prices) {
                     return prices.split('\t');
                 };
-                pricesAsObject = {
-                    price2020: changeStringPrices(value[1]),
-                    price2021: changeStringPrices(value[3]),
-                    price2022: changeStringPrices(value[5]),
-                    price2023: changeStringPrices(value[7])
-                };
-                console.log(pricesAsObject);
+                pricesAsArr = [changeStringPrices(value[1]), changeStringPrices(value[3]), changeStringPrices(value[5]), changeStringPrices(value[7])];
+                setTariffInputs(tariff, pricesAsArr, flag);
             }
         });
     }
