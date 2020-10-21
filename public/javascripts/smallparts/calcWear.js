@@ -8,11 +8,12 @@ const calcWear = {
     mainCalcFn: function () {
         this.wearFistSphere = Number(document.querySelector('.calc-wear__input--first-sphere').value);
         this.wearSecondSphere = Number(document.querySelector('.calc-wear__input--second-sphere').value);
-        this.sum = ((this.wearFistSphere + this.wearSecondSphere) * 12) / 1000;
+        this.wearDays = Number(document.querySelector('.calc-wear__input--days').value);
+        this.sum = ((this.wearFistSphere / this.wearDays + this.wearSecondSphere / this.wearDays) * 365) / 1000;
         this.scorePlace.innerHTML =
-            `Zużycie roczne w I strefie <span>${((this.wearFistSphere * 12) /1000).toFixed(2)} mWh</span>
+            `Zużycie roczne w I strefie <span>${((this.wearFistSphere / this.wearDays * 365) /1000).toFixed(2)} mWh</span>
         <br>
-        Zużycie roczne w II strefie <span>${((this.wearSecondSphere * 12) /1000).toFixed(2)} mWh</span>
+        Zużycie roczne w II strefie <span>${((this.wearSecondSphere / this.wearDays * 365) /1000).toFixed(2)} mWh</span>
         <br>
         Zużycie roczne suma <span>${(this.sum).toFixed(2)} mWh</span>
         `

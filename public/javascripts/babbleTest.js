@@ -158,7 +158,7 @@
         a = n(5),
         i = n(26),
         s = function (e, t, n) {
-            var u, f, l, p, d = e & s.F,
+            var u, l, f, p, d = e & s.F,
                 v = e & s.G,
                 y = e & s.S,
                 h = e & s.P,
@@ -166,7 +166,7 @@
                 g = v ? r : y ? r[t] || (r[t] = {}) : (r[t] || {}).prototype,
                 S = v ? o : o[t] || (o[t] = {}),
                 b = S.prototype || (S.prototype = {});
-            for (u in v && (n = t), n) l = ((f = !d && g && void 0 !== g[u]) ? g : n)[u], p = m && f ? i(l, r) : h && "function" == typeof l ? i(Function.call, l) : l, g && a(g, u, l, e & s.U), S[u] != l && c(S, u, p), h && b[u] != l && (b[u] = l)
+            for (u in v && (n = t), n) f = ((l = !d && g && void 0 !== g[u]) ? g : n)[u], p = m && l ? i(f, r) : h && "function" == typeof f ? i(Function.call, f) : f, g && a(g, u, f, e & s.U), S[u] != f && c(S, u, p), h && b[u] != f && (b[u] = f)
         };
     r.core = o, s.F = 1, s.G = 2, s.S = 4, s.P = 8, s.B = 16, s.W = 32, s.U = 64, s.R = 128, e.exports = s
 }, function (e, t) {
@@ -357,8 +357,8 @@
         i = n(16),
         s = n(52),
         u = n(31),
-        f = n(58),
-        l = n(0)("iterator"),
+        l = n(58),
+        f = n(0)("iterator"),
         p = !([].keys && "next" in [].keys()),
         d = function () {
             return this
@@ -382,13 +382,13 @@
             E = "values" == y,
             O = !1,
             F = e.prototype,
-            T = F[l] || F["@@iterator"] || y && F[y],
+            T = F[f] || F["@@iterator"] || y && F[y],
             I = T || w(y),
             P = y ? E ? w("entries") : I : void 0,
             _ = "Array" == t && F.entries || T;
-        if (_ && (b = f(_.call(new e))) !== Object.prototype && b.next && (u(b, x, !0), r || "function" == typeof b[l] || a(b, l, d)), E && T && "values" !== T.name && (O = !0, I = function () {
+        if (_ && (b = l(_.call(new e))) !== Object.prototype && b.next && (u(b, x, !0), r || "function" == typeof b[f] || a(b, f, d)), E && T && "values" !== T.name && (O = !0, I = function () {
                 return T.call(this)
-            }), r && !m || !p && !O && F[l] || a(F, l, I), i[t] = I, i[x] = d, y)
+            }), r && !m || !p && !O && F[f] || a(F, f, I), i[t] = I, i[x] = d, y)
             if (g = {
                     values: E ? I : w("values"),
                     keys: h ? I : w("keys"),
@@ -434,10 +434,10 @@
         i = String.prototype.replace,
         s = a,
         u = (r = /a/, o = /b*/g, a.call(r, "a"), a.call(o, "a"), 0 !== r.lastIndex || 0 !== o.lastIndex),
-        f = void 0 !== /()??/.exec("")[1];
-    (u || f) && (s = function (e) {
+        l = void 0 !== /()??/.exec("")[1];
+    (u || l) && (s = function (e) {
         var t, n, r, o, s = this;
-        return f && (n = new RegExp("^" + s.source + "$(?!\\s)", c.call(s))), u && (t = s.lastIndex), r = a.call(s, e), u && r && (s.lastIndex = s.global ? r.index + r[0].length : t), f && r && r.length > 1 && i.call(r[0], n, (function () {
+        return l && (n = new RegExp("^" + s.source + "$(?!\\s)", c.call(s))), u && (t = s.lastIndex), r = a.call(s, e), u && r && (s.lastIndex = s.global ? r.index + r[0].length : t), l && r && r.length > 1 && i.call(r[0], n, (function () {
             for (o = 1; o < arguments.length - 2; o++) void 0 === arguments[o] && (r[o] = void 0)
         })), r
     }), e.exports = s
@@ -481,8 +481,8 @@
         i = document.getElementById("summaryCalc"),
         s = (document.getElementById("btnCopyCalc"), document.getElementById("onePriceForAll")),
         u = document.getElementById("tariff"),
-        f = document.getElementById("endOfAgreement"),
-        l = document.getElementById("activeCalcSavings"),
+        l = document.getElementById("endOfAgreement"),
+        f = document.getElementById("activeCalcSavings"),
         p = 0,
         d = 0;
     s.checked = !1, y("tariff", "C11"), y("endOfAgreement", "2022");
@@ -494,13 +494,13 @@
         document.getElementById(e).value = t
     }
     var h = function () {
-        i.style.padding = "0px", i.innerHTML = "", l.style.display = "none", !0
+        i.style.padding = "0px", i.innerHTML = "", f.style.display = "none", !0
     };
     s.addEventListener("click", (function () {
         d = 0 === d ? 1 : 0
     }));
     var m = function () {
-        l.style.display = "block", 0 === p ? K.mainCalcFn() : 1 === p ? U.mainCalcFn() : 2 === p ? Z.mainCalcFn() : 3 === p ? J.mainCalcFn() : 4 === p ? Y.mainCalcFn() : 5 === p ? X.mainCalcFn() : 6 === p ? Q.mainCalcFn() : 7 === p ? te.mainCalcFn() : 8 === p ? ee.mainCalcFn() : console.log("co jest kurka wódka?")
+        f.style.display = "block", 0 === p ? K.mainCalcFn() : 1 === p ? U.mainCalcFn() : 2 === p ? Z.mainCalcFn() : 3 === p ? J.mainCalcFn() : 4 === p ? Y.mainCalcFn() : 5 === p ? X.mainCalcFn() : 6 === p ? Q.mainCalcFn() : 7 === p ? te.mainCalcFn() : 8 === p ? ee.mainCalcFn() : console.log("co jest kurka wódka?")
     };
     o(document.getElementsByClassName("note-remover")).forEach((function (e) {
         e.addEventListener("focus", h)
@@ -540,7 +540,7 @@
             e.value = 0
         }))
     })), h();
-    var C, j, N, M, L, B, D, z, R, W, q, H, G, V, $ = function e(t, n, o) {
+    var C, j, N, M, L, B, D, z, R, q, W, H, G, V, $ = function e(t, n, o) {
             var c = this;
             ! function (e, t) {
                 if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
@@ -555,7 +555,7 @@
                     console.log("Błąd w Fetch" + e)
                 })), !0
             })), r(this, "checkEndOfAgreement", (function () {
-                switch (parseInt(f.value)) {
+                switch (parseInt(l.value)) {
                     case 2022:
                         c.countsPrice2020 = 0, c.countsPrice2021 = 0, c.countsPrice2022 = 0;
                         break;
@@ -594,14 +594,14 @@
             })), r(this, "createNote", (function () {
                 if (1 === c.numberOfSpheres) {
                     var e = document.getElementById("priceNow").value;
-                    i.style.padding = "10px", i.innerHTML = 'Grupa taryfowa: <span class ="value-of-calc-data">'.concat(c.name, '</span>, Umowa kończy się: <span class ="value-of-calc-data">').concat(f.value, '</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">').concat(e, '</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">').concat(c.name, '</span>: <span class ="value-of-calc-data">').concat(c.pricesFromDb.tariff.price2022, '</span>, Zużycie roczne: <span class ="value-of-calc-data">').concat(c.wearOneSphere, '</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">').concat(c.proposeOneSphere, '</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">').concat(c.margeMass, "</span><br>Osoba kontaktowa:"), i.scrollIntoView()
+                    i.style.padding = "10px", i.innerHTML = 'Grupa taryfowa: <span class ="value-of-calc-data">'.concat(c.name, '</span>, Umowa kończy się: <span class ="value-of-calc-data">').concat(l.value, '</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">').concat(e, '</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">').concat(c.name, '</span>: <span class ="value-of-calc-data">').concat(c.pricesFromDb.tariff.price2022, '</span>, Zużycie roczne: <span class ="value-of-calc-data">').concat(c.wearOneSphere, '</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">').concat(c.proposeOneSphere, '</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">').concat(c.margeMass, "</span><br>Osoba kontaktowa:"), i.scrollIntoView()
                 } else if (2 === c.numberOfSpheres) {
                     var t = document.getElementById("havePriceAvr").value,
                         n = document.getElementById("havePriceFirst").value,
                         r = document.getElementById("havePriceSecond").value,
                         o = '<span class="value-of-calc-data">',
                         a = "</span>";
-                    i.style.padding = "10px", i.innerHTML = "Grupa taryfowa: ".concat(o).concat(c.name).concat(a, ", <br>Umowa kończy się: ").concat(o).concat(f.value).concat(a, ", <br>Klient posiada aktualnie ceny: Średnia: ").concat(o).concat(t).concat(a, " I strefa: ").concat(o).concat(n).concat(a, " II strefa: ").concat(o).concat(r).concat(a, ", <br>Ceny w cenniku na 2022 dla taryfy ").concat(o).concat(c.name).concat(a, ": Średnia: ").concat(o).concat(c.pricesFromDb.tariff.price2022.avr).concat(a, " I strefa ").concat(o).concat(c.pricesFromDb.tariff.price2022.first).concat(a, " II strefa: ").concat(o).concat(c.pricesFromDb.tariff.price2022.second).concat(a, ', <br>Zużycie roczne: <span class ="value-of-calc-data">').concat(c.wearTwoSpheresSum, "</span> MWh. <br>Propozycja cenowa: Średnia: ").concat(o).concat(c.proposeTwoSpheresAvr).concat(a, " I strefa: ").concat(o).concat(c.proposeTwoSpheresFirst).concat(a, " II strefa: ").concat(o).concat(c.proposeTwoSpheresSecond).concat(a, ', <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">').concat(c.margeMass, "</span><br>Osoba kontaktowa:"), i.scrollIntoView()
+                    i.style.padding = "10px", i.innerHTML = "Grupa taryfowa: ".concat(o).concat(c.name).concat(a, ", <br>Umowa kończy się: ").concat(o).concat(l.value).concat(a, ", <br>Klient posiada aktualnie ceny: Średnia: ").concat(o).concat(t).concat(a, " I strefa: ").concat(o).concat(n).concat(a, " II strefa: ").concat(o).concat(r).concat(a, ", <br>Ceny w cenniku na 2022 dla taryfy ").concat(o).concat(c.name).concat(a, ": Średnia: ").concat(o).concat(c.pricesFromDb.tariff.price2022.avr).concat(a, " I strefa ").concat(o).concat(c.pricesFromDb.tariff.price2022.first).concat(a, " II strefa: ").concat(o).concat(c.pricesFromDb.tariff.price2022.second).concat(a, ', <br>Zużycie roczne: <span class ="value-of-calc-data">').concat(c.wearTwoSpheresSum, "</span> MWh. <br>Propozycja cenowa: Średnia: ").concat(o).concat(c.proposeTwoSpheresAvr).concat(a, " I strefa: ").concat(o).concat(c.proposeTwoSpheresFirst).concat(a, " II strefa: ").concat(o).concat(c.proposeTwoSpheresSecond).concat(a, ', <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">').concat(c.margeMass, "</span><br>Osoba kontaktowa:"), i.scrollIntoView()
                 }
             })), r(this, "checkWhatIsBetter", (function () {
                 if (2 === c.numberOfSpheres) {
@@ -628,18 +628,18 @@
         return parseFloat(e.replace(/\,/g, "."))
     }
     document.getElementById("activeCalcSavings").addEventListener("click", (function () {
-        C = ne(document.getElementById("wear").value), j = ne(document.getElementById("wearFirst").value), N = ne(document.getElementById("wearSecond").value), M = ne(document.getElementById("priceNow").value), L = ne(document.getElementById("havePriceAvr").value), B = ne(document.getElementById("havePriceFirst").value), D = ne(document.getElementById("havePriceSecond").value), z = ne(document.getElementById("proposePrice").value), R = ne(document.getElementById("proposePriceFirst").value), W = ne(document.getElementById("proposePriceSecond").value), q = ne(document.getElementById("proposePriceAvr").value), H = ne(document.getElementById("tradeFee").value), G = document.getElementById("tariff").value, V = document.getElementById("summaryCalc");
+        C = ne(document.getElementById("wear").value), j = ne(document.getElementById("wearFirst").value), N = ne(document.getElementById("wearSecond").value), M = ne(document.getElementById("priceNow").value), L = ne(document.getElementById("havePriceAvr").value), B = ne(document.getElementById("havePriceFirst").value), D = ne(document.getElementById("havePriceSecond").value), z = ne(document.getElementById("proposePrice").value), R = ne(document.getElementById("proposePriceFirst").value), q = ne(document.getElementById("proposePriceSecond").value), W = ne(document.getElementById("proposePriceAvr").value), H = ne(document.getElementById("tradeFee").value), G = document.getElementById("tariff").value, V = document.getElementById("summaryCalc");
         var e, t, n = (12 * Number(H)).toFixed(2);
         if (V.innerHTML = (e = V.innerHTML, -13 != (t = e.indexOf("savings-note") - 12) ? e.slice(0, t) : e), "1" === G[2]) {
             var r = ((M - z) * C).toFixed(2),
                 o = V.innerHTML;
             V.innerHTML = o + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(r, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(r) + Number(n), "</span></p></div>")
         } else if (0 === d) {
-            var c = ((B - R) * j + (D - W) * N).toFixed(2),
+            var c = ((B - R) * j + (D - q) * N).toFixed(2),
                 a = V.innerHTML;
             V.innerHTML = a + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(c, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(c) + Number(n), "</span></p></div>")
         } else {
-            var i = ((L - q) * (j + N)).toFixed(2),
+            var i = ((L - W) * (j + N)).toFixed(2),
                 s = V.innerHTML;
             V.innerHTML = s + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(i, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(i) + Number(n), "</span></p></div>")
         }
@@ -650,7 +650,7 @@
         calcWearBtn: document.querySelector(".calc-wear__btn"),
         scorePlace: document.querySelector(".calc-wear__score"),
         mainCalcFn: function () {
-            this.wearFistSphere = Number(document.querySelector(".calc-wear__input--first-sphere").value), this.wearSecondSphere = Number(document.querySelector(".calc-wear__input--second-sphere").value), this.sum = 12 * (this.wearFistSphere + this.wearSecondSphere) / 1e3, this.scorePlace.innerHTML = "Zużycie roczne w I strefie <span>".concat((12 * this.wearFistSphere / 1e3).toFixed(2), " mWh</span>\n        <br>\n        Zużycie roczne w II strefie <span>").concat((12 * this.wearSecondSphere / 1e3).toFixed(2), " mWh</span>\n        <br>\n        Zużycie roczne suma <span>").concat(this.sum.toFixed(2), " mWh</span>\n        ")
+            this.wearFistSphere = Number(document.querySelector(".calc-wear__input--first-sphere").value), this.wearSecondSphere = Number(document.querySelector(".calc-wear__input--second-sphere").value), this.wearDays = Number(document.querySelector(".calc-wear__input--days").value), this.sum = 365 * (this.wearFistSphere / this.wearDays + this.wearSecondSphere / this.wearDays) / 1e3, this.scorePlace.innerHTML = "Zużycie roczne w I strefie <span>".concat((this.wearFistSphere / this.wearDays * 365 / 1e3).toFixed(2), " mWh</span>\n        <br>\n        Zużycie roczne w II strefie <span>").concat((this.wearSecondSphere / this.wearDays * 365 / 1e3).toFixed(2), " mWh</span>\n        <br>\n        Zużycie roczne suma <span>").concat(this.sum.toFixed(2), " mWh</span>\n        ")
         },
         addAnimationToCont: function (e) {
             this.calcWearContainer.style.animation = e ? "showCalcWear 1s linear both" : "none"
@@ -762,13 +762,13 @@
         return function (t, n, a) {
             var i, s = r(t),
                 u = o(s.length),
-                f = c(a, u);
+                l = c(a, u);
             if (e && n != n) {
-                for (; u > f;)
-                    if ((i = s[f++]) != i) return !0
+                for (; u > l;)
+                    if ((i = s[l++]) != i) return !0
             } else
-                for (; u > f; f++)
-                    if ((e || f in s) && s[f] === n) return e || f || 0;
+                for (; u > l; l++)
+                    if ((e || l in s) && s[l] === n) return e || l || 0;
             return !e && -1
         }
     }
@@ -799,22 +799,22 @@
         i = n(61),
         s = n(28),
         u = n(62),
-        f = n(63);
+        l = n(63);
     o(o.S + o.F * !n(64)((function (e) {
         Array.from(e)
     })), "Array", {
         from: function (e) {
-            var t, n, o, l, p = c(e),
+            var t, n, o, f, p = c(e),
                 d = "function" == typeof this ? this : Array,
                 v = arguments.length,
                 y = v > 1 ? arguments[1] : void 0,
                 h = void 0 !== y,
                 m = 0,
-                g = f(p);
+                g = l(p);
             if (h && (y = r(y, v > 2 ? arguments[2] : void 0, 2)), null == g || d == Array && i(g))
                 for (n = new d(t = s(p.length)); t > m; m++) u(n, m, h ? y(p[m], m) : p[m]);
             else
-                for (l = g.call(p), n = new d; !(o = l.next()).done; m++) u(n, m, h ? a(l, y, [o.value, m], !0) : o.value);
+                for (f = g.call(p), n = new d; !(o = f.next()).done; m++) u(n, m, h ? a(f, y, [o.value, m], !0) : o.value);
             return n.length = m, n
         }
     })
@@ -877,7 +877,7 @@
         return n
     }
 }, function (e, t, n) {
-    for (var r = n(66), o = n(22), c = n(5), a = n(3), i = n(7), s = n(16), u = n(0), f = u("iterator"), l = u("toStringTag"), p = s.Array, d = {
+    for (var r = n(66), o = n(22), c = n(5), a = n(3), i = n(7), s = n(16), u = n(0), l = u("iterator"), f = u("toStringTag"), p = s.Array, d = {
             CSSRuleList: !0,
             CSSStyleDeclaration: !1,
             CSSValueList: !1,
@@ -914,7 +914,7 @@
             g = d[m],
             S = a[m],
             b = S && S.prototype;
-        if (b && (b[f] || i(b, f, p), b[l] || i(b, l, m), s[m] = p, g))
+        if (b && (b[l] || i(b, l, p), b[f] || i(b, f, m), s[m] = p, g))
             for (h in r) b[h] || c(b, h, r[h], !0)
     }
 }, function (e, t, n) {
@@ -955,8 +955,8 @@
         i = n(5),
         s = n(71).KEY,
         u = n(6),
-        f = n(18),
-        l = n(31),
+        l = n(18),
+        f = n(31),
         p = n(12),
         d = n(0),
         v = n(41),
@@ -984,10 +984,10 @@
         L = d("_hidden"),
         B = d("toPrimitive"),
         D = {}.propertyIsEnumerable,
-        z = f("symbol-registry"),
-        R = f("symbols"),
-        W = f("op-symbols"),
-        q = Object.prototype,
+        z = l("symbol-registry"),
+        R = l("symbols"),
+        q = l("op-symbols"),
+        W = Object.prototype,
         H = "function" == typeof j && !!I.f,
         G = r.QObject,
         V = !G || !G.prototype || !G.prototype.findChild,
@@ -1000,8 +1000,8 @@
                 }
             })).a
         })) ? function (e, t, n) {
-            var r = k(q, t);
-            r && delete q[t], A(e, t, n), r && e !== q && A(q, t, r)
+            var r = k(W, t);
+            r && delete W[t], A(e, t, n), r && e !== W && A(W, t, r)
         } : A,
         K = function (e) {
             var t = R[e] = O(j.prototype);
@@ -1013,7 +1013,7 @@
             return e instanceof j
         },
         Z = function (e, t, n) {
-            return e === q && Z(W, t, n), g(e), t = x(t, !0), g(n), o(R, t) ? (n.enumerable ? (o(e, L) && e[L][t] && (e[L][t] = !1), n = O(n, {
+            return e === W && Z(q, t, n), g(e), t = x(t, !0), g(n), o(R, t) ? (n.enumerable ? (o(e, L) && e[L][t] && (e[L][t] = !1), n = O(n, {
                 enumerable: E(0, !1)
             })) : (o(e, L) || A(e, L, E(1, {})), e[L][t] = !0), $(e, t, n)) : A(e, t, n)
         },
@@ -1024,10 +1024,10 @@
         },
         Y = function (e) {
             var t = D.call(this, e = x(e, !0));
-            return !(this === q && o(R, e) && !o(W, e)) && (!(t || !o(this, e) || !o(R, e) || o(this, L) && this[L][e]) || t)
+            return !(this === W && o(R, e) && !o(q, e)) && (!(t || !o(this, e) || !o(R, e) || o(this, L) && this[L][e]) || t)
         },
         X = function (e, t) {
-            if (e = w(e), t = x(t, !0), e !== q || !o(R, t) || o(W, t)) {
+            if (e = w(e), t = x(t, !0), e !== W || !o(R, t) || o(q, t)) {
                 var n = k(e, t);
                 return !n || !o(R, t) || o(e, L) && e[L][t] || (n.enumerable = !0), n
             }
@@ -1037,22 +1037,22 @@
             return r
         },
         ee = function (e) {
-            for (var t, n = e === q, r = C(n ? W : w(e)), c = [], a = 0; r.length > a;) !o(R, t = r[a++]) || n && !o(q, t) || c.push(R[t]);
+            for (var t, n = e === W, r = C(n ? q : w(e)), c = [], a = 0; r.length > a;) !o(R, t = r[a++]) || n && !o(W, t) || c.push(R[t]);
             return c
         };
     H || (i((j = function () {
         if (this instanceof j) throw TypeError("Symbol is not a constructor!");
         var e = p(arguments.length > 0 ? arguments[0] : void 0),
             t = function (n) {
-                this === q && t.call(W, n), o(this, L) && o(this[L], e) && (this[L][e] = !1), $(this, e, E(1, n))
+                this === W && t.call(q, n), o(this, L) && o(this[L], e) && (this[L][e] = !1), $(this, e, E(1, n))
             };
-        return c && V && $(q, e, {
+        return c && V && $(W, e, {
             configurable: !0,
             set: t
         }), K(e)
     }).prototype, "toString", (function () {
         return this._k
-    })), T.f = X, P.f = Z, n(33).f = F.f = Q, n(32).f = Y, I.f = ee, c && !n(19) && i(q, "propertyIsEnumerable", Y, !0), v.f = function (e) {
+    })), T.f = X, P.f = Z, n(33).f = F.f = Q, n(32).f = Y, I.f = ee, c && !n(19) && i(W, "propertyIsEnumerable", Y, !0), v.f = function (e) {
         return K(d(e))
     }), a(a.G + a.W + a.F * !H, {
         Symbol: j
@@ -1103,7 +1103,7 @@
                 if ("function" == typeof n && (t = n.call(this, e, t)), !U(t)) return t
             }), r[1] = t, M.apply(N, r)
         }
-    }), j.prototype[B] || n(7)(j.prototype, B, j.prototype.valueOf), l(j, "Symbol"), l(Math, "Math", !0), l(r.JSON, "JSON", !0)
+    }), j.prototype[B] || n(7)(j.prototype, B, j.prototype.valueOf), f(j, "Symbol"), f(Math, "Math", !0), f(r.JSON, "JSON", !0)
 }, function (e, t, n) {
     var r = n(12)("meta"),
         o = n(9),
@@ -1116,7 +1116,7 @@
         u = !n(6)((function () {
             return s(Object.preventExtensions({}))
         })),
-        f = function (e) {
+        l = function (e) {
             a(e, r, {
                 value: {
                     i: "O" + ++i,
@@ -1124,7 +1124,7 @@
                 }
             })
         },
-        l = e.exports = {
+        f = e.exports = {
             KEY: r,
             NEED: !1,
             fastKey: function (e, t) {
@@ -1132,7 +1132,7 @@
                 if (!c(e, r)) {
                     if (!s(e)) return "F";
                     if (!t) return "E";
-                    f(e)
+                    l(e)
                 }
                 return e[r].i
             },
@@ -1140,12 +1140,12 @@
                 if (!c(e, r)) {
                     if (!s(e)) return !0;
                     if (!t) return !1;
-                    f(e)
+                    l(e)
                 }
                 return e[r].w
             },
             onFreeze: function (e) {
-                return u && l.NEED && s(e) && !c(e, r) && f(e), e
+                return u && f.NEED && s(e) && !c(e, r) && l(e), e
             }
         }
 }, function (e, t, n) {
@@ -1187,8 +1187,8 @@
         i = n(17),
         s = n(6),
         u = n(33).f,
-        f = n(34).f,
-        l = n(2).f,
+        l = n(34).f,
+        f = n(2).f,
         p = n(78).trim,
         d = r.Number,
         v = d,
@@ -1214,7 +1214,7 @@
                         default:
                             return +t
                     }
-                    for (var a, s = t.slice(2), u = 0, f = s.length; u < f; u++)
+                    for (var a, s = t.slice(2), u = 0, l = s.length; u < l; u++)
                         if ((a = s.charCodeAt(u)) < 48 || a > o) return NaN;
                     return parseInt(s, r)
                 }
@@ -1229,7 +1229,7 @@
                 y.valueOf.call(n)
             })) : "Number" != c(n)) ? a(new v(g(t)), n, d) : g(t)
         };
-        for (var S, b = n(1) ? u(v) : "MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger".split(","), w = 0; b.length > w; w++) o(v, S = b[w]) && !o(d, S) && l(d, S, f(v, S));
+        for (var S, b = n(1) ? u(v) : "MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger".split(","), w = 0; b.length > w; w++) o(v, S = b[w]) && !o(d, S) && f(d, S, l(v, S));
         d.prototype = y, y.constructor = d, n(5)(r, "Number", d)
     }
 }, function (e, t, n) {
@@ -1266,18 +1266,18 @@
         i = "[" + a + "]",
         s = RegExp("^" + i + i + "*"),
         u = RegExp(i + i + "*$"),
-        f = function (e, t, n) {
+        l = function (e, t, n) {
             var o = {},
                 i = c((function () {
                     return !!a[e]() || "​" != "​" [e]()
                 })),
-                s = o[e] = i ? t(l) : a[e];
+                s = o[e] = i ? t(f) : a[e];
             n && (o[n] = s), r(r.P + r.F * i, "String", o)
         },
-        l = f.trim = function (e, t) {
+        f = l.trim = function (e, t) {
             return e = String(o(e)), 1 & t && (e = e.replace(s, "")), 2 & t && (e = e.replace(u, "")), e
         };
-    e.exports = f
+    e.exports = l
 }, function (e, t) {
     e.exports = "\t\n\v\f\r   ᠎             　\u2028\u2029\ufeff"
 }, function (e, t, n) {
@@ -1303,8 +1303,8 @@
         i = n(82),
         s = n(83),
         u = Math.max,
-        f = Math.min,
-        l = Math.floor,
+        l = Math.min,
+        f = Math.floor,
         p = /\$([$&`']|\d\d?|<[^>]*>)/g,
         d = /\$([$&`']|\d\d?)/g;
     n(84)("replace", 2, (function (e, t, n, v) {
@@ -1315,24 +1315,24 @@
         }, function (e, t) {
             var o = v(n, e, this, t);
             if (o.done) return o.value;
-            var l = r(e),
+            var f = r(e),
                 p = String(this),
                 d = "function" == typeof t;
             d || (t = String(t));
-            var h = l.global;
+            var h = f.global;
             if (h) {
-                var m = l.unicode;
-                l.lastIndex = 0
+                var m = f.unicode;
+                f.lastIndex = 0
             }
             for (var g = [];;) {
-                var S = s(l, p);
+                var S = s(f, p);
                 if (null === S) break;
                 if (g.push(S), !h) break;
-                "" === String(S[0]) && (l.lastIndex = i(p, c(l.lastIndex), m))
+                "" === String(S[0]) && (f.lastIndex = i(p, c(f.lastIndex), m))
             }
             for (var b, w = "", x = 0, E = 0; E < g.length; E++) {
                 S = g[E];
-                for (var O = String(S[0]), F = u(f(a(S.index), p.length), 0), T = [], I = 1; I < S.length; I++) T.push(void 0 === (b = S[I]) ? b : String(b));
+                for (var O = String(S[0]), F = u(l(a(S.index), p.length), 0), T = [], I = 1; I < S.length; I++) T.push(void 0 === (b = S[I]) ? b : String(b));
                 var P = S.groups;
                 if (d) {
                     var _ = [O].concat(T, F, p);
@@ -1347,8 +1347,8 @@
         function y(e, t, r, c, a, i) {
             var s = r + e.length,
                 u = c.length,
-                f = d;
-            return void 0 !== a && (a = o(a), f = p), n.call(i, f, (function (n, o) {
+                l = d;
+            return void 0 !== a && (a = o(a), l = p), n.call(i, l, (function (n, o) {
                 var i;
                 switch (o.charAt(0)) {
                     case "$":
@@ -1363,13 +1363,13 @@
                         i = a[o.slice(1, -1)];
                         break;
                     default:
-                        var f = +o;
-                        if (0 === f) return n;
-                        if (f > u) {
-                            var p = l(f / 10);
+                        var l = +o;
+                        if (0 === l) return n;
+                        if (l > u) {
+                            var p = f(l / 10);
                             return 0 === p ? n : p <= u ? void 0 === c[p - 1] ? o.charAt(1) : c[p - 1] + o.charAt(1) : n
                         }
-                        i = c[f - 1]
+                        i = c[l - 1]
                 }
                 return void 0 === i ? "" : i
             }))
@@ -1405,7 +1405,7 @@
         i = n(0),
         s = n(43),
         u = i("species"),
-        f = !c((function () {
+        l = !c((function () {
             var e = /./;
             return e.exec = function () {
                 var e = [];
@@ -1414,7 +1414,7 @@
                 }, e
             }, "7" !== "".replace(e, "$<a>")
         })),
-        l = function () {
+        f = function () {
             var e = /(?:)/,
                 t = e.exec;
             e.exec = function () {
@@ -1440,7 +1440,7 @@
                     return n
                 }), n[p](""), !t
             })) : void 0;
-        if (!d || !v || "replace" === e && !f || "split" === e && !l) {
+        if (!d || !v || "replace" === e && !l || "split" === e && !f) {
             var y = /./ [p],
                 h = n(a, p, "" [e], (function (e, t, n, r, o) {
                     return t.exec === s ? d && !o ? {

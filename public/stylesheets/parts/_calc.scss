@@ -312,6 +312,7 @@
 
     .show-calc-wear {
         margin: 10px 0px;
+
     }
 
     .calc-wear {
@@ -326,6 +327,12 @@
 
         @include mq(xsmall) {
             max-width: 300px;
+        }
+
+        &__par {
+            strong {
+                color: brown;
+            }
         }
 
         &__hide {

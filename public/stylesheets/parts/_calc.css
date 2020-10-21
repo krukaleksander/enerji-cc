@@ -322,6 +322,10 @@
   }
 }
 
+.wrapper .calc-wear__par strong {
+  color: brown;
+}
+
 .wrapper .calc-wear__hide {
   max-width: 30px;
   font-size: 20px;
