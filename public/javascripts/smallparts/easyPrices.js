@@ -28,7 +28,6 @@ var easyPrices = {
         var input = easyPrices.input,
             btn = easyPrices.btn,
             value = easyPrices.value,
-            pricesAsObject = easyPrices.pricesAsObject,
             pricesAsArr = easyPrices.pricesAsArr;
         btn.addEventListener('click', function () {
             var flag = document.querySelector('.easy-prices__select-sphere').value;
@@ -59,3 +58,11 @@ function helpWithPrices() {
 };
 
 helpWithPrices();
+
+showChangePrices = function (pass) {
+    if (pass) {
+        document.querySelector('.show-price-change').style.display = 'block';
+        return ('Hello admin :)');
+    }
+    return ('Wrong pass');
+}

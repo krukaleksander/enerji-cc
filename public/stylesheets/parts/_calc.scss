@@ -46,15 +46,34 @@
     }
 
     .show-price-change {
-        display: block;
+        display: none;
 
         @include mq('xsmall') {
             display: none;
         }
     }
 
+    .easy-prices {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 220px;
+        border-bottom: 3px solid brown;
+        border-top: 3px solid brown;
+
+        select {
+            width: 150px;
+        }
+
+        input {
+            width: 300px;
+        }
+    }
+
     h3 {
-        font-family: 'Metal Mania', cursive;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
         text-align: center;
         color: #4148ae;
         text-shadow: 1px 1px rgb(213, 232, 194);

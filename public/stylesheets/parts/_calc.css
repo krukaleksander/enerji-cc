@@ -47,7 +47,7 @@
 }
 
 .wrapper .show-price-change {
-  display: block;
+  display: none;
 }
 
 @media (max-width: 640px) {
@@ -56,8 +56,27 @@
   }
 }
 
+.wrapper .easy-prices {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 220px;
+  border-bottom: 3px solid brown;
+  border-top: 3px solid brown;
+}
+
+.wrapper .easy-prices select {
+  width: 150px;
+}
+
+.wrapper .easy-prices input {
+  width: 300px;
+}
+
 .wrapper h3 {
-  font-family: 'Metal Mania', cursive;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
   text-align: center;
   color: #4148ae;
   text-shadow: 1px 1px #d5e8c2;
