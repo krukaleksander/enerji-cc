@@ -4,6 +4,7 @@ const btnCopyCalc = document.getElementById('btnCopyCalc');
 const onePriceCheckbox = document.getElementById('onePriceForAll');
 const tariff = document.getElementById('tariff');
 const endOfAgreement = document.getElementById('endOfAgreement');
+const endOfNewAgreement = document.getElementById('endOfNewAgreement');
 const btnSavings = document.getElementById('activeCalcSavings');
 let tariffCalcFlag = 0;
 let onePriceFlag = 0;
@@ -12,6 +13,7 @@ let info35zlFlag = true;
 onePriceCheckbox.checked = false;
 selectElement('tariff', 'C11');
 selectElement('endOfAgreement', '2022');
+selectElement('endOfNewAgreement', '2023');
 
 const replaceAndParseMainFn = (item) => {
     return parseFloat(item.replace(/\,/g, '.'));

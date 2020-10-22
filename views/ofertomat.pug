@@ -39,12 +39,18 @@ block content
         option(value="B21") B21                       
         option(value="B22") B22                       
     div
-      label(for="endOfAgreement") Koniec umowy: 
+      label(for="endOfAgreement") Koniec umowy bieżącej: 
       select(id="endOfAgreement")
         option(class="option-2022" value=2022) 2022
         option(class="option-2021" value=2021) 2021
         option(class="option-2020" value=2020) 2020
-        option(class="option-2019" value=9999) 9999     
+        option(class="option-2019" value=9999) 9999  
+    div
+      label(for="endOfNewAgreement") Nowa umowa do: 
+      select(id="endOfNewAgreement")
+        option(class="option-2022" value=2023) 2023
+        option(class="option-2022" value=2022) 2022
+        option(class="option-2021" value=2021) 2021           
     div
       label(for="tradeFee" class="label-for-trade-fee") Opłata handlowa
       input(id="tradeFee" class="set-to-zero" type="text" value=0)
@@ -149,13 +155,13 @@ block content
        div(class="change-price-close")
          img(src="./images/close_cross.png", alt="") 
 
-  //- script(src="/javascripts/energaCalc.js")    
-  //- script(src="/javascripts/smallparts/changepricepanel.js")
-  //- script(src="/javascripts/smallparts/changetariffs.js")  
-  //- script(src="/javascripts/smallparts/setToZero.js")
-  //- script(src="/javascripts/tariffEngine.js")  
-  script(src="/javascripts/babbleTest.js")
+  script(src="/javascripts/energaCalc.js")    
+  script(src="/javascripts/smallparts/changepricepanel.js")
+  script(src="/javascripts/smallparts/changetariffs.js")  
+  script(src="/javascripts/smallparts/setToZero.js")
+  script(src="/javascripts/tariffEngine.js")  
+  //- script(src="/javascripts/babbleTest.js")
   script(src="/javascripts/smallparts/easyPrices.js") 
-  //- script(src="/javascripts/smallparts/calcSavings.js")
-  //- script(src="/javascripts/smallparts/calcWear.js")
+  script(src="/javascripts/smallparts/calcSavings.js")
+  script(src="/javascripts/smallparts/calcWear.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous")
