@@ -1,5 +1,5 @@
-// zmienna odpowiadająca za mnożnik w 9999 w tym momencie wyliczona od miesiąca października
-const factor999 = 0.16;
+// zmienna odpowiadająca za mnożnik w 9999 w tym momencie wyliczona od miesiąca grudnia
+const factor999 = 0.08;
 
 class Tariff {
     constructor(numberOfSpheres, indexOfData, name) {
@@ -135,7 +135,7 @@ class Tariff {
         if (this.numberOfSpheres === 1) {
             const priceNow = document.getElementById('priceNow').value;
             summaryCalc.style.padding = '10px';
-            summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${this.name}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow}</span>, Cena w cenniku dla taryfy <span class ="value-of-calc-data">${this.name}</span>: <span class ="value-of-calc-data">${this.pricesFromDb.tariff.price2022}</span>, Zużycie roczne: <span class ="value-of-calc-data">${this.wearOneSphere}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${this.proposeOneSphere}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span><br>Osoba kontaktowa:`;
+            summaryCalc.innerHTML = `Grupa taryfowa: <span class ="value-of-calc-data">${this.name}</span>, Umowa kończy się: <span class ="value-of-calc-data">${endOfAgreement.value}</span>, Klient posiada aktualnie cenę: <span class="value-of-calc-data">${priceNow}</span>, Zużycie roczne: <span class ="value-of-calc-data">${this.wearOneSphere}</span> MWh. Propozycja cenowa: <span class ="value-of-calc-data">${this.proposeOneSphere}</span>, Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span>`;
             summaryCalc.scrollIntoView();
         } else if (this.numberOfSpheres === 2) {
             const havePriceAvr = document.getElementById('havePriceAvr').value;
@@ -144,7 +144,7 @@ class Tariff {
             let spanF = `<span class="value-of-calc-data">`;
             let spanE = `</span>`;
             summaryCalc.style.padding = '10px';
-            summaryCalc.innerHTML = `Grupa taryfowa: ${spanF}${this.name}${spanE}, <br>Umowa kończy się: ${spanF}${endOfAgreement.value}${spanE}, <br>Klient posiada aktualnie ceny: Średnia: ${spanF}${havePriceAvr}${spanE} I strefa: ${spanF}${havePriceFirst}${spanE} II strefa: ${spanF}${havePriceSecond}${spanE}, <br>Ceny w cenniku na 2022 dla taryfy ${spanF}${this.name}${spanE}: Średnia: ${spanF}${this.pricesFromDb.tariff.price2022.avr}${spanE} I strefa ${spanF}${this.pricesFromDb.tariff.price2022.first}${spanE} II strefa: ${spanF}${this.pricesFromDb.tariff.price2022.second}${spanE}, <br>Zużycie roczne: <span class ="value-of-calc-data">${this.wearTwoSpheresSum}</span> MWh. <br>Propozycja cenowa: Średnia: ${spanF}${this.proposeTwoSpheresAvr}${spanE} I strefa: ${spanF}${this.proposeTwoSpheresFirst}${spanE} II strefa: ${spanF}${this.proposeTwoSpheresSecond}${spanE}, <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span><br>Osoba kontaktowa:`;
+            summaryCalc.innerHTML = `Grupa taryfowa: ${spanF}${this.name}${spanE}, <br>Umowa kończy się: ${spanF}${endOfAgreement.value}${spanE}, <br>Klient posiada aktualnie ceny: Średnia: ${spanF}${havePriceAvr}${spanE} I strefa: ${spanF}${havePriceFirst}${spanE} II strefa: ${spanF}${havePriceSecond}${spanE}<br>Zużycie roczne: <span class ="value-of-calc-data">${this.wearTwoSpheresSum}</span> MWh. <br>Propozycja cenowa: Średnia: ${spanF}${this.proposeTwoSpheresAvr}${spanE} I strefa: ${spanF}${this.proposeTwoSpheresFirst}${spanE} II strefa: ${spanF}${this.proposeTwoSpheresSecond}${spanE}, <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span>`;
             summaryCalc.scrollIntoView();
         }
     }
