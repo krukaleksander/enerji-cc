@@ -20,6 +20,7 @@ var statystykiRouter = require('./routes/statistics.js');
 var mwhRouter = require('./routes/mwh.js');
 const crmLoginRouter = require('./routes/crmLogin');
 const crmPanelRouter = require('./routes/crmPanel');
+const consumptionRouter = require('./routes/consumption');
 
 
 
@@ -48,6 +49,7 @@ app.use('/stats', statystykiRouter);
 app.use('/mwh', mwhRouter);
 app.use('/crm', crmLoginRouter);
 app.use('/crm/panel', crmPanelRouter);
+app.use('/consumption', consumptionRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,0 +1,19 @@
+extends layout
+block content
+  form(method='post')
+    button(type='submit' class='logout-btn') Wyloguj
+  .consumption-wrapper
+    h2 Faktura 1
+    p Okres od:
+    input(type="date" id='beginingDate')
+    p Poprzednie wskazanie licznika 
+    input(type="text" id='numberOne')
+    h2 Faktura 3
+    p Okres do:
+    input(type="date" id='endDate')    
+    p Obecne wskazanie licznika 
+    input(type="text" id='numberTwo')
+    button(id="conumptionBtn" class='btn btn-warning') Oblicz
+    p(id="consumption-score")
+  script(src="/javascripts/smallparts/consumption.js")
+     

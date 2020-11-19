@@ -13,7 +13,7 @@ body {
   height: 100vh;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: url("../images/autumn.jpg");
+  background: url("../images/aurora.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1713,4 +1713,27 @@ body .ripple-container__ripple {
     height: 500px;
     opacity: 0;
   }
+}
+
+body .consumption-wrapper {
+  background-color: rgba(196, 219, 195, 0.788);
+  max-width: 80vw;
+  margin: 30px auto 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+body .consumption-wrapper p {
+  font-weight: bolder;
+  letter-spacing: 1px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+body .consumption-wrapper #conumptionBtn {
+  display: block;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 10px;
+  color: #33302a;
 }

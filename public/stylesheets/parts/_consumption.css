@@ -1,0 +1,22 @@
+.consumption-wrapper {
+  background-color: rgba(196, 219, 195, 0.788);
+  max-width: 80vw;
+  margin: 30px auto 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.consumption-wrapper p {
+  font-weight: bolder;
+  letter-spacing: 1px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.consumption-wrapper #conumptionBtn {
+  display: block;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 10px;
+  color: #33302a;
+}
