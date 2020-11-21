@@ -197,10 +197,10 @@ body .main-nav ul {
 
 body .main-nav ul li {
   border-right: 2px solid white;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
-body .main-nav ul li:nth-child(5) {
+body .main-nav ul li:nth-child(3) {
   border-right: none;
 }
 
@@ -1384,7 +1384,7 @@ body .mwh-title {
 body .calcFV {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(90deg, #020024 0%, #b79de6 0%, #bb59ed 35%, #91a5e0 100%);
+  background: rgba(201, 191, 191, 0.922);
   max-width: 600px;
   margin: 0 auto;
   border: 2px solid #2d082d;
