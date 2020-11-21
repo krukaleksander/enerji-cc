@@ -21,6 +21,10 @@
   padding: 10px;
 }
 
+.consumption-wrapper h2 {
+  text-align: center;
+}
+
 .consumption-wrapper p {
   font-weight: bolder;
   letter-spacing: 1px;

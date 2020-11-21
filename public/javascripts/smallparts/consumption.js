@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
         if (beginingDate.value >= endDate.value) return scorePar.innerHTML = `Chyba coś nie tak z datami... ;]`;
         if (numberOne.value === numberTwo.value) return scorePar.innerHTML = `Spójrz na wskazania, klient nic nie zużył?`;
-        if (+numberOne.value > +numberTwo.value) return scorePar.innerHTML = `Wskazanie poprzednie nie może być większe od obecnego`;
+        if (replaceAndParseFn(numberOne.value) > replaceAndParseFn(numberTwo.value)) return scorePar.innerHTML = `Wskazanie poprzednie nie może być większe od obecnego`;
 
 
         calcConsuption(new Date(beginingDate.value), new Date(endDate.value), replaceAndParseFn(numberOne.value), replaceAndParseFn(numberTwo.value), replaceAndParseFn(numberOneSecondSphere.value), replaceAndParseFn(numberTwoSecondSphere.value), scorePar);
