@@ -3,17 +3,34 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj
   .consumption-wrapper
-    h2 Faktura 1
-    p Okres od:
-    input(type="date" id='beginingDate')
-    p Poprzednie wskazanie licznika 
-    input(type="text" id='numberOne')
-    h2 Faktura 3
-    p Okres do:
-    input(type="date" id='endDate')    
-    p Obecne wskazanie licznika 
-    input(type="text" id='numberTwo')
-    button(id="conumptionBtn" class='btn btn-warning') Oblicz
+    button(id="showAboutConsumption" class="btn btn-info") Jak to działa?
+    .consumption-wrapper__fvs
+      div
+        h2 Faktura 1
+        p Okres od:
+        input(type="date" id='beginingDate')
+        p Poprzednie wskazanie licznika [Strefa I ]
+        input(type="text" id='numberOne' value=0)
+        p Poprzednie wskazanie licznika [Strefa II ]
+        input(type="text" id='numberOneSecondSphere' value=0)
+      div
+        h2 Faktura 3
+        p Okres do:
+        input(type="date" id='endDate')    
+        p Obecne wskazanie licznika [Strefa I ] 
+        input(type="text" id='numberTwo' value=0)
+        p Obecne wskazanie licznika [Strefa II ] 
+        input(type="text" id='numberTwoSecondSphere' value=0)
+    button(id="conumptionBtn" class='btn btn-warning') Oblicz    
     p(id="consumption-score")
+  .about-consumption
+    i(class="fas fa-window-close about-consumption__close")
+    h1(class="about-consumption__heading") Jak to działa?
+    p(class="about-consumption__par") Program na podstawie wprowadzonych dat oblicza liczbę dni, które obejmują faktury. Następnie wylicza różnicę między wskazaniami na liczniku. W ten sposób wiemy ile klient zużył prądu, oraz wiemy przez ile dni.
+    p(class="about-consumption__par") Jeśli grupa taryfowa jest jednostrefowa, w strefie II pozostaw 0.
+    p(class="about-consumption__par") Zużycie dzielone jest przez liczbę dni i w ten sposób uzyskujemy informacje [szacunkowo] ile klient zużywa prądu dziennie. Wartość ta mnożona jest przez 365 i ot cała filozofia ;).
+    p(class="about-consumption__par") Poniżej znajduje się przykładowa faktura z oznaczonymi danymi.
+    img(class="about-consumption__img" src="../images/faktura_wyliczanie_1.png", alt="faktura za prąd")
+    p(class="about-consumption__par about-consumption__par--important") Dane zostały oznaczone na jednej fakturze, ale pamiętajmy, że do billingu potrzebne są trzy kolejne faktury nie starsze niż rok -  dane spisujemy z pierwszej i ostatniej!
   script(src="/javascripts/smallparts/consumption.js")
      

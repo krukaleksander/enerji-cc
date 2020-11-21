@@ -5,6 +5,22 @@
     padding: 20px;
     border-radius: 20px;
 
+    #showAboutConsumption,
+    #conumptionBtn {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &__fvs {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        border-top: 1px solid rgb(217, 207, 207);
+        border-bottom: 1px solid rgb(217, 207, 207);
+        padding: 10px;
+
+    }
+
     p {
         font-weight: bolder;
         letter-spacing: 1px;
@@ -18,5 +34,64 @@
         font-size: 20px;
         margin-top: 10px;
         color: rgb(51, 48, 42);
+    }
+
+    #consumption-score {
+        text-align: center;
+        color: darkslategray;
+    }
+}
+
+.about-consumption {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 70%;
+    background-color: antiquewhite;
+    padding: 15px;
+    border-radius: 5px;
+    border: 3px solid black;
+    z-index: 10;
+
+    &__close {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        font-size: 30px;
+        color: brown;
+        cursor: pointer;
+        transition: .5s;
+
+        &:hover {
+            color: red;
+        }
+    }
+
+    &__heading {
+        color: green;
+        font-size: 30px;
+    }
+
+    &__par {
+        letter-spacing: 1px;
+        color: darkolivegreen;
+        font-size: 20px;
+
+        &--important {
+            color: brown;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid brown;
+            padding: 5px;
+            margin-top: 10px;
+        }
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        border: 2px solid black;
     }
 }
