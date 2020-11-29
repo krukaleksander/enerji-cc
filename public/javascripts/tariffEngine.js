@@ -11,8 +11,6 @@ class Tariff {
         this.calc2021 = 0;
         this.calc2022 = 0;
         this.calc2023 = 0;
-
-
     }
     getPricesFromDb = () => {
         fetch(`${window.location.href}/get-prices`, {
@@ -61,21 +59,22 @@ class Tariff {
         };
 
     };
+    checkEndOfAgreementMonth = (monthIndex) => parseFloat((monthIndex / 12).toFixed(2));
     checkEndOfAgreement = () => {
         this.checkEndOfNewAgreement(+endOfAgreement.value, +endOfNewAgreement.value);
         switch (parseInt(endOfAgreement.value)) {
             case 2022:
                 this.countsPrice2020 = 0;
                 this.countsPrice2021 = 0;
-                this.countsPrice2022 = 0;
+                this.countsPrice2022 = 1 - this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
                 break;
             case 2021:
                 this.countsPrice2020 = 0;
-                this.countsPrice2021 = 0;
+                this.countsPrice2021 = 1 - this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
                 this.countsPrice2022 = 1;
                 break;
             case 2020:
-                this.countsPrice2020 = 0;
+                this.countsPrice2020 = 1 - this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
                 this.countsPrice2021 = 1;
                 this.countsPrice2022 = 1;
                 break;

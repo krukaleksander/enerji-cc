@@ -3,6 +3,7 @@ const summaryCalc = document.getElementById('summaryCalc');
 const btnCopyCalc = document.getElementById('btnCopyCalc');
 const onePriceCheckbox = document.getElementById('onePriceForAll');
 const tariff = document.getElementById('tariff');
+const endOfAgreementMonth = document.getElementById('endOfAgreementMonth');
 const endOfAgreement = document.getElementById('endOfAgreement');
 const endOfNewAgreement = document.getElementById('endOfNewAgreement');
 const btnSavings = document.getElementById('activeCalcSavings');
