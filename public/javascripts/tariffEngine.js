@@ -31,6 +31,7 @@ class Tariff {
         let chosenYears = [];
         let correctStart = start;
         if (start === 9999) correctStart = 2019;
+        chosenYears.push(start);
         options.forEach(option => {
             if (option > correctStart && option <= end) {
                 chosenYears.push(option);
@@ -59,22 +60,22 @@ class Tariff {
         };
 
     };
-    checkEndOfAgreementMonth = (monthIndex) => parseFloat((monthIndex / 12).toFixed(2));
+    checkEndOfAgreementMonth = (monthIndex) => parseFloat(((monthIndex - 1) / 12).toFixed(2));
     checkEndOfAgreement = () => {
         this.checkEndOfNewAgreement(+endOfAgreement.value, +endOfNewAgreement.value);
         switch (parseInt(endOfAgreement.value)) {
             case 2022:
                 this.countsPrice2020 = 0;
                 this.countsPrice2021 = 0;
-                this.countsPrice2022 = 1 - this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
+                this.countsPrice2022 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
                 break;
             case 2021:
                 this.countsPrice2020 = 0;
-                this.countsPrice2021 = 1 - this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
+                this.countsPrice2021 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
                 this.countsPrice2022 = 1;
                 break;
             case 2020:
-                this.countsPrice2020 = 1 - this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
+                this.countsPrice2020 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
                 this.countsPrice2021 = 1;
                 this.countsPrice2022 = 1;
                 break;
@@ -112,6 +113,7 @@ class Tariff {
     };
     calcOneSphere = () => {
         this.margeMass = Math.floor(((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2023)) * this.wearOneSphere * this.calc2023) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022)) * this.wearOneSphere * this.countsPrice2022 * this.calc2022) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021)) * this.wearOneSphere * this.countsPrice2021 * this.calc2021) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020)) * this.wearOneSphere * this.countsPrice2020 * this.calc2020));
+
     };
     calcTwoSpheres = () => {
         if (onePriceFlag === 1) {
@@ -154,8 +156,6 @@ class Tariff {
             const wearSum = Number(this.wearTwoSpheresSum);
             const costAvr = (wearSum * this.proposeTwoSpheresAvr).toFixed(2);
             const costInSpheres = ((this.weareTwoSpeheresFirst * this.proposeTwoSpheresFirst) + (this.weareTwoSpeheresSecond * this.proposeTwoSpheresSecond)).toFixed(2);
-            console.log(`Na płasko klient zapłaci za rok: ${costAvr}`);
-            console.log(`W podziale na strefy klient zapłaci za rok: ${costInSpheres}`);
         } else {
             return
         }
