@@ -1,5 +1,4 @@
 (() => {
-    console.log('script activated');
     const rippleBtns = [...document.querySelectorAll('.ripple-container__btn')];
 
     rippleBtns.forEach(btn => {
