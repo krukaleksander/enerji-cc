@@ -648,6 +648,10 @@ body .wrapper .calc-wear__score span {
   }
 }
 
+body .wrapper .calc-wear__btn--import, body .wrapper .calc-wear__info {
+  display: none;
+}
+
 @keyframes showCalcWear {
   0% {
     transform: scale(0);

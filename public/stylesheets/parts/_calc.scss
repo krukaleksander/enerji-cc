@@ -366,6 +366,11 @@
                 }
             }
         }
+
+        &__btn--import,
+        &__info {
+            display: none;
+        }
     }
 }
 

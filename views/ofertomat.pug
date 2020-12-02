@@ -24,8 +24,11 @@ block content
       div
         label II strefa:
         input(class="calc-wear__input calc-wear__input--second-sphere" value=0)
-      button(class="btn btn-info calc-wear__btn") Przelicz     
+      button(class="btn btn-info calc-wear__btn") Przelicz            
       p(class="calc-wear__score")
+      button(class="btn btn-success calc-wear__btn--import") Eksport do zużyć       
+        i(class="fas fa-file-import")        
+      p(class="alert alert-warning calc-wear__info") Możesz teraz eksportować zużycia wprost do kalkulatora!
     div
       label(for="tariff") Grupa taryfowa:  
       select(id="tariff" class="note-remover")

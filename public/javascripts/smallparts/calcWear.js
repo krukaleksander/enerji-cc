@@ -11,11 +11,11 @@ const calcWear = {
         this.wearDays = Number(document.querySelector('.calc-wear__input--days').value);
         this.sum = ((this.wearFistSphere / this.wearDays + this.wearSecondSphere / this.wearDays) * 365) / 1000;
         this.scorePlace.innerHTML =
-            `Zużycie roczne w I strefie <span>${((this.wearFistSphere / this.wearDays * 365) /1000).toFixed(2)} mWh</span>
+            `Zużycie roczne w I strefie [MWh] <span id="wearFirstSpan">${((this.wearFistSphere / this.wearDays * 365) /1000).toFixed(2)}</span>
         <br>
-        Zużycie roczne w II strefie <span>${((this.wearSecondSphere / this.wearDays * 365) /1000).toFixed(2)} mWh</span>
+        Zużycie roczne w II strefie [MWh] <span id="wearSecondSpan">${((this.wearSecondSphere / this.wearDays * 365) /1000).toFixed(2)}</span>
         <br>
-        Zużycie roczne suma <span>${(this.sum).toFixed(2)} mWh</span>
+        Zużycie roczne suma [MWh] <span>${(this.sum).toFixed(2)}</span>
         `
     },
     addAnimationToCont: function (flag) {
@@ -46,4 +46,30 @@ document.querySelector('.calc-wear__hide').addEventListener('click', () => {
 
 document.querySelector('.calc-wear__btn').addEventListener('click', () => {
     calcWear.mainCalcFn();
+    // pojawienie się guzika eksportu i opisu
+    document.querySelector('.calc-wear__btn--import').style.display = 'block';
+    document.querySelector('.calc-wear__info').style.display = 'block';
 });
+
+// nastawiam nasłuch na guzik do eksportu
+
+document.querySelector('.calc-wear__btn--import').addEventListener('click', () => {
+    const wearFirst = document.getElementById('wearFirstSpan').innerText;
+    const wearSecond = document.getElementById('wearSecondSpan').innerText;
+    console.log(wearFirst);
+    console.log(wearSecond);
+    document.getElementById('wear').value = wearFirst;
+    document.getElementById('wearFirst').value = wearFirst;
+    document.getElementById('wearSecond').value = wearSecond;
+});
+
+// focus na inputy żeby znikała reszta jak się coś edytuje
+
+const inputsCalcWear = [...document.querySelectorAll('.calc-wear input')];
+inputsCalcWear.forEach(input => {
+    input.addEventListener('focus', () => {
+        document.querySelector('.calc-wear__btn--import').style.display = 'none';
+        document.querySelector('.calc-wear__info').style.display = 'none';
+        document.querySelector('.calc-wear__score').innerHTML = '';
+    })
+})

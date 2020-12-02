@@ -160,13 +160,13 @@
         u = function (e, t, n) {
             var s, l, f, p, d = e & u.F,
                 v = e & u.G,
-                h = e & u.S,
-                y = e & u.P,
+                y = e & u.S,
+                h = e & u.P,
                 m = e & u.B,
-                g = v ? r : h ? r[t] || (r[t] = {}) : (r[t] || {}).prototype,
+                g = v ? r : y ? r[t] || (r[t] = {}) : (r[t] || {}).prototype,
                 S = v ? o : o[t] || (o[t] = {}),
-                b = S.prototype || (S.prototype = {});
-            for (s in v && (n = t), n) f = ((l = !d && g && void 0 !== g[s]) ? g : n)[s], p = m && l ? a(f, r) : y && "function" == typeof f ? a(Function.call, f) : f, g && i(g, s, f, e & u.U), S[s] != f && c(S, s, p), y && b[s] != f && (b[s] = f)
+                w = S.prototype || (S.prototype = {});
+            for (s in v && (n = t), n) f = ((l = !d && g && void 0 !== g[s]) ? g : n)[s], p = m && l ? a(f, r) : h && "function" == typeof f ? a(Function.call, f) : f, g && i(g, s, f, e & u.U), S[s] != f && c(S, s, p), h && w[s] != f && (w[s] = f)
         };
     r.core = o, u.F = 1, u.G = 2, u.S = 4, u.P = 8, u.B = 16, u.W = 32, u.U = 64, u.R = 128, e.exports = u
 }, function (e, t) {
@@ -363,9 +363,9 @@
         d = function () {
             return this
         };
-    e.exports = function (e, t, n, v, h, y, m) {
+    e.exports = function (e, t, n, v, y, h, m) {
         u(n, t, v);
-        var g, S, b, w = function (e) {
+        var g, S, w, b = function (e) {
                 if (!p && e in F) return F[e];
                 switch (e) {
                     case "keys":
@@ -379,23 +379,23 @@
                 }
             },
             x = t + " Iterator",
-            O = "values" == h,
-            E = !1,
+            E = "values" == y,
+            O = !1,
             F = e.prototype,
-            T = F[f] || F["@@iterator"] || h && F[h],
-            I = T || w(h),
-            P = h ? O ? w("entries") : I : void 0,
-            _ = "Array" == t && F.entries || T;
-        if (_ && (b = l(_.call(new e))) !== Object.prototype && b.next && (s(b, x, !0), r || "function" == typeof b[f] || i(b, f, d)), O && T && "values" !== T.name && (E = !0, I = function () {
+            T = F[f] || F["@@iterator"] || y && F[y],
+            I = T || b(y),
+            _ = y ? E ? b("entries") : I : void 0,
+            P = "Array" == t && F.entries || T;
+        if (P && (w = l(P.call(new e))) !== Object.prototype && w.next && (s(w, x, !0), r || "function" == typeof w[f] || i(w, f, d)), E && T && "values" !== T.name && (O = !0, I = function () {
                 return T.call(this)
-            }), r && !m || !p && !E && F[f] || i(F, f, I), a[t] = I, a[x] = d, h)
+            }), r && !m || !p && !O && F[f] || i(F, f, I), a[t] = I, a[x] = d, y)
             if (g = {
-                    values: O ? I : w("values"),
-                    keys: y ? I : w("keys"),
-                    entries: P
+                    values: E ? I : b("values"),
+                    keys: h ? I : b("keys"),
+                    entries: _
                 }, m)
                 for (S in g) S in F || c(F, S, g[S]);
-            else o(o.P + o.F * (p || E), t, g);
+            else o(o.P + o.F * (p || O), t, g);
         return g
     }
 }, function (e, t, n) {
@@ -486,9 +486,9 @@
         p = document.getElementById("endOfNewAgreement"),
         d = document.getElementById("activeCalcSavings"),
         v = 0,
-        h = 0;
+        y = 0;
     u.checked = !1, m("tariff", "C11"), m("endOfAgreement", "2020"), m("endOfAgreementMonth", "1"), m("endOfNewAgreement", "2023");
-    var y = function (e) {
+    var h = function (e) {
         return parseFloat(e.replace(/\,/g, "."))
     };
 
@@ -499,7 +499,7 @@
         a.style.padding = "0px", a.innerHTML = "", d.style.display = "none", !0
     };
     u.addEventListener("click", (function () {
-        h = 0 === h ? 1 : 0
+        y = 0 === y ? 1 : 0
     }));
     var S = function () {
         d.style.display = "block", 0 === v ? Z.mainCalcFn() : 1 === v ? J.mainCalcFn() : 2 === v ? Y.mainCalcFn() : 3 === v ? X.mainCalcFn() : 4 === v ? Q.mainCalcFn() : 5 === v ? ee.mainCalcFn() : 6 === v ? te.mainCalcFn() : 7 === v ? re.mainCalcFn() : 8 === v ? ne.mainCalcFn() : console.log("co jest kurka wódka?")
@@ -509,40 +509,40 @@
     })), i.addEventListener("click", S), window.addEventListener("keypress", (function (e) {
         "Enter" === e.key && S()
     }));
-    var b = document.querySelector("div.change-price-panel"),
-        w = document.querySelector("button.show-price-change"),
+    var w = document.querySelector("div.change-price-panel"),
+        b = document.querySelector("button.show-price-change"),
         x = document.querySelector("div.change-price-close");
-    w.addEventListener("click", (function () {
-        b.style.display = "block"
+    b.addEventListener("click", (function () {
+        w.style.display = "block"
     })), x.addEventListener("click", (function () {
-        b.style.display = "none"
+        w.style.display = "none"
     }));
-    var O = ["c11", "c12a", "c12b", "c21", "c22a", "c22b", "b21", "b22", "b11"],
-        E = document.querySelector(".intakec11c21"),
+    var E = ["c11", "c12a", "c12b", "c21", "c22a", "c22b", "b21", "b22", "b11"],
+        O = document.querySelector(".intakec11c21"),
         F = document.querySelector(".intakec12ac12b"),
         T = document.querySelector(".propositionc11c21"),
         I = document.querySelector(".propositionc12ac12b"),
-        P = document.querySelector(".havePricesc12ac12b"),
-        _ = document.querySelector(".have-prices-c11"),
+        _ = document.querySelector(".havePricesc12ac12b"),
+        P = document.querySelector(".have-prices-c11"),
         A = function (e, t) {
             e.forEach((function (e) {
                 document.querySelector(".tariff".concat(e, "-wrapper")).style.display = "none"
             })), document.querySelector(".tariff".concat(t, "-wrapper")).style.display = "block", k(t)
         },
         k = function (e) {
-            "1" === e[2] ? (F.style.display = "none", E.style.display = "block", T.style.display = "block", I.style.display = "none", P.style.display = "none", _.style.display = "block") : "2" === e[2] && (F.style.display = "block", E.style.display = "none", T.style.display = "none", I.style.display = "block", P.style.display = "block", _.style.display = "none")
+            "1" === e[2] ? (F.style.display = "none", O.style.display = "block", T.style.display = "block", I.style.display = "none", _.style.display = "none", P.style.display = "block") : "2" === e[2] && (F.style.display = "block", O.style.display = "none", T.style.display = "none", I.style.display = "block", _.style.display = "block", P.style.display = "none")
         };
     s.addEventListener("change", (function () {
-        "C12a" === s.value ? (A(O, "c12a"), v = 1) : "C12b" === s.value ? (A(O, "c12b"), v = 2) : "C21" === s.value ? (A(O, "c21"), v = 3) : "C11" === s.value ? (A(O, "c11"), v = 0) : "C22a" === s.value ? (A(O, "c22a"), v = 4) : "C22b" === s.value ? (A(O, "c22b"), v = 5) : "B21" === s.value ? (A(O, "b21"), v = 6) : "B22" === s.value ? (A(O, "b22"), v = 7) : "B11" === s.value && (A(O, "b11"), v = 8), a.scrollIntoView()
+        "C12a" === s.value ? (A(E, "c12a"), v = 1) : "C12b" === s.value ? (A(E, "c12b"), v = 2) : "C21" === s.value ? (A(E, "c21"), v = 3) : "C11" === s.value ? (A(E, "c11"), v = 0) : "C22a" === s.value ? (A(E, "c22a"), v = 4) : "C22b" === s.value ? (A(E, "c22b"), v = 5) : "B21" === s.value ? (A(E, "b21"), v = 6) : "B22" === s.value ? (A(E, "b22"), v = 7) : "B11" === s.value && (A(E, "b11"), v = 8), a.scrollIntoView()
     }));
-    var j = document.getElementById("clearInputsBtn"),
-        C = o(document.getElementsByClassName("set-to-zero"));
-    j.addEventListener("click", (function () {
-        C.forEach((function (e) {
+    var M = document.getElementById("clearInputsBtn"),
+        j = o(document.getElementsByClassName("set-to-zero"));
+    M.addEventListener("click", (function () {
+        j.forEach((function (e) {
             e.value = 0
         }))
     })), g();
-    var M, N, L, B, D, z, R, q, W, H, G, V, $, K, U = function e(t, n, o) {
+    var C, N, B, L, D, z, q, R, W, H, G, V, $, K, U = function e(t, n, o) {
             var c = this;
             ! function (e, t) {
                 if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
@@ -582,23 +582,23 @@
                         c.countsPrice2020 = 0, c.countsPrice2021 = 0, c.countsPrice2022 = 0
                 }
             })), r(this, "getWear", (function () {
-                1 === c.numberOfSpheres ? c.wearOneSphere = y(document.getElementById("wear").value) : 2 === c.numberOfSpheres && (c.weareTwoSpeheresFirst = y(document.getElementById("wearFirst").value), c.weareTwoSpeheresSecond = y(document.getElementById("wearSecond").value), c.wearTwoSpheresSum = (c.weareTwoSpeheresFirst + c.weareTwoSpeheresSecond).toFixed(2), document.getElementById("wearSum").value = c.wearTwoSpheresSum)
+                1 === c.numberOfSpheres ? c.wearOneSphere = h(document.getElementById("wear").value) : 2 === c.numberOfSpheres && (c.weareTwoSpeheresFirst = h(document.getElementById("wearFirst").value), c.weareTwoSpeheresSecond = h(document.getElementById("wearSecond").value), c.wearTwoSpheresSum = (c.weareTwoSpeheresFirst + c.weareTwoSpeheresSecond).toFixed(2), document.getElementById("wearSum").value = c.wearTwoSpheresSum)
             })), r(this, "getProposition", (function () {
-                1 === c.numberOfSpheres ? c.proposeOneSphere = y(document.getElementById("proposePrice").value) : 2 === c.numberOfSpheres && (c.proposeTwoSpheresAvr = y(document.getElementById("proposePriceAvr").value), c.proposeTwoSpheresFirst = y(document.getElementById("proposePriceFirst").value), c.proposeTwoSpheresSecond = y(document.getElementById("proposePriceSecond").value))
+                1 === c.numberOfSpheres ? c.proposeOneSphere = h(document.getElementById("proposePrice").value) : 2 === c.numberOfSpheres && (c.proposeTwoSpheresAvr = h(document.getElementById("proposePriceAvr").value), c.proposeTwoSpheresFirst = h(document.getElementById("proposePriceFirst").value), c.proposeTwoSpheresSecond = h(document.getElementById("proposePriceSecond").value))
             })), r(this, "calcOneSphere", (function () {
-                c.margeMass = Math.floor((c.proposeOneSphere - y(c.pricesFromDb.tariff.price2023)) * c.wearOneSphere * c.calc2023 + (c.proposeOneSphere - y(c.pricesFromDb.tariff.price2022)) * c.wearOneSphere * c.countsPrice2022 * c.calc2022 + (c.proposeOneSphere - y(c.pricesFromDb.tariff.price2021)) * c.wearOneSphere * c.countsPrice2021 * c.calc2021 + (c.proposeOneSphere - y(c.pricesFromDb.tariff.price2020)) * c.wearOneSphere * c.countsPrice2020 * c.calc2020)
+                c.margeMass = Math.floor((c.proposeOneSphere - h(c.pricesFromDb.tariff.price2023)) * c.wearOneSphere * c.calc2023 + (c.proposeOneSphere - h(c.pricesFromDb.tariff.price2022)) * c.wearOneSphere * c.countsPrice2022 * c.calc2022 + (c.proposeOneSphere - h(c.pricesFromDb.tariff.price2021)) * c.wearOneSphere * c.countsPrice2021 * c.calc2021 + (c.proposeOneSphere - h(c.pricesFromDb.tariff.price2020)) * c.wearOneSphere * c.countsPrice2020 * c.calc2020)
             })), r(this, "calcTwoSpheres", (function () {
-                if (1 === h) {
-                    var e = (c.proposeTwoSpheresAvr - y(c.pricesFromDb.tariff.price2023.avr)) * c.wearTwoSpheresSum * c.calc2023,
-                        t = (c.proposeTwoSpheresAvr - y(c.pricesFromDb.tariff.price2022.avr)) * c.wearTwoSpheresSum * c.countsPrice2022 * c.calc2022,
-                        n = (c.proposeTwoSpheresAvr - y(c.pricesFromDb.tariff.price2021.avr)) * c.wearTwoSpheresSum * c.countsPrice2021 * c.calc2021,
-                        r = (c.proposeTwoSpheresAvr - y(c.pricesFromDb.tariff.price2020.avr)) * c.wearTwoSpheresSum * c.countsPrice2020 * c.calc2020;
+                if (1 === y) {
+                    var e = (c.proposeTwoSpheresAvr - h(c.pricesFromDb.tariff.price2023.avr)) * c.wearTwoSpheresSum * c.calc2023,
+                        t = (c.proposeTwoSpheresAvr - h(c.pricesFromDb.tariff.price2022.avr)) * c.wearTwoSpheresSum * c.countsPrice2022 * c.calc2022,
+                        n = (c.proposeTwoSpheresAvr - h(c.pricesFromDb.tariff.price2021.avr)) * c.wearTwoSpheresSum * c.countsPrice2021 * c.calc2021,
+                        r = (c.proposeTwoSpheresAvr - h(c.pricesFromDb.tariff.price2020.avr)) * c.wearTwoSpheresSum * c.countsPrice2020 * c.calc2020;
                     c.margeMass = (e + t + n + r).toFixed(2)
                 } else {
-                    var o = (c.proposeTwoSpheresFirst - y(c.pricesFromDb.tariff.price2023.first)) * c.weareTwoSpeheresFirst + (c.proposeTwoSpheresSecond - y(c.pricesFromDb.tariff.price2023.second)) * c.weareTwoSpeheresSecond * c.calc2023,
-                        i = ((c.proposeTwoSpheresFirst - y(c.pricesFromDb.tariff.price2022.first)) * c.weareTwoSpeheresFirst + (c.proposeTwoSpheresSecond - y(c.pricesFromDb.tariff.price2022.second)) * c.weareTwoSpeheresSecond) * c.countsPrice2022 * c.calc2022,
-                        a = ((c.proposeTwoSpheresFirst - y(c.pricesFromDb.tariff.price2021.first)) * c.weareTwoSpeheresFirst + (c.proposeTwoSpheresSecond - y(c.pricesFromDb.tariff.price2021.second)) * c.weareTwoSpeheresSecond) * c.countsPrice2021 * c.calc2021,
-                        u = ((c.proposeTwoSpheresFirst - y(c.pricesFromDb.tariff.price2020.first)) * c.weareTwoSpeheresFirst + (c.proposeTwoSpheresSecond - y(c.pricesFromDb.tariff.price2020.second)) * c.weareTwoSpeheresSecond) * c.countsPrice2020 * c.calc2020;
+                    var o = (c.proposeTwoSpheresFirst - h(c.pricesFromDb.tariff.price2023.first)) * c.weareTwoSpeheresFirst + (c.proposeTwoSpheresSecond - h(c.pricesFromDb.tariff.price2023.second)) * c.weareTwoSpeheresSecond * c.calc2023,
+                        i = ((c.proposeTwoSpheresFirst - h(c.pricesFromDb.tariff.price2022.first)) * c.weareTwoSpeheresFirst + (c.proposeTwoSpheresSecond - h(c.pricesFromDb.tariff.price2022.second)) * c.weareTwoSpeheresSecond) * c.countsPrice2022 * c.calc2022,
+                        a = ((c.proposeTwoSpheresFirst - h(c.pricesFromDb.tariff.price2021.first)) * c.weareTwoSpeheresFirst + (c.proposeTwoSpheresSecond - h(c.pricesFromDb.tariff.price2021.second)) * c.weareTwoSpeheresSecond) * c.countsPrice2021 * c.calc2021,
+                        u = ((c.proposeTwoSpheresFirst - h(c.pricesFromDb.tariff.price2020.first)) * c.weareTwoSpeheresFirst + (c.proposeTwoSpheresSecond - h(c.pricesFromDb.tariff.price2020.second)) * c.weareTwoSpeheresSecond) * c.countsPrice2020 * c.calc2020;
                     c.margeMass = (o + i + a + u).toFixed(2)
                 }
             })), r(this, "createNote", (function () {
@@ -636,18 +636,18 @@
         return parseFloat(e.replace(/\,/g, "."))
     }
     document.getElementById("activeCalcSavings").addEventListener("click", (function () {
-        M = oe(document.getElementById("wear").value), N = oe(document.getElementById("wearFirst").value), L = oe(document.getElementById("wearSecond").value), B = oe(document.getElementById("priceNow").value), D = oe(document.getElementById("havePriceAvr").value), z = oe(document.getElementById("havePriceFirst").value), R = oe(document.getElementById("havePriceSecond").value), q = oe(document.getElementById("proposePrice").value), W = oe(document.getElementById("proposePriceFirst").value), H = oe(document.getElementById("proposePriceSecond").value), G = oe(document.getElementById("proposePriceAvr").value), V = oe(document.getElementById("tradeFee").value), $ = document.getElementById("tariff").value, K = document.getElementById("summaryCalc");
+        C = oe(document.getElementById("wear").value), N = oe(document.getElementById("wearFirst").value), B = oe(document.getElementById("wearSecond").value), L = oe(document.getElementById("priceNow").value), D = oe(document.getElementById("havePriceAvr").value), z = oe(document.getElementById("havePriceFirst").value), q = oe(document.getElementById("havePriceSecond").value), R = oe(document.getElementById("proposePrice").value), W = oe(document.getElementById("proposePriceFirst").value), H = oe(document.getElementById("proposePriceSecond").value), G = oe(document.getElementById("proposePriceAvr").value), V = oe(document.getElementById("tradeFee").value), $ = document.getElementById("tariff").value, K = document.getElementById("summaryCalc");
         var e, t, n = (12 * Number(V)).toFixed(2);
         if (K.innerHTML = (e = K.innerHTML, -13 != (t = e.indexOf("savings-note") - 12) ? e.slice(0, t) : e), "1" === $[2]) {
-            var r = ((B - q) * M).toFixed(2),
+            var r = ((L - R) * C).toFixed(2),
                 o = K.innerHTML;
             K.innerHTML = o + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(r, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(r) + Number(n), "</span></p></div>")
-        } else if (0 === h) {
-            var c = ((z - W) * N + (R - H) * L).toFixed(2),
+        } else if (0 === y) {
+            var c = ((z - W) * N + (q - H) * B).toFixed(2),
                 i = K.innerHTML;
             K.innerHTML = i + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(c, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(c) + Number(n), "</span></p></div>")
         } else {
-            var a = ((D - G) * (N + L)).toFixed(2),
+            var a = ((D - G) * (N + B)).toFixed(2),
                 u = K.innerHTML;
             K.innerHTML = u + '<div class="savings-note"><p class="savings-note__par">Klient oszczędzi na opłacie handlowej:  <span>'.concat(n, '.</span></p><p class="savings-par">Dodatkowo na prądzie:  <span>').concat(a, '</span></p><p class="savings-par">Oszczędności suma:  <span>').concat(Number(a) + Number(n), "</span></p></div>")
         }
@@ -658,7 +658,7 @@
         calcWearBtn: document.querySelector(".calc-wear__btn"),
         scorePlace: document.querySelector(".calc-wear__score"),
         mainCalcFn: function () {
-            this.wearFistSphere = Number(document.querySelector(".calc-wear__input--first-sphere").value), this.wearSecondSphere = Number(document.querySelector(".calc-wear__input--second-sphere").value), this.wearDays = Number(document.querySelector(".calc-wear__input--days").value), this.sum = 365 * (this.wearFistSphere / this.wearDays + this.wearSecondSphere / this.wearDays) / 1e3, this.scorePlace.innerHTML = "Zużycie roczne w I strefie <span>".concat((this.wearFistSphere / this.wearDays * 365 / 1e3).toFixed(2), " mWh</span>\n        <br>\n        Zużycie roczne w II strefie <span>").concat((this.wearSecondSphere / this.wearDays * 365 / 1e3).toFixed(2), " mWh</span>\n        <br>\n        Zużycie roczne suma <span>").concat(this.sum.toFixed(2), " mWh</span>\n        ")
+            this.wearFistSphere = Number(document.querySelector(".calc-wear__input--first-sphere").value), this.wearSecondSphere = Number(document.querySelector(".calc-wear__input--second-sphere").value), this.wearDays = Number(document.querySelector(".calc-wear__input--days").value), this.sum = 365 * (this.wearFistSphere / this.wearDays + this.wearSecondSphere / this.wearDays) / 1e3, this.scorePlace.innerHTML = 'Zużycie roczne w I strefie [MWh] <span id="wearFirstSpan">'.concat((this.wearFistSphere / this.wearDays * 365 / 1e3).toFixed(2), '</span>\n        <br>\n        Zużycie roczne w II strefie [MWh] <span id="wearSecondSpan">').concat((this.wearSecondSphere / this.wearDays * 365 / 1e3).toFixed(2), "</span>\n        <br>\n        Zużycie roczne suma [MWh] <span>").concat(this.sum.toFixed(2), "</span>\n        ")
         },
         addAnimationToCont: function (e) {
             this.calcWearContainer.style.animation = e ? "showCalcWear 1s linear both" : "none"
@@ -669,7 +669,15 @@
     })), document.querySelector(".calc-wear__hide").addEventListener("click", (function () {
         ce.calcWearContainer.style.display = "none", ce.addAnimationToCont(!1)
     })), document.querySelector(".calc-wear__btn").addEventListener("click", (function () {
-        ce.mainCalcFn()
+        ce.mainCalcFn(), document.querySelector(".calc-wear__btn--import").style.display = "block", document.querySelector(".calc-wear__info").style.display = "block"
+    })), document.querySelector(".calc-wear__btn--import").addEventListener("click", (function () {
+        var e = document.getElementById("wearFirstSpan").innerText,
+            t = document.getElementById("wearSecondSpan").innerText;
+        console.log(e), console.log(t), document.getElementById("wear").value = e, document.getElementById("wearFirst").value = e, document.getElementById("wearSecond").value = t
+    })), o(document.querySelectorAll(".calc-wear input")).forEach((function (e) {
+        e.addEventListener("focus", (function () {
+            document.querySelector(".calc-wear__btn--import").style.display = "none", document.querySelector(".calc-wear__info").style.display = "none", document.querySelector(".calc-wear__score").innerHTML = ""
+        }))
     }))
 }, function (e, t, n) {
     "use strict";
@@ -815,14 +823,14 @@
             var t, n, o, f, p = c(e),
                 d = "function" == typeof this ? this : Array,
                 v = arguments.length,
-                h = v > 1 ? arguments[1] : void 0,
-                y = void 0 !== h,
+                y = v > 1 ? arguments[1] : void 0,
+                h = void 0 !== y,
                 m = 0,
                 g = l(p);
-            if (y && (h = r(h, v > 2 ? arguments[2] : void 0, 2)), null == g || d == Array && a(g))
-                for (n = new d(t = u(p.length)); t > m; m++) s(n, m, y ? h(p[m], m) : p[m]);
+            if (h && (y = r(y, v > 2 ? arguments[2] : void 0, 2)), null == g || d == Array && a(g))
+                for (n = new d(t = u(p.length)); t > m; m++) s(n, m, h ? y(p[m], m) : p[m]);
             else
-                for (f = g.call(p), n = new d; !(o = f.next()).done; m++) s(n, m, y ? i(f, h, [o.value, m], !0) : o.value);
+                for (f = g.call(p), n = new d; !(o = f.next()).done; m++) s(n, m, h ? i(f, y, [o.value, m], !0) : o.value);
             return n.length = m, n
         }
     })
@@ -917,13 +925,13 @@
             TextTrackCueList: !1,
             TextTrackList: !1,
             TouchList: !1
-        }, v = o(d), h = 0; h < v.length; h++) {
-        var y, m = v[h],
+        }, v = o(d), y = 0; y < v.length; y++) {
+        var h, m = v[y],
             g = d[m],
             S = i[m],
-            b = S && S.prototype;
-        if (b && (b[l] || a(b, l, p), b[f] || a(b, f, m), u[m] = p, g))
-            for (y in r) b[y] || c(b, y, r[y], !0)
+            w = S && S.prototype;
+        if (w && (w[l] || a(w, l, p), w[f] || a(w, f, m), u[m] = p, g))
+            for (h in r) w[h] || c(w, h, r[h], !0)
     }
 }, function (e, t, n) {
     "use strict";
@@ -968,39 +976,39 @@
         p = n(12),
         d = n(0),
         v = n(41),
-        h = n(40),
-        y = n(72),
+        y = n(40),
+        h = n(72),
         m = n(73),
         g = n(4),
         S = n(9),
-        b = n(23),
-        w = n(10),
+        w = n(23),
+        b = n(10),
         x = n(17),
-        O = n(11),
-        E = n(27),
+        E = n(11),
+        O = n(27),
         F = n(74),
         T = n(34),
         I = n(42),
-        P = n(2),
-        _ = n(22),
+        _ = n(2),
+        P = n(22),
         A = T.f,
-        k = P.f,
-        j = F.f,
-        C = r.Symbol,
-        M = r.JSON,
-        N = M && M.stringify,
-        L = d("_hidden"),
-        B = d("toPrimitive"),
+        k = _.f,
+        M = F.f,
+        j = r.Symbol,
+        C = r.JSON,
+        N = C && C.stringify,
+        B = d("_hidden"),
+        L = d("toPrimitive"),
         D = {}.propertyIsEnumerable,
         z = l("symbol-registry"),
-        R = l("symbols"),
-        q = l("op-symbols"),
+        q = l("symbols"),
+        R = l("op-symbols"),
         W = Object.prototype,
-        H = "function" == typeof C && !!I.f,
+        H = "function" == typeof j && !!I.f,
         G = r.QObject,
         V = !G || !G.prototype || !G.prototype.findChild,
         $ = c && s((function () {
-            return 7 != E(k({}, "a", {
+            return 7 != O(k({}, "a", {
                 get: function () {
                     return k(this, "a", {
                         value: 7
@@ -1012,47 +1020,47 @@
             r && delete W[t], k(e, t, n), r && e !== W && k(W, t, r)
         } : k,
         K = function (e) {
-            var t = R[e] = E(C.prototype);
+            var t = q[e] = O(j.prototype);
             return t._k = e, t
         },
-        U = H && "symbol" == typeof C.iterator ? function (e) {
+        U = H && "symbol" == typeof j.iterator ? function (e) {
             return "symbol" == typeof e
         } : function (e) {
-            return e instanceof C
+            return e instanceof j
         },
         Z = function (e, t, n) {
-            return e === W && Z(q, t, n), g(e), t = x(t, !0), g(n), o(R, t) ? (n.enumerable ? (o(e, L) && e[L][t] && (e[L][t] = !1), n = E(n, {
-                enumerable: O(0, !1)
-            })) : (o(e, L) || k(e, L, O(1, {})), e[L][t] = !0), $(e, t, n)) : k(e, t, n)
+            return e === W && Z(R, t, n), g(e), t = x(t, !0), g(n), o(q, t) ? (n.enumerable ? (o(e, B) && e[B][t] && (e[B][t] = !1), n = O(n, {
+                enumerable: E(0, !1)
+            })) : (o(e, B) || k(e, B, E(1, {})), e[B][t] = !0), $(e, t, n)) : k(e, t, n)
         },
         J = function (e, t) {
             g(e);
-            for (var n, r = y(t = w(t)), o = 0, c = r.length; c > o;) Z(e, n = r[o++], t[n]);
+            for (var n, r = h(t = b(t)), o = 0, c = r.length; c > o;) Z(e, n = r[o++], t[n]);
             return e
         },
         Y = function (e) {
             var t = D.call(this, e = x(e, !0));
-            return !(this === W && o(R, e) && !o(q, e)) && (!(t || !o(this, e) || !o(R, e) || o(this, L) && this[L][e]) || t)
+            return !(this === W && o(q, e) && !o(R, e)) && (!(t || !o(this, e) || !o(q, e) || o(this, B) && this[B][e]) || t)
         },
         X = function (e, t) {
-            if (e = w(e), t = x(t, !0), e !== W || !o(R, t) || o(q, t)) {
+            if (e = b(e), t = x(t, !0), e !== W || !o(q, t) || o(R, t)) {
                 var n = A(e, t);
-                return !n || !o(R, t) || o(e, L) && e[L][t] || (n.enumerable = !0), n
+                return !n || !o(q, t) || o(e, B) && e[B][t] || (n.enumerable = !0), n
             }
         },
         Q = function (e) {
-            for (var t, n = j(w(e)), r = [], c = 0; n.length > c;) o(R, t = n[c++]) || t == L || t == u || r.push(t);
+            for (var t, n = M(b(e)), r = [], c = 0; n.length > c;) o(q, t = n[c++]) || t == B || t == u || r.push(t);
             return r
         },
         ee = function (e) {
-            for (var t, n = e === W, r = j(n ? q : w(e)), c = [], i = 0; r.length > i;) !o(R, t = r[i++]) || n && !o(W, t) || c.push(R[t]);
+            for (var t, n = e === W, r = M(n ? R : b(e)), c = [], i = 0; r.length > i;) !o(q, t = r[i++]) || n && !o(W, t) || c.push(q[t]);
             return c
         };
-    H || (a((C = function () {
-        if (this instanceof C) throw TypeError("Symbol is not a constructor!");
+    H || (a((j = function () {
+        if (this instanceof j) throw TypeError("Symbol is not a constructor!");
         var e = p(arguments.length > 0 ? arguments[0] : void 0),
             t = function (n) {
-                this === W && t.call(q, n), o(this, L) && o(this[L], e) && (this[L][e] = !1), $(this, e, O(1, n))
+                this === W && t.call(R, n), o(this, B) && o(this[B], e) && (this[B][e] = !1), $(this, e, E(1, n))
             };
         return c && V && $(W, e, {
             configurable: !0,
@@ -1060,16 +1068,16 @@
         }), K(e)
     }).prototype, "toString", (function () {
         return this._k
-    })), T.f = X, P.f = Z, n(33).f = F.f = Q, n(32).f = Y, I.f = ee, c && !n(19) && a(W, "propertyIsEnumerable", Y, !0), v.f = function (e) {
+    })), T.f = X, _.f = Z, n(33).f = F.f = Q, n(32).f = Y, I.f = ee, c && !n(19) && a(W, "propertyIsEnumerable", Y, !0), v.f = function (e) {
         return K(d(e))
     }), i(i.G + i.W + i.F * !H, {
-        Symbol: C
+        Symbol: j
     });
     for (var te = "hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","), ne = 0; te.length > ne;) d(te[ne++]);
-    for (var re = _(d.store), oe = 0; re.length > oe;) h(re[oe++]);
+    for (var re = P(d.store), oe = 0; re.length > oe;) y(re[oe++]);
     i(i.S + i.F * !H, "Symbol", {
         for: function (e) {
-            return o(z, e += "") ? z[e] : z[e] = C(e)
+            return o(z, e += "") ? z[e] : z[e] = j(e)
         },
         keyFor: function (e) {
             if (!U(e)) throw TypeError(e + " is not a symbol!");
@@ -1084,7 +1092,7 @@
         }
     }), i(i.S + i.F * !H, "Object", {
         create: function (e, t) {
-            return void 0 === t ? E(e) : J(E(e), t)
+            return void 0 === t ? O(e) : J(O(e), t)
         },
         defineProperty: Z,
         defineProperties: J,
@@ -1097,10 +1105,10 @@
     }));
     i(i.S + i.F * ce, "Object", {
         getOwnPropertySymbols: function (e) {
-            return I.f(b(e))
+            return I.f(w(e))
         }
-    }), M && i(i.S + i.F * (!H || s((function () {
-        var e = C();
+    }), C && i(i.S + i.F * (!H || s((function () {
+        var e = j();
         return "[null]" != N([e]) || "{}" != N({
             a: e
         }) || "{}" != N(Object(e))
@@ -1109,9 +1117,9 @@
             for (var t, n, r = [e], o = 1; arguments.length > o;) r.push(arguments[o++]);
             if (n = t = r[1], (S(t) || void 0 !== e) && !U(e)) return m(t) || (t = function (e, t) {
                 if ("function" == typeof n && (t = n.call(this, e, t)), !U(t)) return t
-            }), r[1] = t, N.apply(M, r)
+            }), r[1] = t, N.apply(C, r)
         }
-    }), C.prototype[B] || n(7)(C.prototype, B, C.prototype.valueOf), f(C, "Symbol"), f(Math, "Math", !0), f(r.JSON, "JSON", !0)
+    }), j.prototype[L] || n(7)(j.prototype, L, j.prototype.valueOf), f(j, "Symbol"), f(Math, "Math", !0), f(r.JSON, "JSON", !0)
 }, function (e, t, n) {
     var r = n(12)("meta"),
         o = n(9),
@@ -1200,8 +1208,8 @@
         p = n(78).trim,
         d = r.Number,
         v = d,
-        h = d.prototype,
-        y = "Number" == c(n(27)(h)),
+        y = d.prototype,
+        h = "Number" == c(n(27)(y)),
         m = "trim" in String.prototype,
         g = function (e) {
             var t = a(e, !1);
@@ -1233,12 +1241,12 @@
         d = function (e) {
             var t = arguments.length < 1 ? 0 : e,
                 n = this;
-            return n instanceof d && (y ? u((function () {
-                h.valueOf.call(n)
+            return n instanceof d && (h ? u((function () {
+                y.valueOf.call(n)
             })) : "Number" != c(n)) ? i(new v(g(t)), n, d) : g(t)
         };
-        for (var S, b = n(1) ? s(v) : "MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger".split(","), w = 0; b.length > w; w++) o(v, S = b[w]) && !o(d, S) && f(d, S, l(v, S));
-        d.prototype = h, h.constructor = d, n(5)(r, "Number", d)
+        for (var S, w = n(1) ? s(v) : "MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger".split(","), b = 0; w.length > b; b++) o(v, S = w[b]) && !o(d, S) && f(d, S, l(v, S));
+        d.prototype = y, y.constructor = d, n(5)(r, "Number", d)
     }
 }, function (e, t, n) {
     var r = n(9),
@@ -1327,32 +1335,32 @@
                 p = String(this),
                 d = "function" == typeof t;
             d || (t = String(t));
-            var y = f.global;
-            if (y) {
+            var h = f.global;
+            if (h) {
                 var m = f.unicode;
                 f.lastIndex = 0
             }
             for (var g = [];;) {
                 var S = u(f, p);
                 if (null === S) break;
-                if (g.push(S), !y) break;
+                if (g.push(S), !h) break;
                 "" === String(S[0]) && (f.lastIndex = a(p, c(f.lastIndex), m))
             }
-            for (var b, w = "", x = 0, O = 0; O < g.length; O++) {
-                S = g[O];
-                for (var E = String(S[0]), F = s(l(i(S.index), p.length), 0), T = [], I = 1; I < S.length; I++) T.push(void 0 === (b = S[I]) ? b : String(b));
-                var P = S.groups;
+            for (var w, b = "", x = 0, E = 0; E < g.length; E++) {
+                S = g[E];
+                for (var O = String(S[0]), F = s(l(i(S.index), p.length), 0), T = [], I = 1; I < S.length; I++) T.push(void 0 === (w = S[I]) ? w : String(w));
+                var _ = S.groups;
                 if (d) {
-                    var _ = [E].concat(T, F, p);
-                    void 0 !== P && _.push(P);
-                    var A = String(t.apply(void 0, _))
-                } else A = h(E, p, F, T, P, t);
-                F >= x && (w += p.slice(x, F) + A, x = F + E.length)
+                    var P = [O].concat(T, F, p);
+                    void 0 !== _ && P.push(_);
+                    var A = String(t.apply(void 0, P))
+                } else A = y(O, p, F, T, _, t);
+                F >= x && (b += p.slice(x, F) + A, x = F + O.length)
             }
-            return w + p.slice(x)
+            return b + p.slice(x)
         }];
 
-        function h(e, t, r, c, i, a) {
+        function y(e, t, r, c, i, a) {
             var u = r + e.length,
                 s = c.length,
                 l = d;
@@ -1449,11 +1457,11 @@
                 }), n[p](""), !t
             })) : void 0;
         if (!d || !v || "replace" === e && !l || "split" === e && !f) {
-            var h = /./ [p],
-                y = n(i, p, "" [e], (function (e, t, n, r, o) {
+            var y = /./ [p],
+                h = n(i, p, "" [e], (function (e, t, n, r, o) {
                     return t.exec === u ? d && !o ? {
                         done: !0,
-                        value: h.call(t, n, r)
+                        value: y.call(t, n, r)
                     } : {
                         done: !0,
                         value: e.call(n, t, r)
@@ -1461,8 +1469,8 @@
                         done: !1
                     }
                 })),
-                m = y[0],
-                g = y[1];
+                m = h[0],
+                g = h[1];
             r(String.prototype, e, m), o(RegExp.prototype, p, 2 == t ? function (e, t) {
                 return g.call(e, this, t)
             } : function (e) {
