@@ -1329,11 +1329,11 @@ body .stats-wrapper .cases-wrapper #kontakt {
   background-color: rgba(255, 235, 59, 0.43);
 }
 
-body .stats-wrapper .cases-wrapper #klient {
+body .stats-wrapper .cases-wrapper div:nth-child(6) {
   background-color: rgba(1, 128, 1, 0.721);
 }
 
-body .stats-wrapper .cases-wrapper #spotkanie {
+body .stats-wrapper .cases-wrapper div:nth-child(7) {
   background-color: rgba(1, 128, 1, 0.921);
 }
 

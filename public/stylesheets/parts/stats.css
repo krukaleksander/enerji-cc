@@ -93,11 +93,11 @@
   background-color: rgba(255, 235, 59, 0.43);
 }
 
-.stats-wrapper .cases-wrapper #klient {
+.stats-wrapper .cases-wrapper div:nth-child(6) {
   background-color: rgba(1, 128, 1, 0.721);
 }
 
-.stats-wrapper .cases-wrapper #spotkanie {
+.stats-wrapper .cases-wrapper div:nth-child(7) {
   background-color: rgba(1, 128, 1, 0.921);
 }
 
