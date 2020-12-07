@@ -12,7 +12,7 @@
     background: rgba(255, 255, 255, 0.84);
 
     @include iphoneXl {
-        height: 280px;
+        height: 290px;
     }
 
     @include common {
@@ -73,5 +73,6 @@
     input[type='password'],
     textarea {
         font-size: 20px;
+        width: 225px;
     }
 }

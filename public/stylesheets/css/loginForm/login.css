@@ -1,0 +1,118 @@
+:root {
+  --color-first: #65587f;
+  --color-second: #f18867;
+  --color-third: #e85f99;
+  --color-forth: #50bda1;
+  --block-width: 300px;
+  --block-height: 270px;
+  --border-width: .625rem;
+  --border-radius-outer: 8px;
+  --border-radius-inner: calc(var(--border-radius-outer) / 2);
+  --font-plain: 'IBM Plex Sans', sans-serif;
+  --font-special: 'Fredoka One', sans-serif;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.rainbow {
+  width: 100%;
+  height: 100%;
+  animation: o-rotate-360 linear 8s infinite;
+}
+
+.rainbow span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+
+.rainbow span:after {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 100%;
+}
+
+.rainbow span:first-child {
+  background: var(--color-first);
+}
+
+.rainbow span:first-child:after {
+  background: var(--color-second);
+}
+
+.rainbow span:last-child {
+  background: var(--color-third);
+}
+
+.rainbow span:last-child:after {
+  background: var(--color-forth);
+}
+
+.c-subscribe-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.2);
+  border-radius: var(--border-radius-outer);
+}
+
+.c-subscribe-box__desc {
+  color: #645c5c;
+  font-style: italic;
+}
+
+@media (max-width: 830px) {
+  .c-subscribe-box__desc {
+    display: none;
+  }
+}
+
+.c-subscribe-box__wrapper {
+  width: calc(100% - var(--border-width));
+  height: calc(100% - var(--border-width));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 1.2rem 1rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius-inner);
+}
+
+.c-subscribe-box__form {
+  margin-top: auto;
+}
+
+.c-form--accent input:hover, .c-form--accent input:active, .c-form--accent input:focus {
+  border-color: var(--color-third);
+  box-shadow: 0 0 0 3px rgba(232, 94, 152, 0.25);
+}
+
+.c-form--accent [type=submit] {
+  background: var(--color-third);
+  border-color: var(--color-third);
+  color: #fff;
+}
+
+@keyframes o-rotate-360 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

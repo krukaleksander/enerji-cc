@@ -1,12 +1,18 @@
 extends layout
 
 block content
-  div(class='login-wrapper')
-    h1(class='login-header')= title
-    form(method='post')
-      input(id='username' type='text' placeholder='login' name="login")
-      input(id='password' type='password' placeholder='hasło' name="password")
-      .ripple-container
-        button(class="ripple-container__btn ripple-container__btn--second" type='submit') Zaloguj 
+  link(rel="stylesheet", href="/stylesheets/css/loginForm/login.css")     
+  .c-subscribe-box.u-align-center.login-wrapper      
+    .rainbow
+      span
+      span
+    .c-subscribe-box__wrapper
+      h1(class='login-header')= title
+      p.c-subscribe-box__desc Nie musisz być bogaty, żeby zacząć, ale musisz zacząć, żeby być bogaty.
+      form(method='post')
+        input(id='username' type='text' placeholder='login' name="login")
+        input(id='password' type='password' placeholder='hasło' name="password")
+        .ripple-container
+          button(class="ripple-container__btn ripple-container__btn--second" type='submit') Zaloguj 
   script(src="/javascripts/smallparts/rippleBtn.js")     
        

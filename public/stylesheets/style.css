@@ -67,7 +67,7 @@ body .login-wrapper {
 
 @media (max-width: 830px) {
   body .login-wrapper {
-    height: 280px;
+    height: 290px;
   }
 }
 
@@ -126,6 +126,7 @@ body .login-wrapper.male {
   body input[type='password'],
   body textarea {
     font-size: 20px;
+    width: 225px;
   }
 }
 
