@@ -52,9 +52,14 @@ app.use('/crm/panel', crmPanelRouter);
 app.use('/consumption', consumptionRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+// app.use(function (req, res, next) {
+//   next(createError(404));
+// });
+app.use((req, res) => {
+  res.status(404).render('404', {
+    title: 'nie odnaleziono strony'
+  });
+})
 
 // error handler
 app.use(function (err, req, res, next) {
