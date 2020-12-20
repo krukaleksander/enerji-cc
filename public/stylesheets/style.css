@@ -1839,6 +1839,12 @@ body .know-how {
   box-shadow: 2px 1px 5px 2px;
 }
 
+@media (max-width: 640px) {
+  body .know-how {
+    width: 90vw;
+  }
+}
+
 body .know-how__btn {
   text-align: center;
   padding: 5px 10px;

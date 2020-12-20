@@ -112,7 +112,7 @@ class Tariff {
         }
     };
     calcOneSphere = () => {
-        this.margeMass = Math.floor(((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2023)) * this.wearOneSphere * this.calc2023) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022)) * this.wearOneSphere * this.countsPrice2022 * this.calc2022) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021)) * this.wearOneSphere * this.countsPrice2021 * this.calc2021) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020)) * this.wearOneSphere * this.countsPrice2020 * this.calc2020));
+        this.margeMass = Math.floor(((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2023)) * this.wearOneSphere * this.calc2023) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022)) * this.wearOneSphere * this.countsPrice2022 * this.calc2022) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021)) * this.wearOneSphere * this.countsPrice2021 * this.calc2021));
 
     };
     calcTwoSpheres = () => {
@@ -120,15 +120,13 @@ class Tariff {
             const money2023 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2023.avr)) * this.wearTwoSpheresSum * this.calc2023;
             const money2022 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022.avr)) * this.wearTwoSpheresSum * this.countsPrice2022 * this.calc2022;
             const money2021 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.avr)) * this.wearTwoSpheresSum * this.countsPrice2021 * this.calc2021;
-            const money2020 = (this.proposeTwoSpheresAvr - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.avr)) * this.wearTwoSpheresSum * this.countsPrice2020 * this.calc2020;
-            this.margeMass = (money2023 + money2022 + money2021 + money2020).toFixed(2);
+            this.margeMass = (money2023 + money2022 + money2021).toFixed(2);
 
         } else {
             const money2023 = ((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2023.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2023.second)) * this.weareTwoSpeheresSecond) * this.calc2023;
             const money2022 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022.second)) * this.weareTwoSpeheresSecond)) * this.countsPrice2022 * this.calc2022;
             const money2021 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021.second)) * this.weareTwoSpeheresSecond)) * this.countsPrice2021 * this.calc2021;
-            const money2020 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.first)) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(this.pricesFromDb.tariff.price2020.second)) * this.weareTwoSpeheresSecond)) * this.countsPrice2020 * this.calc2020;
-            this.margeMass = (money2023 + money2022 + money2021 + money2020).toFixed(2);
+            this.margeMass = (money2023 + money2022 + money2021).toFixed(2);
 
         }
     };
