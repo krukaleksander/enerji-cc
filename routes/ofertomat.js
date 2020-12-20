@@ -50,8 +50,7 @@ router.post('/change-price/', (req, res, next) => {
         "$set": {
             "tariff.price2023": higherPricer(removeCommasFn(requestBody.price2023)),
             "tariff.price2022": higherPricer(removeCommasFn(requestBody.price2022)),
-            "tariff.price2021": higherPricer(removeCommasFn(requestBody.price2021)),
-            "tariff.price2020": higherPricer(removeCommasFn(requestBody.price2020))
+            "tariff.price2021": higherPricer(removeCommasFn(requestBody.price2021))
 
         }
     }, function () {
@@ -67,11 +66,7 @@ router.post('/change-price/', (req, res, next) => {
                 "tariff.price2022.second": higherPricer(removeCommasFn(requestBody.pricec12a2022Second)),
                 "tariff.price2021.avr": higherPricer(removeCommasFn(requestBody.pricec12a2021Avr)),
                 "tariff.price2021.first": higherPricer(removeCommasFn(requestBody.pricec12a2021First)),
-                "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.pricec12a2021Second)),
-                "tariff.price2020.avr": higherPricer(removeCommasFn(requestBody.pricec12a2020Avr)),
-                "tariff.price2020.first": higherPricer(removeCommasFn(requestBody.pricec12a2020First)),
-                "tariff.price2020.second": higherPricer(removeCommasFn(requestBody.pricec12a2020Second)),
-
+                "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.pricec12a2021Second))
             }
         }, function () {
             allTariffPrices.findOneAndUpdate({
@@ -86,11 +81,7 @@ router.post('/change-price/', (req, res, next) => {
                     "tariff.price2022.second": higherPricer(removeCommasFn(requestBody.pricec12b2022Second)),
                     "tariff.price2021.avr": higherPricer(removeCommasFn(requestBody.pricec12b2021Avr)),
                     "tariff.price2021.first": higherPricer(removeCommasFn(requestBody.pricec12b2021First)),
-                    "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.pricec12b2021Second)),
-                    "tariff.price2020.avr": higherPricer(removeCommasFn(requestBody.pricec12b2020Avr)),
-                    "tariff.price2020.first": higherPricer(removeCommasFn(requestBody.pricec12b2020First)),
-                    "tariff.price2020.second": higherPricer(removeCommasFn(requestBody.pricec12b2020Second)),
-
+                    "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.pricec12b2021Second))
                 }
             }, function () {
 
@@ -100,9 +91,7 @@ router.post('/change-price/', (req, res, next) => {
                         "$set": {
                             "tariff.price2023": higherPricer(removeCommasFn(requestBody.c21price2023)),
                             "tariff.price2022": higherPricer(removeCommasFn(requestBody.c21price2022)),
-                            "tariff.price2021": higherPricer(removeCommasFn(requestBody.c21price2021)),
-                            "tariff.price2020": higherPricer(removeCommasFn(requestBody.c21price2020))
-
+                            "tariff.price2021": higherPricer(removeCommasFn(requestBody.c21price2021))
                         }
                     },
                     function () {
@@ -119,11 +108,7 @@ router.post('/change-price/', (req, res, next) => {
                                 "tariff.price2022.second": higherPricer(removeCommasFn(requestBody.pricec22a2022Second)),
                                 "tariff.price2021.avr": higherPricer(removeCommasFn(requestBody.pricec22a2021Avr)),
                                 "tariff.price2021.first": higherPricer(removeCommasFn(requestBody.pricec22a2021First)),
-                                "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.pricec22a2021Second)),
-                                "tariff.price2020.avr": higherPricer(removeCommasFn(requestBody.pricec22a2020Avr)),
-                                "tariff.price2020.first": higherPricer(removeCommasFn(requestBody.pricec22a2020First)),
-                                "tariff.price2020.second": higherPricer(removeCommasFn(requestBody.pricec22a2020Second)),
-
+                                "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.pricec22a2021Second))
                             }
                         }, function () {
 
@@ -139,11 +124,7 @@ router.post('/change-price/', (req, res, next) => {
                                     "tariff.price2022.second": higherPricer(removeCommasFn(requestBody.pricec22b2022Second)),
                                     "tariff.price2021.avr": higherPricer(removeCommasFn(requestBody.pricec22b2021Avr)),
                                     "tariff.price2021.first": higherPricer(removeCommasFn(requestBody.pricec22b2021First)),
-                                    "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.pricec22b2021Second)),
-                                    "tariff.price2020.avr": higherPricer(removeCommasFn(requestBody.pricec22b2020Avr)),
-                                    "tariff.price2020.first": higherPricer(removeCommasFn(requestBody.pricec22b2020First)),
-                                    "tariff.price2020.second": higherPricer(removeCommasFn(requestBody.pricec22b2020Second)),
-
+                                    "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.pricec22b2021Second))
                                 }
                             }, function () {
 
@@ -153,9 +134,7 @@ router.post('/change-price/', (req, res, next) => {
                                     "$set": {
                                         "tariff.price2023": higherPricer(removeCommasFn(requestBody.b21price2023)),
                                         "tariff.price2022": higherPricer(removeCommasFn(requestBody.b21price2022)),
-                                        "tariff.price2021": higherPricer(removeCommasFn(requestBody.b21price2021)),
-                                        "tariff.price2020": higherPricer(removeCommasFn(requestBody.b21price2020))
-
+                                        "tariff.price2021": higherPricer(removeCommasFn(requestBody.b21price2021))
                                     }
                                 }, function () {
 
@@ -171,11 +150,7 @@ router.post('/change-price/', (req, res, next) => {
                                             "tariff.price2022.second": higherPricer(removeCommasFn(requestBody.priceb222022Second)),
                                             "tariff.price2021.avr": higherPricer(removeCommasFn(requestBody.priceb222021Avr)),
                                             "tariff.price2021.first": higherPricer(removeCommasFn(requestBody.priceb222021First)),
-                                            "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.priceb222021Second)),
-                                            "tariff.price2020.avr": higherPricer(removeCommasFn(requestBody.priceb222020Avr)),
-                                            "tariff.price2020.first": higherPricer(removeCommasFn(requestBody.priceb222020First)),
-                                            "tariff.price2020.second": higherPricer(removeCommasFn(requestBody.priceb222020Second)),
-
+                                            "tariff.price2021.second": higherPricer(removeCommasFn(requestBody.priceb222021Second))
                                         }
                                     }, function () {
 
@@ -186,9 +161,7 @@ router.post('/change-price/', (req, res, next) => {
                                             "$set": {
                                                 "tariff.price2023": higherPricer(removeCommasFn(requestBody.b11price2023)),
                                                 "tariff.price2022": higherPricer(removeCommasFn(requestBody.b11price2022)),
-                                                "tariff.price2021": higherPricer(removeCommasFn(requestBody.b11price2021)),
-                                                "tariff.price2020": higherPricer(removeCommasFn(requestBody.b11price2020))
-
+                                                "tariff.price2021": higherPricer(removeCommasFn(requestBody.b11price2021))
                                             }
                                         }, function () {
 
