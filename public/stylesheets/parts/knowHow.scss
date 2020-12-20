@@ -1,0 +1,50 @@
+.know-how {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(29, 29, 68);
+    color: rgb(196, 189, 203);
+    padding: 15px;
+    z-index: 10;
+    border-radius: 5px;
+    border: 2px solid rgb(196, 189, 203);
+    box-shadow: 2px 1px 5px 2px;
+
+    &__btn {
+        text-align: center;
+        padding: 5px 10px;
+        background: none;
+        color: whitesmoke;
+        border: 1px solid whitesmoke;
+        cursor: pointer;
+        font-weight: bolder;
+        transition: .3s;
+
+        &:hover {
+            background-color: whitesmoke;
+            color: rgb(29, 29, 68);
+        }
+    }
+
+    &__heading {
+        color: rgb(100, 100, 251);
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 2px solid;
+    }
+
+    &__par {
+        line-height: 130%;
+
+        &--important {
+            color: rgb(100, 100, 251);
+        }
+    }
+
+    &__list {
+        list-style: decimal;
+        padding: 20px;
+    }
+}

@@ -16,7 +16,7 @@
     }
 
     @include common {
-        margin: -18px auto 0;
+        margin: 18px auto 0;
     }
 
     @include commonPort {
@@ -28,6 +28,8 @@
 
     input {
         display: block;
+        border: 1px solid black;
+        padding: 1px;
         margin: 30px auto 0;
         font-size: 25px;
 

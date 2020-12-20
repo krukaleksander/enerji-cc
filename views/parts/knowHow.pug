@@ -1,0 +1,20 @@
+button(class='btn btn-success' id='showKnowHow') Instrukcja
+.know-how
+  button(class='know-how__btn' id='hideKnowHow') Zamknij
+  h1(class="know-how__heading") Kilka rad
+  p(class="know-how__par") Ofertomat ma za zadanie spełniać dwie funkcje: 
+    strong wyliczać masę marży i oszczędności dla klienta [ jeśli takowe występują ;) ].
+  p(class='alert alert-danger') Nie musisz podawać ceny aktualnej klienta ani opłaty handlowej aby wyliczać masę. Potrzebne jest to tylko do oszczędności!
+  p(class="know-how__par know-how__par--important") Aby wyliczyć Twoją masę marży musisz podać:
+  ul(class="know-how__list")
+    li Koniec umowy bieżącej - z końcem jakiego miesiąca kończy się umowa klienta. Grudzień 2020 oznacza, że wejść możemy od 01.01.2021;
+    li Nowa umowa do - do końca którego roku będzie umowa. 2023 oznacza do 31.12.2023;
+    li Zużycie klienta - tu może pomóc guzik Przelicz zużycie - wpisujesz ile klient zużywa kilowatów na fakturze i program policzy zużycie roczne. Wyniki można eksportować do tabeli;
+    li Twoja propozycja - cena jaką dajesz klientowi.
+  p(class="know-how__par know-how__par--important") Aby wyliczyć oszczędności klienta:
+    ul(class="know-how__list")
+        li Opłata handlowa - ile klient ma netto opłaty handlowej miesięcznie;
+        li Cena aktualna klienta - stawka netto jaką klient ma teraz.
+  p(class="know-how__par") Program przprowadza następującą operację: odejmuje od Twojej propozycji cenę z cennika - w ten sposób wie ile masz narzutu na każdym megawacie. W kolejnym etapie mnoży marżę na megawacie przez zużycie. Uwzględnia oczywiście na jaki okres jest umowa i bierze pod uwagę ceny z odpowiedniego roku. Tyle.
+
+  

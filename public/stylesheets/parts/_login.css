@@ -17,7 +17,7 @@
 
 @media (max-width: 570px) {
   .login-wrapper {
-    margin: -18px auto 0;
+    margin: 18px auto 0;
   }
 }
 
@@ -30,6 +30,8 @@
 
 .login-wrapper input {
   display: block;
+  border: 1px solid black;
+  padding: 1px;
   margin: 30px auto 0;
   font-size: 25px;
 }
