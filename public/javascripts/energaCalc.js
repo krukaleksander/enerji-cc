@@ -81,6 +81,12 @@ const calcForTariff = () => {
         b22Engine.mainCalcFn();
     } else if (tariffCalcFlag === 8) {
         b11Engine.mainCalcFn();
+    } else if (tariffCalcFlag === 9) {
+        g11Engine.mainCalcFn();
+    } else if (tariffCalcFlag === 10) {
+        g12Engine.mainCalcFn();
+    } else if (tariffCalcFlag === 11) {
+        g12wEngine.mainCalcFn();
     } else {
         console.log('co jest kurka wódka?')
     }
