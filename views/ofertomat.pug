@@ -160,6 +160,9 @@ block content
           option(value="b11") B11
           option(value="b21") B21
           option(value="b22") B22
+          option(value="g11") G11
+          option(value="g12") G12
+          option(value="g12w") G12w
         input(type="text" class="easy-prices__input")
         button(class="easy-prices__btn btn btn-info") Wgraj ceny
       form(action="panel/change-price/" method="post")
@@ -172,6 +175,9 @@ block content
        include parts/changeb11.pug      
        include parts/changecb21.pug       
        include parts/changeb22.pug       
+       include parts/changeg11.pug       
+       include parts/changeg12.pug       
+       include parts/changeg12w.pug       
        div
         input(id="changePriceBtn" class='btn btn-info' type="submit" value="OK")
        div(class="change-price-close")
