@@ -42,6 +42,9 @@ block content
         option(value="B11") B11                      
         option(value="B21") B21                       
         option(value="B22") B22                       
+        option(value="G11") G11                       
+        option(value="G12") G12                       
+        option(value="G12w") G12w                       
     div
       label(for="endOfAgreement") Koniec umowy bieżącej: 31.
       select(id='endOfAgreementMonth')
@@ -79,6 +82,9 @@ block content
     include parts/b11  
     include parts/b21   
     include parts/b22   
+    include parts/g11   
+    include parts/g12   
+    include parts/g12w   
     .have-prices-c11 
        div
         label(for="priceNow") Cena aktualna klienta: 
