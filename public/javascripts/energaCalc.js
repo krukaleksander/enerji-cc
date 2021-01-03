@@ -13,8 +13,8 @@ let info35zlFlag = true;
 
 onePriceCheckbox.checked = false;
 selectElement('tariff', 'C11');
-selectElement('endOfAgreement', '2020');
-selectElement('endOfAgreementMonth', '1');
+selectElement('endOfAgreement', '2021');
+selectElement('endOfAgreementMonth', '12');
 selectElement('endOfNewAgreement', '2023');
 
 const replaceAndParseMainFn = (item) => {

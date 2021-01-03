@@ -486,7 +486,7 @@
         p = document.getElementById("activeCalcSavings"),
         d = 0,
         v = 0;
-    u.checked = !1, h("tariff", "C11"), h("endOfAgreement", "2020"), h("endOfAgreementMonth", "1"), h("endOfNewAgreement", "2023");
+    u.checked = !1, h("tariff", "C11"), h("endOfAgreement", "2021"), h("endOfAgreementMonth", "12"), h("endOfNewAgreement", "2023");
     var y = function (e) {
         return parseFloat(e.replace(/\,/g, "."))
     };
