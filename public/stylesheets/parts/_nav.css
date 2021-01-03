@@ -33,10 +33,11 @@ div.menu-mobile i.active {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  min-width: 700px;
-  background: rgba(74, 67, 67, 0.75);
+  padding: 5px;
+  min-width: 525px;
+  background: #2196f3;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 @media (max-width: 640px) {
@@ -65,12 +66,37 @@ div.menu-mobile i.active {
 }
 
 .main-nav ul li {
-  border-right: 2px solid white;
   padding: 5px 10px;
+  position: relative;
 }
 
 .main-nav ul li:nth-child(3) {
   border-right: none;
+}
+
+.main-nav ul li:before, .main-nav ul li:after {
+  position: absolute;
+  opacity: 0;
+  width: 0%;
+  height: 2px;
+  content: '';
+  background: #FFF;
+  transition: all 0.3s;
+}
+
+.main-nav ul li:before {
+  left: 0px;
+  top: 0px;
+}
+
+.main-nav ul li:after {
+  right: 0px;
+  bottom: 0px;
+}
+
+.main-nav ul li:hover:before, .main-nav ul li:hover:after {
+  opacity: 1;
+  width: 100%;
 }
 
 @media (max-width: 1024px) {
@@ -109,7 +135,8 @@ div.menu-mobile i.active {
   text-decoration: none;
   color: white;
   font-size: 20px;
-  font-family: 'Baloo 2', cursive;
+  font-weight: 100;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @media (max-width: 1024px) {
@@ -140,10 +167,6 @@ div.menu-mobile i.active {
   .main-nav ul li a {
     font-size: 20px;
   }
-}
-
-.main-nav ul li a:hover {
-  border-bottom: 2px solid white;
 }
 
 .main-nav ul li a.disabled {

@@ -34,11 +34,12 @@ div.menu-mobile {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    min-width: 700px;
+    padding: 5px;
+    min-width: 525px;
     // background: rgb(37, 157, 42);
-    background: rgba(74, 67, 67, 0.75);
+    background: rgb(33, 150, 243);
     color: white;
-    border-radius: 10px;
+    border-radius: 5px;
 
     @include mq(xsmall) {
         background: rgba(0, 0, 0, 0.75);
@@ -64,14 +65,38 @@ div.menu-mobile {
         }
 
         li {
-
-
-
-            border-right: 2px solid white;
             padding: 5px 10px;
+            position: relative;
 
             &:nth-child(3) {
                 border-right: none;
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                opacity: 0;
+                width: 0%;
+                height: 2px;
+                content: '';
+                background: #FFF;
+                transition: all 0.3s;
+            }
+
+            &:before {
+                left: 0px;
+                top: 0px;
+            }
+
+            &:after {
+                right: 0px;
+                bottom: 0px;
+            }
+
+            &:hover:before,
+            &:hover:after {
+                opacity: 1;
+                width: 100%;
             }
 
             @include ipadPro {
@@ -100,7 +125,8 @@ div.menu-mobile {
                 text-decoration: none;
                 color: white;
                 font-size: 20px;
-                font-family: 'Baloo 2', cursive;
+                font-weight: 100;
+                font-family: Arial, Helvetica, sans-serif;
 
                 @include ipadPro {
                     font-size: 30px;
@@ -122,10 +148,6 @@ div.menu-mobile {
                     font-size: 20px
                 }
 
-                &:hover {
-                    // color: black;
-                    border-bottom: 2px solid white;
-                }
             }
 
 
