@@ -1,23 +1,45 @@
 extends layout
 
 block content
-  link(rel="stylesheet", href="/stylesheets/css/loginForm/login.css")     
+  link(rel="stylesheet", href="/stylesheets/css/loginForm/new-login.css")    
   .login-wrap
-  .login-html   
-    .login-form
-      .sign-in-htm
-        form(method='post')
-          .group
-            label.label(for='user') Username
-            input#user.input(type='text' placeholder='login' name="login")
-          .group
-            label.label(for='pass') Password
-            input#pass.input(type='password' placeholder='hasło' name="password")       
-          .group
-            input.button(type='submit' value='Sign In')
-          .hr
-          .foot-lnk
-            a(href='#forgot') Forgot Password?
+    .login-html
+      input#tab-1.sign-in(type='radio' name='tab' checked='')
+      label.tab(for='tab-1') Logowanie
+      input#tab-2.sign-up(type='radio' name='tab')
+      label.tab(for='tab-2' style='display:none') Sign Up    
+      .login-form
+        .sign-in-htm
+          form(method='post')
+            .group
+              label.label(for='user') Login
+              input#user.input(type='text' placeholder='login' name="login")
+            .group
+              label.label(for='pass') Hasło
+              input#pass.input(type='password' placeholder='hasło' name="password")          
+            .group
+              input.button(type='submit' value='Zaloguj')
+            .hr
+        
+       
+
+
+  //- .login-wrap
+  //- .login-html   
+  //-   .login-form
+  //-     .sign-in-htm
+  //-       form(method='post')
+  //-         .group
+  //-           label.label(for='user') Username
+  //-           input#user.input(type='text' placeholder='login' name="login")
+  //-         .group
+  //-           label.label(for='pass') Password
+  //-           input#pass.input(type='password' placeholder='hasło' name="password")       
+  //-         .group
+  //-           input.button(type='submit' value='Sign In')
+  //-         .hr
+  //-         .foot-lnk
+  //-           a(href='#forgot') Forgot Password?
       
 
 
