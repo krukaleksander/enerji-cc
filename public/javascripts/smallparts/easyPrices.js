@@ -38,6 +38,8 @@ var easyPrices = {
                 //przerobienie tablicy z cenami na obiekt
                 pricesAsArr = [value[1], value[3], value[5], value[7]];
                 setTariffInputs(tariff, pricesAsArr, flag);
+                console.log(value);
+                console.log(pricesAsArr);
             } else if (flag === 'two') {
                 //funkcja, która w grupach dwutaryfowych zwraca tablicę z cenami
                 var changeStringPrices = function (prices) {
