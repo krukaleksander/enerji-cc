@@ -38,15 +38,15 @@ var easyPrices = {
                 //przerobienie tablicy z cenami na obiekt
                 pricesAsArr = [value[1], value[3], value[5]];
                 setTariffInputs(tariff, pricesAsArr, flag);
-                console.log(value);
-                console.log(pricesAsArr);
             } else if (flag === 'two') {
                 //funkcja, która w grupach dwutaryfowych zwraca tablicę z cenami
                 var changeStringPrices = function (prices) {
                     return prices.split('\t');
                 };
-                pricesAsArr = [changeStringPrices(value[1]), changeStringPrices(value[3]), changeStringPrices(value[5]), changeStringPrices(value[7])];
+                pricesAsArr = [changeStringPrices(value[1]), changeStringPrices(value[3]), changeStringPrices(value[5])];
                 setTariffInputs(tariff, pricesAsArr, flag);
+                console.log(value);
+                console.log(pricesAsArr);
             }
         });
     }
