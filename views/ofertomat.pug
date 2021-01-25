@@ -5,7 +5,7 @@ block content
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
     h3 Ofertomat v. 5.0.0       
-    p(class="alert alert-success wrapper__title") Dodane gt G11, G12, G12w. Dodana podstawowa instrukcja. Ceny zawyżone są o 1.5% względem cennika rzeczywistego i nie możesz ich skutecznie edytować.
+    p(class="alert alert-success wrapper__title") Ceny zawyżone są o 1.5% względem cennika rzeczywistego i nie możesz ich skutecznie edytować. Pamiętaj, że oszczędności liczone są w skali roku!
     include parts/knowHow
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
@@ -89,7 +89,7 @@ block content
         label(for="priceNow") Cena aktualna klienta: 
         input(id="priceNow" class="note-remover" type="text" placeholder="np. 382" value=0)
     div(class="intakec11c21")
-      label(for="wear") Zużycie MWh: 
+      label(for="wear") Zużycie [ROCZNE!] MWh: 
       input(id="wear" class="note-remover" type="text" placeholder="np. 18.3" value=0)      
     div(class="havePricesc12ac12b")
       p(class="tariff-wrapper-title") Klient ma cenę:
