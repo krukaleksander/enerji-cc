@@ -9,9 +9,9 @@ block content
       button(class='btn btn-info gazomierz__insert-price') Wycena
       .insert-price
         i(class="fas fa-times-circle" id='closeInsertGazPrice')
-        form(action="/set-price")
+        form(action="gazomierz/set-price/" method="post")
           label(for="") Podaj wartość:
-          input(type="text" placeholder='wartość z bazy' id='priceDbGaz')
+          input(type="text" placeholder='wartość z bazy' id='priceDbGaz' value=data[0].price)
           button(type='submit' class='btn btn-success') Zatwierdź
       div(class='agreement-start-gaz')
       label(for="agreementStartGaz") Umowa od:

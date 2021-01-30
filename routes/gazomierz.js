@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const gazPrice = require('../models/gazPrice');
 
 router.all('*', (req, res, next) => {
     if (!req.session.admin) {
@@ -10,14 +11,24 @@ router.all('*', (req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-    res.render('gazomierz', {
-        title: 'p5 GazoMierz'
-    });
+    gazPrice.find({}, (err, data) => {
+        res.render('gazomierz', {
+            title: 'p5 GazoMierz',
+            data
+        });
+    })
+
 });
 
 router.post('/', (req, res) => {
     req.session.admin = 0;
     res.redirect('/');
+    return
+});
+
+router.post('/set-price', (req, res) => {
+    // start here
+    res.redirect('/gazomierz');
     return
 });
 
