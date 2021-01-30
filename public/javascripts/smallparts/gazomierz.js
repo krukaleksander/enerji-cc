@@ -4,7 +4,12 @@
     const closeInsertPriceContainer = document.getElementById('closeInsertGazPrice');
     const calcBtn = document.querySelector('.gazomierz__calc');
     const summary = document.querySelector('.gazomierz__summary');
-
+    const inputs = [...document.querySelectorAll('input')];
+    inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            summary.style.display = 'none';
+        });
+    });
     const replaceAndParseMainFn = (item) => {
         return parseFloat(item.replace(/\,/g, '.'));
     };
@@ -32,7 +37,7 @@
         const factor = ((endOfNewAgreementGaz - agreementStart) + 1 - (partOfFirstYear / 12).toFixed(2));
         const margeMass = (differenceInPrice * gazMwh * factor).toFixed(2);
         summary.style.display = 'block';
-        summary.innerHTML = `<p>Masa marży: ${margeMass} </p><p>Oszczędności OH: ${savingsFromOh}</p><p>Oszczędności gaz: ${savingsFromMwh}</p><p>Suma oszczędności: ${savingsTotal}</p>`
+        summary.innerHTML = `<p>Masa marży: ${margeMass} </p><p>Oszczędności OH: ${savingsFromOh}</p><p>Oszczędności gaz: ${savingsFromMwh}</p><p>Suma oszczędności [ROK]: ${savingsTotal}</p>`
         summary.scrollIntoView();
     };
 
