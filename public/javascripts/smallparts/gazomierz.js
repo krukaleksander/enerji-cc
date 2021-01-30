@@ -32,7 +32,7 @@
 
         const savingsFromOh = Number((gazOh * 12).toFixed(2));
         const savingsFromMwh = Number(((gazActualPrice - gazProposition) * gazMwh).toFixed(2));
-        const savingsTotal = savingsFromOh + savingsFromMwh;
+        const savingsTotal = (savingsFromOh + savingsFromMwh).toFixed(2);
         const differenceInPrice = (gazProposition - priceDbGaz).toFixed(2);
         const factor = ((endOfNewAgreementGaz - agreementStart) + 1 - (partOfFirstYear / 12).toFixed(2));
         const margeMass = (differenceInPrice * gazMwh * factor).toFixed(2);
