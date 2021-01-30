@@ -91,5 +91,19 @@
             margin-left: 5px;
 
         }
+
+        &__summary {
+            display: none;
+            background-color: wheat;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgb(92, 81, 81);
+            margin-bottom: 5px;
+
+            p {
+                color: rgb(92, 81, 81);
+                letter-spacing: 1px;
+            }
+        }
     }
 }
