@@ -6,8 +6,9 @@ block content
   div(class='gazomierz-wrapper container')
     h3 GazoMierz v. 1.0.0
     .gazomierz
-      button(class='btn btn-info') Wprowadź wycenę
+      button(class='btn btn-info gazomierz__insert-price') Wprowadź wycenę
       .insert-price
+        i(class="fas fa-times-circle" id='closeInsertGazPrice')
         form(action="/set-price")
           label(for="") Podaj wartość:
           input(type="text" placeholder='wartość z bazy')
@@ -23,5 +24,5 @@ block content
         input(type="text" placeholder='np. 120' id='gazPrice' class='gazomierz__input')
         button(class='gazomierz__calc btn btn-dark') Oblicz
       .gazomierz__summary
-      
+
   
