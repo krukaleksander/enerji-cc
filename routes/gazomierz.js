@@ -27,8 +27,16 @@ router.post('/', (req, res) => {
 });
 
 router.post('/set-price', (req, res) => {
-    // start here
-    res.redirect('/gazomierz');
+    const requestBody = req.body;
+    const removeCommasFn = (expression) => {
+        return expression.replace(/\,/g, '.');
+    }
+    const priceToServer = removeCommasFn(requestBody.price);
+    gazPrice.findByIdAndUpdate('60151270dc739048277ff2d4', {
+        price: priceToServer
+    }, () => {
+        res.redirect('/gazomierz');
+    });
     return
 });
 
