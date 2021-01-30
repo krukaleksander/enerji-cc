@@ -5,4 +5,23 @@ block content
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='gazomierz-wrapper container')
     h3 GazoMierz v. 1.0.0
+    .gazomierz
+      button(class='btn btn-info') Wprowadź wycenę
+      .insert-price
+        form(action="/set-price")
+          label(for="") Podaj wartość:
+          input(type="text" placeholder='wartość z bazy')
+          button(type='submit' class='btn btn-success') Zatwierdź
+      div
+        p(class='gazomierz__label') Opłata handlowa:
+        input(type="text" placeholder='np. 6,30' id='gazOh' class='gazomierz__input')
+        p(class='gazomierz__label') Obecna stawka za mWh:
+        input(type="text" placeholder='np. 137' id='gazPrice' class='gazomierz__input')
+        p(class='gazomierz__label') Szacowane zużycie roczne mWh:
+        input(type="text" placeholder='np. 45' id='gazMwh' class='gazomierz__input')
+        p(class='gazomierz__label') Propozycja:
+        input(type="text" placeholder='np. 120' id='gazPrice' class='gazomierz__input')
+        button(class='gazomierz__calc btn btn-dark') Oblicz
+      .gazomierz__summary
+      
   
