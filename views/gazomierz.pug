@@ -17,12 +17,12 @@ block content
         p(class='gazomierz__label') Opłata handlowa:
         input(type="text" placeholder='np. 6,30' id='gazOh' class='gazomierz__input')
         p(class='gazomierz__label') Obecna stawka za mWh:
-        input(type="text" placeholder='np. 137' id='gazPrice' class='gazomierz__input')
+        input(type="text" placeholder='np. 137' id='gazActualPrice' class='gazomierz__input')
         p(class='gazomierz__label') Szacowane zużycie roczne mWh:
         input(type="text" placeholder='np. 45' id='gazMwh' class='gazomierz__input')
         p(class='gazomierz__label') Propozycja:
-        input(type="text" placeholder='np. 120' id='gazPrice' class='gazomierz__input')
+        input(type="text" placeholder='np. 120' id='gazProposition' class='gazomierz__input')
         button(class='gazomierz__calc btn btn-dark') Oblicz
       .gazomierz__summary
-
+  script(src="/javascripts/smallparts/gazomierz.js")
   
