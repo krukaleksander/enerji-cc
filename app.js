@@ -21,6 +21,7 @@ var mwhRouter = require('./routes/mwh.js');
 const crmLoginRouter = require('./routes/crmLogin');
 const crmPanelRouter = require('./routes/crmPanel');
 const consumptionRouter = require('./routes/consumption');
+const gazomierzRouter = require('./routes/gazomierz');
 
 
 
@@ -50,6 +51,7 @@ app.use('/mwh', mwhRouter);
 app.use('/crm', crmLoginRouter);
 app.use('/crm/panel', crmPanelRouter);
 app.use('/consumption', consumptionRouter);
+app.use('/gazomierz', gazomierzRouter);
 
 // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
