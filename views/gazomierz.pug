@@ -11,24 +11,25 @@ block content
         i(class="fas fa-times-circle" id='closeInsertGazPrice')
         form(action="/set-price")
           label(for="") Podaj wartość:
-          input(type="text" placeholder='wartość z bazy')
+          input(type="text" placeholder='wartość z bazy' id='priceDbGaz')
           button(type='submit' class='btn btn-success') Zatwierdź
       div(class='agreement-start-gaz')
       label(for="agreementStartGaz") Umowa od:
       select(id='agreementStartGazMonth')
-        option(class="oprion-12" value=12) 01
-        option(class="oprion-11" value=11) 02 
-        option(class="oprion-10" value=10) 03 
-        option(class="oprion-9" value=9) 04 
-        option(class="oprion-8" value=8) 05
-        option(class="oprion-7" value=7) 06
+        option(class="oprion-12" value=0) 01
+        option(class="oprion-11" value=1) 02 
+        option(class="oprion-10" value=2) 03 
+        option(class="oprion-9" value=3) 04 
+        option(class="oprion-8" value=4) 05
+        option(class="oprion-7" value=5) 06
         option(class="oprion-6" value=6) 07
-        option(class="oprion-5" value=5) 08 
-        option(class="oprion-4" value=4) 09
-        option(class="oprion-3" value=3) 10
-        option(class="oprion-2" value=2) 11 
-        option(class="oprion-1" value=1) 12 
-      select(id="endOfAgreementGaz")
+        option(class="oprion-5" value=7) 08 
+        option(class="oprion-4" value=8) 09
+        option(class="oprion-3" value=9) 10
+        option(class="oprion-2" value=10) 11 
+        option(class="oprion-1" value=11) 12 
+      select(id="agreementStart")
+        option(class="option-2022" value=2023) 2023
         option(class="option-2022" value=2022) 2022
         option(class="option-2021" value=2021) 2021                
       div
