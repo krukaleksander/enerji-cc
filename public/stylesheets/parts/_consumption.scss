@@ -101,10 +101,40 @@
 
 }
 
+.one-fv-decription {
+    font-size: 16px;
+    text-align: center;
+    color: #03A9F4
+}
+
 #showCalcMwhs {
     display: block;
     margin: 0 auto;
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+    width: 170px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
 
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+
+    &:hover {
+        background-position: 100% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
 }
 
 .contracted-power {

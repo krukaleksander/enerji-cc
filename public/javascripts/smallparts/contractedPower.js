@@ -21,10 +21,15 @@
         const e5 = 12;
         const f5 = 0.4;
         const mwhs = Number(document.querySelector('.contracted-power__input').value);
-        console.log(mwhs)
         const scoreParagraph = document.querySelector('.contracted-power__score');
         const score = (mwhs / b5) * c5 * (d5 / e5) * f5;
-        scoreParagraph.innerHTML = score;
+        if (score >= 0) {
+            scoreParagraph.innerHTML = score;
+        } else {
+            scoreParagraph.innerHTML = 'Sprawdź co wpisujesz'
+        }
+
+
     });
 
 })()
