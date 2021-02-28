@@ -5,12 +5,12 @@ block content
   .consumption-wrapper
     button(id="showAboutConsumption" class="btn btn-info") Jak to działa?
     p(class='one-fv-decription') Sprawdź na podstawie mocy umownej ile najwięcej mWh możesz dać:
-    button(id="showAboutConsumption" class="btn btn-warning") Moc umowna/mWh
+    button(id="showCalcMwhs" class="btn btn-warning") Moc umowna/mWh
     .contracted-power
       i(class="fas fa-window-close contracted-power__close")
-      input(type="text" class='contracted-power__input' placeholder='podaj liczbę kW')
-      button(class='btn btn-success') Sprawdź
-      div Wynik:
+      input(type="text" class='contracted-power__input' placeholder='kW')
+      button(class='btn btn-success' id='btnCalcMwhs') Sprawdź
+      div Wynik w mWh:
         p(class='contracted-power__score')
     .consumption-wrapper__fvs
       div
@@ -41,4 +41,5 @@ block content
     img(class="about-consumption__img" src="../images/faktura_wyliczanie_1.png", alt="faktura za prąd")
     p(class="about-consumption__par about-consumption__par--important") Dane zostały oznaczone na jednej fakturze, ale pamiętajmy, że do billingu potrzebne są trzy kolejne faktury nie starsze niż rok -  dane spisujemy z pierwszej i ostatniej!
   script(src="/javascripts/smallparts/consumption.js")
+  script(src="/javascripts/smallparts/contractedPower.js")
      
