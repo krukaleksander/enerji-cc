@@ -4,6 +4,14 @@ block content
     button(type='submit' class='logout-btn') Wyloguj
   .consumption-wrapper
     button(id="showAboutConsumption" class="btn btn-info") Jak to działa?
+    p(class='one-fv-decription') Sprawdź na podstawie mocy umownej ile najwięcej mWh możesz dać:
+    button(id="showAboutConsumption" class="btn btn-warning") Moc umowna/mWh
+    .contracted-power
+      i(class="fas fa-window-close contracted-power__close")
+      input(type="text" class='contracted-power__input' placeholder='podaj liczbę kW')
+      button(class='btn btn-success') Sprawdź
+      div Wynik:
+        p(class='contracted-power__score')
     .consumption-wrapper__fvs
       div
         h2 Faktura 1
