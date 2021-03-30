@@ -1,0 +1,584 @@
+@mixin keyframes($easterEggs) {
+    @-webkit-keyframes #{$easterEggs} {
+        @content;
+    }
+
+    @-moz-keyframes #{$easterEggs} {
+        @content;
+    }
+
+    @-o-keyframes #{$easterEggs} {
+        @content;
+    }
+
+    @keyframes #{$easterEggs} {
+        @content;
+    }
+}
+
+
+body {
+    overflow: hidden;
+}
+
+.row-eggs {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100vw;
+    z-index: -1;
+}
+
+.egg {
+    width: 50px;
+    height: 70px;
+    border-radius: 50%/60% 60% 40% 40%;
+    position: absolute;
+
+
+    -webkit-animation: easterEggOrange 10s linear infinite alternate;
+    -moz-animation: easterEggOrange 10s linear infinite alternate;
+    -o-animation: easterEggOrange 10s linear infinite alternate;
+    animation: easterEggOrange 10s linear infinite normal;
+}
+
+.egg2 {
+    -webkit-animation: easterEggPink 7s linear infinite alternate;
+    -moz-animation: easterEggPink 7s linear infinite alternate;
+    -o-animation: easterEggPink 7s linear infinite alternate;
+    animation: easterEggPink 7s linear infinite normal;
+    animation-delay: 2s;
+}
+
+.egg3 {
+    -webkit-animation: easterEggBlue 9s linear infinite alternate;
+    -moz-animation: easterEggBlue 9s linear infinite alternate;
+    -o-animation: easterEggBlue 9s linear infinite alternate;
+    animation: easterEggBlue 9s linear infinite normal;
+    animation-delay: 5s;
+}
+
+.egg4 {
+    -webkit-animation: easterEggYellow 14s linear infinite alternate;
+    -moz-animation: easterEggYellow 14s linear infinite alternate;
+    -o-animation: easterEggYellow 14s linear infinite alternate;
+    animation: easterEggYellow 14s linear infinite normal;
+    animation-delay: 7s;
+}
+
+
+@include keyframes(easterEggOrange) {
+    0% {
+        left: 0;
+        transform: rotate(0);
+        background: -webkit-linear-gradient(20deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    5% {
+        left: 5%;
+        transform: rotate(72deg);
+        background: -webkit-linear-gradient(20deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    10% {
+        left: 10%;
+        transform: rotate(144deg);
+        background: -webkit-linear-gradient(30deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    15% {
+        left: 15%;
+        transform: rotate(216deg);
+        background: -webkit-linear-gradient(40deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    20% {
+        left: 20%;
+        transform: rotate(288deg);
+        background: -webkit-linear-gradient(50deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    25% {
+        left: 25%;
+        transform: rotate(360deg);
+        background: -webkit-linear-gradient(60deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    30% {
+        left: 30%;
+        transform: rotate(432deg);
+        background: -webkit-linear-gradient(50deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    35% {
+        left: 35%;
+        transform: rotate(504deg);
+        background: -webkit-linear-gradient(40deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    40% {
+        left: 40%;
+        transform: rotate(576deg);
+        background: -webkit-linear-gradient(30deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    45% {
+        left: 45%;
+        transform: rotate(648deg);
+        background: -webkit-linear-gradient(20deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    50% {
+        left: 50%;
+        transform: rotate(720deg);
+        background: -webkit-linear-gradient(10deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    55% {
+        left: 55%;
+        transform: rotate(792deg);
+        background: -webkit-linear-gradient(20deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    60% {
+        left: 60%;
+        transform: rotate(864deg);
+        background: -webkit-linear-gradient(30deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    65% {
+        left: 65%;
+        transform: rotate(936deg);
+        background: -webkit-linear-gradient(40deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    70% {
+        left: 70%;
+        transform: rotate(1008deg);
+        background: -webkit-linear-gradient(50deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    75% {
+        left: 75%;
+        transform: rotate(1080deg);
+        background: -webkit-linear-gradient(60deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    80% {
+        left: 80%;
+        transform: rotate(1152deg);
+        background: -webkit-linear-gradient(50deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    85% {
+        left: 85%;
+        transform: rotate(1224deg);
+        background: -webkit-linear-gradient(40deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    90% {
+        left: 90%;
+        transform: rotate(1296deg);
+        background: -webkit-linear-gradient(30deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    95% {
+        left: 95%;
+        transform: rotate(1368deg);
+        background: -webkit-linear-gradient(20deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+
+    100% {
+        left: 100%;
+        transform: rotate(1440deg);
+        background: -webkit-linear-gradient(20deg, rgb(219, 161, 58) 31%, rgb(255, 194, 87) 66%, rgb(255, 233, 114) 83%);
+    }
+}
+
+@include keyframes(easterEggPink) {
+
+    0% {
+        left: 0%;
+        transform: rotate(0);
+        background: -webkit-linear-gradient(20deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    5% {
+        left: 5%;
+        transform: rotate(72deg);
+        background: -webkit-linear-gradient(20deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    10% {
+        left: 10%;
+        transform: rotate(144deg);
+        background: -webkit-linear-gradient(30deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    15% {
+        left: 15%;
+        transform: rotate(216deg);
+        background: -webkit-linear-gradient(40deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    20% {
+        left: 20%;
+        transform: rotate(288deg);
+        background: -webkit-linear-gradient(50deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    25% {
+        left: 25%;
+        transform: rotate(360deg);
+        background: -webkit-linear-gradient(60deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    30% {
+        left: 30%;
+        transform: rotate(432deg);
+        background: -webkit-linear-gradient(50deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    35% {
+        left: 35%;
+        transform: rotate(504deg);
+        background: -webkit-linear-gradient(40deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    40% {
+        left: 40%;
+        transform: rotate(576deg);
+        background: -webkit-linear-gradient(30deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    45% {
+        left: 45%;
+        transform: rotate(648deg);
+        background: -webkit-linear-gradient(20deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    50% {
+        left: 50%;
+        transform: rotate(720deg);
+        background: -webkit-linear-gradient(10deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    55% {
+        left: 55%;
+        transform: rotate(792deg);
+        background: -webkit-linear-gradient(20deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    60% {
+        left: 60%;
+        transform: rotate(864deg);
+        background: -webkit-linear-gradient(30deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    65% {
+        left: 65%;
+        transform: rotate(936deg);
+        background: -webkit-linear-gradient(40deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    70% {
+        left: 70%;
+        transform: rotate(1008deg);
+        background: -webkit-linear-gradient(50deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    75% {
+        left: 75%;
+        transform: rotate(1080deg);
+        background: -webkit-linear-gradient(60deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    80% {
+        left: 80%;
+        transform: rotate(1152deg);
+        background: -webkit-linear-gradient(50deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    85% {
+        left: 85%;
+        transform: rotate(1224deg);
+        background: -webkit-linear-gradient(40deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    90% {
+        left: 90%;
+        transform: rotate(1296deg);
+        background: -webkit-linear-gradient(30deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    95% {
+        left: 95%;
+        transform: rotate(1368deg);
+        background: -webkit-linear-gradient(20deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+
+    100% {
+        left: 100%;
+        transform: rotate(1440deg);
+        background: -webkit-linear-gradient(20deg, rgb(232, 151, 154) 31%, rgb(252, 158, 175) 66%, rgb(232, 208, 217) 83%);
+    }
+}
+
+
+@include keyframes(easterEggBlue) {
+
+    0% {
+        left: 0;
+        transform: rotate(0);
+        background: -webkit-linear-gradient(20deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    5% {
+        left: 5%;
+        transform: rotate(72deg);
+        background: -webkit-linear-gradient(20deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    10% {
+        left: 10%;
+        transform: rotate(144deg);
+        background: -webkit-linear-gradient(30deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    15% {
+        left: 15%;
+        transform: rotate(216deg);
+        background: -webkit-linear-gradient(40deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    20% {
+        left: 20%;
+        transform: rotate(288deg);
+        background: -webkit-linear-gradient(50deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    25% {
+        left: 25%;
+        transform: rotate(360deg);
+        background: -webkit-linear-gradient(60deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    30% {
+        left: 30%;
+        transform: rotate(432deg);
+        background: -webkit-linear-gradient(50deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    35% {
+        left: 35%;
+        transform: rotate(504deg);
+        background: -webkit-linear-gradient(40deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    40% {
+        left: 40%;
+        transform: rotate(576deg);
+        background: -webkit-linear-gradient(30deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    45% {
+        left: 45%;
+        transform: rotate(648deg);
+        background: -webkit-linear-gradient(20deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    50% {
+        left: 50%;
+        transform: rotate(720deg);
+        background: -webkit-linear-gradient(10deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    55% {
+        left: 55%;
+        transform: rotate(792deg);
+        background: -webkit-linear-gradient(20deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    60% {
+        left: 60%;
+        transform: rotate(864deg);
+        background: -webkit-linear-gradient(30deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    65% {
+        left: 65%;
+        transform: rotate(936deg);
+        background: -webkit-linear-gradient(40deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    70% {
+        left: 70%;
+        transform: rotate(1008deg);
+        background: -webkit-linear-gradient(50deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    75% {
+        left: 75%;
+        transform: rotate(1080deg);
+        background: -webkit-linear-gradient(60deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    80% {
+        left: 80%;
+        transform: rotate(1152deg);
+        background: -webkit-linear-gradient(50deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    85% {
+        left: 85%;
+        transform: rotate(1224deg);
+        background: -webkit-linear-gradient(40deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    90% {
+        left: 90%;
+        transform: rotate(1296deg);
+        background: -webkit-linear-gradient(30deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    95% {
+        left: 95%;
+        transform: rotate(1368deg);
+        background: -webkit-linear-gradient(20deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+
+    100% {
+        left: 100%;
+        transform: rotate(1440deg);
+        background: -webkit-linear-gradient(20deg, rgb(115, 194, 223) 31%, rgb(151, 228, 255) 66%, rgb(178, 193, 255) 83%);
+    }
+}
+
+@include keyframes(easterEggYellow) {
+    0% {
+        left: 0;
+        transform: rotate(0);
+        background: -webkit-linear-gradient(20deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    5% {
+        left: 5%;
+        transform: rotate(72deg);
+        background: -webkit-linear-gradient(20deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    10% {
+        left: 10%;
+        transform: rotate(144deg);
+        background: -webkit-linear-gradient(30deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    15% {
+        left: 15%;
+        transform: rotate(216deg);
+        background: -webkit-linear-gradient(40deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    20% {
+        left: 20%;
+        transform: rotate(288deg);
+        background: -webkit-linear-gradient(50deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    25% {
+        left: 25%;
+        transform: rotate(360deg);
+        background: -webkit-linear-gradient(60deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    30% {
+        left: 30%;
+        transform: rotate(432deg);
+        background: -webkit-linear-gradient(50deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    35% {
+        left: 35%;
+        transform: rotate(504deg);
+        background: -webkit-linear-gradient(40deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    40% {
+        left: 40%;
+        transform: rotate(576deg);
+        background: -webkit-linear-gradient(30deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    45% {
+        left: 45%;
+        transform: rotate(648deg);
+        background: -webkit-linear-gradient(20deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    50% {
+        left: 50%;
+        transform: rotate(720deg);
+        background: -webkit-linear-gradient(10deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    55% {
+        left: 55%;
+        transform: rotate(792deg);
+        background: -webkit-linear-gradient(20deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    60% {
+        left: 60%;
+        transform: rotate(864deg);
+        background: -webkit-linear-gradient(30deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    65% {
+        left: 65%;
+        transform: rotate(936deg);
+        background: -webkit-linear-gradient(40deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    70% {
+        left: 70%;
+        transform: rotate(1008deg);
+        background: -webkit-linear-gradient(50deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    75% {
+        left: 75%;
+        transform: rotate(1080deg);
+        background: -webkit-linear-gradient(60deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    80% {
+        left: 80%;
+        transform: rotate(1152deg);
+        background: -webkit-linear-gradient(50deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    85% {
+        left: 85%;
+        transform: rotate(1224deg);
+        background: -webkit-linear-gradient(40deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    90% {
+        left: 90%;
+        transform: rotate(1296deg);
+        background: -webkit-linear-gradient(30deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    95% {
+        left: 95%;
+        transform: rotate(1368deg);
+        background: -webkit-linear-gradient(20deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+
+    100% {
+        left: 100%;
+        transform: rotate(1440deg);
+        background: -webkit-linear-gradient(20deg, rgb(255, 255, 76) 31%, rgb(255, 222, 163) 66%, rgb(255, 245, 190) 83%);
+    }
+}
