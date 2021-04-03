@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 const loginOfertomat = require('../models/loginOfertomat');
 let login, password;
-
+const energyClients = require('../models/experts');
+const gaz = require('../models/gazPrice');
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
@@ -26,5 +27,38 @@ router.post('/', function (req, res) {
   }
 });
 
+// fragment energy2000
 
+router.get('/energy/:id/:name/:category/:consumption/:phone/:email/:city/:street/:streetNumber/:postalCode/', function (req, res) {
+  const newClient = {
+    id: parseInt(req.params.id),
+    name: req.params.name,
+    category: req.params.category,
+    consumption: req.params.consumption,
+    phone: req.params.phone,
+    email: req.params.email,
+    city: req.params.city,
+    street: req.params.street,
+    streetNumber: req.params.streetNumber,
+    postalCode: req.params.postalCode,
+    owner: "master",
+    description: "",
+    tasks: []
+  };
+
+  energyClients.updateOne({
+    _id: '606823a930a8db65379b35f5'
+  }, {
+    $push: {
+      clients: newClient
+    }
+  }, (err) => {
+    console.log('%c Im working...', ['color: red']);
+    if (err) console.log(err);
+    res.send('Is ok =)');
+  })
+
+});
+
+// koniec fragment energy2000
 module.exports = router;
