@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fredoka+One&display=swap');
+$heading-color: rgb(239, 234, 234);
+$login-color: linear-gradient(to left, #743ad5, #d53a9d);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// dodatek przy osadzaniu w enerji-cc
+
+body {
+    padding: 0;
+}
+
+.main-nav {
+    display: none;
+}
+
+//koniec dodatek w osadzaniu w enerji-cc
+@import './login';
