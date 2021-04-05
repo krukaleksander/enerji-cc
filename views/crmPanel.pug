@@ -1,18 +1,19 @@
 extends layout
 
 block content
-   link(rel='stylesheet', href='/stylesheets/modifiers/crmpanel.css')  
+   link(rel='stylesheet', href='/stylesheets/modifiers/css/crm.min.css')  
    form(method='post')
-     button(type='submit' class='logout-btn') Wyloguj
-   .crm-panel-wrapper
-     h1(class="crm-panel-wrapper__title") ZajazdCRM Panel
+     button(type='submit' class='logout-energy-btn') Wyloguj
+   .energy-panel-wrapper
+     h1(class="energy-panel-wrapper__title") energy2000 Panel
+     h2(class='energy-panel-wrapper__subtitle') Zalogowano jako 
+       span= fullName
      div(class="chat-container")
        .chat-container__hide Chat
        .chat-container__message-container       
        form(method='post' action="/chat" class="send-container")
          input(type="text" class="send-container__input")
          button(type="submit" class="send-container__btn") 
-           i(class="fas fa-paper-plane")
-   script(defer src="http://localhost:5010/socket.io/socket.io.js")  
+           i(class="fas fa-paper-plane")   
    script(defer src="/javascripts/chat.js")  
        

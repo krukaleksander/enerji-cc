@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
     crmAccounts.find({}, (err, data) => {
         accounts = data;
         res.render('crmLogin', {
-            title: 'energy2000 CRM 🍹🥃🍸'
+            title: 'energy2000 CRM 🚬 🥃 🍸'
         });
     })
 

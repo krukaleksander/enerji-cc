@@ -15,12 +15,30 @@ router.all('*', (req, res, next) => {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    updateArchiveMsg();
+    // updateArchiveMsg();
     crmAccounts.find({}, (err, data) => {
         accounts = data;
+        loggedUser = accounts.filter(account => account.login === req.session.userName);
+        console.log(typeof (loggedUser));
+        console.log(loggedUser);
+        const {
+            fullName,
+            email,
+            login,
+            password,
+            chatName,
+            phoneNumber
+        } = loggedUser[0];
+        console.log(fullName);
         return res.render('crmPanel', {
-            title: 'ZajazdCRM Panel 🍹🥃🍸',
-
+            title: 'energy2000 Panel 🚬 🥃 🍸',
+            data,
+            fullName,
+            email,
+            login,
+            password,
+            chatName,
+            phoneNumber
         });
     });
 
@@ -42,14 +60,14 @@ router.post('/chat', function (req, res, next) {
     return res.redirect('/crm');
 });
 
-function updateArchiveMsg() {
-    messagesAll.find({}, (err, data) => {
-        archiveMessages = data[0].messages;
-        if (err) {
-            throw ('Błąd!' + err);
-        };
-    });
-}
+// function updateArchiveMsg() {
+//     messagesAll.find({}, (err, data) => {
+//         archiveMessages = data[0].messages;
+//         if (err) {
+//             throw ('Błąd!' + err);
+//         };
+//     });
+// }
 
 
 

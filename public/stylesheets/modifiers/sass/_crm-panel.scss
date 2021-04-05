@@ -1,0 +1,32 @@
+.energy-panel-wrapper {
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: $basic-background;
+
+    &__title {
+        color: $heading-color;
+        font-family: $title-font;
+        text-align: center;
+        padding: 10px;
+        background: $login-color;
+    }
+
+    &__subtitle {
+        color: $heading-color;
+        font-family: $title-font;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+.logout-energy-btn {
+    position: fixed;
+    top: 6px;
+    right: 7px;
+    @include btn-logout;
+}
+
+.chat-container__hide {
+    display: none;
+}
