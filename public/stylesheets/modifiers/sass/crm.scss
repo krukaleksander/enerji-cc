@@ -14,6 +14,10 @@ body {
     display: none;
 }
 
+.menu-mobile {
+    display: none !important;
+}
+
 //koniec dodatek w osadzaniu w enerji-cc
 @import './sets';
 @import './login';
