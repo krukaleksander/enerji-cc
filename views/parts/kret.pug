@@ -1,0 +1,27 @@
+link(rel='stylesheet', href='/stylesheets/modifiers/kret.css') 
+form.kret(action="panel/kret/" method="post")
+  h1.kret__title @kret
+  input.kret__input.kret__clean(type='text' name='id' placeholder='NIP' required='')
+  input.kret__input.kret__clean(type='text' name='name' placeholder='Nazwa')
+  select.kret__input(name='category' id='')
+    option(value='p5') P5
+    option(value='partner') Inny partner
+    option(value='country') Rolnicy
+    option(value='factory') Zakłady
+    option(value='mine') Klient własny
+  input.kret__input.kret__clean(type='text' name='phone' placeholder='Telefon')
+  input.kret__input.kret__clean(type='text' name='email' placeholder='Email')
+  input.kret__input.kret__clean(type='text' name='consumption' placeholder='Zużycie')
+  select.kret__input(name='owner' id='')
+    option(value='default') Ogólny
+    option(value='damian.wasiak') Damian Wasiak
+    option(value='krystian.panek') Krystian Panek
+    option(value='oleksii.tsymbaliuk') Oleksii Tsymbaliuk
+    option(value='mateusz.ziolkowski') Mateusz Ziółkowski
+    option(value='aleksander.kruk') Aleksander Kruk
+  input.kret__input.kret__clean(type='text' name='city' placeholder='Miasto')
+  input.kret__input.kret__clean(type='text' name='street' placeholder='Ulica')
+  input.kret__input.kret__clean(type='text' name='streetNumber' placeholder='Numer budynku')
+  input.kret__input.kret__clean(type='text' name='postalCode' placeholder='kod pocztowy')
+  input.kret__input.kret__clean(type='text' name='description' placeholder='opis..')
+  button.kret__btn Wyślij

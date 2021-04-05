@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const allTariffPrices = require('../models/allTariffPrices');
-
+const energyClients = require('../models/experts');
 // api is multiplying price by 1.5% 
 const priceMultiplier = 1.015;
 
@@ -238,5 +238,56 @@ router.get('/get-prices', (req, res, next) => {
     allTariffPrices.find({}, (err, data) => {
         res.send(data);
     })
-})
+});
+router.post('/kret/', (req, res, next) => {
+    let newClient = req.body;
+    newClient.tasks = [];
+    console.log(newClient);
+    energyClients.updateOne({
+        _id: '606823a930a8db65379b35f5'
+    }, {
+        $push: {
+            clients: newClient
+        }
+    }, (err) => {
+        console.log('%c Im working...', ['color: red']);
+        if (err) console.log(err);
+        res.redirect('/panel');
+    });
+});
+
+// fragment energy2000
+
+// router.get('/energy/:id/:name/:category/:consumption/:phone/:email/:city/:street/:streetNumber/:postalCode/', function (req, res) {
+//     const newClient = {
+//         id: parseInt(req.params.id),
+//         name: req.params.name,
+//         category: req.params.category,
+//         consumption: req.params.consumption,
+//         phone: req.params.phone,
+//         email: req.params.email,
+//         city: req.params.city,
+//         street: req.params.street,
+//         streetNumber: req.params.streetNumber,
+//         postalCode: req.params.postalCode,
+//         owner: "master",
+//         description: "",
+//         tasks: []
+//     };
+//     energyClients.updateOne({
+//         _id: '606823a930a8db65379b35f5'
+//       }, {
+//         $push: {
+//           clients: newClient
+//         }
+//       }, (err) => {
+//         console.log('%c Im working...', ['color: red']);
+//         if (err) console.log(err);
+//         res.send('Is ok =)');
+//       })
+
+
+// });
+
+// koniec fragment energy2000
 module.exports = router;
