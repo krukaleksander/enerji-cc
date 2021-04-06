@@ -105,7 +105,7 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
                 }, (err) => {
                     console.log('%c Im working...', ['color: red']);
                     if (err) console.log(err);
-                    res.send('Hasło zmienione =)');
+                    res.send('Dane zmienione =)');
                 });
             } else {
                 res.send('Błędne hasło.')

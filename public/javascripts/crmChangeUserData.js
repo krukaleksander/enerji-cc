@@ -11,6 +11,7 @@
     const btnSubmitChangeEmail = document.querySelector('.btn-change-email-apply');
     const btnSubmitChangePhone = document.querySelector('.btn-change-phone-apply');
     let actualPassword, actualPasswordEmail, actualPasswordPhone, newPassword, newEmail, newPhone;
+    let changeInWindowData = false;
 
     userSettingBtn.addEventListener('click', () => userSettingsContainer.style.display = 'flex');
 
@@ -29,6 +30,7 @@
     document.querySelector('.change-data-phone__close').addEventListener('click', () => changePhone.style.display = 'none');
 
     async function changeData(containerClass, what, password, newData) {
+        changeInWindowData = false;
         if (password.length === 0) {
             document.querySelector(`.${containerClass}`).innerHTML = 'Podaj hasło';
             return
@@ -36,23 +38,26 @@
         const response = await fetch(`${window.location.href}/change-user-data/${what}/${password}/${newData}`);
         const msgToClient = await response.text();
         document.querySelector(`.${containerClass}`).innerHTML = msgToClient;
+        if (msgToClient === 'Dane zmienione =)') changeInWindowData = true;
     };
     btnSubmitChangePassword.addEventListener('click', () => {
         actualPassword = document.querySelector('#actualPassword').value;
         newPassword = document.querySelector('#newPassword').value;
         changeData('change-data-password__response', 'password', actualPassword, newPassword)
     });
-
+    // praca nad dynamiczną zmianą maila i telefonu, flaga nie działa jak trzeba
     btnSubmitChangeEmail.addEventListener('click', () => {
         actualPassword = document.querySelector('#actualPasswordEmail').value;
         newEmail = document.querySelector('#newEmail').value;
         changeData('change-data-email__response', 'mail', actualPassword, newEmail)
+        if (changeInWindowData) document.querySelector('.changed-email').innerHTML(newEmail)
     });
 
     btnSubmitChangePhone.addEventListener('click', () => {
         actualPassword = document.querySelector('#actualPasswordPhone').value;
         newPhone = document.querySelector('#newPhone').value;
         changeData('change-data-phone__response', 'phone', actualPassword, newPhone)
+        if (changeInWindowData) document.querySelector('.changed-phone').innerHTML(newPhone)
     });
 
 })()

@@ -33,7 +33,7 @@ block content
          p(class='change-data-password__response') 
        .change-data-email
          i(class="fas fa-times-circle change-data-email__close")        
-         span(class='change-data-password__description')=email
+         span(class='change-data-password__description changed-email')=email
          input(id='actualPasswordEmail' class='change-data__input' placeholder='podaj hasło...' type='password') 
          span(class='change-data-password__description') Nowy email
          input(id='newEmail' class='change-data__input' placeholder='email') 
@@ -41,7 +41,7 @@ block content
          p(class='change-data-email__response')       
        .change-data-phone
          i(class="fas fa-times-circle change-data-phone__close")
-         span(class='change-data-password__description')=phoneNumber
+         span(class='change-data-password__description changed-phone')=phoneNumber
          input(id='actualPasswordPhone' class='change-data__input' placeholder='podaj hasło...' type='password') 
          span(class='change-data-password__description') Nowy telefon
          input(id='newPhone' class='change-data__input' placeholder='nowy tel...') 
