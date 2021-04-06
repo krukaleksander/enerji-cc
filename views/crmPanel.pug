@@ -1,19 +1,35 @@
 extends layout
 
 block content
-   link(rel='stylesheet', href='/stylesheets/modifiers/css/crm.min.css')  
+   link(rel='stylesheet', href='/stylesheets/modifiers/css/crm.min.css')     
    form(method='post')
      button(type='submit' class='logout-energy-btn') Wyloguj
    .energy-panel-wrapper
      h1(class="energy-panel-wrapper__title") energy2000 Panel
      h2(class='energy-panel-wrapper__subtitle') Zalogowano jako 
-       span= fullName
+       span= fullName 
+       span(class='user-settings')
+         i(class="fas fa-user-cog")
      div(class="chat-container")
        .chat-container__hide Chat
        .chat-container__message-container       
        form(method='post' action="/chat" class="send-container")
          input(type="text" class="send-container__input")
          button(type="submit" class="send-container__btn") 
-           i(class="fas fa-paper-plane")   
+           i(class="fas fa-paper-plane")  
+     .user-settings-container
+       i(class="fas fa-times-circle user-settings-container__close")
+       h3.user-settings-container__title Ustawienia 
+       button(class='user-settings-container__btn btn-change-password') Zmiana hasła
+       button(class='user-settings-container__btn btn-change-email') Zmiana email
+       button(class='user-settings-container__btn btn-change-phone') Zmiana telefonu  
+       .change-data-password
+         i(class="fas fa-times-circle change-data-password__close")
+         span(class='change-data-password__description') Aktualne hasło
+         input(id='actualPassword' class='change-data__input' placeholder='stare') 
+         span(class='change-data-password__description') Nowe hasło
+         input(id='newPassword' class='change-data__input' placeholder='nowe') 
+         button(class='user-settings-container__btn btn-change-password') Zmiana hasła 
+         p(class='change-data-password__response')          
    script(defer src="/javascripts/chat.js")  
        

@@ -4,6 +4,23 @@ $login-color: linear-gradient(to left, #743ad5, #d53a9d);
 $basic-background: rgb(2, 0, 36);
 $title-font: 'Fredoka One',
 cursive;
+$content-font: 'Anton',
+sans-serif;
+
+@mixin center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin close-sign($top, $right) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    font-size: 30px;
+    color: rgba(225, 52, 52, 0.702);
+    cursor: pointer;
+}
 
 @mixin btn-logout {
     width: 160px;
@@ -35,6 +52,13 @@ cursive;
     &:focus {
         outline: none;
     }
+}
+
+@mixin main-border {
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: $login-color;
 }
 
 $breakepoints: (xsmall: 'max-width: 640px',
