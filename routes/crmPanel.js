@@ -60,15 +60,81 @@ router.post('/chat', function (req, res, next) {
     return res.redirect('/crm');
 });
 
-// function updateArchiveMsg() {
-//     messagesAll.find({}, (err, data) => {
-//         archiveMessages = data[0].messages;
-//         if (err) {
-//             throw ('Błąd!' + err);
-//         };
-//     });
-// }
+// obsługa zmian
 
+router.get('/change-user-data/:what/:password/:newData', function (req, res, next) {
+    const whatChange = req.params.what;
+    const passwordInputed = req.params.password;
+    const changeTo = req.params.newData;
+    crmAccounts.find({}, (err, data) => {
+        const accounts = data;
+        const loggedUser = accounts.filter(account => account.login === req.session.userName);
+        const {
+            _id,
+            fullName,
+            email,
+            login,
+            password,
+            chatName,
+            phoneNumber
+        } = loggedUser[0];
+
+        if (whatChange === 'password') {
+            if (passwordInputed === password) {
+                crmAccounts.updateOne({
+                    _id: _id
+                }, {
+                    password: changeTo
+
+                }, (err) => {
+                    console.log('%c Im working...', ['color: red']);
+                    if (err) console.log(err);
+                    res.send('Hasło zmienione =)');
+                });
+            } else {
+                res.send('Błędne hasło.')
+            }
+        }
+        if (whatChange === 'phone') {
+            if (passwordInputed === password) {
+                crmAccounts.updateOne({
+                    _id: _id
+                }, {
+                    phoneNumber: changeTo
+
+                }, (err) => {
+                    console.log('%c Im working...', ['color: red']);
+                    if (err) console.log(err);
+                    res.send('Hasło zmienione =)');
+                });
+            } else {
+                res.send('Błędne hasło.')
+            }
+        }
+        if (whatChange === 'mail') {
+            if (passwordInputed === password) {
+                crmAccounts.updateOne({
+                    _id: _id
+                }, {
+                    email: changeTo
+
+                }, (err) => {
+                    console.log('%c Im working...', ['color: red']);
+                    if (err) console.log(err);
+                    res.send('Hasło zmienione =)');
+                });
+            } else {
+                res.send('Błędne hasło.')
+            }
+        }
+
+    });
+
+
+});
+
+
+// koniec obsługa zmian
 
 
 
