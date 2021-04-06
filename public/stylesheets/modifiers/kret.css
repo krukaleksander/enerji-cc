@@ -6,10 +6,10 @@
 
 .kret {
     position: fixed;
-    top: 100px;
+    top: 70px;
     right: 0px;
     width: 250px;
-    height: 500px;
+    height: 550px;
     background-color: rgb(189, 186, 193);
     padding: 20px;
     display: none;
@@ -48,4 +48,8 @@
 
 .kret__btn:hover {
     color: yellowgreen;
+}
+
+.kret__logo {
+    width: 65px;
 }
