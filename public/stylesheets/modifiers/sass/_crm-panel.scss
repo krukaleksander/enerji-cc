@@ -90,7 +90,9 @@
         cursor: pointer;
     }
 
-    .change-data-password {
+    .change-data-password,
+    .change-data-email,
+    .change-data-phone {
         display: none;
         flex-direction: column;
         justify-content: space-evenly;

@@ -26,11 +26,27 @@ block content
        .change-data-password
          i(class="fas fa-times-circle change-data-password__close")
          span(class='change-data-password__description') Aktualne hasło
-         input(id='actualPassword' class='change-data__input' placeholder='stare') 
+         input(id='actualPassword' class='change-data__input' placeholder='stare' type='password') 
          span(class='change-data-password__description') Nowe hasło
          input(id='newPassword' class='change-data__input' placeholder='nowe') 
          button(class='user-settings-container__btn btn-change-password btn-change-password-apply') Zmiana hasła 
-         p(class='change-data-password__response')             
+         p(class='change-data-password__response') 
+       .change-data-email
+         i(class="fas fa-times-circle change-data-email__close")        
+         span(class='change-data-password__description')=email
+         input(id='actualPasswordEmail' class='change-data__input' placeholder='podaj hasło...' type='password') 
+         span(class='change-data-password__description') Nowy email
+         input(id='newEmail' class='change-data__input' placeholder='email') 
+         button(class='user-settings-container__btn btn-change-password btn-change-email-apply') Zmiana email 
+         p(class='change-data-email__response')       
+       .change-data-phone
+         i(class="fas fa-times-circle change-data-phone__close")
+         span(class='change-data-password__description')=phoneNumber
+         input(id='actualPasswordPhone' class='change-data__input' placeholder='podaj hasło...' type='password') 
+         span(class='change-data-password__description') Nowy telefon
+         input(id='newPhone' class='change-data__input' placeholder='nowy tel...') 
+         button(class='user-settings-container__btn btn-change-password btn-change-phone-apply') Zmiana tel. 
+         p(class='change-data-phone__response')         
    script(defer src="/javascripts/crmChangeUserData.js")  
    //-  script(defer src="/javascripts/chat.js") 
        
