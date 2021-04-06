@@ -105,13 +105,20 @@
         &__description {
             display: block;
             text-align: center;
-            font-family: $title-font;
+            font-family: $content-font;
             font-size: 20px;
             color: $heading-color;
         }
 
         &__close {
             @include close-sign(-8px, -14px)
+        }
+
+        &__response {
+            font-family: $content-font;
+            font-size: 20px;
+            color: yellowgreen;
+            padding: none;
         }
 
     }
