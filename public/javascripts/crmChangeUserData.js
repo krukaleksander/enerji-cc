@@ -39,6 +39,7 @@
         const msgToClient = await response.text();
         document.querySelector(`.${containerClass}`).innerHTML = msgToClient;
         if (msgToClient === 'Dane zmienione =)') changeInWindowData = true;
+        console.log(changeInWindowData);
     };
     btnSubmitChangePassword.addEventListener('click', () => {
         actualPassword = document.querySelector('#actualPassword').value;
@@ -46,18 +47,24 @@
         changeData('change-data-password__response', 'password', actualPassword, newPassword)
     });
     // praca nad dynamiczną zmianą maila i telefonu, flaga nie działa jak trzeba
-    btnSubmitChangeEmail.addEventListener('click', () => {
+    btnSubmitChangeEmail.addEventListener('click', async () => {
         actualPassword = document.querySelector('#actualPasswordEmail').value;
         newEmail = document.querySelector('#newEmail').value;
-        changeData('change-data-email__response', 'mail', actualPassword, newEmail)
-        if (changeInWindowData) document.querySelector('.changed-email').innerHTML(newEmail)
+        await changeData('change-data-email__response', 'mail', actualPassword, newEmail)
+        console.log(changeInWindowData);
+        if (changeInWindowData) document.querySelector('.changed-email').innerHTML = newEmail;
+        document.querySelector('#actualPasswordEmail').value = '';
+        document.querySelector('#newEmail').value = '';
+
     });
 
-    btnSubmitChangePhone.addEventListener('click', () => {
+    btnSubmitChangePhone.addEventListener('click', async () => {
         actualPassword = document.querySelector('#actualPasswordPhone').value;
         newPhone = document.querySelector('#newPhone').value;
-        changeData('change-data-phone__response', 'phone', actualPassword, newPhone)
-        if (changeInWindowData) document.querySelector('.changed-phone').innerHTML(newPhone)
+        await changeData('change-data-phone__response', 'phone', actualPassword, newPhone);
+        if (changeInWindowData) document.querySelector('.changed-phone').innerHTML = newPhone;
+        document.querySelector('#actualPasswordPhone').value = '';
+        document.querySelector('#newPhone').value = '';
     });
 
 })()
