@@ -154,8 +154,16 @@
         }
     }
 
+
+
 }
 
+.wallet-summary {
+    text-align: center;
+    font-family: $content-font;
+    font-size: 20px;
+    color: $heading-color
+}
 
 // spinner początek
 .lds-roller {

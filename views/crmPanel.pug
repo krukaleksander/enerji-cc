@@ -46,8 +46,10 @@ block content
          span(class='change-data-password__description') Nowy telefon
          input(id='newPhone' class='change-data__input' placeholder='nowy tel...') 
          button(class='user-settings-container__btn btn-change-password btn-change-phone-apply') Zmiana tel. 
-         p(class='change-data-phone__response')  
-     .clients-wrapper
+         p(class='change-data-phone__response')
+     p(class='wallet-summary') Twój portfel:
+       span  Przeliczam...
+     .clients-wrapper       
        .lds-roller
         div
         div
@@ -63,9 +65,7 @@ block content
            th Nazwa
            th Telefon
            th Zużycie [MWH]
-           th Opiekun
-                
-                 
+           th Opiekun                
    script(defer src="/javascripts/crmChangeUserData.js")  
    script(defer src="/javascripts/crmGetClients.js")  
    //-  script(defer src="/javascripts/chat.js") 
