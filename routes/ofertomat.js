@@ -4,6 +4,7 @@ const allTariffPrices = require('../models/allTariffPrices');
 const energyClients = require('../models/experts');
 // api is multiplying price by 1.5% 
 const priceMultiplier = 1.015;
+const db = require('../db/db.js');
 
 router.all('*', (req, res, next) => {
     if (!req.session.admin) {
@@ -15,6 +16,7 @@ router.all('*', (req, res, next) => {
 })
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+    console.log(db.length)
     allTariffPrices.find({}, (err, data) => {
         res.render('ofertomat', {
             title: '🔥 P5 Ofertomat 🔥',
@@ -239,7 +241,7 @@ router.get('/get-prices', (req, res, next) => {
         res.send(data);
     })
 });
-router.post('/kret/', (req, res, next) => {
+router.get('/kret/', (req, res, next) => {
     let newClient = req.body;
     newClient.tasks = [];
     console.log(newClient);
@@ -257,6 +259,34 @@ router.post('/kret/', (req, res, next) => {
 });
 
 // fragment energy2000
+
+
+// fragment masowe dodanie do bazy
+
+
+// router.get('/pushClients/', (req, res, next) => {
+//     let clientsToPush = db;
+//     let flag = true;
+//     clientsToPush.forEach(async client => {
+//         await energyClients.updateOne({
+//             _id: '606823a930a8db65379b35f5'
+//         }, {
+//             $push: {
+//                 clients: client
+//             }
+//         }, (err) => {
+//             console.log('%c Im working...', ['color: red']);
+//             if (err) console.log(err);
+//             if (flag) {
+//                 res.redirect('/panel');
+//                 flag = false;
+//             }
+
+//         });
+//     });
+// });
+
+// koniec fragment masowe dodanie do bazy
 
 // router.get('/energy/:id/:name/:category/:consumption/:phone/:email/:city/:street/:streetNumber/:postalCode/', function (req, res) {
 //     const newClient = {

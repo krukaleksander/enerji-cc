@@ -124,4 +124,25 @@
         }
 
     }
+
+
+}
+
+.clients-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .clients-table {
+        color: $heading-color;
+
+        tr {
+            padding: 10px;
+
+            th {
+                padding: 10px;
+            }
+        }
+    }
+
 }

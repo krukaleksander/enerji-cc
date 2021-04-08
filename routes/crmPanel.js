@@ -3,7 +3,7 @@ const router = express.Router();
 let accounts = [];
 let archiveMessages = [];
 const crmAccounts = require('../models/crmAccounts');
-
+const energyClients = require('../models/experts');
 
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {
@@ -15,12 +15,10 @@ router.all('*', (req, res, next) => {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    // updateArchiveMsg();
+
     crmAccounts.find({}, (err, data) => {
         accounts = data;
         loggedUser = accounts.filter(account => account.login === req.session.userName);
-        console.log(typeof (loggedUser));
-        console.log(loggedUser);
         const {
             fullName,
             email,
@@ -29,7 +27,6 @@ router.get('/', function (req, res, next) {
             chatName,
             phoneNumber
         } = loggedUser[0];
-        console.log(fullName);
         return res.render('crmPanel', {
             title: 'energy2000 Panel 🚬 🥃 🍸',
             data,
@@ -38,7 +35,7 @@ router.get('/', function (req, res, next) {
             login,
             password,
             chatName,
-            phoneNumber
+            phoneNumber,
         });
     });
 
@@ -136,6 +133,19 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
 
 // koniec obsługa zmian
 
+// obsługa wyciągania klientów z bazy
 
+
+router.get('/get-clients/', (req, res, next) => {
+    let clients = [];
+    energyClients.find({}, (err, data) => {
+        if (err) console.log(err);
+        clients = data[0].clients.splice(0, 10);
+        res.send(clients);
+    })
+})
+
+
+// koniec obsługa wyciągania klientów z bazy
 
 module.exports = router;
