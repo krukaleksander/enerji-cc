@@ -133,20 +133,4 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
 
 // koniec obsługa zmian
 
-// obsługa wyciągania klientów z bazy
-
-
-router.get('/get-clients/', (req, res, next) => {
-    let clients = [];
-    energyClients.find({}, (err, data) => {
-        if (err) console.log(err);
-        // clients = data[0].clients.splice(0, 10);
-        clients = data[0].clients;
-        res.send(clients);
-    })
-})
-
-
-// koniec obsługa wyciągania klientów z bazy
-
 module.exports = router;
