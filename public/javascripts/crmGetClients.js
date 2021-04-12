@@ -85,8 +85,7 @@
             changingContent(from, to);
             pageForSummary = page;
             updatePage();
-            if (page === 1) return actualPage = 1;
-            actualPage = ((page - 1) * 2) - 2;
+            actualPage = page;
         }
     }
     // koniec funkcja do zmieniania strony
