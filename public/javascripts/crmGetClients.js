@@ -9,7 +9,7 @@
     let allClientsFromDB = [];
 
     function updatePage() {
-        numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length) / 20) + 1}`;
+        numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length) / 20) - 1}`;
     }
 
 
@@ -39,6 +39,7 @@
 
     function jumpToPage(page = actualPage, direction) {
         if (page === 0 && direction === 'prev') return
+        if (page === allClientsFromDB - 1 && direction === 'next') return
 
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>';
 
@@ -59,6 +60,7 @@
         if (direction === 'next') {
             const from = (actualPage + 2) * 10;
             const to = from + 20;
+            console.log(from, to);
             changingContent(from, to);
             actualPage = actualPage + 2;
             pageForSummary++
@@ -69,13 +71,19 @@
         if (direction === 'prev') {
             const from = (actualPage - 2) * 10;
             const to = from + 20;
+            console.log(from, to);
             changingContent(from, to);
             actualPage = actualPage - 2;
             pageForSummary--
             updatePage();
         }
         if (direction === 'jump-to') {
-
+            const to = page * 2 * 10;
+            const from = to - 20;
+            changingContent(from, to);
+            actualPage = page * 2;
+            pageForSummary = page;
+            updatePage();
         }
     }
     // koniec funkcja do zmieniania strony
@@ -86,9 +94,16 @@
 
     const nextBtn = document.querySelector('.pagination-crm__next');
     const prevBtn = document.querySelector('.pagination-crm__prev');
+    const jumpBtn = document.querySelector('.pagination-crm__btn');
 
     nextBtn.addEventListener('click', () => jumpToPage(actualPage, 'next'));
     prevBtn.addEventListener('click', () => jumpToPage(actualPage, 'prev'));
+    jumpBtn.addEventListener('click', () => {
+        const page = Number(document.querySelector('.pagination-crm__input').value);
+        if (page === NaN || page < 0 || page > allClientsFromDB.length - 1) return;
+        document.querySelector('.pagination-crm__input').value = '';
+        jumpToPage(page, 'jump-to');
+    });
 
     // koniec podpięcie zmieniania strony do guzików
 
