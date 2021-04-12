@@ -10,6 +10,10 @@ block content
        span= fullName 
        span(class='user-settings')
          i(class="fas fa-user-cog")
+     .search
+      input.searchTerm(type='text' placeholder='Wyszukaj po nip')
+      button.searchButton(type='submit')
+        i.fa.fa-search
      div(class="chat-container")
        .chat-container__hide Chat
        .chat-container__message-container       

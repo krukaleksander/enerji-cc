@@ -39,8 +39,6 @@
 
     function jumpToPage(page = actualPage, direction) {
         if (page === 1 && direction === 'prev') return
-        console.log('Wartość page: ')
-        console.log(page);
         if ((page === Math.floor((allClientsFromDB.length / 20)) + 1) && direction === 'next') return
 
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>';
@@ -62,7 +60,6 @@
         if (direction === 'next') {
             const from = actualPage * 20;
             const to = from + 20;
-            console.log(from, to);
             changingContent(from, to);
             actualPage++
             pageForSummary++
@@ -73,7 +70,6 @@
         if (direction === 'prev') {
             const from = (actualPage - 2) * 20;
             const to = from + 20;
-            console.log(from, to);
             changingContent(from, to);
             actualPage--;
             pageForSummary--;
@@ -109,5 +105,7 @@
     });
 
     // koniec podpięcie zmieniania strony do guzików
+
+    // wyszukianie zrobimy metodą find :)
 
 })()
