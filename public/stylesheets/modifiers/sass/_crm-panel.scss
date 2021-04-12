@@ -130,6 +130,7 @@
 
 .clients-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -272,3 +273,47 @@
 }
 
 // spinner koniec
+
+.pagination-crm {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+
+    &__input {
+        width: 40px;
+        border: 2px solid rgb(213, 164, 164);
+        padding: 5px;
+    }
+
+    &__btn {
+        @include btn-logout;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+    }
+
+    &__next,
+    &__prev {
+        border: 2px solid white;
+        color: $heading-color;
+        font-size: 20px;
+        font-family: $content-font;
+        background-color: transparent;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .4s;
+
+        &:hover {
+            color: $basic-background;
+            background-color: $heading-color;
+        }
+    }
+}
+
+.number-of-pages {
+    color: $heading-color;
+    font-size: 20px;
+    font-family: $title-font;
+}

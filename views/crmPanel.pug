@@ -65,7 +65,14 @@ block content
            th Nazwa
            th Telefon
            th Zużycie [MWH]
-           th Opiekun                
+           th Opiekun 
+       .number-of-pages
+       .pagination-crm  
+         button(class='pagination-crm__prev') Poprzednia 
+         .pagination-crm__set-page
+           input(class='pagination-crm__input' type="text" placeholder='str')
+           button(class='pagination-crm__btn') Go!
+         button(class='pagination-crm__next') Następna            
    script(defer src="/javascripts/crmChangeUserData.js")  
    script(defer src="/javascripts/crmGetClients.js")  
    //-  script(defer src="/javascripts/chat.js") 
