@@ -9,7 +9,7 @@
     let allClientsFromDB = [];
 
     function updatePage() {
-        numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length) / 20) - 1}`;
+        numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length) / 20) + 1}`;
     }
 
 
@@ -39,7 +39,9 @@
 
     function jumpToPage(page = actualPage, direction) {
         if (page === 0 && direction === 'prev') return
-        if (page === allClientsFromDB - 1 && direction === 'next') return
+        console.log('Wartość page: ')
+        console.log(page);
+        if ((page === Math.floor((allClientsFromDB.length / 20)) + 1) && direction === 'next') return
 
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>';
 
@@ -81,7 +83,7 @@
             const to = page * 2 * 10;
             const from = to - 20;
             changingContent(from, to);
-            actualPage = page * 2;
+            actualPage = page - 1;
             pageForSummary = page;
             updatePage();
         }
@@ -100,7 +102,8 @@
     prevBtn.addEventListener('click', () => jumpToPage(actualPage, 'prev'));
     jumpBtn.addEventListener('click', () => {
         const page = Number(document.querySelector('.pagination-crm__input').value);
-        if (page === NaN || page < 0 || page > allClientsFromDB.length - 1) return;
+        if (page == NaN || page <= 0 || page > allClientsFromDB.length - 1) return;
+        console.log(page);
         document.querySelector('.pagination-crm__input').value = '';
         jumpToPage(page, 'jump-to');
     });
