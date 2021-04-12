@@ -4,7 +4,7 @@
     const clientsTable = document.querySelector('.clients-table tbody');
     const numberOfClientsSpan = document.querySelector('.wallet-summary span');
     const numberOfPagesContainer = document.querySelector('.number-of-pages');
-    let actualPage = 0;
+    let actualPage = 1;
     let pageForSummary = 1;
     let allClientsFromDB = [];
 
@@ -38,7 +38,7 @@
     //funkcja do zmieniania strony
 
     function jumpToPage(page = actualPage, direction) {
-        if (page === 0 && direction === 'prev') return
+        if (page === 1 && direction === 'prev') return
         console.log('Wartość page: ')
         console.log(page);
         if ((page === Math.floor((allClientsFromDB.length / 20)) + 1) && direction === 'next') return
@@ -60,32 +60,33 @@
         }
 
         if (direction === 'next') {
-            const from = (actualPage + 2) * 10;
+            const from = actualPage * 20;
             const to = from + 20;
             console.log(from, to);
             changingContent(from, to);
-            actualPage = actualPage + 2;
+            actualPage++
             pageForSummary++
             updatePage();
 
 
         }
         if (direction === 'prev') {
-            const from = (actualPage - 2) * 10;
+            const from = (actualPage - 2) * 20;
             const to = from + 20;
             console.log(from, to);
             changingContent(from, to);
-            actualPage = actualPage - 2;
-            pageForSummary--
+            actualPage--;
+            pageForSummary--;
             updatePage();
         }
         if (direction === 'jump-to') {
             const to = page * 2 * 10;
             const from = to - 20;
             changingContent(from, to);
-            actualPage = page - 1;
             pageForSummary = page;
             updatePage();
+            if (page === 1) return actualPage = 1;
+            actualPage = ((page - 1) * 2) - 2;
         }
     }
     // koniec funkcja do zmieniania strony
