@@ -3,6 +3,7 @@
     width: 100vw;
     overflow: hidden;
     background: $basic-background;
+    font-family: $content-font;
 
     &__title {
         color: $heading-color;
@@ -397,3 +398,91 @@
     font-family: $content-font;
     margin: 5px;
 }
+
+// pojedyńczy klient
+
+.particular-client {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $heading-color;
+    background-color: $basic-background;
+    width: 700px;
+    min-height: 450px;
+    @include main-border;
+    padding: 15px;
+    display: none;
+    flex-direction: column;
+
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        color: #dd5353;
+        font-size: 20px;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            font-size: 25px;
+        }
+    }
+
+    &__owner {
+        align-self: flex-start;
+        border: 1px solid yellow;
+        padding: 5px;
+    }
+
+    &__id {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__name {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    &__status {
+        text-align: center;
+    }
+
+    &__line-contact,
+    &__line-adress {
+        display: flex;
+        justify-content: space-evenly;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        align-items: center;
+
+        p {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &__line-adress {
+        margin: 10px;
+    }
+
+    &__btn-tasks {
+        border: none;
+        padding: 5px;
+        background-color: aquamarine;
+        border-radius: 2px;
+    }
+
+    &__description {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid;
+        min-height: 150px;
+        letter-spacing: 1px;
+    }
+}
+
+// koniec pojedyńczy klient

@@ -45,6 +45,7 @@
         table.style.display = 'block';
         numberOfClientsSpan.innerHTML = `${clientsArr.length} klientów. Gratuluję wspólniku =)`;
         updatePage();
+        setOpenClients();
     }
     getClients(0, 20);
 
@@ -98,6 +99,7 @@
             updatePage();
             actualPage = page;
         }
+        setOpenClients();
     }
     // koniec funkcja do zmieniania strony
 
@@ -145,6 +147,8 @@
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>';
         clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`;
         btnBackToList.style.display = 'block';
+        setOpenClients();
+
     });
 
     btnBackToList.addEventListener('click', () => {
@@ -155,13 +159,61 @@
 
 
     // otwieranie poszczególnych klientów
+    const particularClientContainer = document.querySelector('.particular-client');
+
     function setOpenClients() {
         const nipy = [...document.querySelectorAll('.clients-table tr td:nth-child(1)')];
         nipy.forEach(nip => nip.addEventListener('click', (e) => {
-            console.log(e.target.value);
+            particularClientContainer.style.display = 'flex';
+            const clientToShow = allClientsFromDB.find(client => client.id == e.target.innerHTML);
+            const {
+                id,
+                name,
+                owner,
+                phone,
+                email,
+                consumption,
+                category,
+                postalCode,
+                city,
+                street,
+                streetNumber,
+                tasks,
+                description
+            } = clientToShow;
+            const idPar = document.querySelector('.particular-client__id');
+            const namePar = document.querySelector('.particular-client__name');
+            const ownerPar = document.querySelector('.particular-client__owner');
+            const phonePar = document.querySelector('.particular-client__phone');
+            const emailPar = document.querySelector('.particular-client__email');
+            const consumptionPar = document.querySelector('.particular-client__consumption');
+            const categoryPar = document.querySelector('.particular-client__category');
+            const postalCodePar = document.querySelector('.particular-client__postal-code');
+            const cityPar = document.querySelector('.particular-client__city');
+            const streetPar = document.querySelector('.particular-client__street');
+            const streetNumberPar = document.querySelector('.particular-client__street-number');
+            const descriptionPar = document.querySelector('.particular-client__description');
+
+            idPar.innerHTML = id;
+            namePar.innerHTML = name;
+            ownerPar.innerHTML = owner;
+            phonePar.innerHTML = phone;
+            emailPar.innerHTML = email;
+            consumptionPar.innerHTML = consumption;
+            categoryPar.innerHTML = category;
+            postalCodePar.innerHTML = postalCode;
+            cityPar.innerHTML = city;
+            streetPar.innerHTML = street;
+            streetNumberPar.innerHTML = streetNumber;
+            console.log(description.length)
+            if (description.length > 0) return descriptionPar.innerHTML = description;
+            descriptionPar.innerHTML = 'Opis...';
         }));
     };
 
+    document.querySelector('.particular-client__close').addEventListener('click', () => {
+        particularClientContainer.style.display = 'none';
+    })
 
 
     // koniec otwieranie poszczególnych klientów

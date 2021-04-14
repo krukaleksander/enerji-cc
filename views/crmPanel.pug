@@ -71,6 +71,24 @@ block content
            th Zużycie [MWH]
            th Opiekun
        .doesnt-find-client
+       .particular-client
+         i(class="fas fa-times-circle particular-client__close")
+         p(class='particular-client__par particular-client__owner')
+         p(class='particular-client__par particular-client__id')
+         p(class='particular-client__par particular-client__name')
+         p(class='particular-client__par particular-client__status') Tu będzie status
+         .particular-client__line-contact
+           p(class='particular-client__par particular-client__phone')
+           p(class='particular-client__par particular-client__email')
+           p(class='particular-client__par particular-client__consumption')
+         .particular-client__line-adress
+           p(class='particular-client__par particular-client__category')
+           p(class='particular-client__par particular-client__postal-code')
+           p(class='particular-client__par particular-client__city')
+           p(class='particular-client__par particular-client__street')
+           p(class='particular-client__par particular-client__street-number')
+         button(class='particular-client__btn-tasks') Zadania
+         p(class='particular-client__description')
        .back-to-all
           button(class='back-to-all__btn') Powrót do listy
        .number-of-pages
