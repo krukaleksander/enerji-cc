@@ -130,6 +130,7 @@
 
 .clients-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -138,6 +139,17 @@
         color: $heading-color;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bolder;
+        text-align: center;
+
+        tr td:nth-child(1) {
+            color: rgb(65, 126, 218);
+            cursor: pointer;
+            border-color: $heading-color;
+        }
+
+        tr td:nth-child(2) {
+            text-align: left;
+        }
 
         tr {
             padding: 10px;
@@ -272,3 +284,116 @@
 }
 
 // spinner koniec
+
+.pagination-crm {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+
+    &__input {
+        width: 40px;
+        border: 2px solid rgb(213, 164, 164);
+        padding: 5px;
+    }
+
+    &__btn {
+        @include btn-logout;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+    }
+
+    &__next,
+    &__prev {
+        border: 2px solid white;
+        color: $heading-color;
+        font-size: 20px;
+        font-family: $content-font;
+        background-color: transparent;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .4s;
+
+        &:hover {
+            color: $basic-background;
+            background-color: $heading-color;
+        }
+    }
+}
+
+.number-of-pages {
+    color: $heading-color;
+    font-size: 20px;
+    font-family: $title-font;
+}
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .searchTerm {
+        width: 400px;
+        border: 3px solid #743ad5;
+        border-right-color: #743ad5;
+        border-right-style: solid;
+        border-right-width: 3px;
+        border-right: none;
+        padding: 5px;
+        height: 36px;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        color: rgb(49, 153, 104);
+
+        &:focus {
+            color: #743ad5;
+        }
+    }
+
+    .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid #743ad5;
+        background: #743ad5;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+        transition: .5s;
+
+        &:hover {
+            color: #743ad5;
+            background: #fff;
+        }
+    }
+}
+
+.back-to-all__btn {
+    display: none;
+    border: 2px solid white;
+    color: $heading-color;
+    font-size: 20px;
+    font-family: $content-font;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .4s;
+
+    &:hover {
+        color: $basic-background;
+        background-color: $heading-color;
+    }
+}
+
+.doesnt-find-client {
+    text-align: center;
+    color: rgb(233, 80, 80);
+    font-size: 20px;
+    font-family: $content-font;
+    margin: 5px;
+}

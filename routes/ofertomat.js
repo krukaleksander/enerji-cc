@@ -16,8 +16,9 @@ router.all('*', (req, res, next) => {
 })
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    console.log(db.length)
+    console.log(db.length);
     allTariffPrices.find({}, (err, data) => {
+
         res.render('ofertomat', {
             title: '🔥 P5 Ofertomat 🔥',
             data

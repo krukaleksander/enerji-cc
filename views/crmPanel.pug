@@ -10,6 +10,10 @@ block content
        span= fullName 
        span(class='user-settings')
          i(class="fas fa-user-cog")
+     .search
+      input.searchTerm(type='text' placeholder='Wyszukaj po nip')
+      button.searchButton(type='submit')
+        i.fa.fa-search
      div(class="chat-container")
        .chat-container__hide Chat
        .chat-container__message-container       
@@ -65,7 +69,17 @@ block content
            th Nazwa
            th Telefon
            th Zużycie [MWH]
-           th Opiekun                
+           th Opiekun
+       .doesnt-find-client
+       .back-to-all
+          button(class='back-to-all__btn') Powrót do listy
+       .number-of-pages
+       .pagination-crm  
+         button(class='pagination-crm__prev') Poprzednia 
+         .pagination-crm__set-page
+           input(class='pagination-crm__input' type="text" placeholder='str')
+           button(class='pagination-crm__btn') Go!
+         button(class='pagination-crm__next') Następna            
    script(defer src="/javascripts/crmChangeUserData.js")  
    script(defer src="/javascripts/crmGetClients.js")  
    //-  script(defer src="/javascripts/chat.js") 

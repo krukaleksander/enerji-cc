@@ -3,6 +3,7 @@
     const kret = document.querySelector('.kret');
     let shiftFlag = false;
     let altFlag = false;
+    const btnShowPrcies = document.querySelector('.show-price-change');
     window.addEventListener('keydown', (e) => {
         if (e.keyCode === 17) {
             shiftFlag = true;
