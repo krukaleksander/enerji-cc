@@ -4,6 +4,7 @@
     const clientsTable = document.querySelector('.clients-table tbody');
     const numberOfClientsSpan = document.querySelector('.wallet-summary span');
     const numberOfPagesContainer = document.querySelector('.number-of-pages');
+    const btnBackToList = document.querySelector('.back-to-all__btn');
     let actualPage = 1;
     let pageForSummary = 1;
     let allClientsFromDB = [];
@@ -38,6 +39,8 @@
     //funkcja do zmieniania strony
 
     function jumpToPage(page = actualPage, direction) {
+        btnBackToList.style.display = 'none';
+        document.querySelector('.doesnt-find-client').innerHTML = '';
         if (page === 1 && direction === 'prev') return
         if ((page === Math.floor((allClientsFromDB.length / 20)) + 1) && direction === 'next') return
 
@@ -106,6 +109,38 @@
 
     // koniec podpięcie zmieniania strony do guzików
 
-    // wyszukianie zrobimy metodą find :)
+
+    // wyszukiwanie klientów   
+    let searchInputValue;
+    const searchButton = document.querySelector('.searchButton');
+
+    searchButton.addEventListener('click', () => {
+        searchInputValue = document.querySelector('.searchTerm').value;
+        const clientToShow = allClientsFromDB.find(client => client.id == searchInputValue);
+        document.querySelector('.searchTerm').value = '';
+        btnBackToList.style.display = 'block';
+        const doesntFindFn = () => {
+            clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>'
+            document.querySelector('.doesnt-find-client').innerHTML = 'Nie znaleziono klienta';
+        };
+        if (clientToShow === undefined) return doesntFindFn();
+        const {
+            id,
+            name,
+            phone,
+            consumption,
+            owner
+        } = clientToShow;
+        clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>';
+        clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${name}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`;
+        btnBackToList.style.display = 'block';
+    });
+
+    btnBackToList.addEventListener('click', () => {
+        jumpToPage(actualPage, 'jump-to');
+    });
+
+    // koniec wyszukiwanie klientów
+
 
 })()
