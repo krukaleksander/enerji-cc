@@ -139,6 +139,17 @@
         color: $heading-color;
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bolder;
+        text-align: center;
+
+        tr td:nth-child(1) {
+            color: rgb(65, 126, 218);
+            cursor: pointer;
+            border-color: $heading-color;
+        }
+
+        tr td:nth-child(2) {
+            text-align: left;
+        }
 
         tr {
             padding: 10px;

@@ -13,6 +13,18 @@
         numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length) / 20) + 1}`;
     }
 
+    // funkcja skracająca nazwę
+
+    function shortenName(name) {
+        if (name.length < 45) {
+            return name;
+        } else {
+            return `${name.slice(0,45)}...`;
+        }
+    }
+
+
+    // koniec funkcja skracająca nazwę
 
     const getClients = async (start, end) => {
         const clients = await fetch(`${window.location.href}/get-clients/`);
@@ -27,7 +39,7 @@
                 consumption,
                 owner
             } = client;
-            return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${name}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`
+            return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`
         });
         spinner.style.display = 'none';
         table.style.display = 'block';
@@ -56,7 +68,7 @@
                     consumption,
                     owner
                 } = client;
-                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${name}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`
+                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`
             });
         }
 
@@ -102,7 +114,6 @@
     jumpBtn.addEventListener('click', () => {
         const page = Number(document.querySelector('.pagination-crm__input').value);
         if (page == NaN || page <= 0 || page > allClientsFromDB.length - 1) return;
-        console.log(page);
         document.querySelector('.pagination-crm__input').value = '';
         jumpToPage(page, 'jump-to');
     });
@@ -132,7 +143,7 @@
             owner
         } = clientToShow;
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>';
-        clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${name}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`;
+        clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`;
         btnBackToList.style.display = 'block';
     });
 
@@ -142,5 +153,17 @@
 
     // koniec wyszukiwanie klientów
 
+
+    // otwieranie poszczególnych klientów
+    function setOpenClients() {
+        const nipy = [...document.querySelectorAll('.clients-table tr td:nth-child(1)')];
+        nipy.forEach(nip => nip.addEventListener('click', (e) => {
+            console.log(e.target.value);
+        }));
+    };
+
+
+
+    // koniec otwieranie poszczególnych klientów
 
 })()
