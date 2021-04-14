@@ -133,8 +133,6 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
 
 // koniec obsługa zmian
 
-<<<<<<< HEAD
-=======
 // obsługa wyciągania klientów z bazy
 
 
@@ -152,5 +150,4 @@ router.get('/get-clients/', (req, res, next) => {
 
 // koniec obsługa wyciągania klientów z bazy
 
->>>>>>> 2289804
 module.exports = router;
