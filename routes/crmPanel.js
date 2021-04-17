@@ -150,4 +150,26 @@ router.get('/get-clients/', (req, res, next) => {
 
 // koniec obsługa wyciągania klientów z bazy
 
+
+// przebudowa bazy 
+
+// router.get('/rebuild', async (req, res) => {
+//     let clients = [];
+//     await energyClients.find({}, (err, data) => {
+//         if (err) console.log(err);
+//         // clients = data[0].clients.splice(0, 10);
+//         clients = data[0].clients;
+//         // const checkDuplicates = [...new Set(clients)];       
+//     });
+//     let newClients = clients.map(client => {
+//         client.status = 'potencjalny';
+//         return client;
+//     });
+//     energyClients.findByIdAndUpdate('606823a930a8db65379b35f5', {
+//         $set: {
+//             clients: newClients,
+//         }
+//     }, () => res.send(clients))
+// });
+// koniec przebudowa bazy
 module.exports = router;

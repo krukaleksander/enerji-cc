@@ -37,9 +37,10 @@
                 name,
                 phone,
                 consumption,
-                owner
+                owner,
+                status
             } = client;
-            return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`
+            return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
         });
         spinner.style.display = 'none';
         table.style.display = 'block';
@@ -57,7 +58,7 @@
         if (page === 1 && direction === 'prev') return
         if ((page === Math.floor((allClientsFromDB.length / 20)) + 1) && direction === 'next') return
 
-        clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>';
+        clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status</th><th>Opiekun </th></tr>';
 
         function changingContent(from, to) {
             const clientsToShow = allClientsFromDB.slice(from, to);
@@ -67,9 +68,10 @@
                     name,
                     phone,
                     consumption,
-                    owner
+                    owner,
+                    status
                 } = client;
-                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`
+                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
             });
         }
 
@@ -133,7 +135,7 @@
         document.querySelector('.searchTerm').value = '';
         btnBackToList.style.display = 'block';
         const doesntFindFn = () => {
-            clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>'
+            clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status </th><th>Opiekun </th></tr>'
             document.querySelector('.doesnt-find-client').innerHTML = 'Nie znaleziono klienta';
         };
         if (clientToShow === undefined) return doesntFindFn();
@@ -142,10 +144,11 @@
             name,
             phone,
             consumption,
-            owner
+            owner,
+            status
         } = clientToShow;
-        clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Opiekun </th></tr>';
-        clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${owner}</td></tr>`;
+        clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status </th><th>Opiekun </th></tr>';
+        clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
         btnBackToList.style.display = 'block';
         setOpenClients();
 
@@ -179,7 +182,8 @@
                 street,
                 streetNumber,
                 tasks,
-                description
+                description,
+                status
             } = clientToShow;
             const idPar = document.querySelector('.particular-client__id');
             const namePar = document.querySelector('.particular-client__name');

@@ -69,6 +69,7 @@ block content
            th Nazwa
            th Telefon
            th Zużycie [MWH]
+           th Status
            th Opiekun
        .doesnt-find-client
        .particular-client
@@ -76,7 +77,14 @@ block content
          p(class='particular-client__par particular-client__owner')
          p(class='particular-client__par particular-client__id')
          p(class='particular-client__par particular-client__name')
-         p(class='particular-client__par particular-client__status') Tu będzie status
+         select(class='particular-client__select-status')
+           option(value="potencjalny") Potencjalny
+           option(value="potencjalny") Aktualny
+           option(value="potencjalny") Kontakt
+           option(value="potencjalny") NO
+           option(value="potencjalny") Spotkanie
+           option(value="potencjalny") Brak danych
+           option(value="potencjalny") Inny
          .particular-client__line-contact
            p(class='particular-client__par particular-client__phone')
            p(class='particular-client__par particular-client__email')
