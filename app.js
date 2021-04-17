@@ -13,11 +13,7 @@ mongoose.connect(config.db, {
 });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-var ofertomatLoginRouter = require('./routes/ofertomatLogin');
-var panelRouter = require('./routes/ofertomat');
-var tableRouter = require('./routes/eTable');
-var statystykiRouter = require('./routes/statistics.js');
-var mwhRouter = require('./routes/mwh.js');
+const mwhRouter = require('./routes/mwh.js');
 const crmLoginRouter = require('./routes/crmLogin');
 const crmPanelRouter = require('./routes/crmPanel');
 const consumptionRouter = require('./routes/consumption');
@@ -43,13 +39,9 @@ app.use(cookieSession({
   keys: config.keySession,
   maxAge: config.maxAgeSession
 }));
-app.use('/', ofertomatLoginRouter);
-app.use('/panel', panelRouter);
-app.use('/panel/table', tableRouter);
-app.use('/stats', statystykiRouter);
+app.use('/', crmLoginRouter);
+app.use('/panel', crmPanelRouter);
 app.use('/mwh', mwhRouter);
-app.use('/crm', crmLoginRouter);
-app.use('/crm/panel', crmPanelRouter);
 app.use('/consumption', consumptionRouter);
 app.use('/gazomierz', gazomierzRouter);
 

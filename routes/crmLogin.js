@@ -6,7 +6,7 @@ const crmAccounts = require('../models/crmAccounts');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     if (req.session.userName) {
-        res.redirect('/crm/panel');
+        res.redirect('/panel');
     }
     crmAccounts.find({}, (err, data) => {
         accounts = data;
@@ -26,11 +26,11 @@ router.post('/', function (req, res, next) {
             //zmień stats na wnętrze panelu!
             req.session.userName = login;
             req.session.userData = account;
-            res.redirect('/crm/panel');
+            res.redirect('/panel');
             return;
         }
     });
-    res.redirect('/crm');
+    res.redirect('/');
 
 
 

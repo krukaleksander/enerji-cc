@@ -7,7 +7,7 @@ const energyClients = require('../models/experts');
 
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {
-        return res.redirect('/crm');
+        return res.redirect('/');
     }
 
     next();
@@ -50,11 +50,11 @@ router.get('/get-chat-name', function (req, res, next) {
 router.post('/', function (req, res, next) {
     // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
     req.session.userName = '';
-    return res.redirect('/crm');
+    return res.redirect('/');
 });
 
 router.post('/chat', function (req, res, next) {
-    return res.redirect('/crm');
+    return res.redirect('/');
 });
 
 // obsługa zmian
