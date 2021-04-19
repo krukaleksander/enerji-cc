@@ -218,6 +218,14 @@
 
     document.querySelector('.particular-client__close').addEventListener('click', () => {
         particularClientContainer.style.display = 'none';
+    });
+
+    document.querySelector('.particular-client__btn-cancel').addEventListener('click', () => {
+        particularClientContainer.style.display = 'none';
+    });
+
+    document.querySelector('.particular-client__btn-update').addEventListener('click', (e) => {
+        console.log('klikam');
     })
 
 

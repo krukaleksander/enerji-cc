@@ -72,7 +72,7 @@ block content
            th Status
            th Opiekun
        .doesnt-find-client
-       .particular-client         
+       form(action="/panel/update-client/" method='POST' class='particular-client')         
          i(class="fas fa-times-circle particular-client__close")
          .particular-client__div.particular-client__div-owner
            label(for="owner") Właściciel
@@ -121,8 +121,8 @@ block content
               option(value="brak-danych") Brak danych
               option(value="net") Internet              
            .particular-client__div
-             label(for="postal-code") Kod pocztowy
-             input(class='particular-client__par particular-client__postal-code' name='postal-code')
+             label(for="postalCode") Kod pocztowy
+             input(class='particular-client__par particular-client__postal-code' name='postalCode')
            .particular-client__div
              label(for="city") Miasto
              input(class='particular-client__par particular-client__city' name='city')
@@ -130,13 +130,13 @@ block content
              label(for="street") Ulica
              input(class='particular-client__par particular-client__street' name='street')
            .particular-client__div
-             label(for="street-number") Numer domu
-             input(class='particular-client__par particular-client__street-number' name='street-number')
+             label(for="streetNumber") Numer domu
+             input(class='particular-client__par particular-client__street-number' name='streetNumber')
          button(class='particular-client__btn-tasks') Zadania
-         input(class='particular-client__description')
+         input(class='particular-client__description' name='description')
          .particular-client__line-action-buttons
-           button(class='particular-client__btn-summary particular-client__btn-cancel') Anuluj
-           button(class='particular-client__btn-summary particular-client__btn-update') Zaktualizuj
+           input(class='particular-client__btn-summary particular-client__btn-update' type='submit' value='Zaktualizuj')
+           button(class='particular-client__btn-summary particular-client__btn-cancel' type='button') Anuluj           
        .back-to-all
           button(class='back-to-all__btn') Powrót do listy
        .number-of-pages

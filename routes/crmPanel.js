@@ -149,6 +149,52 @@ router.get('/get-clients/', (req, res, next) => {
     })
 });
 
+//aktualizacja klienta
+
+router.post('/update-client/', (req, res, next) => {
+    console.log('Jestem we właściwym route')
+    console.log(req.body);
+    const {
+        id,
+        name,
+        owner,
+        phone,
+        email,
+        consumption,
+        category,
+        postalCode,
+        city,
+        street,
+        streetNumber,
+        description,
+        status
+    } = req.body;
+
+    clientsready.findOneAndUpdate({
+        id: id
+    }, {
+        id,
+        name,
+        owner,
+        phone,
+        email,
+        consumption,
+        category,
+        postalCode,
+        city,
+        street,
+        streetNumber,
+        description,
+        status
+    }, () => {
+        res.send('dane zmienione');
+    })
+
+
+})
+
+
+// koniec akualizacja klienta
 
 // koniec obsługa wyciągania klientów z bazy
 
