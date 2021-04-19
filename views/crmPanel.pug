@@ -74,10 +74,10 @@ block content
        .doesnt-find-client
        .particular-client         
          i(class="fas fa-times-circle particular-client__close")
-         .particular-client__div
+         .particular-client__div.particular-client__div-owner
            label(for="owner") Właściciel
            input(class='particular-client__par particular-client__owner' name='owner')
-         .particular-client__div
+         .particular-client__div.particular-client__div-nip
            label(for="id") Nip
            input(class='particular-client__par particular-client__id' name='id')
          .particular-client__div
@@ -108,7 +108,7 @@ block content
              label(for="category") Kategoria
              input(class='particular-client__par particular-client__category' name='category')
            .particular-client__div
-             label(for="postal-code")
+             label(for="postal-code") Kod pocztowy
              input(class='particular-client__par particular-client__postal-code' name='postal-code')
            .particular-client__div
              label(for="city") Miasto

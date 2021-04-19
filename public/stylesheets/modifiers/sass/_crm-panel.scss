@@ -415,6 +415,34 @@
     display: none;
     flex-direction: column;
 
+    &__div {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            color: #aeb5ac8c;
+            font-size: 12px;
+            margin-bottom: -4px;
+            align-self: center;
+            margin-bottom: 2px;
+        }
+    }
+
+    &__par {
+        color: #efeaea;
+        background-color: transparent;
+        border: unset;
+        padding: 5px;
+        max-width: 110px;
+        text-align: center;
+    }
+
+    &__phone,
+    &__email {
+        max-width: unset;
+        width: 200px;
+    }
+
     &__close {
         position: absolute;
         top: 10px;
@@ -429,13 +457,13 @@
         }
     }
 
-    &__owner {
+    &__div-owner {
         align-self: flex-start;
         border: 1px solid yellow;
         padding: 5px;
     }
 
-    &__id {
+    &__div-nip {
         position: absolute;
         top: 15px;
         left: 50%;
@@ -445,13 +473,17 @@
     &__name {
         text-align: center;
         font-size: 22px;
+        max-width: 100%;
     }
 
     &__select-status {
         text-align: center;
         background-color: transparent;
-        color: $heading-color;
-        border: 1px solid greenyellow;
+        color: #efeaea;
+        border: 1px solid;
+        width: 150px;
+        align-self: center;
+        margin-bottom: 10px;
     }
 
     &__line-contact,
@@ -485,6 +517,8 @@
         border: 1px solid;
         min-height: 150px;
         letter-spacing: 1px;
+        background-color: transparent;
+        color: $heading-color;
     }
 }
 
