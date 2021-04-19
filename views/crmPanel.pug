@@ -76,7 +76,13 @@ block content
          i(class="fas fa-times-circle particular-client__close")
          .particular-client__div.particular-client__div-owner
            label(for="owner") Właściciel
-           input(class='particular-client__par particular-client__owner' name='owner')
+           select(class='particular-client__par particular-client__owner' name='owner')
+             option(value="damian.wasiak") Damian
+             option(value="oleksii.tsymbaliuk") Oleksii
+             option(value="mateusz.ziolkowski") Mateusz
+             option(value="krystian.panek") Krystian
+             option(value="aleksander.kruk") Aleksander
+             option(value="default") Nieprzydzielony             
          .particular-client__div.particular-client__div-nip
            label(for="id") Nip
            input(class='particular-client__par particular-client__id' name='id')
@@ -87,12 +93,12 @@ block content
            label(for="status") Status
            select(class='particular-client__select-status' name='status')
              option(value="potencjalny") Potencjalny
-             option(value="potencjalny") Aktualny
-             option(value="potencjalny") Kontakt
-             option(value="potencjalny") NO
-             option(value="potencjalny") Spotkanie
-             option(value="potencjalny") Brak danych
-             option(value="potencjalny") Inny
+             option(value="aktualny") Aktualny
+             option(value="kontakt") Kontakt
+             option(value="no") NO
+             option(value="spotkanie") Spotkanie
+             option(value="brak-danych") Brak danych
+             option(value="inny") Inny
          .particular-client__line-contact
            .particular-client__div
              label(for="phone") Telefon
@@ -106,7 +112,14 @@ block content
          .particular-client__line-adress
            .particular-client__div
              label(for="category") Kategoria
-             input(class='particular-client__par particular-client__category' name='category')
+             select(class='particular-client__par particular-client__category' name='category')
+              option(value="country") Gospodarstwa
+              option(value="factory") Zakłady
+              option(value="p5") P5
+              option(value="partner") Inny partner
+              option(value="mine") Inicjatywa
+              option(value="brak-danych") Brak danych
+              option(value="net") Internet              
            .particular-client__div
              label(for="postal-code") Kod pocztowy
              input(class='particular-client__par particular-client__postal-code' name='postal-code')
@@ -121,6 +134,9 @@ block content
              input(class='particular-client__par particular-client__street-number' name='street-number')
          button(class='particular-client__btn-tasks') Zadania
          input(class='particular-client__description')
+         .particular-client__line-action-buttons
+           button(class='particular-client__btn-summary particular-client__btn-cancel') Anuluj
+           button(class='particular-client__btn-summary particular-client__btn-update') Zaktualizuj
        .back-to-all
           button(class='back-to-all__btn') Powrót do listy
        .number-of-pages

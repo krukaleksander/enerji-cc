@@ -463,6 +463,13 @@
         padding: 5px;
     }
 
+    &__owner {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+    }
+
     &__div-nip {
         position: absolute;
         top: 15px;
@@ -484,6 +491,17 @@
         width: 150px;
         align-self: center;
         margin-bottom: 10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+    }
+
+    &__category {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
     }
 
     &__line-contact,
@@ -519,6 +537,39 @@
         letter-spacing: 1px;
         background-color: transparent;
         color: $heading-color;
+    }
+
+    &__line-action-buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    &__btn-summary {
+        border: 1px solid $heading-color;
+        padding: 10px;
+        text-align: center;
+        background-color: transparent;
+        transition: .4s;
+    }
+
+    &__btn-cancel {
+        color: rgba(230, 66, 66, 0.702);
+
+        &:hover {
+            border-color: rgba(225, 52, 52, 0.702);
+            letter-spacing: 1px;
+        }
+    }
+
+    &__btn-update {
+        color: yellowgreen;
+
+        &:hover {
+            border-color: yellowgreen;
+            letter-spacing: 1px;
+        }
     }
 }
 
