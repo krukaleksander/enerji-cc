@@ -197,6 +197,7 @@
             const streetPar = document.querySelector('.particular-client__street');
             const streetNumberPar = document.querySelector('.particular-client__street-number');
             const descriptionPar = document.querySelector('.particular-client__description');
+            const selectStatus = document.querySelector('.particular-client__select-status');
 
             idPar.value = id;
             namePar.value = name;
@@ -209,6 +210,7 @@
             cityPar.value = city;
             streetPar.value = street;
             streetNumberPar.value = streetNumber;
+            selectStatus.value = status;
             if (description.length > 0) return descriptionPar.value = description;
             descriptionPar.value = 'Opis...';
         }));
