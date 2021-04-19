@@ -4,6 +4,7 @@ let accounts = [];
 let archiveMessages = [];
 const crmAccounts = require('../models/crmAccounts');
 const energyClients = require('../models/experts');
+const clientdb = require('../models/clientsdb');
 
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {
@@ -138,10 +139,10 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
 
 router.get('/get-clients/', (req, res, next) => {
     let clients = [];
-    energyClients.find({}, (err, data) => {
+    clientdb.find({}, (err, data) => {
         if (err) console.log(err);
         // clients = data[0].clients.splice(0, 10);
-        clients = data[0].clients;
+        clients = data;
         // const checkDuplicates = [...new Set(clients)];
         res.send(clients);
     })
@@ -152,6 +153,7 @@ router.get('/get-clients/', (req, res, next) => {
 
 
 // przebudowa bazy 
+//dodawanie nowej pozycji
 
 // router.get('/rebuild', async (req, res) => {
 //     let clients = [];
@@ -171,5 +173,112 @@ router.get('/get-clients/', (req, res, next) => {
 //         }
 //     }, () => res.send(clients))
 // });
+
+//przebudowa na pojedyńcze dokumenty
+
+// router.get('/rebuild', async (req, res) => {
+//     let clients = [];
+//     let newClients = [];
+//     await energyClients.find({}, (err, data) => {
+//         if (err) console.log(err);
+//         // clients = data[0].clients.splice(0, 10);
+//         clients = Array.from(data[0].clients);
+//         // const checkDuplicates = [...new Set(clients)];       
+//     });
+
+//     await clientdb.find({}, (err, data) => {
+//         if (err) console.log(err);
+//         newClients = data;
+//     }).then(async () => {
+//         console.log(newClients.length);
+
+//         const results = clients.filter(({
+//             id: id1
+//         }) => !newClients.some(({
+//             id: id2
+//         }) => id2 == id1));
+//         console.log(results.length);
+//         if (newClients.length > 0) {
+//             results.forEach(async (client, index) => {
+//                 const {
+//                     id,
+//                     name,
+//                     owner,
+//                     phone,
+//                     email,
+//                     consumption,
+//                     category,
+//                     postalCode,
+//                     city,
+//                     street,
+//                     streetNumber,
+//                     tasks,
+//                     description,
+//                     status
+//                 } = client;
+//                 const newClient = new clientdb({
+//                     id,
+//                     name,
+//                     category,
+//                     phone,
+//                     email,
+//                     consumption,
+//                     owner,
+//                     city,
+//                     street,
+//                     streetNumber,
+//                     postalCode,
+//                     description,
+//                     tasks,
+//                     status
+//                 });
+//                 await newClient.save().catch(err => console.log(err));
+//                 if (index === results.length - 1) console.log('Done =)');
+//             });
+//         }
+//     });
+
+
+// clients.forEach(async (client, index) => {
+
+//     if (index > 0) {
+//         const {
+//             id,
+//             name,
+//             owner,
+//             phone,
+//             email,
+//             consumption,
+//             category,
+//             postalCode,
+//             city,
+//             street,
+//             streetNumber,
+//             tasks,
+//             description,
+//             status
+//         } = client;
+//         const newClient = new clientdb({
+//             id,
+//             name,
+//             category,
+//             phone,
+//             email,
+//             consumption,
+//             owner,
+//             city,
+//             street,
+//             streetNumber,
+//             postalCode,
+//             description,
+//             tasks,
+//             status
+//         });
+//         await newClient.save().catch(err => console.log(err));
+//     }
+//     if (index === clients.length - 1) console.log('Done =)');
+// });
+// });
+
 // koniec przebudowa bazy
 module.exports = router;
