@@ -198,20 +198,19 @@
             const streetNumberPar = document.querySelector('.particular-client__street-number');
             const descriptionPar = document.querySelector('.particular-client__description');
 
-            idPar.innerHTML = id;
-            namePar.innerHTML = name;
-            ownerPar.innerHTML = owner;
-            phonePar.innerHTML = phone;
-            emailPar.innerHTML = email;
-            consumptionPar.innerHTML = consumption;
-            categoryPar.innerHTML = category;
-            postalCodePar.innerHTML = postalCode;
-            cityPar.innerHTML = city;
-            streetPar.innerHTML = street;
-            streetNumberPar.innerHTML = streetNumber;
-            console.log(description.length)
-            if (description.length > 0) return descriptionPar.innerHTML = description;
-            descriptionPar.innerHTML = 'Opis...';
+            idPar.value = id;
+            namePar.value = name;
+            ownerPar.value = owner;
+            phonePar.value = phone;
+            emailPar.value = email;
+            consumptionPar.value = consumption;
+            categoryPar.value = category;
+            postalCodePar.value = postalCode;
+            cityPar.value = city;
+            streetPar.value = street;
+            streetNumberPar.value = streetNumber;
+            if (description.length > 0) return descriptionPar.value = description;
+            descriptionPar.value = 'Opis...';
         }));
     };
 

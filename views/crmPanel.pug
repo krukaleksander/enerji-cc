@@ -72,31 +72,55 @@ block content
            th Status
            th Opiekun
        .doesnt-find-client
-       .particular-client
+       .particular-client         
          i(class="fas fa-times-circle particular-client__close")
-         p(class='particular-client__par particular-client__owner')
-         p(class='particular-client__par particular-client__id')
-         p(class='particular-client__par particular-client__name')
-         select(class='particular-client__select-status')
-           option(value="potencjalny") Potencjalny
-           option(value="potencjalny") Aktualny
-           option(value="potencjalny") Kontakt
-           option(value="potencjalny") NO
-           option(value="potencjalny") Spotkanie
-           option(value="potencjalny") Brak danych
-           option(value="potencjalny") Inny
+         .particular-client__div
+           label(for="owner") Właściciel
+           input(class='particular-client__par particular-client__owner' name='owner')
+         .particular-client__div
+           label(for="id") Nip
+           input(class='particular-client__par particular-client__id' name='id')
+         .particular-client__div
+           label(for="name") Nazwa
+           input(class='particular-client__par particular-client__name' name='name')
+         .particular-client__div
+           label(for="status") Status
+           select(class='particular-client__select-status' name='status')
+             option(value="potencjalny") Potencjalny
+             option(value="potencjalny") Aktualny
+             option(value="potencjalny") Kontakt
+             option(value="potencjalny") NO
+             option(value="potencjalny") Spotkanie
+             option(value="potencjalny") Brak danych
+             option(value="potencjalny") Inny
          .particular-client__line-contact
-           p(class='particular-client__par particular-client__phone')
-           p(class='particular-client__par particular-client__email')
-           p(class='particular-client__par particular-client__consumption')
+           .particular-client__div
+             label(for="phone") Telefon
+             input(class='particular-client__par particular-client__phone' name='phone')
+           .particular-client__div
+             label(for="email") Email
+             input(class='particular-client__par particular-client__email' name='email')
+           .particular-client__div
+             label(for="consumption") Zużycie
+             input(class='particular-client__par particular-client__consumption' name='consumption')
          .particular-client__line-adress
-           p(class='particular-client__par particular-client__category')
-           p(class='particular-client__par particular-client__postal-code')
-           p(class='particular-client__par particular-client__city')
-           p(class='particular-client__par particular-client__street')
-           p(class='particular-client__par particular-client__street-number')
+           .particular-client__div
+             label(for="category") Kategoria
+             input(class='particular-client__par particular-client__category' name='category')
+           .particular-client__div
+             label(for="postal-code")
+             input(class='particular-client__par particular-client__postal-code' name='postal-code')
+           .particular-client__div
+             label(for="city") Miasto
+             input(class='particular-client__par particular-client__city' name='city')
+           .particular-client__div
+             label(for="street") Ulica
+             input(class='particular-client__par particular-client__street' name='street')
+           .particular-client__div
+             label(for="street-number") Numer domu
+             input(class='particular-client__par particular-client__street-number' name='street-number')
          button(class='particular-client__btn-tasks') Zadania
-         p(class='particular-client__description')
+         input(class='particular-client__description')
        .back-to-all
           button(class='back-to-all__btn') Powrót do listy
        .number-of-pages

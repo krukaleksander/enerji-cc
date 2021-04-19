@@ -3,8 +3,9 @@ const router = express.Router();
 let accounts = [];
 let archiveMessages = [];
 const crmAccounts = require('../models/crmAccounts');
-const energyClients = require('../models/experts');
+// const energyClients = require('../models/experts');
 const clientdb = require('../models/clientsdb');
+const clientsready = require('../models/clientsready');
 
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {
@@ -139,14 +140,14 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
 
 router.get('/get-clients/', (req, res, next) => {
     let clients = [];
-    clientdb.find({}, (err, data) => {
+    clientsready.find({}, (err, data) => {
         if (err) console.log(err);
         // clients = data[0].clients.splice(0, 10);
         clients = data;
         // const checkDuplicates = [...new Set(clients)];
         res.send(clients);
     })
-})
+});
 
 
 // koniec obsługa wyciągania klientów z bazy
@@ -186,7 +187,7 @@ router.get('/get-clients/', (req, res, next) => {
 //         // const checkDuplicates = [...new Set(clients)];       
 //     });
 
-//     await clientdb.find({}, (err, data) => {
+//     await clientsready.find({}, (err, data) => {
 //         if (err) console.log(err);
 //         newClients = data;
 //     }).then(async () => {
@@ -239,45 +240,45 @@ router.get('/get-clients/', (req, res, next) => {
 //     });
 
 
-// clients.forEach(async (client, index) => {
+//     // clients.forEach(async (client, index) => {
 
-//     if (index > 0) {
-//         const {
-//             id,
-//             name,
-//             owner,
-//             phone,
-//             email,
-//             consumption,
-//             category,
-//             postalCode,
-//             city,
-//             street,
-//             streetNumber,
-//             tasks,
-//             description,
-//             status
-//         } = client;
-//         const newClient = new clientdb({
-//             id,
-//             name,
-//             category,
-//             phone,
-//             email,
-//             consumption,
-//             owner,
-//             city,
-//             street,
-//             streetNumber,
-//             postalCode,
-//             description,
-//             tasks,
-//             status
-//         });
-//         await newClient.save().catch(err => console.log(err));
-//     }
-//     if (index === clients.length - 1) console.log('Done =)');
-// });
+//     //     if (index > 0) {
+//     //         const {
+//     //             id,
+//     //             name,
+//     //             owner,
+//     //             phone,
+//     //             email,
+//     //             consumption,
+//     //             category,
+//     //             postalCode,
+//     //             city,
+//     //             street,
+//     //             streetNumber,
+//     //             tasks,
+//     //             description,
+//     //             status
+//     //         } = client;
+//     //         const newClient = new clientsready({
+//     //             id,
+//     //             name,
+//     //             category,
+//     //             phone,
+//     //             email,
+//     //             consumption,
+//     //             owner,
+//     //             city,
+//     //             street,
+//     //             streetNumber,
+//     //             postalCode,
+//     //             description,
+//     //             tasks,
+//     //             status
+//     //         });
+//     //         await newClient.save().catch(err => console.log(err));
+//     //     }
+//     //     if (index === clients.length - 1) console.log('Done =)');
+//     // });
 // });
 
 // koniec przebudowa bazy
