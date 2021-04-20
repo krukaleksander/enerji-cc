@@ -149,7 +149,7 @@
             clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status </th><th>Opiekun </th></tr>'
             document.querySelector('.doesnt-find-client').innerHTML = 'Nie znaleziono klienta';
         };
-        if (clientToShow === undefined) return doesntFindFn();
+        if (clientToShow.length < 1 || clientToShow[0] === undefined) return doesntFindFn();
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status </th><th>Opiekun </th></tr>';
         clientToShow.forEach(client => {
             const {

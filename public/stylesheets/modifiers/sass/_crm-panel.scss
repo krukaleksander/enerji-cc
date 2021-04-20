@@ -345,7 +345,7 @@
         border-right: none;
         padding: 5px;
         height: 36px;
-        border-radius: 5px 0 0 5px;
+        border-radius: 0px;
         outline: none;
         color: rgb(49, 153, 104);
 
@@ -370,6 +370,19 @@
             color: #743ad5;
             background: #fff;
         }
+    }
+
+    .search__select-option {
+        border: 1px solid #743ad5;
+        background: #743ad5;
+        color: #fff;
+        cursor: pointer;
+        font-size: 15px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        height: 36px;
     }
 }
 
