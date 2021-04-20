@@ -218,13 +218,11 @@ router.post('/add-client/', async (req, res, next) => {
     // fragment sprawdzenie nip
 
 
-
     await clientsready.find({}, (err, data) => {
         if (err) console.log(err);
         clients = data;
     }).then(async (data) => {
         const isClientInDb = data.findIndex(client => client.id == id);
-        console.log(`Wynik sprawdzenia czy klient jest w bazie: ${isClientInDb}`);
         if (isClientInDb >= 0) return res.send('taki nip jest już w bazie');
         // koniec fragment sprawdzenie nip
         const newClient = new clientsready({
@@ -393,7 +391,7 @@ router.post('/add-client/', async (req, res, next) => {
 
 // router.get('/delete', (req, res) => {
 //     clientsready.findOneAndDelete({
-//         id: '1251502283'
+//         id: '12515022833333'
 //     }, () => {
 //         res.redirect('/panel');
 //     })
