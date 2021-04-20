@@ -391,7 +391,7 @@ router.post('/add-client/', async (req, res, next) => {
 
 // router.get('/delete', (req, res) => {
 //     clientsready.findOneAndDelete({
-//         id: '12515022833333'
+//         id: '1251502283'
 //     }, () => {
 //         res.redirect('/panel');
 //     })

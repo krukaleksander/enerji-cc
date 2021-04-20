@@ -11,6 +11,7 @@ let allClientsFromDB = [];
 
     function updatePage() {
         numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length) / 20) + 1}`;
+        return Math.floor((allClientsFromDB.length) / 20) + 1
     }
 
     // funkcja skracająca nazwę
@@ -423,7 +424,9 @@ let allClientsFromDB = [];
                     status: selectStatus
                 });
                 zeroValues();
-                jumpToPage(actualPage, 'jump-to');
+                updatePage();
+                jumpToPage(updatePage(), 'jump-to');
+                numberOfClientsSpan.innerHTML = `${allClientsFromDB.length} klientów. Gratuluję wspólniku =)`;
                 setTimeout(() => updateInfoContainer.style.display = 'none', 1500)
 
             })
