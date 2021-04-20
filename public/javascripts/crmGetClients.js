@@ -127,12 +127,22 @@
 
 
     // wyszukiwanie klientów   
-    let searchInputValue;
+    let searchInputValue, searchOption;
     const searchButton = document.querySelector('.searchButton');
 
     searchButton.addEventListener('click', () => {
+        let clientToShow = [];
+        searchOption = document.querySelector('.search__select-option').value;
         searchInputValue = document.querySelector('.searchTerm').value;
-        const clientToShow = allClientsFromDB.find(client => client.id == searchInputValue);
+
+        if (searchOption === 'name') {
+            const re = RegExp(`${searchInputValue}`, 'gmi');
+            clientToShow = allClientsFromDB.filter(value => re.test(value.name));
+        }
+        if (searchOption === 'nip') {
+            clientToShow.push(allClientsFromDB.find(client => client.id == searchInputValue));
+        }
+
         document.querySelector('.searchTerm').value = '';
         btnBackToList.style.display = 'block';
         const doesntFindFn = () => {
@@ -140,17 +150,20 @@
             document.querySelector('.doesnt-find-client').innerHTML = 'Nie znaleziono klienta';
         };
         if (clientToShow === undefined) return doesntFindFn();
-        const {
-            id,
-            name,
-            phone,
-            consumption,
-            owner,
-            status
-        } = clientToShow;
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status </th><th>Opiekun </th></tr>';
-        clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
-        btnBackToList.style.display = 'block';
+        clientToShow.forEach(client => {
+            const {
+                id,
+                name,
+                phone,
+                consumption,
+                owner,
+                status
+            } = client;
+            clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
+            btnBackToList.style.display = 'block';
+        })
+
         setOpenClients();
 
     });
