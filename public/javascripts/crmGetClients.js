@@ -261,9 +261,50 @@
                 console.log(error)
             });
 
+        // edycja na przodzie 
+        const id = document.querySelector('.particular-client__id').value;
+        const name = document.querySelector('.particular-client__name').value;
+        const owner = document.querySelector('.particular-client__owner').value;
+        const phone = document.querySelector('.particular-client__phone').value;
+        const email = document.querySelector('.particular-client__email').value;
+        const consumption = document.querySelector('.particular-client__consumption').value;
+        const category = document.querySelector('.particular-client__category').value;
+        const postalCode = document.querySelector('.particular-client__postal-code').value;
+        const city = document.querySelector('.particular-client__city').value;
+        const street = document.querySelector('.particular-client__street').value;
+        const streetNumber = document.querySelector('.particular-client__street-number').value;
+        const description = document.querySelector('.particular-client__description').value;
+        const status = document.querySelector('.particular-client__select-status').value;
+
+        allClientsFromDB = allClientsFromDB.map(client => {
+            if (client.id == id) {
+                return {
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    description,
+                    status
+                }
+            } else {
+                return client
+            }
+        })
+        jumpToPage(actualPage, 'jump-to');
+        //koniec edycja na przodzie
     })
 
+
+
     //koniec fragment edycja klienta
+
     // koniec otwieranie poszczególnych klientów
 
 })()
