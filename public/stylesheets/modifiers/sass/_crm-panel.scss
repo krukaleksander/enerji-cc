@@ -414,7 +414,8 @@
 
 // pojedyńczy klient
 
-.particular-client {
+.particular-client,
+.particular-client-new {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -428,7 +429,8 @@
     display: none;
     flex-direction: column;
 
-    &__div {
+    &__div,
+    &__div-new {
         display: flex;
         flex-direction: column;
 
@@ -446,7 +448,7 @@
         background-color: transparent;
         border: unset;
         padding: 5px;
-        max-width: 110px;
+        max-width: 115px;
         text-align: center;
     }
 
@@ -599,3 +601,41 @@
 }
 
 // koniec pojedyńczy klient
+
+//dodawanie klienta
+
+.add-client-icon {
+    color: $heading-color;
+    position: fixed;
+    top: 100px;
+    left: 3px;
+    font-size: 29px;
+    transition: .3s;
+
+    &__icon {
+        cursor: pointer;
+
+        &:hover {
+            color: #d53a9d;
+        }
+    }
+}
+
+.particular-client-new {
+    display: none;
+    z-index: 2;
+}
+
+.particular-client-new__add-info {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: transparent;
+    font-size: 30px;
+    color: #319968;
+    letter-spacing: 2px;
+    transform: rotateZ(14deg);
+}
+
+//koniec dodawanie klienta

@@ -10,6 +10,9 @@ block content
        span= fullName 
        span(class='user-settings')
          i(class="fas fa-user-cog")
+     .add-client-icon
+       i(class="fas fa-user-plus add-client-icon__icon")
+     include parts/crmAddClient
      .search
       select(class='search__select-option')
         option(value="nip") NIP
@@ -152,5 +155,6 @@ block content
          button(class='pagination-crm__next') Następna            
    script(defer src="/javascripts/crmChangeUserData.js")  
    script(defer src="/javascripts/crmGetClients.js")  
+   script(defer src="/javascripts/crmAddNewClient.js")  
    //-  script(defer src="/javascripts/chat.js") 
        

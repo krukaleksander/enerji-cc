@@ -196,6 +196,56 @@ router.post('/update-client/', (req, res, next) => {
 
 // koniec obsługa wyciągania klientów z bazy
 
+//dodawanie klienta
+
+router.post('/add-client/', (req, res, next) => {
+    console.log('to tu')
+
+    res.send('dodano');
+    // const {
+    //     id,
+    //     name,
+    //     owner,
+    //     phone,
+    //     email,
+    //     consumption,
+    //     category,
+    //     postalCode,
+    //     city,
+    //     street,
+    //     streetNumber,
+    //     description,
+    //     status
+    // } = req.body;
+
+    // clientsready.findOneAndUpdate({
+    //     id: id
+    // }, {
+    //     id,
+    //     name,
+    //     owner,
+    //     phone,
+    //     email,
+    //     consumption,
+    //     category,
+    //     postalCode,
+    //     city,
+    //     street,
+    //     streetNumber,
+    //     description,
+    //     status
+    // }, () => {
+    //     res.send('dane zmienione');
+    // })
+
+
+})
+
+
+
+// koniec dodawanie klienta
+
+
 
 // przebudowa bazy 
 //dodawanie nowej pozycji

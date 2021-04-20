@@ -1,0 +1,66 @@
+form(action="/panel/add-client/" method='POST' class='particular-client-new')         
+    i(class="fas fa-times-circle particular-client-new__close")
+    .particular-client-new__div.particular-client-new__div-owner
+      label(for="owner") Właściciel
+      select(class='particular-client__par particular-client-new__owner' name='owner')
+        option(value="damian.wasiak") Damian
+        option(value="oleksii.tsymbaliuk") Oleksii
+        option(value="mateusz.ziolkowski") Mateusz
+        option(value="krystian.panek") Krystian
+        option(value="aleksander.kruk") Aleksander
+        option(value="default") Nieprzydzielony             
+    .particular-client-new__div.particular-client-new__div-nip
+      label(for="id") Nip
+      input(class='particular-client-new__par particular-client-new__id' name='id')
+    .particular-client__div
+      label(for="name") Nazwa
+      input(class='particular-client-new__par particular-client-new__name' name='name')
+    .particular-client__div
+      label(for="status") Status
+      select(class='particular-client-new__select-status' name='status')
+        option(value="potencjalny") Potencjalny
+        option(value="aktualny") Aktualny
+        option(value="kontakt") Kontakt
+        option(value="no") NO
+        option(value="spotkanie") Spotkanie
+        option(value="brak-danych") Brak danych
+        option(value="inny") Inny
+    .particular-client__line-contact
+      .particular-client__div
+        label(for="phone") Telefon
+        input(class='particular-client__par particular-client-new__phone' name='phone')
+      .particular-client__div
+        label(for="email") Email
+        input(class='particular-client-new__par particular-client-new__email' name='email')
+      .particular-client__div
+        label(for="consumption") Zużycie
+        input(class='particular-client-new__par particular-client-new__consumption' name='consumption')
+    .particular-client__line-adress
+      .particular-client__div
+        label(for="category") Kategoria
+        select(class='particular-client-new__par particular-client-new__category' name='category')
+          option(value="country") Gospodarstwa
+          option(value="factory") Zakłady
+          option(value="p5") P5
+          option(value="partner") Inny partner
+          option(value="mine") Inicjatywa
+          option(value="brak-danych") Brak danych
+          option(value="net") Internet              
+      .particular-client__div
+        label(for="postalCode") Kod pocztowy
+        input(class='particular-client-new__par particular-client-new__postal-code' name='postalCode')
+      .particular-client__div
+        label(for="city") Miasto
+        input(class='particular-client-new__par particular-client-new__city' name='city')
+      .particular-client__div
+        label(for="street") Ulica
+        input(class='particular-client-new__par particular-client-new__street' name='street')
+      .particular-client__div
+        label(for="streetNumber") Numer domu
+        input(class='particular-client-new__par particular-client-new__street-number' name='streetNumber')
+    button(class='particular-client-new__btn-tasks') Zadania
+    input(class='particular-client-new__description' name='description')
+    .particular-client__add-info.particular-client-new__add-info
+    .particular-client__line-action-buttons
+      input(class='particular-client-new__btn-summary particular-client-new__btn-update' type='submit' value='Dodaj')
+      button(class='particular-client-new__btn-summary particular-client-new__btn-cancel' type='button') Anuluj         
