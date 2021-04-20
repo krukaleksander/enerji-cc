@@ -198,46 +198,41 @@ router.post('/update-client/', (req, res, next) => {
 
 //dodawanie klienta
 
-router.post('/add-client/', (req, res, next) => {
-    console.log('to tu')
-
-    res.send('dodano');
-    // const {
-    //     id,
-    //     name,
-    //     owner,
-    //     phone,
-    //     email,
-    //     consumption,
-    //     category,
-    //     postalCode,
-    //     city,
-    //     street,
-    //     streetNumber,
-    //     description,
-    //     status
-    // } = req.body;
-
-    // clientsready.findOneAndUpdate({
-    //     id: id
-    // }, {
-    //     id,
-    //     name,
-    //     owner,
-    //     phone,
-    //     email,
-    //     consumption,
-    //     category,
-    //     postalCode,
-    //     city,
-    //     street,
-    //     streetNumber,
-    //     description,
-    //     status
-    // }, () => {
-    //     res.send('dane zmienione');
-    // })
-
+router.post('/add-client/', async (req, res, next) => {
+    const {
+        id,
+        name,
+        owner,
+        phone,
+        email,
+        consumption,
+        category,
+        postalCode,
+        city,
+        street,
+        streetNumber,
+        description,
+        status
+    } = req.body;
+    const newClient = new clientsready({
+        id,
+        name,
+        category,
+        phone,
+        email,
+        consumption,
+        owner,
+        city,
+        street,
+        streetNumber,
+        postalCode,
+        description,
+        tasks: [],
+        status
+    });
+    await newClient.save()
+        .then(() => res.send('dodano'))
+        .catch(err => res.send(err));
 
 })
 
