@@ -535,6 +535,11 @@
         -moz-appearance: none;
         text-indent: 1px;
         text-overflow: '';
+
+        option {
+            background-color: $basic-background;
+            text-align: center;
+        }
     }
 
     &__category {
@@ -649,6 +654,12 @@
 .particular-client-new {
     display: none;
     z-index: 2;
+
+    &__category,
+    &__owner {
+        background-color: $basic-background;
+        text-align: center;
+    }
 }
 
 .particular-client-new__add-info {
