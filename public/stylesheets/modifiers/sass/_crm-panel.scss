@@ -539,6 +539,18 @@
         color: $heading-color;
     }
 
+    &__update-info {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        background-color: transparent;
+        font-size: 30px;
+        color: #319968;
+        letter-spacing: 2px;
+        transform: rotateZ(14deg);
+    }
+
     &__line-action-buttons {
         display: flex;
         width: 100%;

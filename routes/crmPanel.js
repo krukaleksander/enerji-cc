@@ -152,8 +152,6 @@ router.get('/get-clients/', (req, res, next) => {
 //aktualizacja klienta
 
 router.post('/update-client/', (req, res, next) => {
-    console.log('Jestem we właściwym route')
-    console.log(req.body);
     const {
         id,
         name,

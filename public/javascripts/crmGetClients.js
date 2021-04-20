@@ -21,6 +21,7 @@
         } else {
             return `${name.slice(0,45)}...`;
         }
+
     }
 
 
@@ -224,11 +225,45 @@
         particularClientContainer.style.display = 'none';
     });
 
+    // fragment edycja klienta
+
     document.querySelector('.particular-client__btn-update').addEventListener('click', (e) => {
-        console.log('klikam');
+        e.preventDefault();
+        let data = new URLSearchParams();
+        data.append("id", document.querySelector('.particular-client__id').value);
+        data.append("name", document.querySelector('.particular-client__name').value);
+        data.append("owner", document.querySelector('.particular-client__owner').value);
+        data.append("phone", document.querySelector('.particular-client__phone').value);
+        data.append("email", document.querySelector('.particular-client__email').value);
+        data.append("consumption", document.querySelector('.particular-client__consumption').value);
+        data.append("category", document.querySelector('.particular-client__category').value);
+        data.append("postalCode", document.querySelector('.particular-client__postal-code').value);
+        data.append("city", document.querySelector('.particular-client__city').value);
+        data.append("street", document.querySelector('.particular-client__street').value);
+        data.append("streetNumber", document.querySelector('.particular-client__street-number').value);
+        data.append("description", document.querySelector('.particular-client__description').value);
+        data.append("status", document.querySelector('.particular-client__select-status').value);
+
+        fetch(`${window.location.href}/update-client/`, {
+                method: 'post',
+                body: data
+            })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                const updateInfoContainer = document.querySelector('.particular-client__update-info');
+                updateInfoContainer.innerHTML = text;
+                updateInfoContainer.style.display = 'block';
+                setTimeout(() => updateInfoContainer.style.display = 'none', 1500)
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+
     })
 
-
+    //koniec fragment edycja klienta
     // koniec otwieranie poszczególnych klientów
 
 })()
