@@ -286,6 +286,31 @@
 
 // spinner koniec
 
+//spinner w dodawaniu klienta
+#checking-client {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 75px;
+    transform: translateX(-50%);
+
+
+    .lds-roller {
+        display: inline-block;
+
+        div:after {
+            background: lawngreen;
+        }
+    }
+
+    p {
+        color: lawngreen;
+    }
+}
+
+
+
+// koniec spinner w dodawaniu klienta
 .pagination-crm {
     width: 100%;
     display: flex;

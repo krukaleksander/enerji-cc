@@ -4,7 +4,7 @@
     const openNewContainer = document.querySelector('.add-client-icon__icon');
     const cancelBtn = document.querySelector('.particular-client-new__btn-cancel');
     const addClientBtn = document.querySelector('.particular-client-new__btn-update');
-
+    const checkingNipSpinner = document.querySelector('#checking-client');
     openNewContainer.addEventListener('click', () => {
         zeroValues();
         newClientContainer.style.display = 'flex'
@@ -49,6 +49,7 @@
     addClientBtn.addEventListener('click', (e) => {
         e.preventDefault();
         getActualValues();
+        checkingNipSpinner.style.display = 'block';
         let data = new URLSearchParams();
         data.append("id", idPar);
         data.append("name", namePar);
@@ -72,9 +73,16 @@
                 return response.text();
             })
             .then(function (text) {
+                checkingNipSpinner.style.display = 'none';
                 const updateInfoContainer = document.querySelector('.particular-client-new__add-info');
                 updateInfoContainer.innerHTML = text;
                 updateInfoContainer.style.display = 'block';
+                updateInfoContainer.style.color = '#319968';
+                if (text == 'taki nip jest już w bazie') {
+                    updateInfoContainer.style.color = 'red';
+                    setTimeout(() => updateInfoContainer.style.display = 'none', 3000);
+                    return
+                }
                 setTimeout(() => updateInfoContainer.style.display = 'none', 1500)
             })
             .catch(function (error) {

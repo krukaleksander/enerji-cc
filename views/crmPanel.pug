@@ -11,8 +11,7 @@ block content
        span(class='user-settings')
          i(class="fas fa-user-cog")
      .add-client-icon
-       i(class="fas fa-user-plus add-client-icon__icon")
-     include parts/crmAddClient
+       i(class="fas fa-user-plus add-client-icon__icon")     
      .search
       select(class='search__select-option')
         option(value="nip") NIP
@@ -78,6 +77,7 @@ block content
            th Status
            th Opiekun
        .doesnt-find-client
+       include parts/crmAddClient
        form(action="/panel/update-client/" method='POST' class='particular-client')         
          i(class="fas fa-times-circle particular-client__close")
          .particular-client__div.particular-client__div-owner

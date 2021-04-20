@@ -214,25 +214,42 @@ router.post('/add-client/', async (req, res, next) => {
         description,
         status
     } = req.body;
-    const newClient = new clientsready({
-        id,
-        name,
-        category,
-        phone,
-        email,
-        consumption,
-        owner,
-        city,
-        street,
-        streetNumber,
-        postalCode,
-        description,
-        tasks: [],
-        status
-    });
-    await newClient.save()
-        .then(() => res.send('dodano'))
-        .catch(err => res.send(err));
+
+    // fragment sprawdzenie nip
+
+
+
+    await clientsready.find({}, (err, data) => {
+        if (err) console.log(err);
+        clients = data;
+    }).then(async (data) => {
+        const isClientInDb = data.findIndex(client => client.id == id);
+        console.log(`Wynik sprawdzenia czy klient jest w bazie: ${isClientInDb}`);
+        if (isClientInDb >= 0) return res.send('taki nip jest już w bazie');
+        // koniec fragment sprawdzenie nip
+        const newClient = new clientsready({
+            id,
+            name,
+            category,
+            phone,
+            email,
+            consumption,
+            owner,
+            city,
+            street,
+            streetNumber,
+            postalCode,
+            description,
+            tasks: [],
+            status
+        });
+        await newClient.save()
+            .then(() => res.send('dodano'))
+            .catch(err => res.send(err));
+    })
+
+
+
 
 })
 
@@ -371,4 +388,16 @@ router.post('/add-client/', async (req, res, next) => {
 // });
 
 // koniec przebudowa bazy
+
+// usuwanie z bazy
+
+// router.get('/delete', (req, res) => {
+//     clientsready.findOneAndDelete({
+//         id: '1251502283'
+//     }, () => {
+//         res.redirect('/panel');
+//     })
+// })
+// koniec usuwanie z bazy
+
 module.exports = router;

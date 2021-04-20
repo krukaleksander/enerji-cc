@@ -1,4 +1,15 @@
-form(action="/panel/add-client/" method='POST' class='particular-client-new')         
+form(action="/panel/add-client/" method='POST' class='particular-client-new')
+    #checking-client
+      .lds-roller
+          div
+          div
+          div
+          div
+          div
+          div
+          div
+          div   
+      p Sprawdzam nip...      
     i(class="fas fa-times-circle particular-client-new__close")
     .particular-client-new__div.particular-client-new__div-owner
       label(for="owner") Właściciel
