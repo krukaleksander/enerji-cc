@@ -462,8 +462,9 @@ let allClientsFromDB = [];
             'Grudzień'
         ],
         dateFormat: 'DD-MM-YYYY',
-    })
+    });
 
+    const createTaskWindow = document.querySelector('.task-window');
 
 
     // koniec obsługa dodawania zadania

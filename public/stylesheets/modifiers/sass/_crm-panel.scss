@@ -724,4 +724,17 @@
             border: 1px solid lightblue;
         }
     }
+
+    &__btn {
+        color: $heading-color;
+        @include main-border;
+        padding: 10px;
+        background-color: transparent;
+        width: 200px;
+        margin: 20px auto 0;
+
+        &:hover {
+            color: rgb(65, 126, 218);
+        }
+    }
 }
