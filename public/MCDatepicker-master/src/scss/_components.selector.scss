@@ -1,0 +1,110 @@
+/*============================================*/
+/*              Selector Components           */
+/*============================================*/
+
+.mc-select {
+	$root: &;
+
+	&__month,
+	&__year {
+		display: flex;
+		align-items: center;
+	}
+	&__nav {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		text-decoration: none;
+		color: $month-year-color;
+		padding: 0 1em;
+		@include for-desktop {
+			#{$modal} & {
+				position: relative;
+			}
+		}
+
+		&--inactive {
+			color: $inactive-date-color;
+			cursor: default;
+			&:active {
+				transform: none !important;
+			}
+		}
+
+		&--prev,
+		&--next {
+			transition: transform 0.2s ease-in-out;
+		}
+		&--prev {
+			&:active {
+				transform: translateX(-0.5em);
+				// @include slide(true);
+			}
+			#{$inline} #{$root}__month &,
+			& {
+				left: 0;
+			}
+		}
+		&--next {
+			&:active {
+				transform: translateX(0.5em);
+				// @include slide(false);
+			}
+			#{$inline} #{$root}__month &,
+			& {
+				right: 0;
+			}
+		}
+
+		#{$root}__year & {
+			#{$inline} &,
+			#{$permanent} &,
+			& {
+				display: none;
+			}
+			@include for-desktop {
+				display: flex;
+			}
+		}
+	}
+	&__data {
+		display: flex;
+		align-items: center;
+		font-size: clamp(1rem, 8vw, 1.25rem);
+		height: clamp(1.75rem, calc(8vw + 0.25rem), 2rem);
+		overflow: hidden;
+		position: relative;
+
+		span {
+			line-height: 1.2;
+			text-align: center;
+			position: absolute;
+		}
+
+		&--month {
+			&,
+			span {
+				width: clamp(5rem, 40vw, 6.25rem);
+			}
+			#{$inline} & {
+				&,
+				span {
+					width: 6.4rem;
+				}
+			}
+		}
+
+		&--year {
+			&,
+			span {
+				width: clamp(3rem, 22vw, 3.5rem);
+			}
+			#{$inline} & {
+				&,
+				span {
+					width: 3.2rem;
+				}
+			}
+		}
+	}
+}

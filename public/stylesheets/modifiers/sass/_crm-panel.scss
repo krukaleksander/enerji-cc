@@ -675,3 +675,53 @@
 }
 
 //koniec dodawanie klienta
+
+//kalendarz
+.task-window {
+    @include centerWithColor;
+    @include main-border;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+
+    &__close {
+        align-self: flex-end;
+        color: red;
+        font-size: 25px;
+        cursor: pointer;
+        transition: .4s;
+
+        &:hover {
+            color: rgb(184, 51, 77);
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 25px;
+        letter-spacing: 2px;
+        padding-bottom: 10px;
+        border-bottom: 3px solid;
+    }
+
+    &__input {
+        margin-top: 10px;
+        padding: 5px;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        border: 1px solid rgba(221, 221, 221, 0.322);
+
+        &::placeholder {
+            color: rgba(71, 137, 236, 0.74);
+            opacity: 1;
+        }
+
+        &:focus {
+            border: 1px solid lightblue;
+        }
+    }
+}

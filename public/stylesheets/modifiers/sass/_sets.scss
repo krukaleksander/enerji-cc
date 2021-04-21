@@ -7,6 +7,15 @@ cursive;
 $content-font: 'Anton',
 sans-serif;
 
+@mixin centerWithColor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $heading-color;
+    background-color: $basic-background;
+}
+
 @mixin center {
     top: 50%;
     left: 50%;

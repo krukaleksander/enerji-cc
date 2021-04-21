@@ -443,4 +443,28 @@ let allClientsFromDB = [];
 
     // koniec dodanie klienta próba importu
 
+    // obsługa dodawania zadania
+    const myDatePicker = MCDatepicker.create({
+        el: '#taskDate',
+        customWeekDays: ['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'Sb'],
+        customMonths: [
+            'Styczeń',
+            'Luty',
+            'Marzec',
+            'Kwiecień',
+            'Maj',
+            'Czerwiec',
+            'Lipiec',
+            'Sierpień',
+            'Wrzesień',
+            'Październik',
+            'Listopad',
+            'Grudzień'
+        ],
+        dateFormat: 'DD-MM-YYYY',
+    })
+
+
+
+    // koniec obsługa dodawania zadania
 })()
