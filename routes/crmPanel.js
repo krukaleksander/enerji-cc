@@ -6,6 +6,7 @@ const crmAccounts = require('../models/crmAccounts');
 // const energyClients = require('../models/experts');
 const clientdb = require('../models/clientsdb');
 const clientsready = require('../models/clientsready');
+const tasks = require('../models/tasks');
 
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {
@@ -255,7 +256,59 @@ router.post('/add-client/', async (req, res, next) => {
 
 // koniec dodawanie klienta
 
+// dodawanie nowego zadania
 
+router.post('/add-task/', async (req, res, next) => {
+    const {
+        title,
+        clientName,
+        clientNip,
+        description,
+        phone,
+        date,
+    } = req.body;
+
+    //funkcja sprawdzająca poprawność daty
+
+    if (date.toString() == 'Invalid Date') return res.send('Wyznacz datę!')
+
+    //koniec funkcja sprawdzająca poprawność daty
+
+    if (title.length < 1) {
+        return res.send('Podaj nazwę!')
+    }
+
+    // dodanie godziny, narazie zakomentuje
+
+    // Date.prototype.addHours= function(h){
+    //     this.setHours(this.getHours()+h);
+    //     return this;
+    // }
+
+    // alert(new Date().addHours(4));
+
+    // koniec dodanie godziny, narazie zakomentuje
+
+    const newTask = new tasks({
+        title,
+        clientName,
+        clientNip,
+        description,
+        phone,
+        date,
+        owner: req.session.userName
+    });
+    await newTask.save()
+        .then(res.send('Zadanie dodane'))
+        .catch(err => {
+            res.send('Wystąpił problem z dodaniem zadania')
+            console.log(err)
+        });
+})
+
+
+
+// koniec dodawanie nowego zadania
 
 // przebudowa bazy 
 //dodawanie nowej pozycji

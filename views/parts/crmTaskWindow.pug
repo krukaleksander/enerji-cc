@@ -1,14 +1,14 @@
 link(rel="stylesheet" href="/MCDatepicker-master/dist/mc-calendar.min.css")
 script(src="/MCDatepicker-master/dist/mc-calendar.min.js")
-.task-window
+form(class='task-window' method='POST' action='/panel/add-task/')
   i(class="fas fa-times-circle task-window__close")
   h1(class='task-window__title') Nowe Zadanie
-  input(id='taskName' type="text" class='task-window__input' placeholder='nazwa zadania, np. Telefon')
+  input(id='taskName' type="text" class='task-window__input' placeholder='nazwa zadania, np. Telefon' required)
   input(id='taskNip' type="text" class='task-window__input' placeholder='nip')
   input(id='taskClientName' type="text" class='task-window__input' placeholder='nazwa klienta')
   .task-window__row
     input(id='taskTel' type="text" class='task-window__input' placeholder='nr tel.')
-    input(id='taskTime' type="time" class='task-window__input' value='12:00')
-    input(id='taskDate' type="text" class='task-window__input' placeholder='data')  
+    input(id='taskTime' type="time" class='task-window__input' value='12:00' required)
+    input(id='taskDate' type="text" class='task-window__input' placeholder='data' required)  
   input(id='taskDescription' type="text" class='task-window__input' placeholder='Opis...')
   button(class='task-window__btn') Utwórz

@@ -461,11 +461,49 @@ let allClientsFromDB = [];
             'Listopad',
             'Grudzień'
         ],
-        dateFormat: 'DD-MM-YYYY',
+        dateFormat: 'YYYY-MM-DD',
     });
 
-    const createTaskWindow = document.querySelector('.task-window');
+    let createTaskTitle, createTaskClientName, createTaskClientNip, createTaskDescription, createTaskPhone, createTaskDay, createTaskHour;
 
+    const createTaskWindow = document.querySelector('.task-window');
+    const createTaskBtnCreate = document.querySelector('.task-window__btn');
+
+    createTaskBtnCreate.addEventListener('click', (e) => {
+        e.preventDefault();
+        createTaskTitle = document.querySelector('#taskName').value;
+        createTaskClientName = document.querySelector('#taskClientName').value;
+        createTaskClientNip = document.querySelector('#taskNip').value;
+        createTaskDescription = document.querySelector('#taskNip').value;
+        createTaskPhone = document.querySelector('#taskTel').value;
+        createTaskDay = document.querySelector('#taskDate').value;
+        createTaskHour = document.querySelector('#taskTime').value;
+        const dataForServerString = createTaskDay + ' ' + createTaskHour;
+
+
+        let data = new URLSearchParams();
+
+        data.append("title", document.querySelector('#taskName').value);
+        data.append("clientName", document.querySelector('#taskClientName').value);
+        data.append("clientNip", document.querySelector('#taskNip').value);
+        data.append("description", document.querySelector('#taskNip').value);
+        data.append("phone", document.querySelector('#taskTel').value);
+        data.append("date", new Date(dataForServerString));
+
+        fetch(`${window.location.href}/add-task/`, {
+                method: 'post',
+                body: data
+            })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                console.log(text);
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+    })
 
     // koniec obsługa dodawania zadania
 })()
