@@ -11,8 +11,11 @@ block content
        span(class='user-settings')
          i(class="fas fa-user-cog")
      include parts/crmTaskWindow
-     .add-client-icon
-       i(class="fas fa-user-plus add-client-icon__icon")     
+     .navigation
+      .add-client-icon
+        i(class="fas fa-user-plus add-client-icon__icon")
+      .add-task-icon
+        i(class="fas fa-tasks add-task-icon__icon" data-task='standard')     
      .search
       select(class='search__select-option')
         option(value="nip") NIP
@@ -139,7 +142,7 @@ block content
            .particular-client__div
              label(for="streetNumber") Numer domu
              input(class='particular-client__par particular-client__street-number' name='streetNumber')
-         button(class='particular-client__btn-tasks') Zadania
+         button(class='particular-client__btn-tasks' type='button') Utwórz zadanie
          input(class='particular-client__description' name='description')
          .particular-client__update-info
          .particular-client__line-action-buttons

@@ -468,7 +468,9 @@ let allClientsFromDB = [];
 
     const createTaskWindow = document.querySelector('.task-window');
     const createTaskBtnCreate = document.querySelector('.task-window__btn');
+    const createTaskBtnClose = document.querySelector('.task-window__close');
 
+    createTaskBtnClose.addEventListener('click', () => createTaskWindow.style.display = 'none');
     createTaskBtnCreate.addEventListener('click', (e) => {
         e.preventDefault();
         createTaskTitle = document.querySelector('#taskName').value;

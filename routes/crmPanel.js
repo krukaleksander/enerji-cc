@@ -444,15 +444,28 @@ router.post('/add-task/', async (req, res, next) => {
 
 // router.get('/delete', (req, res) => {
 //     clientsready.findOneAndDelete({
-//         id: '1251502283'
+//         _id: '60811ff152c5232e07d81cda'
 //     }, () => {
 //         res.redirect('/panel');
 //     })
 // })
 // koniec usuwanie z bazy
 
+//znalezienie ostatniego klienta
 
-//kalendarz
+// router.get('/find-last', async (req, res) => {
+//     let clients = [];
+//     await clientsready.find({}, (err, data) => {
+//         if (err) console.log(err);
+//         // clients = data[0].clients.splice(0, 10);
+//         clients = data;
+//         // const checkDuplicates = [...new Set(clients)];
+//         res.send(clients);
+//     });
+//     console.log(clients[clients.length - 1]);
+// });
+
+// koniec znalezienie ostatniego klienta
 
 
 module.exports = router;

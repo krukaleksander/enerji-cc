@@ -634,16 +634,20 @@
 
 //dodawanie klienta
 
-.add-client-icon {
+.navigation {
     color: $heading-color;
     position: fixed;
     top: 100px;
     left: 3px;
     font-size: 29px;
     transition: .3s;
+    z-index: 2;
+    max-width: 60px;
 
-    &__icon {
+    .add-client-icon__icon,
+    .add-task-icon__icon {
         cursor: pointer;
+        transition: .3s;
 
         &:hover {
             color: #d53a9d;
@@ -681,7 +685,7 @@
     @include centerWithColor;
     @include main-border;
     padding: 20px;
-    display: flex;
+    display: none; // potem flex!
     flex-direction: column;
     min-height: 400px;
 
