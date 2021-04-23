@@ -1,0 +1,12 @@
+.the-task-container
+  i(class="fas fa-times-circle the-task-container__close")
+  h1(class='task-window__title') Zadanie
+  input(id='theTaskName' type="text" class='task-window__input' placeholder='nazwa zadania, np. Telefon' required)
+  input(id='theTaskNip' type="text" class='task-window__input' placeholder='nip')
+  input(id='theTaskClientName' type="text" class='task-window__input' placeholder='nazwa klienta')
+  .task-window__row
+    input(id='theTaskTel' type="text" class='task-window__input' placeholder='nr tel.')
+    input(id='theTaskTime' type="time" class='task-window__input' value='12:00' required)
+    input(id='theTaskDate' type="text" class='task-window__input' placeholder='data' required)  
+  input(id='theTaskDescription' type="text" class='task-window__input' placeholder='Opis...')
+  button(class='the-task-container__btn') Skasuj

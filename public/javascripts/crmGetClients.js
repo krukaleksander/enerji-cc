@@ -512,7 +512,7 @@ let allClientsFromDB = [];
                 if (text === 'Zadanie dodane') {
                     taskListContainer.style.bottom = '-100vh';
                     taskListDiv.innerHTML = '';
-                    const inputs = [...document.querySelectorAll('.task-window__input')];
+                    const inputs = [...document.querySelectorAll('.task-window .task-window__input')];
                     inputs.forEach(input => input.value = '');
                 }
 
@@ -555,12 +555,13 @@ let allClientsFromDB = [];
     })
 
     btnOpenTaskWindowInTaskList.addEventListener('click', () => {
-        const inputs = [...document.querySelectorAll('.task-window__input')];
+        const inputs = [...document.querySelectorAll('.task-window .task-window__input')];
         inputs.forEach(input => input.value = '');
         createTaskWindow.style.display = 'flex'
     });
 
     //pobieranie zadań z serwera
+    const theTaskContainer = document.querySelector('.the-task-container');
     let taskList = [];
     const taskListDiv = document.querySelector('.task-list__list');
     btnShowTaskList.addEventListener('click', async () => {
@@ -571,6 +572,7 @@ let allClientsFromDB = [];
         if (taskList.length < 1) return;
         taskList.forEach(task => {
             const {
+                _id,
                 clientName,
                 date,
                 title,
@@ -592,15 +594,41 @@ let allClientsFromDB = [];
             const minutes = fixDateNumber(dateToFix.getUTCMinutes());
             taskListDiv.innerHTML = taskListDiv.innerHTML + `
             <div class='particular-task'>
-            <div class='particular-task__open'><i class="fas fa-folder-open"></i></div>
+            <div class='particular-task__open'><i class="fas fa-folder-open" data-id='${_id}'></i></div>
             <div class='particular-task__date'>${hours}:${minutes} ${day}.${month}.${year}</div>
             <div class='particular-task__title ${dateToFix.getTime() > actualDate.getTime() ? '' : 'particular-task__title-red'}'>${shortenName(title)}</div>
             <div class='particular-task__client-name'>${shortenName(clientName)}</div>
             </div>
-            `
+            `;
+            // wchodzenie w zadanie
+
+            const openTaskBtns = [...document.querySelectorAll('.particular-task__open')];
+
+
+            openTaskBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    theTaskContainer.style.display = 'flex';
+                    // poniżej pobieramy id
+                    console.log(e.target.getAttribute("data-id"));
+                })
+
+            });
+
         });
 
+
     });
+
+    //koniec wchodzenie w zadanie
+
+    // zamykanie kontenera z zadaniem
+    const closeTeTaskContainer = document.querySelector('.the-task-container__close');
+    closeTeTaskContainer.addEventListener('click', () => {
+        theTaskContainer.style.display = 'none'
+    });
+
+
+    // koniec zamykanie kontenera z zadaniem
 
     function sortByDate(array) {
         const arrayToReturn = array.sort(function (a, b) {
@@ -618,4 +646,6 @@ let allClientsFromDB = [];
     });
 
     // koniec obsługa dodawania zadania
+
+
 })()

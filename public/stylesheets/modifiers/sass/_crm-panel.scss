@@ -681,7 +681,8 @@
 //koniec dodawanie klienta
 
 //kalendarz
-.task-window {
+.task-window,
+.the-task-container {
     @include centerWithColor;
     @include main-border;
     padding: 20px;
@@ -883,3 +884,23 @@
 }
 
 // koniec lsita zadań
+
+//wchodzenie w zadanie
+.the-task-container {
+    display: none;
+    z-index: 4;
+
+    &__close {
+        align-self: flex-end;
+        color: red;
+        font-size: 25px;
+        cursor: pointer;
+        transition: .4s;
+
+        &:hover {
+            color: rgb(184, 51, 77);
+        }
+    }
+}
+
+//koniec wchodzenie w zadanie
