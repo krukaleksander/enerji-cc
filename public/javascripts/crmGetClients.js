@@ -444,6 +444,12 @@ let allClientsFromDB = [];
     // koniec dodanie klienta próba importu
 
     // obsługa dodawania zadania
+
+    Date.prototype.addHours = function (h) {
+        this.setHours(this.getHours() + h);
+        return this;
+    }
+
     const myDatePicker = MCDatepicker.create({
         el: '#taskDate',
         customWeekDays: ['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'Sb'],
@@ -490,7 +496,7 @@ let allClientsFromDB = [];
         data.append("clientNip", document.querySelector('#taskNip').value);
         data.append("description", document.querySelector('#taskDescription').value);
         data.append("phone", document.querySelector('#taskTel').value);
-        data.append("date", new Date(dataForServerString));
+        data.append("date", new Date(dataForServerString).addHours(2));
 
         fetch(`${window.location.href}/add-task/`, {
                 method: 'post',
