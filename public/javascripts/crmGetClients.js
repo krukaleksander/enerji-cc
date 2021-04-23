@@ -503,6 +503,11 @@ let allClientsFromDB = [];
                 const taskTitle = document.querySelector('.task-window__title');
                 taskTitle.innerHTML = text;
                 taskTitle.style.color = 'green';
+                if (text === 'Zadanie dodane') {
+                    const inputs = [...document.querySelectorAll('.task-window__input')];
+                    inputs.forEach(input => input.value = '');
+                }
+
                 setTimeout(() => {
                     taskTitle.innerHTML = 'Nowe zadanie';
                     taskTitle.style.color = 'whitesmoke';
