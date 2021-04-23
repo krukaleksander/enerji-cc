@@ -844,6 +844,24 @@
         margin-top: 5px;
     }
 
+    &__list {
+        color: antiquewhite;
+        font-size: 20px;
+        padding: 10px;
+
+        .particular-task {
+            display: flex;
+
+            div {
+                margin-right: 8px;
+            }
+
+            &__title {
+                color: brown;
+            }
+        }
+    }
+
 }
 
 // koniec lsita zadań

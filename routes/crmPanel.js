@@ -310,6 +310,18 @@ router.post('/add-task/', async (req, res, next) => {
 
 // koniec dodawanie nowego zadania
 
+// pobieranie zadań z bazy
+
+router.get('/get-tasks/', async (req, res) => {
+    await tasks.find({}, (err, data) => {
+        if (err) console.log(err);
+        const ownerTasks = data.filter(task => task.owner === req.session.userName);
+        res.send(ownerTasks);
+    });
+})
+
+// koniec pobieranie zadań z bazy
+
 // przebudowa bazy 
 //dodawanie nowej pozycji
 

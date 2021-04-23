@@ -476,7 +476,7 @@ let allClientsFromDB = [];
         createTaskTitle = document.querySelector('#taskName').value;
         createTaskClientName = document.querySelector('#taskClientName').value;
         createTaskClientNip = document.querySelector('#taskNip').value;
-        createTaskDescription = document.querySelector('#taskNip').value;
+        createTaskDescription = document.querySelector('#taskDescription').value;
         createTaskPhone = document.querySelector('#taskTel').value;
         createTaskDay = document.querySelector('#taskDate').value;
         createTaskHour = document.querySelector('#taskTime').value;
@@ -488,7 +488,7 @@ let allClientsFromDB = [];
         data.append("title", document.querySelector('#taskName').value);
         data.append("clientName", document.querySelector('#taskClientName').value);
         data.append("clientNip", document.querySelector('#taskNip').value);
-        data.append("description", document.querySelector('#taskNip').value);
+        data.append("description", document.querySelector('#taskDescription').value);
         data.append("phone", document.querySelector('#taskTel').value);
         data.append("date", new Date(dataForServerString));
 
@@ -546,9 +546,47 @@ let allClientsFromDB = [];
 
     })
 
-    btnOpenTaskWindowInTaskList.addEventListener('click', () => createTaskWindow.style.display = 'flex');
+    btnOpenTaskWindowInTaskList.addEventListener('click', () => {
+        const inputs = [...document.querySelectorAll('.task-window__input')];
+        inputs.forEach(input => input.value = '');
+        createTaskWindow.style.display = 'flex'
+    });
+    let taskList = [];
+    btnShowTaskList.addEventListener('click', async () => {
+        taskListContainer.style.bottom = '0px'
+        const tasksFromServer = await fetch(`${window.location.href}/get-tasks/`);
+        taskList = await tasksFromServer.json();
+        const taskListDiv = document.querySelector('.task-list__list');
+        taskList.forEach(task => {
+            const {
+                clientName,
+                date,
+                title,
+                phone,
+                description,
+                clientNip
+            } = task;
 
-    btnShowTaskList.addEventListener('click', () => taskListContainer.style.bottom = '0px');
+            function fixDateNumber(number) {
+                if (number.toString().length < 2) return `0${number}`
+                return number
+            };
+            const dateToFix = new Date(date);
+            const year = fixDateNumber(dateToFix.getFullYear());
+            const day = fixDateNumber(dateToFix.getDate());
+            const month = fixDateNumber(dateToFix.getMonth() + 1);
+            const hours = fixDateNumber(dateToFix.getUTCHours());
+            const minutes = fixDateNumber(dateToFix.getUTCMinutes());
+            taskListDiv.innerHTML = taskListDiv.innerHTML + `
+            <div class='particular-task'>
+            <div class='particular-task__date'>${hours}:${minutes} ${day}.${month}.${year}</div>
+            <div class='particular-task__title'>${title}</div>
+            <div class='particular-task__client-name'>${clientName}</div>
+            </div>
+            `
+        });
+
+    });
     //koniec obsługa otwierania okna
     btnHideTaskList.addEventListener('click', () => taskListContainer.style.bottom = '-100vh');
 
