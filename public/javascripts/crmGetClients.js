@@ -500,12 +500,43 @@ let allClientsFromDB = [];
                 return response.text();
             })
             .then(function (text) {
-                console.log(text);
+                const taskTitle = document.querySelector('.task-window__title');
+                taskTitle.innerHTML = text;
+                taskTitle.style.color = 'green';
+                setTimeout(() => {
+                    taskTitle.innerHTML = 'Nowe zadanie';
+                    taskTitle.style.color = 'whitesmoke';
+                }, 2000)
+
             })
             .catch(function (error) {
                 console.log(error)
             });
     })
 
+    //obsługa otwierania okna
+
+
+    const btnOpenTaskWindowInClient = document.querySelector('.particular-client__btn-tasks');
+    let nameForTask, idForTask, phoneForTask;
+
+
+    btnOpenTaskWindowInClient.addEventListener('click', () => {
+
+        createTaskWindow.style.display = 'flex';
+
+        idForTask = document.querySelector('.particular-client__id').value;
+        nameForTask = document.querySelector('.particular-client__name').value;
+        phoneForTask = document.querySelector('.particular-client__phone').value;
+
+
+        document.getElementById('taskNip').value = idForTask;
+        document.getElementById('taskClientName').value = nameForTask;
+        document.getElementById('taskTel').value = phoneForTask;
+
+
+    })
+
+    //koniec obsługa otwierania okna
     // koniec obsługa dodawania zadania
 })()

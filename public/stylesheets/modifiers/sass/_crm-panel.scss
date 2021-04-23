@@ -688,6 +688,7 @@
     display: none; // potem flex!
     flex-direction: column;
     min-height: 400px;
+    z-index: 3;
 
     &__close {
         align-self: flex-end;
