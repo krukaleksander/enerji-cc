@@ -523,6 +523,10 @@ let allClientsFromDB = [];
 
 
     const btnOpenTaskWindowInClient = document.querySelector('.particular-client__btn-tasks');
+    const btnOpenTaskWindowInTaskList = document.querySelector('.sun-button');
+    const btnHideTaskList = document.querySelector('.task-list__hide');
+    const btnShowTaskList = document.querySelector('.add-task-icon__icon');
+    const taskListContainer = document.querySelector('.task-list');
     let nameForTask, idForTask, phoneForTask;
 
 
@@ -542,6 +546,11 @@ let allClientsFromDB = [];
 
     })
 
+    btnOpenTaskWindowInTaskList.addEventListener('click', () => createTaskWindow.style.display = 'flex');
+
+    btnShowTaskList.addEventListener('click', () => taskListContainer.style.bottom = '0px');
     //koniec obsługa otwierania okna
+    btnHideTaskList.addEventListener('click', () => taskListContainer.style.bottom = '-100vh');
+
     // koniec obsługa dodawania zadania
 })()
