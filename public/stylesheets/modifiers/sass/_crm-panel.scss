@@ -848,6 +848,16 @@
         color: antiquewhite;
         font-size: 20px;
         padding: 10px;
+        height: 260px;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+
+        /* Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         .particular-task {
             display: flex;
@@ -857,7 +867,15 @@
             }
 
             &__title {
-                color: brown;
+                color: green;
+
+                &-red {
+                    color: brown;
+                }
+            }
+
+            &__open {
+                cursor: pointer;
             }
         }
     }

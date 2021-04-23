@@ -504,6 +504,8 @@ let allClientsFromDB = [];
                 taskTitle.innerHTML = text;
                 taskTitle.style.color = 'green';
                 if (text === 'Zadanie dodane') {
+                    taskListContainer.style.bottom = '-100vh';
+                    taskListDiv.innerHTML = '';
                     const inputs = [...document.querySelectorAll('.task-window__input')];
                     inputs.forEach(input => input.value = '');
                 }
@@ -551,12 +553,16 @@ let allClientsFromDB = [];
         inputs.forEach(input => input.value = '');
         createTaskWindow.style.display = 'flex'
     });
+
+    //pobieranie zadań z serwera
     let taskList = [];
+    const taskListDiv = document.querySelector('.task-list__list');
     btnShowTaskList.addEventListener('click', async () => {
-        taskListContainer.style.bottom = '0px'
+        if (taskListContainer.style.bottom === '0px') return;
+        taskListContainer.style.bottom = '0px';
         const tasksFromServer = await fetch(`${window.location.href}/get-tasks/`);
-        taskList = await tasksFromServer.json();
-        const taskListDiv = document.querySelector('.task-list__list');
+        taskList = sortByDate(await tasksFromServer.json());
+        if (taskList.length < 1) return;
         taskList.forEach(task => {
             const {
                 clientName,
@@ -572,6 +578,7 @@ let allClientsFromDB = [];
                 return number
             };
             const dateToFix = new Date(date);
+            const actualDate = new Date();
             const year = fixDateNumber(dateToFix.getFullYear());
             const day = fixDateNumber(dateToFix.getDate());
             const month = fixDateNumber(dateToFix.getMonth() + 1);
@@ -579,16 +586,30 @@ let allClientsFromDB = [];
             const minutes = fixDateNumber(dateToFix.getUTCMinutes());
             taskListDiv.innerHTML = taskListDiv.innerHTML + `
             <div class='particular-task'>
+            <div class='particular-task__open'><i class="fas fa-folder-open"></i></div>
             <div class='particular-task__date'>${hours}:${minutes} ${day}.${month}.${year}</div>
-            <div class='particular-task__title'>${shortenName(title)}</div>
+            <div class='particular-task__title ${dateToFix.getTime() > actualDate.getTime() ? '' : 'particular-task__title-red'}'>${shortenName(title)}</div>
             <div class='particular-task__client-name'>${shortenName(clientName)}</div>
             </div>
             `
         });
 
     });
+
+    function sortByDate(array) {
+        const arrayToReturn = array.sort(function (a, b) {
+            // Turn your strings into dates, and then subtract them
+            // to get a value that is either negative, positive, or zero.
+            return new Date(a.date) - new Date(b.date);
+        });
+        return arrayToReturn;
+    }
+    // koniec pobieranie zadań z serera
     //koniec obsługa otwierania okna
-    btnHideTaskList.addEventListener('click', () => taskListContainer.style.bottom = '-100vh');
+    btnHideTaskList.addEventListener('click', () => {
+        taskListDiv.innerHTML = '';
+        taskListContainer.style.bottom = '-100vh';
+    });
 
     // koniec obsługa dodawania zadania
 })()
