@@ -580,8 +580,8 @@ let allClientsFromDB = [];
             taskListDiv.innerHTML = taskListDiv.innerHTML + `
             <div class='particular-task'>
             <div class='particular-task__date'>${hours}:${minutes} ${day}.${month}.${year}</div>
-            <div class='particular-task__title'>${title}</div>
-            <div class='particular-task__client-name'>${clientName}</div>
+            <div class='particular-task__title'>${shortenName(title)}</div>
+            <div class='particular-task__client-name'>${shortenName(clientName)}</div>
             </div>
             `
         });
