@@ -146,7 +146,8 @@ router.get('/get-clients/', async (req, res, next) => {
         clients = data;
         // const checkDuplicates = [...new Set(clients)];
         // clientsWithOutP5 = clients.filter(client => client.description != 'Klient zajebany z p5 z Vision');
-        res.send(clients);
+        if (req.session.userName === 'admin') return res.send(clients);
+        res.send(clients.filter(client => client.owner === req.session.userName));
     })
 });
 
