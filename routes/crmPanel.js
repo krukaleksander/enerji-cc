@@ -322,6 +322,24 @@ router.get('/get-tasks/', async (req, res) => {
 
 // koniec pobieranie zadań z bazy
 
+// kasowanie zadania
+
+router.get('/delete-task/:id', async (req, res) => {
+    const id = req.params.id
+    await tasks.findByIdAndDelete({
+        _id: id
+    }, (err) => {
+        if (err) {
+            console.log(err);
+            res.send('Nie udało się usunąć zadania');
+        }
+        res.send('Zadanie skasowane');
+    });
+})
+
+// koniec kasowanie zadania
+
+
 // przebudowa bazy 
 //dodawanie nowej pozycji
 

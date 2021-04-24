@@ -581,12 +581,31 @@ let allClientsFromDB = [];
         document.getElementById('theTaskTel').value = phone;
         document.getElementById('theTaskTitle').innerHTML = `Zaplanowane na ${date}`;
     };
+
+    function handleDeleteTask(id) {
+        const deleteBtn = document.querySelector('.the-task-container__btn');
+        deleteBtn.addEventListener('click', async () => {
+            const deleteTask = await fetch(`${window.location.href}/delete-task/${id}`);
+            const respText = await deleteTask.text();
+            taskListContainer.style.bottom = '-100vh';
+            document.getElementById('theTaskName').value = '';
+            document.getElementById('theTaskClientName').value = '';
+            document.getElementById('theTaskNip').value = '';
+            document.getElementById('theTaskDescription').value = '';
+            document.getElementById('theTaskTel').value = '';
+            document.getElementById('theTaskTitle').innerHTML = respText;
+        })
+    }
     const taskListDiv = document.querySelector('.task-list__list');
     btnShowTaskList.addEventListener('click', async () => {
         if (taskListContainer.style.bottom === '0px') return;
+        taskListDiv.innerHTML = '';
         taskListContainer.style.bottom = '0px';
         const tasksFromServer = await fetch(`${window.location.href}/get-tasks/`);
         taskList = sortByDate(await tasksFromServer.json());
+        document.querySelector('.lds-ellipsis').style.display = 'none';
+
+
         if (taskList.length < 1) return;
         taskList.forEach(task => {
             const {
@@ -630,6 +649,7 @@ let allClientsFromDB = [];
                     const taskId = e.target.getAttribute("data-id");
                     const taskDate = e.target.getAttribute("data-date");
                     searchAndDisplayTask(taskId, taskDate);
+                    handleDeleteTask(taskId);
                 });
 
             });
