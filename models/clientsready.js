@@ -59,7 +59,7 @@ clientsreadySchema = new Schema({
         // required: true
     }
 }, {
-    collection: 'clientsready'
+    collection: 'cleanbase'
 });
 
-module.exports = mongoose.model('clientsready', clientsreadySchema);
+module.exports = mongoose.model('cleanbase', clientsreadySchema);

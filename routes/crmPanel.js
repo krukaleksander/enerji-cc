@@ -4,7 +4,6 @@ let accounts = [];
 let archiveMessages = [];
 const crmAccounts = require('../models/crmAccounts');
 // const energyClients = require('../models/experts');
-const clientdb = require('../models/clientsdb');
 const clientsready = require('../models/clientsready');
 const tasks = require('../models/tasks');
 
@@ -139,13 +138,14 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
 // obsługa wyciągania klientów z bazy
 
 
-router.get('/get-clients/', (req, res, next) => {
+router.get('/get-clients/', async (req, res, next) => {
     let clients = [];
     clientsready.find({}, (err, data) => {
         if (err) console.log(err);
         // clients = data[0].clients.splice(0, 10);
         clients = data;
         // const checkDuplicates = [...new Set(clients)];
+        // clientsWithOutP5 = clients.filter(client => client.description != 'Klient zajebany z p5 z Vision');
         res.send(clients);
     })
 });
