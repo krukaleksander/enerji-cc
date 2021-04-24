@@ -563,6 +563,24 @@ let allClientsFromDB = [];
     //pobieranie zadań z serwera
     const theTaskContainer = document.querySelector('.the-task-container');
     let taskList = [];
+
+    function searchAndDisplayTask(id, date) {
+        const theTaskArray = taskList.filter(task => task._id === id);
+        const theTask = theTaskArray[0];
+        const {
+            title,
+            clientName,
+            clientNip,
+            description,
+            phone,
+        } = theTask;
+        document.getElementById('theTaskName').value = title;
+        document.getElementById('theTaskClientName').value = clientName;
+        document.getElementById('theTaskNip').value = clientNip;
+        document.getElementById('theTaskDescription').value = description;
+        document.getElementById('theTaskTel').value = phone;
+        document.getElementById('theTaskTitle').innerHTML = `Zaplanowane na ${date}`;
+    };
     const taskListDiv = document.querySelector('.task-list__list');
     btnShowTaskList.addEventListener('click', async () => {
         if (taskListContainer.style.bottom === '0px') return;
@@ -594,7 +612,7 @@ let allClientsFromDB = [];
             const minutes = fixDateNumber(dateToFix.getUTCMinutes());
             taskListDiv.innerHTML = taskListDiv.innerHTML + `
             <div class='particular-task'>
-            <div class='particular-task__open'><i class="fas fa-folder-open" data-id='${_id}'></i></div>
+            <div class='particular-task__open'><i class="fas fa-folder-open" data-id='${_id}' data-date='${hours}:${minutes} ${day}.${month}.${year}'></i></div>
             <div class='particular-task__date'>${hours}:${minutes} ${day}.${month}.${year}</div>
             <div class='particular-task__title ${dateToFix.getTime() > actualDate.getTime() ? '' : 'particular-task__title-red'}'>${shortenName(title)}</div>
             <div class='particular-task__client-name'>${shortenName(clientName)}</div>
@@ -609,8 +627,10 @@ let allClientsFromDB = [];
                 btn.addEventListener('click', (e) => {
                     theTaskContainer.style.display = 'flex';
                     // poniżej pobieramy id
-                    console.log(e.target.getAttribute("data-id"));
-                })
+                    const taskId = e.target.getAttribute("data-id");
+                    const taskDate = e.target.getAttribute("data-date");
+                    searchAndDisplayTask(taskId, taskDate);
+                });
 
             });
 
