@@ -40,12 +40,12 @@ router.get('/', function (req, res, next) {
                 io.emit('sent-who-is-logged', activeUsers);
                 return
             }
-
-            // if (!activeUsers.has(user)) {
-            //     console.log(user);
-            //     socket.userId = user;
-            //     activeUsers.add(user);
-            // }
+        });
+        socket.on('user-disconnected', userName => {
+            activeUsers = activeUsers.filter(user => {
+                if (user !== userName) return user;
+            });
+            io.emit('sent-who-is-logged', activeUsers);
         });
 
 
@@ -115,10 +115,10 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
                 }, (err) => {
                     console.log('%c Im working...', ['color: red']);
                     if (err) console.log(err);
-                    res.send('Hasło zmienione =)');
+                    return res.send('Hasło zmienione =)');
                 });
             } else {
-                res.send('Błędne hasło.')
+                return res.send('Błędne hasło.')
             }
         }
         if (whatChange === 'phone') {
@@ -134,7 +134,7 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
                     res.send('Dane zmienione =)');
                 });
             } else {
-                res.send('Błędne hasło.')
+                return res.send('Błędne hasło.')
             }
         }
         if (whatChange === 'mail') {
@@ -150,7 +150,7 @@ router.get('/change-user-data/:what/:password/:newData', function (req, res, nex
                     res.send('Dane zmienione =)');
                 });
             } else {
-                res.send('Błędne hasło.')
+                return res.send('Błędne hasło.')
             }
         }
 
@@ -174,7 +174,7 @@ router.get('/get-clients/', async (req, res, next) => {
         // const checkDuplicates = [...new Set(clients)];
         // clientsWithOutP5 = clients.filter(client => client.description != 'Klient zajebany z p5 z Vision');
         if (req.session.userName === 'admin') return res.send(clients);
-        res.send(clients.filter(client => client.owner === req.session.userName));
+        return res.send(clients.filter(client => client.owner === req.session.userName));
     })
 });
 
@@ -214,7 +214,7 @@ router.post('/update-client/', (req, res, next) => {
         description,
         status
     }, () => {
-        res.send('dane zmienione');
+        return res.send('dane zmienione');
     })
 
 
@@ -344,7 +344,7 @@ router.get('/get-tasks/', async (req, res) => {
     await tasks.find({}, (err, data) => {
         if (err) console.log(err);
         const ownerTasks = data.filter(task => task.owner === req.session.userName);
-        res.send(ownerTasks);
+        return res.send(ownerTasks);
     });
 })
 
@@ -359,9 +359,9 @@ router.get('/delete-task/:id', async (req, res) => {
     }, (err) => {
         if (err) {
             console.log(err);
-            res.send('Nie udało się usunąć zadania');
+            return res.send('Nie udało się usunąć zadania');
         }
-        res.send('Zadanie skasowane');
+        return res.send('Zadanie skasowane');
     });
 })
 

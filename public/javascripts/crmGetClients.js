@@ -688,6 +688,8 @@ let allClientsFromDB = [];
     // koniec obsługa dodawania zadania
 
     //fragment socket io
+    let nameFoSocket = '';
+
 
     const socket = io({
         transports: ['websocket'],
@@ -701,6 +703,7 @@ let allClientsFromDB = [];
     // const socket = io();
 
     const newUserConnected = (name) => {
+        nameFoSocket = name;
         socket.emit("new-user", name);
     };
 
@@ -710,7 +713,6 @@ let allClientsFromDB = [];
     })
 
     socket.on('sent-who-is-logged', (list) => {
-        console.log('występuje zdarzenie who-is-logged')
         console.log(list);
     })
 

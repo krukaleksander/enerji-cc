@@ -6,11 +6,11 @@ const crmAccounts = require('../models/crmAccounts');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     if (req.session.userName) {
-        res.redirect('/panel');
+        return res.redirect('/panel');
     }
     crmAccounts.find({}, (err, data) => {
         accounts = data;
-        res.render('crmLogin', {
+        return res.render('crmLogin', {
             title: 'energy2000 CRM 🚬 🥃 🍸'
         });
     })
@@ -26,13 +26,14 @@ router.post('/', function (req, res, next) {
             //zmień stats na wnętrze panelu!
             req.session.userName = login;
             req.session.userData = account;
-            res.redirect('/panel');
-            return;
+            loginFlag = true;
+            return res.redirect('/panel');
+
+        } else {
+            loginFlag = false;
         }
     });
-    res.redirect('/');
-
-
+    next();
 
 });
 
