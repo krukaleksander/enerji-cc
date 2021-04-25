@@ -5,8 +5,8 @@ const crmAccounts = require('../models/crmAccounts');
 // const energyClients = require('../models/experts');
 const clientsready = require('../models/clientsready');
 const tasks = require('../models/tasks');
-
 //fragment socket.io
+let activeUsers = [];
 
 const {
     io
@@ -25,6 +25,35 @@ router.all('*', (req, res, next) => {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+
+    // fragment socket test
+    io.on('connection', socket => {
+        io.removeAllListeners();
+        socket.emit('user-logged', req.session.userName);
+
+        socket.on("new-user", async function (user) {
+            const isUserActive = activeUsers.findIndex(oldUser => oldUser === user);
+            if (isUserActive < 0) {
+                activeUsers.push(user);
+                io.emit('sent-who-is-logged', activeUsers);
+            } else {
+                io.emit('sent-who-is-logged', activeUsers);
+                return
+            }
+
+            // if (!activeUsers.has(user)) {
+            //     console.log(user);
+            //     socket.userId = user;
+            //     activeUsers.add(user);
+            // }
+        });
+
+
+    })
+
+
+    //koniec fragment socket test
+
     crmAccounts.find({}, (err, data) => {
         accounts = data;
         loggedUser = accounts.filter(account => account.login === req.session.userName);
@@ -338,6 +367,12 @@ router.get('/delete-task/:id', async (req, res) => {
 
 // koniec kasowanie zadania
 
+
+// pobieranie nazwy użytkownika dla chatu
+
+
+
+// koniec pobieranie nazwy użytkownika dla chatu
 
 // przebudowa bazy 
 //dodawanie nowej pozycji

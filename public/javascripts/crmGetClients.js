@@ -689,7 +689,31 @@ let allClientsFromDB = [];
 
     //fragment socket io
 
-    const socket = io();
+    const socket = io({
+        transports: ['websocket'],
+        upgrade: false
+    });
+    const logOuTBtn = document.querySelector('.logout-energy-btn');
+    logOuTBtn.addEventListener('click', () => {
+        socket.emit('user-disconnected', nameFoSocket);
+    })
+
+    // const socket = io();
+
+    const newUserConnected = (name) => {
+        socket.emit("new-user", name);
+    };
+
+
+    socket.on('user-logged', login => {
+        newUserConnected(login);
+    })
+
+    socket.on('sent-who-is-logged', (list) => {
+        console.log('występuje zdarzenie who-is-logged')
+        console.log(list);
+    })
+
 
     //koniec fragment socket io
 })()
