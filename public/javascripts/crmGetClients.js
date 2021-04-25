@@ -687,5 +687,9 @@ let allClientsFromDB = [];
 
     // koniec obsługa dodawania zadania
 
+    //fragment socket io
 
+    const socket = io();
+
+    //koniec fragment socket io
 })()

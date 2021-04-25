@@ -1,11 +1,19 @@
 const express = require('express');
 const router = express.Router();
 let accounts = [];
-let archiveMessages = [];
 const crmAccounts = require('../models/crmAccounts');
 // const energyClients = require('../models/experts');
 const clientsready = require('../models/clientsready');
 const tasks = require('../models/tasks');
+
+//fragment socket.io
+
+const {
+    io
+} = require('../socketApi');
+
+//koniec fragment socket.io
+
 
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {
@@ -17,7 +25,6 @@ router.all('*', (req, res, next) => {
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-
     crmAccounts.find({}, (err, data) => {
         accounts = data;
         loggedUser = accounts.filter(account => account.login === req.session.userName);
@@ -43,19 +50,10 @@ router.get('/', function (req, res, next) {
 
 
 });
-router.get('/get-chat-name', function (req, res, next) {
-    return res.send({
-        userName: req.session.userData.chatName,
-        archiveMessages: archiveMessages
-    });
-});
+
 router.post('/', function (req, res, next) {
     // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
     req.session.userName = '';
-    return res.redirect('/');
-});
-
-router.post('/chat', function (req, res, next) {
     return res.redirect('/');
 });
 

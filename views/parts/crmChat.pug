@@ -1,0 +1,12 @@
+.container
+  .inbox
+    .inbox__people
+      h4 Active users
+    .inbox__messages
+      .messages__history
+      .fallback
+  form.message_form
+    input.message_form__input(type='text' placeholder='Type a message')
+    button.message_form__button(type='submit')
+      | Enter
+script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js')

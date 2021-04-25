@@ -8,6 +8,11 @@ var app = require('../app');
 var debug = require('debug')('cc-panel:server');
 var http = require('http');
 
+//socket.io
+console.log('coś się dzieje w pliku www');
+
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -28,6 +33,27 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+// socket.io
+
+//stare i działające io
+// var io = require('socket.io')(server);
+
+
+// io.on('connection', function (socket) {
+//   //log.info('socket.io connection made');
+//   console.log('socket.io connection made');
+// });
+//koniec stare i działające io
+
+
+var socketApi = require('../socketApi');
+var io = socketApi.io;
+io.attach(server);
+
+
+//koniec socket.io
+
 
 /**
  * Normalize a port into a number, string, or false.
