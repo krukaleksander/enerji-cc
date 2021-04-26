@@ -47,7 +47,7 @@ app.use('/gazomierz', gazomierzRouter);
 
 // catch 404 and forward to error handler
 app.get('*', function (req, res) {
-  res.status(404).send('what???');
+  res.status(404).send('/');
 });
 // app.use((req, res) => {
 //   return res.status(404).render('404', {
