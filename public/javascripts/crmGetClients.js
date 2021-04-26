@@ -185,6 +185,7 @@ let allClientsFromDB = [];
             particularClientContainer.style.display = 'flex';
             const clientToShow = allClientsFromDB.find(client => client.id == e.target.innerHTML);
             const {
+                _id,
                 id,
                 name,
                 owner,
@@ -215,6 +216,7 @@ let allClientsFromDB = [];
             const selectStatus = document.querySelector('.particular-client__select-status');
 
             idPar.value = id;
+            idPar.setAttribute('data_id', _id);
             namePar.value = name;
             ownerPar.value = owner;
             phonePar.value = phone;
@@ -244,6 +246,7 @@ let allClientsFromDB = [];
     document.querySelector('.particular-client__btn-update').addEventListener('click', (e) => {
         e.preventDefault();
         let data = new URLSearchParams();
+        data.append("_id", document.querySelector('.particular-client__id').getAttribute('data_id'));
         data.append("id", document.querySelector('.particular-client__id').value);
         data.append("name", document.querySelector('.particular-client__name').value);
         data.append("owner", document.querySelector('.particular-client__owner').value);
@@ -408,27 +411,30 @@ let allClientsFromDB = [];
                     setTimeout(() => updateInfoContainer.style.display = 'none', 3000);
                     return
                 }
-                allClientsFromDB.push({
-                    id: idPar,
-                    name: namePar,
-                    owner: ownerPar,
-                    phone: phonePar,
-                    email: emailPar,
-                    consumption: consumptionPar,
-                    category: categoryPar,
-                    postalCode: postalCodePar,
-                    city: cityPar,
-                    street: streetPar,
-                    streetNumber: streetNumberPar,
-                    description: descriptionPar,
-                    status: selectStatus
-                });
-                zeroValues();
-                updatePage();
-                jumpToPage(updatePage(), 'jump-to');
-                numberOfClientsSpan.innerHTML = `${allClientsFromDB.length} klientów. Gratuluję wspólniku =)`;
-                setTimeout(() => updateInfoContainer.style.display = 'none', 1500)
+                window.location.reload(true);
 
+                //stara logika po dodaniu klienta
+                // allClientsFromDB.push({
+                //     id: idPar,
+                //     name: namePar,
+                //     owner: ownerPar,
+                //     phone: phonePar,
+                //     email: emailPar,
+                //     consumption: consumptionPar,
+                //     category: categoryPar,
+                //     postalCode: postalCodePar,
+                //     city: cityPar,
+                //     street: streetPar,
+                //     streetNumber: streetNumberPar,
+                //     description: descriptionPar,
+                //     status: selectStatus
+                // });
+                // zeroValues();
+                // updatePage();
+                // jumpToPage(updatePage(), 'jump-to');
+                // numberOfClientsSpan.innerHTML = `${allClientsFromDB.length} klientów. Gratuluję wspólniku =)`;
+                // setTimeout(() => updateInfoContainer.style.display = 'none', 1500)
+                // koniec stara logika po dodaniu klienta
             })
             .catch(function (error) {
                 console.log(error)

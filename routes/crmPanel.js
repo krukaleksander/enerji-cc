@@ -182,6 +182,7 @@ router.get('/get-clients/', async (req, res, next) => {
 
 router.post('/update-client/', (req, res, next) => {
     const {
+        _id,
         id,
         name,
         owner,
@@ -198,7 +199,7 @@ router.post('/update-client/', (req, res, next) => {
     } = req.body;
 
     clientsready.findOneAndUpdate({
-        id: id
+        _id: _id
     }, {
         id,
         name,
