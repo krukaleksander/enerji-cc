@@ -25,7 +25,7 @@ form(action="/panel/add-client/" method='POST' class='particular-client-new')
       input(class='particular-client-new__par particular-client-new__id' name='id')
     .particular-client__div
       label(for="name") Nazwa
-      input(class='particular-client-new__par particular-client-new__name' name='name')
+      textarea(class='particular-client-new__par particular-client-new__name' name='name')
     .particular-client__div
       label(for="status") Status
       select(class='particular-client-new__select-status' name='status')
@@ -56,7 +56,11 @@ form(action="/panel/add-client/" method='POST' class='particular-client-new')
           option(value="partner") Inny partner
           option(value="mine") Inicjatywa
           option(value="brak-danych") Brak danych
-          option(value="net") Internet              
+          option(value="net") Internet   
+          option(value="bazafirm") BazaFirm              
+          option(value="olx") Olx              
+          option(value="gumtree") Gumtree              
+          option(value="google") Google             
       .particular-client__div
         label(for="postalCode") Kod pocztowy
         input(class='particular-client-new__par particular-client-new__postal-code' name='postalCode')
@@ -70,7 +74,7 @@ form(action="/panel/add-client/" method='POST' class='particular-client-new')
         label(for="streetNumber") Numer domu
         input(class='particular-client-new__par particular-client-new__street-number' name='streetNumber')
     button(class='particular-client-new__btn-tasks') Zadania
-    input(class='particular-client-new__description' name='description')
+    textarea(class='particular-client-new__description' name='description')
     .particular-client__add-info.particular-client-new__add-info
     .particular-client__line-action-buttons
       input(class='particular-client-new__btn-summary particular-client-new__btn-update' type='submit' value='Dodaj')

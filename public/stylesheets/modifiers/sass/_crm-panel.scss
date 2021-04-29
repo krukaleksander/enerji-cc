@@ -38,6 +38,7 @@
     position: fixed;
     top: 6px;
     right: 7px;
+    z-index: 5;
     @include btn-logout;
 
     @include mq('small') {
@@ -508,6 +509,7 @@
         -moz-appearance: none;
         text-indent: 1px;
         text-overflow: '';
+        background-color: $basic-background;
     }
 
     &__div-nip {
@@ -547,6 +549,7 @@
         -moz-appearance: none;
         text-indent: 1px;
         text-overflow: '';
+        background-color: $basic-background;
     }
 
     &__line-contact,

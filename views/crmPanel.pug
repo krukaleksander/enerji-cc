@@ -101,7 +101,7 @@ block content
            input(class='particular-client__par particular-client__id' name='id')
          .particular-client__div
            label(for="name") Nazwa
-           input(class='particular-client__par particular-client__name' name='name')
+           textarea(class='particular-client__par particular-client__name' name='name')
          .particular-client__div
            label(for="status") Status
            select(class='particular-client__select-status' name='status')
@@ -133,6 +133,10 @@ block content
               option(value="mine") Inicjatywa
               option(value="brak-danych") Brak danych
               option(value="net") Internet              
+              option(value="bazafirm") BazaFirm              
+              option(value="olx") Olx              
+              option(value="gumtree") Gumtree              
+              option(value="google") Google              
            .particular-client__div
              label(for="postalCode") Kod pocztowy
              input(class='particular-client__par particular-client__postal-code' name='postalCode')
@@ -146,7 +150,7 @@ block content
              label(for="streetNumber") Numer domu
              input(class='particular-client__par particular-client__street-number' name='streetNumber')
          button(class='particular-client__btn-tasks' type='button') Utwórz zadanie
-         input(class='particular-client__description' name='description')
+         textarea(class='particular-client__description' name='description')
          .particular-client__update-info
          .particular-client__line-action-buttons
            input(class='particular-client__btn-summary particular-client__btn-update' type='submit' value='Zaktualizuj')
