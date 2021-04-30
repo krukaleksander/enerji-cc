@@ -252,28 +252,53 @@ router.post('/add-client/', async (req, res, next) => {
         if (err) console.log(err);
         clients = data;
     }).then(async (data) => {
-        const isClientInDb = data.findIndex(client => client.id == id);
-        if (isClientInDb >= 0) return res.send('taki nip jest już w bazie');
-        // koniec fragment sprawdzenie nip
-        const newClient = new clientsready({
-            id,
-            name,
-            category,
-            phone,
-            email,
-            consumption,
-            owner,
-            city,
-            street,
-            streetNumber,
-            postalCode,
-            description,
-            tasks: [],
-            status
-        });
-        await newClient.save()
-            .then(() => res.send('dodano'))
-            .catch(err => res.send(err));
+        if (id !== '') {
+            const isClientInDb = data.findIndex(client => client.id == id);
+            if (isClientInDb >= 0) return res.send('taki nip jest już w bazie');
+            // koniec fragment sprawdzenie nip
+            const newClient = new clientsready({
+                id,
+                name,
+                category,
+                phone,
+                email,
+                consumption,
+                owner,
+                city,
+                street,
+                streetNumber,
+                postalCode,
+                description,
+                tasks: [],
+                status
+            });
+            await newClient.save()
+                .then(() => res.send('dodano'))
+                .catch(err => res.send(err));
+        } else {
+            const newClient = new clientsready({
+                id,
+                name,
+                category,
+                phone,
+                email,
+                consumption,
+                owner,
+                city,
+                street,
+                streetNumber,
+                postalCode,
+                description,
+                tasks: [],
+                status
+            });
+            await newClient.save()
+                .then(() => res.send('dodano'))
+                .catch(err => res.send(err));
+        }
+
+
+
     })
 
 

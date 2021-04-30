@@ -35,6 +35,7 @@ let allClientsFromDB = [];
         clientsToShow = clientsArr.slice(start, end);
         await clientsToShow.forEach(client => {
             const {
+                _id,
                 id,
                 name,
                 phone,
@@ -42,7 +43,7 @@ let allClientsFromDB = [];
                 owner,
                 status
             } = client;
-            return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
+            return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
         });
         spinner.style.display = 'none';
         table.style.display = 'block';
@@ -66,6 +67,7 @@ let allClientsFromDB = [];
             const clientsToShow = allClientsFromDB.slice(from, to);
             clientsToShow.forEach(client => {
                 const {
+                    _id,
                     id,
                     name,
                     phone,
@@ -73,7 +75,7 @@ let allClientsFromDB = [];
                     owner,
                     status
                 } = client;
-                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
+                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
             });
         }
 
@@ -183,7 +185,7 @@ let allClientsFromDB = [];
         const nipy = [...document.querySelectorAll('.clients-table tr td:nth-child(1)')];
         nipy.forEach(nip => nip.addEventListener('click', (e) => {
             particularClientContainer.style.display = 'flex';
-            const clientToShow = allClientsFromDB.find(client => client.id == e.target.innerHTML);
+            const clientToShow = allClientsFromDB.find(client => client._id == e.target.getAttribute('data-id'));
             const {
                 _id,
                 id,
