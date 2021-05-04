@@ -10,8 +10,8 @@ let allClientsFromDB = [];
     let pageForSummary = 1;
 
     function updatePage() {
-        numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length) / 20) + 1}`;
-        return Math.floor((allClientsFromDB.length) / 20) + 1
+        numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length - 1) / 20) + 1}`;
+        return Math.floor((allClientsFromDB.length - 1) / 20) + 1
     }
 
     // funkcja skracająca nazwę
@@ -59,7 +59,7 @@ let allClientsFromDB = [];
         btnBackToList.style.display = 'none';
         document.querySelector('.doesnt-find-client').innerHTML = '';
         if (page === 1 && direction === 'prev') return
-        if ((page === Math.floor((allClientsFromDB.length / 20)) + 1) && direction === 'next') return
+        if ((page === Math.floor(((allClientsFromDB.length - 1) / 20)) + 1) && direction === 'next') return
 
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status</th><th>Opiekun </th></tr>';
 
