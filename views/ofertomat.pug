@@ -1,6 +1,8 @@
 extends layout
 
 block content  
+  a(href="/panel" class='back-to-panel') CRM  
+    i(class="fas fa-door-open")
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
@@ -10,8 +12,7 @@ block content
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
       button(class="btn btn-info show-calc-wear") Przelicz zużycie  
-        i(class="fas fa-fingerprint")
-    include parts/kret
+        i(class="fas fa-fingerprint")    
     .calc-wear
       div(class="calc-wear__hide")
         i(class="fas fa-minus-circle")

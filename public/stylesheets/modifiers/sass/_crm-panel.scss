@@ -648,7 +648,8 @@
     max-width: 60px;
 
     .add-client-icon__icon,
-    .add-task-icon__icon {
+    .add-task-icon__icon,
+    .go-to-ofertomat-icon__icon {
         cursor: pointer;
         transition: .3s;
 
@@ -656,6 +657,10 @@
             color: #d53a9d;
         }
     }
+}
+
+.go-to-ofertomat-icon__icon {
+    color: rgb(239, 234, 234);
 }
 
 .particular-client-new {

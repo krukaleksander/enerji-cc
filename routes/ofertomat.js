@@ -7,7 +7,7 @@ const priceMultiplier = 1.015;
 const db = require('../db/db.js');
 
 router.all('*', (req, res, next) => {
-    if (!req.session.admin) {
+    if (!req.session.userName) {
         res.redirect('/');
         return;
     }
@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
     allTariffPrices.find({}, (err, data) => {
 
         res.render('ofertomat', {
-            title: '🔥 P5 Ofertomat 🔥',
+            title: '🔥 Ofertomat 🔥',
             data
         });
     })
@@ -29,8 +29,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    // req.session.admin = 0; - zlikwidowanie sesji [wylogowanie]
-    req.session.admin = 0;
+    req.session.userName = '';
     res.redirect('/');
     return;
 });

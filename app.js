@@ -18,6 +18,7 @@ const crmLoginRouter = require('./routes/crmLogin');
 const crmPanelRouter = require('./routes/crmPanel');
 const consumptionRouter = require('./routes/consumption');
 const gazomierzRouter = require('./routes/gazomierz');
+const ofertomatRouter = require('./routes/ofertomat');
 
 
 
@@ -44,6 +45,7 @@ app.use('/panel', crmPanelRouter);
 app.use('/mwh', mwhRouter);
 app.use('/consumption', consumptionRouter);
 app.use('/gazomierz', gazomierzRouter);
+app.use('/panel/ofertomat', ofertomatRouter);
 
 // catch 404 and forward to error handler
 app.get('*', function (req, res) {

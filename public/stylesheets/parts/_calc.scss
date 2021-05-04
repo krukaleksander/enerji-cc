@@ -390,3 +390,25 @@
         transform: scale(1);
     }
 }
+
+.back-to-panel {
+    all: unset;
+    display: block;
+    color: aliceblue;
+    font-family: 'Baloo 2', cursive;
+    font-size: 25px;
+    padding: 10px;
+    border: 1px solid;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    top: 2px;
+    left: 2px;
+    transition: .3s;
+
+    &:hover {
+        border-color: seagreen;
+        color: seagreen;
+    }
+}
