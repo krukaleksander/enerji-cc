@@ -1,3 +1,5 @@
+let productIndex = 0;
+
 class Tariff {
     constructor(numberOfSpheres, indexOfData, name) {
         this.numberOfSpheres = numberOfSpheres;
@@ -8,7 +10,12 @@ class Tariff {
         this.calc2021 = 0;
         this.calc2022 = 0;
         this.calc2023 = 0;
+        this.calc2024 = 0;
+        this.calc2025 = 0;
+        this.calc2026 = 0;
     }
+
+
     getPricesFromDb = () => {
         fetch(`${window.location.href}/get-prices`, {
                 method: 'GET',
@@ -16,18 +23,24 @@ class Tariff {
             })
             .then(response => response.json())
             .then(result => {
-                this.pricesFromDb = result[this.indexOfData];
+                this.pricesFromDb = result.map(product => {
+                    return {
+                        name: product.name,
+                        description: product.description,
+                        prices: product.tariffs.find(goodTariff => goodTariff.name === this.name)
+                    }
+                });
             })
+            .then(() => console.log(this.pricesFromDb))
             .catch(err => {
                 console.log('Błąd w Fetch' + err)
             })
         return true;
     };
     checkEndOfNewAgreement = (start, end) => {
-        const options = [2020, 2021, 2022, 2023];
+        const options = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
         let chosenYears = [];
         let correctStart = start;
-        if (start === 9999) correctStart = 2019;
         chosenYears.push(start);
         options.forEach(option => {
             if (option > correctStart && option <= end) {
@@ -55,26 +68,79 @@ class Tariff {
         } else {
             this.calc2023 = 0;
         };
-
+        if (chosenYears.indexOf(2024) > -1) {
+            this.calc2024 = 1;
+        } else {
+            this.calc2024 = 0;
+        };
+        if (chosenYears.indexOf(2025) > -1) {
+            this.calc2025 = 1;
+        } else {
+            this.calc2025 = 0;
+        };
+        if (chosenYears.indexOf(2026) > -1) {
+            this.calc2026 = 1;
+        } else {
+            this.calc2026 = 0;
+        };
     };
     checkEndOfAgreementMonth = (monthIndex) => parseFloat(((monthIndex - 1) / 12).toFixed(2));
     checkEndOfAgreement = () => {
         this.checkEndOfNewAgreement(+endOfAgreement.value, +endOfNewAgreement.value);
         switch (parseInt(endOfAgreement.value)) {
+            case 2026:
+                this.countsPrice2020 = 0;
+                this.countsPrice2021 = 0;
+                this.countsPrice2022 = 0;
+                this.countsPrice2023 = 0;
+                this.countsPrice2024 = 0;
+                this.countsPrice2025 = 0;
+                this.countsPrice2026 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
+                break;
+            case 2025:
+                this.countsPrice2020 = 0;
+                this.countsPrice2021 = 0;
+                this.countsPrice2022 = 0;
+                this.countsPrice2023 = 0;
+                this.countsPrice2024 = 0;
+                this.countsPrice2025 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
+                this.countsPrice2026 = 1;
+                break;
+            case 2024:
+                this.countsPrice2020 = 0;
+                this.countsPrice2021 = 0;
+                this.countsPrice2022 = 0;
+                this.countsPrice2023 = 0;
+                this.countsPrice2024 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
+                this.countsPrice2025 = 1;
+                this.countsPrice2026 = 1;
+                break;
+            case 2023:
+                this.countsPrice2020 = 0;
+                this.countsPrice2021 = 0;
+                this.countsPrice2022 = 0;
+                this.countsPrice2023 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
+                this.countsPrice2024 = 1;
+                this.countsPrice2025 = 1;
+                this.countsPrice2026 = 1;
+                break;
             case 2022:
                 this.countsPrice2020 = 0;
                 this.countsPrice2021 = 0;
                 this.countsPrice2022 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
+                this.countsPrice2023 = 1;
+                this.countsPrice2024 = 1;
+                this.countsPrice2025 = 1;
+                this.countsPrice2026 = 1;
                 break;
             case 2021:
                 this.countsPrice2020 = 0;
                 this.countsPrice2021 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
                 this.countsPrice2022 = 1;
-                break;
-            case 2020:
-                this.countsPrice2020 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
-                this.countsPrice2021 = 1;
-                this.countsPrice2022 = 1;
+                this.countsPrice2023 = 1;
+                this.countsPrice2024 = 1;
+                this.countsPrice2025 = 1;
+                this.countsPrice2026 = 1;
                 break;
             default:
                 this.countsPrice2020 = 0;
@@ -91,15 +157,24 @@ class Tariff {
             this.weareTwoSpeheresSecond = replaceAndParseMainFn(document.getElementById('wearSecond').value);
             this.wearTwoSpheresSum = (this.weareTwoSpeheresFirst + this.weareTwoSpeheresSecond).toFixed(2);
             document.getElementById('wearSum').value = this.wearTwoSpheresSum;
+        } else if (this.numberOfSpheres === 3) {
+            this.weareThreeSpeheresFirst = replaceAndParseMainFn(document.getElementById('wearFirstThreeSpheres').value);
+            this.weareThreeSpeheresSecond = replaceAndParseMainFn(document.getElementById('wearSecondThreeSpheres').value);
+            this.weareThreeSpeheresThird = replaceAndParseMainFn(document.getElementById('wearThirdThreeSpheres').value);
+            this.wearTwoSpheresSum = (this.weareTwoSpeheresFirst + this.weareTwoSpeheresSecond + this.weareThreeSpeheresThird).toFixed(2);
+            document.getElementById('wearSumThreeSpheres').value = this.wearTwoSpheresSum;
         }
     };
     getProposition = () => {
         if (this.numberOfSpheres === 1) {
             this.proposeOneSphere = replaceAndParseMainFn(document.getElementById('proposePrice').value);
         } else if (this.numberOfSpheres === 2) {
-            this.proposeTwoSpheresAvr = replaceAndParseMainFn(document.getElementById('proposePriceAvr').value);
             this.proposeTwoSpheresFirst = replaceAndParseMainFn(document.getElementById('proposePriceFirst').value);
             this.proposeTwoSpheresSecond = replaceAndParseMainFn(document.getElementById('proposePriceSecond').value);
+        } else if (this.numberOfSpheres === 3) {
+            this.proposeThreeSpheresFirst = replaceAndParseMainFn(document.getElementById('proposePriceFirstThreeSpheres').value);
+            this.proposeThreeSpheresSecond = replaceAndParseMainFn(document.getElementById('proposePriceSecondThreeSpheres').value);
+            this.proposeThreeSpheresThird = replaceAndParseMainFn(document.getElementById('proposePriceThirdThreeSpheres').value);
         }
     };
     calcOneSphere = () => {
@@ -171,9 +246,11 @@ const c12bEngine = new Tariff(2, 2, 'C12b');
 const c21Engine = new Tariff(1, 3, 'C21');
 const c22aEngine = new Tariff(2, 4, 'C22a');
 const c22bEngine = new Tariff(2, 5, 'C22b');
+const c23Engine = new Tariff(3, 12, 'C23');
 const b21Engine = new Tariff(1, 6, 'B21');
 const b11Engine = new Tariff(1, 8, 'B11');
 const b22Engine = new Tariff(2, 7, 'B22');
+const b23Engine = new Tariff(2, 13, 'B23');
 const g11Engine = new Tariff(1, 9, 'G11');
 const g12Engine = new Tariff(2, 10, 'G12');
 const g12wEngine = new Tariff(2, 11, 'G12w');
