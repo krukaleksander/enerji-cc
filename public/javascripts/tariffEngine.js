@@ -160,8 +160,8 @@ class Tariff {
             this.weareThreeSpeheresFirst = replaceAndParseMainFn(document.getElementById('wearFirstThreeSpheres').value);
             this.weareThreeSpeheresSecond = replaceAndParseMainFn(document.getElementById('wearSecondThreeSpheres').value);
             this.weareThreeSpeheresThird = replaceAndParseMainFn(document.getElementById('wearThirdThreeSpheres').value);
-            this.wearTwoSpheresSum = (this.weareTwoSpeheresFirst + this.weareTwoSpeheresSecond + this.weareThreeSpeheresThird).toFixed(2);
-            document.getElementById('wearSumThreeSpheres').value = this.wearTwoSpheresSum;
+            this.wearThreeSpheresSum = (this.weareThreeSpeheresFirst + this.weareThreeSpeheresSecond + this.weareThreeSpeheresThird).toFixed(2);
+            document.getElementById('wearSumThreeSpheres').value = this.wearThreeSpheresSum;
         }
     };
     getProposition = () => {
@@ -197,6 +197,22 @@ class Tariff {
         const money2021 = (((this.proposeTwoSpheresFirst - replaceAndParseMainFn(productPrice.price2021[0])) * this.weareTwoSpeheresFirst) + ((this.proposeTwoSpheresSecond - replaceAndParseMainFn(productPrice.price2021[1])) * this.weareTwoSpeheresSecond)) * this.countsPrice2021 * this.calc2021;
         this.margeMass = (money2026 + money2025 + money2024 + money2023 + money2022 + money2021).toFixed(2);
     };
+    calcThreeSpheres = () => {
+        const productPrice = (this.setGoodProduct(document.getElementById('product').value)).prices;
+        const money2026 = (((this.proposeThreeSpheresFirst - replaceAndParseMainFn(productPrice.price2026[0])) * this.weareThreeSpeheresFirst) + ((this.proposeThreeSpheresSecond - replaceAndParseMainFn(productPrice.price2026[1])) * this.weareThreeSpeheresSecond) + ((this.proposeThreeSpheresThird - replaceAndParseMainFn(productPrice.price2026[2])) * this.weareThreeSpeheresThird)) * this.calc2026 * this.countsPrice2026;
+
+        const money2025 = (((this.proposeThreeSpheresFirst - replaceAndParseMainFn(productPrice.price2025[0])) * this.weareThreeSpeheresFirst) + ((this.proposeThreeSpheresSecond - replaceAndParseMainFn(productPrice.price2025[1])) * this.weareThreeSpeheresSecond) + ((this.proposeThreeSpheresThird - replaceAndParseMainFn(productPrice.price2025[2])) * this.weareThreeSpeheresThird)) * this.calc2025 * this.countsPrice2025;
+
+        const money2024 = (((this.proposeThreeSpheresFirst - replaceAndParseMainFn(productPrice.price2024[0])) * this.weareThreeSpeheresFirst) + ((this.proposeThreeSpheresSecond - replaceAndParseMainFn(productPrice.price2024[1])) * this.weareThreeSpeheresSecond) + ((this.proposeThreeSpheresThird - replaceAndParseMainFn(productPrice.price2024[2])) * this.weareThreeSpeheresThird)) * this.calc2024 * this.countsPrice2024;
+
+        const money2023 = (((this.proposeThreeSpheresFirst - replaceAndParseMainFn(productPrice.price2023[0])) * this.weareThreeSpeheresFirst) + ((this.proposeThreeSpheresSecond - replaceAndParseMainFn(productPrice.price2023[1])) * this.weareThreeSpeheresSecond) + ((this.proposeThreeSpheresThird - replaceAndParseMainFn(productPrice.price2023[2])) * this.weareThreeSpeheresThird)) * this.calc2023 * this.countsPrice2023;
+
+        const money2022 = (((this.proposeThreeSpheresFirst - replaceAndParseMainFn(productPrice.price2022[0])) * this.weareThreeSpeheresFirst) + ((this.proposeThreeSpheresSecond - replaceAndParseMainFn(productPrice.price2022[1])) * this.weareThreeSpeheresSecond) + ((this.proposeThreeSpheresThird - replaceAndParseMainFn(productPrice.price2022[2])) * this.weareThreeSpeheresThird)) * this.countsPrice2022 * this.calc2022;
+
+        const money2021 = (((this.proposeThreeSpheresFirst - replaceAndParseMainFn(productPrice.price2021[0])) * this.weareThreeSpeheresFirst) + ((this.proposeThreeSpheresSecond - replaceAndParseMainFn(productPrice.price2021[1])) * this.weareThreeSpeheresSecond) + ((this.proposeThreeSpheresThird - replaceAndParseMainFn(productPrice.price2021[2])) * this.weareThreeSpeheresThird)) * this.countsPrice2021 * this.calc2021;
+
+        this.margeMass = (money2026 + money2025 + money2024 + money2023 + money2022 + money2021).toFixed(2);
+    };
     createNote = () => {
         if (this.numberOfSpheres === 1) {
             const priceNow = document.getElementById('priceNow').value;
@@ -210,6 +226,15 @@ class Tariff {
             let spanE = `</span>`;
             summaryCalc.style.padding = '10px';
             summaryCalc.innerHTML = `Grupa taryfowa: ${spanF}${this.name}${spanE}, <br>Umowa kończy się: ${spanF}${endOfAgreement.value}${spanE}, <br>Klient posiada aktualnie ceny: I strefa: ${spanF}${havePriceFirst}${spanE} II strefa: ${spanF}${havePriceSecond}${spanE}<br>Zużycie roczne: <span class ="value-of-calc-data">${this.wearTwoSpheresSum}</span> MWh. <br>Propozycja cenowa: I strefa: ${spanF}${this.proposeTwoSpheresFirst}${spanE} II strefa: ${spanF}${this.proposeTwoSpheresSecond}${spanE}, <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span>`;
+            summaryCalc.scrollIntoView();
+        } else if (this.numberOfSpheres === 3) {
+            const havePriceFirst = document.getElementById('havePriceFirstThree').value;
+            const havePriceSecond = document.getElementById('havePriceSecondThree').value;
+            const havePriceThird = document.getElementById('havePriceSecondThree').value;
+            let spanF = `<span class="value-of-calc-data">`;
+            let spanE = `</span>`;
+            summaryCalc.style.padding = '10px';
+            summaryCalc.innerHTML = `Grupa taryfowa: ${spanF}${this.name}${spanE}, <br>Umowa kończy się: ${spanF}${endOfAgreement.value}${spanE}, <br>Klient posiada aktualnie ceny: I strefa: ${spanF}${havePriceFirst}${spanE} II strefa: ${spanF}${havePriceSecond}${spanE} II strefa: ${spanF}${havePriceThird}${spanE}<br>Zużycie roczne: <span class ="value-of-calc-data">${this.wearThreeSpheresSum}</span> MWh. <br>Propozycja cenowa: I strefa: ${spanF}${this.proposeThreeSpheresFirst}${spanE} II strefa: ${spanF}${this.proposeThreeSpheresSecond}${spanE} II strefa: ${spanF}${this.proposeThreeSpheresThird}${spanE}, <br>Masa marży: ~ <span class ="value-of-calc-data marge-mass-span">${this.margeMass}</span>`;
             summaryCalc.scrollIntoView();
         }
     }
@@ -232,6 +257,8 @@ class Tariff {
             this.calcOneSphere();
         } else if (this.numberOfSpheres === 2) {
             this.calcTwoSpheres();
+        } else if (this.numberOfSpheres === 3) {
+            this.calcThreeSpheres();
         }
         this.createNote();
 
@@ -249,7 +276,7 @@ const c22bEngine = new Tariff(2, 5, 'C22b');
 const c23Engine = new Tariff(3, 12, 'C23');
 const b21Engine = new Tariff(1, 6, 'B21');
 const b22Engine = new Tariff(2, 7, 'B22');
-const b23Engine = new Tariff(2, 13, 'B23');
+const b23Engine = new Tariff(3, 13, 'B23');
 const g11Engine = new Tariff(1, 9, 'G11');
 const g12Engine = new Tariff(2, 10, 'G12');
 const g12wEngine = new Tariff(2, 11, 'G12w');

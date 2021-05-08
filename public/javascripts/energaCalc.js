@@ -11,7 +11,7 @@ let tariffCalcFlag = 0;
 let onePriceFlag = 0;
 let info35zlFlag = true;
 
-onePriceCheckbox.checked = false;
+
 selectElement('tariff', 'C11');
 selectElement('endOfAgreement', '2021');
 selectElement('endOfAgreementMonth', '12');
@@ -52,13 +52,6 @@ const replaceCommasAndParseFn = () => {
     });
 
 }
-onePriceCheckbox.addEventListener('click', () => {
-    if (onePriceFlag === 0) {
-        onePriceFlag = 1
-    } else {
-        onePriceFlag = 0;
-    }
-});
 
 const calcForTariff = () => {
     btnSavings.style.display = 'block';
@@ -87,6 +80,10 @@ const calcForTariff = () => {
         g12Engine.mainCalcFn();
     } else if (tariffCalcFlag === 11) {
         g12wEngine.mainCalcFn();
+    } else if (tariffCalcFlag === 12) {
+        c23Engine.mainCalcFn();
+    } else if (tariffCalcFlag === 13) {
+        b23Engine.mainCalcFn();
     } else {
         console.log('co jest kurka wódka?')
     }
