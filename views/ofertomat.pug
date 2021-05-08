@@ -6,8 +6,8 @@ block content
   form(method='post')
     button(type='submit' class='logout-btn') Wyloguj  
   div(class='wrapper')
-    h3 Ofertomat v. 5.0.0       
-    p(class="alert alert-success wrapper__title") Ceny zawyżone są o 1.5% względem cennika rzeczywistego i nie możesz ich skutecznie edytować. Pamiętaj, że oszczędności liczone są w skali roku!
+    h3 Ofertomat v. 5.1.0       
+    p(class="alert alert-success wrapper__title") Dodany rok 2024 oraz 2025. 
     include parts/knowHow
     button(class="btn btn-dark show-price-change") Edycja cen 
     div
@@ -63,11 +63,16 @@ block content
         option(class="oprion-2" value=2) Listopad 
         option(class="oprion-1" value=1) Grudzień 
       select(id="endOfAgreement")
+        option(class="option-2022" value=2025) 2025
+        option(class="option-2022" value=2024) 2024
+        option(class="option-2022" value=2023) 2023
         option(class="option-2022" value=2022) 2022
         option(class="option-2021" value=2021) 2021                
     div
       label(for="endOfNewAgreement") Nowa umowa do: 31.12. 
       select(id="endOfNewAgreement")
+        option(class="option-2022" value=2025) 2025
+        option(class="option-2022" value=2024) 2024
         option(class="option-2022" value=2023) 2023
         option(class="option-2022" value=2022) 2022
         option(class="option-2021" value=2021) 2021           
