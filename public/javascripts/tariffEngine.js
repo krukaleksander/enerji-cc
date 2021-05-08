@@ -1,4 +1,4 @@
-let productIndex = 0;
+let productName = 'TOP';
 
 class Tariff {
     constructor(numberOfSpheres, indexOfData, name) {
@@ -14,7 +14,7 @@ class Tariff {
         this.calc2025 = 0;
         this.calc2026 = 0;
     }
-
+    setGoodProduct = (name) => this.pricesFromDb.find(product => product.name === name);
 
     getPricesFromDb = () => {
         fetch(`${window.location.href}/get-prices`, {
@@ -178,7 +178,8 @@ class Tariff {
         }
     };
     calcOneSphere = () => {
-        this.margeMass = Math.floor(((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2023)) * this.wearOneSphere * this.calc2023) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2022)) * this.wearOneSphere * this.countsPrice2022 * this.calc2022) + ((this.proposeOneSphere - replaceAndParseMainFn(this.pricesFromDb.tariff.price2021)) * this.wearOneSphere * this.countsPrice2021 * this.calc2021));
+        const productPrice = (this.setGoodProduct(document.getElementById('product').value)).prices;
+        this.margeMass = Math.floor(((this.proposeOneSphere - replaceAndParseMainFn(productPrice.price2026)) * this.wearOneSphere * this.calc2026 * this.countsPrice2026) + ((this.proposeOneSphere - replaceAndParseMainFn(productPrice.price2025)) * this.wearOneSphere * this.countsPrice2025 * this.calc2025) + ((this.proposeOneSphere - replaceAndParseMainFn(productPrice.price2024)) * this.wearOneSphere * this.countsPrice2024 * this.calc2024) + ((this.proposeOneSphere - replaceAndParseMainFn(productPrice.price2023)) * this.wearOneSphere * this.countsPrice2023 * this.calc2023) + ((this.proposeOneSphere - replaceAndParseMainFn(productPrice.price2022)) * this.wearOneSphere * this.countsPrice2022 * this.calc2022) + ((this.proposeOneSphere - replaceAndParseMainFn(productPrice.price2021)) * this.wearOneSphere * this.countsPrice2021 * this.calc2021));
 
     };
     calcTwoSpheres = () => {
@@ -248,7 +249,6 @@ const c22aEngine = new Tariff(2, 4, 'C22a');
 const c22bEngine = new Tariff(2, 5, 'C22b');
 const c23Engine = new Tariff(3, 12, 'C23');
 const b21Engine = new Tariff(1, 6, 'B21');
-const b11Engine = new Tariff(1, 8, 'B11');
 const b22Engine = new Tariff(2, 7, 'B22');
 const b23Engine = new Tariff(2, 13, 'B23');
 const g11Engine = new Tariff(1, 9, 'G11');
