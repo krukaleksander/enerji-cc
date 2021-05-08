@@ -39,7 +39,8 @@
     }
 
     .intakec11c21,
-    .propositionc11c21 {
+    .propositionc11c21,
+    .intakec23b23 {
         @include mq('xsmall') {
             display: flex;
             flex-direction: column;
@@ -220,15 +221,20 @@
     .tariffc21-wrapper,
     .tariffc22a-wrapper,
     .tariffc22b-wrapper,
+    .tariffc23-wrapper,
     .tariffb11-wrapper,
     .tariffb21-wrapper,
     .tariffb22-wrapper,
+    .tariffb23-wrapper,
     .tariffg11-wrapper,
     .tariffg12-wrapper,
     .tariffg12w-wrapper,
     .intakec12ac12b,
     .propositionc12ac12b,
     .havePricesc12ac12b,
+    .intakec23b23,
+    .havePricesc23b23,
+    .propositionc23b23,
     #info35zl {
         display: none;
     }

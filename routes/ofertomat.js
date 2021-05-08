@@ -18,7 +18,7 @@ router.all('*', (req, res, next) => {
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     console.log(db.length);
-    allTariffPrices.find({}, (err, data) => {
+    axpoPrices.find({}, (err, data) => {
 
         res.render('ofertomat', {
             title: '🔥 Ofertomat 🔥',
@@ -238,7 +238,7 @@ router.post('/change-price/', (req, res, next) => {
 
 })
 router.get('/get-prices', (req, res, next) => {
-    allTariffPrices.find({}, (err, data) => {
+    axpoPrices.find({}, (err, data) => {
         res.send(data);
     })
 });

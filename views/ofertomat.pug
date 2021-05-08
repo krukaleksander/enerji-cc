@@ -33,6 +33,13 @@ block content
         i(class="fas fa-file-import")        
       p(class="alert alert-warning calc-wear__info") Możesz teraz eksportować zużycia wprost do kalkulatora!
     div
+      label(for='product') Wybierz produkt
+      select(id='product')
+        option(value=`${data[0].name}`)=data[0].name
+        option(value=`${data[1].name}`)=data[1].name
+        option(value=`${data[2].name}`)=data[2].name
+        option(value=`${data[3].name}`)=data[3].name
+    div
       label(for="tariff") Grupa taryfowa:  
       select(id="tariff" class="note-remover")
         option(value="C11") C11
@@ -41,9 +48,11 @@ block content
         option(value="C21") C21                       
         option(value="C22a") C22a                      
         option(value="C22b") C22b 
+        option(value="C23") C23 
         option(value="B11") B11                      
         option(value="B21") B21                       
         option(value="B22") B22                       
+        option(value="B23") B23                       
         option(value="G11") G11                       
         option(value="G12") G12                       
         option(value="G12w") G12w                       
@@ -71,23 +80,29 @@ block content
     div
       label(for="endOfNewAgreement") Nowa umowa do: 31.12. 
       select(id="endOfNewAgreement")
+        option(class="option-2022" value=2026) 2026
         option(class="option-2022" value=2025) 2025
         option(class="option-2022" value=2024) 2024
         option(class="option-2022" value=2023) 2023
         option(class="option-2022" value=2022) 2022
         option(class="option-2021" value=2021) 2021           
     div
-      label(for="tradeFee" class="label-for-trade-fee") Opłata handlowa
+      label(for="tradeFee" class="label-for-trade-fee") Opłata handlowa aktualna
       input(id="tradeFee" class="set-to-zero" type="text" value=0)
+    div
+      label(for="tradeFeeOur" class="label-for-trade-fee-our") Nasza opłata
+      input(id="tradeFeeOur" class="set-to-zero" type="text" value=0)
     include parts/c11   
     include parts/c12a
     include parts/c12b
     include parts/c21   
     include parts/c22a   
     include parts/c22b 
+    include parts/c23 
     include parts/b11  
     include parts/b21   
     include parts/b22   
+    include parts/b23   
     include parts/g11   
     include parts/g12   
     include parts/g12w   
@@ -100,16 +115,13 @@ block content
       input(id="wear" class="note-remover" type="text" placeholder="np. 18.3" value=0)      
     div(class="havePricesc12ac12b")
       p(class="tariff-wrapper-title") Klient ma cenę:
-      .have-prices-divs-wrapper   
-        div
-          label(for="havePriceAvr") Średnia: 
-          input(id="havePriceAvr" class="set-to-zero" type="text" value=0)
+      .have-prices-divs-wrapper
         div
           label(for="havePriceFirst") I strefa: 
           input(id="havePriceFirst" class="set-to-zero" type="text" value=0)
         div
           label(for="havePriceSecond") II strefa: 
-          input(id="havePriceSecond" class="set-to-zero" type="text" value=0)
+          input(id="havePriceSecond" class="set-to-zero" type="text" value=0)       
     div(class="intakec12ac12b")
       p(class="tariff-wrapper-title") Zużycie:
       .intake-divs-wrapper   
@@ -122,7 +134,33 @@ block content
         div
           label(for="wearSum") Suma: 
           input(id="wearSum" class="note-remover set-to-zero" type="text" placeholder="wyliczę")
-      
+    div(class="havePricesc23b23")
+      p(class="tariff-wrapper-title") Klient ma cenę:
+      .have-prices-divs-wrapper  
+        div
+          label(for="havePriceFirst") I strefa: 
+          input(id="havePriceFirst" class="set-to-zero" type="text" value=0)
+        div
+          label(for="havePriceSecond") II strefa: 
+          input(id="havePriceSecond" class="set-to-zero" type="text" value=0)
+        div
+          label(for="havePriceThird") III strefa: 
+          input(id="havePriceThird" class="set-to-zero" type="text" value=0)
+    div(class="intakec23b23")
+      p(class="tariff-wrapper-title") Zużycie:
+      .intake-divs-wrapper   
+        div
+          label(for="wearFirst") I strefa: 
+          input(id="wearFirst" class="note-remover set-to-zero" type="text" placeholder="np. 7.3" value=0)
+        div
+          label(for="wearSecond") II strefa: 
+          input(id="wearSecond" class="note-remover set-to-zero" type="text" placeholder="np. 18.3" value=0)
+        div
+          label(for="wearThird") III strefa: 
+          input(id="wearThird" class="note-remover set-to-zero" type="text" placeholder="np. 18.3" value=0)
+        div
+          label(for="wearSum") Suma: 
+          input(id="wearSum" class="note-remover set-to-zero" type="text" placeholder="wyliczę")      
     div(class="propositionc11c21")
       label(for="proposePrice") Twoja propozycja: 
       input(id="proposePrice" class="note-remover" type="text" placeholder="380" value=0)
@@ -130,14 +168,23 @@ block content
       p(class="tariff-wrapper-title") Twoja propozycja:
       .wrapPropositionsC12x
         div
-          label(for="proposePriceAvr") Średnia
-          input(type="text" class="note-remover set-to-zero" id="proposePriceAvr" value=0)
+          label(for="proposePriceFirst") I strefa
+          input(type="text" class="note-remover set-to-zero" id="proposePriceFirst" value=0)
+        div
+          label(for="proposePriceSecond") II strefa
+          input(type="text" class="note-remover set-to-zero" id="proposePriceSecond" value=0)
+    .propositionc23b23
+      p(class="tariff-wrapper-title") Twoja propozycja:
+      .wrapPropositionsC23B23
         div
           label(for="proposePriceFirst") I strefa
           input(type="text" class="note-remover set-to-zero" id="proposePriceFirst" value=0)
         div
           label(for="proposePriceSecond") II strefa
           input(type="text" class="note-remover set-to-zero" id="proposePriceSecond" value=0)
+        div
+          label(for="proposePriceThird") III strefa
+          input(type="text" class="note-remover set-to-zero" id="proposePriceThird" value=0)
       .wrap-checkbox
         label(for="onePriceForAll" class="label-for-one-price") Na płasko
         input(type="checkbox" id="onePriceForAll")
@@ -149,53 +196,53 @@ block content
     p(id="summaryCalc")
     div
       button(id="activeCalcSavings" class="btn btn-success") Oszczędności       
-    .change-price-panel          
-      p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
-      .easy-prices
-        h3(class='easy-prices__title') Szybkie wgrywanie cen BETA
-        select(class='easy-prices__select-sphere')
-          option(value="one") Jednostrfowa
-          option(value="two") Dwustrefowa
-        select(class='easy-prices__select-tariff')
-          option(value="c11") C11
-          option(value="c12a") C12a
-          option(value="c12b") C12b
-          option(value="c21") C21
-          option(value="c22a") C22a
-          option(value="c22b") C22b
-          option(value="b11") B11
-          option(value="b21") B21
-          option(value="b22") B22
-          option(value="g11") G11
-          option(value="g12") G12
-          option(value="g12w") G12w
-        input(type="text" class="easy-prices__input")
-        button(class="easy-prices__btn btn btn-info") Wgraj ceny
-      form(action="panel/change-price/" method="post")
-       include parts/changec11.pug
-       include parts/changec12a.pug
-       include parts/changec12b.pug       
-       include parts/changec21.pug       
-       include parts/changec22a.pug       
-       include parts/changec22b.pug 
-       include parts/changeb11.pug      
-       include parts/changecb21.pug       
-       include parts/changeb22.pug       
-       include parts/changeg11.pug       
-       include parts/changeg12.pug       
-       include parts/changeg12w.pug       
-       div
-        input(id="changePriceBtn" class='btn btn-info' type="submit" value="OK")
-       div(class="change-price-close")
-         img(src="./images/close_cross.png", alt="") 
+    //- .change-price-panel          
+    //-   p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
+    //-   .easy-prices
+    //-     h3(class='easy-prices__title') Szybkie wgrywanie cen BETA
+    //-     select(class='easy-prices__select-sphere')
+    //-       option(value="one") Jednostrfowa
+    //-       option(value="two") Dwustrefowa
+    //-     select(class='easy-prices__select-tariff')
+    //-       option(value="c11") C11
+    //-       option(value="c12a") C12a
+    //-       option(value="c12b") C12b
+    //-       option(value="c21") C21
+    //-       option(value="c22a") C22a
+    //-       option(value="c22b") C22b
+    //-       option(value="b11") B11
+    //-       option(value="b21") B21
+    //-       option(value="b22") B22
+    //-       option(value="g11") G11
+    //-       option(value="g12") G12
+    //-       option(value="g12w") G12w
+    //-     input(type="text" class="easy-prices__input")
+    //-     button(class="easy-prices__btn btn btn-info") Wgraj ceny
+    //-   form(action="panel/change-price/" method="post")
+    //-    include parts/changec11.pug
+    //-    include parts/changec12a.pug
+    //-    include parts/changec12b.pug       
+    //-    include parts/changec21.pug       
+    //-    include parts/changec22a.pug       
+    //-    include parts/changec22b.pug 
+    //-    include parts/changeb11.pug      
+    //-    include parts/changecb21.pug       
+    //-    include parts/changeb22.pug       
+    //-    include parts/changeg11.pug       
+    //-    include parts/changeg12.pug       
+    //-    include parts/changeg12w.pug       
+    //-    div
+    //-     input(id="changePriceBtn" class='btn btn-info' type="submit" value="OK")
+    //-    div(class="change-price-close")
+    //-      img(src="./images/close_cross.png", alt="") 
   //- Start
-  //- script(src="/javascripts/energaCalc.js")    
-  //- script(src="/javascripts/smallparts/changepricepanel.js")
-  //- script(src="/javascripts/smallparts/changetariffs.js")  
-  //- script(src="/javascripts/smallparts/setToZero.js")
-  //- script(src="/javascripts/tariffEngine.js") 
+  script(src="/javascripts/energaCalc.js")    
+  script(src="/javascripts/smallparts/changepricepanel.js")
+  script(src="/javascripts/smallparts/changetariffs.js")  
+  script(src="/javascripts/smallparts/setToZero.js")
+  script(src="/javascripts/tariffEngine.js") 
   //- End 
-  script(src="/javascripts/babbleTest.js")
+  //- script(src="/javascripts/babbleTest.js")
   script(src="/javascripts/smallparts/easyPrices.js") 
   script(src="/javascripts/smallparts/knowHow.js")
   //- Start

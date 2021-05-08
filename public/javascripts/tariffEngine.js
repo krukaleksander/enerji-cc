@@ -1,6 +1,3 @@
-// zmienna odpowiadająca za mnożnik w 9999 w tym momencie wyliczona od miesiąca grudnia
-const factor999 = 0.08;
-
 class Tariff {
     constructor(numberOfSpheres, indexOfData, name) {
         this.numberOfSpheres = numberOfSpheres;
@@ -76,12 +73,6 @@ class Tariff {
                 break;
             case 2020:
                 this.countsPrice2020 = 0 + this.checkEndOfAgreementMonth(+endOfAgreementMonth.value);
-                this.countsPrice2021 = 1;
-                this.countsPrice2022 = 1;
-                break;
-            case 9999:
-                //poniżej mnożnik dziewiątek
-                this.countsPrice2020 = factor999;
                 this.countsPrice2021 = 1;
                 this.countsPrice2022 = 1;
                 break;
