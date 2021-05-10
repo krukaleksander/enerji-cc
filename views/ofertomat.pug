@@ -34,7 +34,7 @@ block content
       p(class="alert alert-warning calc-wear__info") Możesz teraz eksportować zużycia wprost do kalkulatora!
     div
       label(for='product') Wybierz produkt
-      select(id='product')
+      select(id='product' class="note-remover")
         option(value=`${data[0].name}`)=data[0].name
         option(value=`${data[1].name}`)=data[1].name
         option(value=`${data[2].name}`)=data[2].name
@@ -53,8 +53,7 @@ block content
         option(value="B22") B22                       
         option(value="B23") B23                       
         option(value="G11") G11                       
-        option(value="G12") G12                       
-        option(value="G12w") G12w                       
+        option(value="G12") G12                      
     div
       label(for="endOfAgreement") Koniec umowy bieżącej: 31.
       select(id='endOfAgreementMonth')

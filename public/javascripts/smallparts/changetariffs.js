@@ -18,6 +18,7 @@
             });
             document.querySelector(`.tariff${showTariffName}-wrapper`).style.display = "block";
             setIntakeAndProposition(showTariffName);
+
         };
         const setIntakeAndProposition = (tariffName) => {
             if (tariffName[2] === "1") {
