@@ -71,13 +71,17 @@ function savingsGetActualData() {
 //pobieram button 
 
 const savingsCalcBtn = document.getElementById('activeCalcSavings');
-
+const reduceOhBtn = document.querySelector('.btn-reduce-mass');
+const reduceWarningBtn = document.querySelector('.reduce-mass-warning__btn');
+const reduceMassContainer = document.querySelector('.reduce-mass');
+const reduceMassBtn = document.querySelector('.reduce-mass__btn');
+const closeReduceMassContainer = document.querySelector('.reduce-mass__close');
 
 
 // główna funkcja owijająca nastawiona na kliknięcie guzika
 
 savingsCalcBtn.addEventListener('click', function () {
-
+    reduceOhBtn.style.display = 'block';
     //pobieram aktualne dane
     savingsGetActualData();
     //oblicza oszczędność z opłaty handlowej
@@ -140,3 +144,47 @@ function doNotDoubleSavings(note) {
     }
 
 }
+
+//obniżanie opłaty
+const reduceWarningContainer = document.querySelector('.reduce-mass-warning');
+
+
+reduceOhBtn.addEventListener('click', () => {
+    reduceWarningContainer.style.display = 'flex';
+});
+
+
+reduceWarningBtn.addEventListener('click', () => {
+    reduceWarningContainer.style.display = 'none';
+    reduceMassContainer.style.display = 'block';
+});
+
+reduceMassBtn.addEventListener('click', () => {
+
+    const ohValue = Number(document.querySelector('#tradeFeeOur').value);
+    const howMutchReduce = Number(document.querySelector('#reduceAmmount').value);
+    const yearEnd = Number(document.querySelector('#endOfNewAgreement').value);
+    const yearBegin = Number(document.querySelector('#endOfAgreement').value);
+    const ammountOfExtraMonths = Number(document.querySelector('#endOfAgreementMonth').value);
+    const margeMass = Number(document.querySelector('.marge-mass-span').innerHTML);
+    const summary = document.querySelector('.reduce-mass__summary');
+
+    const ohAfterReduce = ohValue - howMutchReduce;
+    const numberOfMonthsInAgreement = ((yearEnd - yearBegin) * 12) + ammountOfExtraMonths - 1;
+
+    const totalReduce = ohAfterReduce * numberOfMonthsInAgreement;
+
+    summary.innerHTML = `Obniżając klientowi opłatę do <strong>${howMutchReduce}</strong> w skali całego kontraktu musisz oddać Axpo <strong>${totalReduce}</strong>. W związku z tym Twoja MM spada do ${(margeMass - totalReduce).toFixed(2)}`;
+
+
+});
+
+const reduceSummaryPar = document.querySelector('.reduce-mass__summary');
+
+closeReduceMassContainer.addEventListener('click', () => {
+    reduceMassContainer.style.display = 'none'
+    reduceSummaryPar.innerHTML = '';
+});
+
+document.querySelector('#reduceAmmount').addEventListener('focus', () => reduceSummaryPar.innerHTML = '')
+//koniec obniżanie opłaty

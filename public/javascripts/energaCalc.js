@@ -29,6 +29,7 @@ const clearNote = () => {
     summaryCalc.innerHTML = "";
     btnSavings.style.display = 'none';
     info35zlFlag = true;
+    document.querySelector('.btn-reduce-mass').style.display = 'none';
 };
 const removeNoteFn = () => {
     const allRemovers = [...document.getElementsByClassName('note-remover')];

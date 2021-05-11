@@ -190,7 +190,17 @@ block content
     p(class="note") Notatka:     
     p(id="summaryCalc")
     div
-      button(id="activeCalcSavings" class="btn btn-success") Oszczędności       
+      button(id="activeCalcSavings" class="btn btn-success") Oszczędności  
+      button(class='btn btn-danger btn-reduce-mass') Obniżenie OH
+    div(class='reduce-mass-warning')
+      p(class='alert alert-danger') Pamiętaj, że obniżenie opłaty handlowej obniży równiez Twoją masę marży!
+      button(class='btn btn-success reduce-mass-warning__btn') Ok  
+    div(class='reduce-mass')
+      div(class='reduce-mass__close')      
+      label(for="reduceAmmount") Do jakiej kwoty obniżyć: 
+      input(type="text" id='reduceAmmount' value='0')  
+      p(class='reduce-mass__summary')
+      button(class='btn btn-info reduce-mass__btn') Oblicz
     //- .change-price-panel          
     //-   p(class="alert alert-danger") Pamiętaj, że zmiany są widoczne po odświeżeniu strony!
     //-   .easy-prices
