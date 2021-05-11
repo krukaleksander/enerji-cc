@@ -8,7 +8,6 @@ const endOfAgreement = document.getElementById('endOfAgreement');
 const endOfNewAgreement = document.getElementById('endOfNewAgreement');
 const btnSavings = document.getElementById('activeCalcSavings');
 let tariffCalcFlag = 0;
-let onePriceFlag = 0;
 let info35zlFlag = true;
 
 

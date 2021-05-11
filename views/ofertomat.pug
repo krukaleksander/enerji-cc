@@ -88,7 +88,7 @@ block content
       label(for="tradeFee" class="label-for-trade-fee") Opłata handlowa aktualna
       input(id="tradeFee" class="set-to-zero" type="text" value=0)
     div
-      label(for="tradeFeeOur" class="label-for-trade-fee-our") Nasza opłata
+      label(for="tradeFeeOur" class="label-for-trade-fee-our") Nasza opłata e-faktura
       input(id="tradeFeeOur" class="set-to-zero" type="text" value=0)
     include parts/c11   
     include parts/c12a
@@ -183,8 +183,8 @@ block content
         div
           label(for="proposePriceThirdThreeSpheres") III strefa
           input(type="text" class="note-remover set-to-zero" id="proposePriceThirdThreeSpheres" value=0)      
-        .wrap-new-calc
-        button(class="btn btn-danger" id="clearInputsBtn") Nowe wyliczenie 
+      .wrap-new-calc
+      button(class="btn btn-danger" id="clearInputsBtn") Nowe wyliczenie 
     div(class="btn-wrapper")  
       button(id="btnCalc" class="btn btn-success") Przelicz      
     p(class="note") Notatka:     
@@ -241,7 +241,7 @@ block content
   script(src="/javascripts/smallparts/easyPrices.js") 
   script(src="/javascripts/smallparts/knowHow.js")
   //- Start
-  //- script(src="/javascripts/smallparts/calcSavings.js")
-  //- script(src="/javascripts/smallparts/calcWear.js")
+  script(src="/javascripts/smallparts/calcSavings.js")
+  script(src="/javascripts/smallparts/calcWear.js")
   //- end
   script(src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous")

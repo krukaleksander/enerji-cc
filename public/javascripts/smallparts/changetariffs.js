@@ -1,3 +1,5 @@
+let pricesFromDb;
+
 (
     () => {
         const allTariffNames = ['c11', 'c12a', 'c12b', 'c21', 'c22a', 'c22b', 'c23', 'b21', 'b22', 'b23', 'b11', 'g11', 'g12', 'g12w'];
@@ -11,6 +13,7 @@
         const havePricesc23b23 = document.querySelector('.havePricesc23b23');
         const havePricesC12x = document.querySelector('.havePricesc12ac12b');
         const havePricesC11 = document.querySelector('.have-prices-c11');
+
 
         const setDisplayOfTariffs = (tariffArr, showTariffName) => {
             tariffArr.forEach(tariffName => {

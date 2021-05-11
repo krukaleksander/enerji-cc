@@ -364,6 +364,46 @@ productSelected.addEventListener('change', (e) => {
 
 //koniec fragment zabezpieczenie przed wyborem C11 i specjal top
 
+// fragment odpowiadający za ładowanie opłat handlowych
+
+getPricesFromDb = () => {
+    fetch(`${window.location.href}/get-prices`, {
+            method: 'GET',
+
+        })
+        .then(response => response.json())
+        .then(result => {
+            pricesFromDb = result;
+        })
+        .catch(err => {
+            console.log('Błąd w Fetch' + err)
+        })
+    return true;
+};
+
+getPricesFromDb();
+
+let actualProductName = document.getElementById('product');
+let actualGt = document.getElementById('tariff');
+let ourTradeFee = document.getElementById('tradeFeeOur');
+
+const changeFeeListeners = [actualProductName, actualGt];
+ourTradeFee.value = '25';
+changeFeeListeners.forEach(item => {
+    item.addEventListener('change', () => {
+        const product = document.getElementById('product').value;
+        const gt = document.getElementById('tariff').value;
+
+        const findedProduct = pricesFromDb.find(item => item.name === product);
+        const findedArray = findedProduct.tariffs;
+        const findedGt = findedArray.find(tariff => tariff.name === gt);
+        ourTradeFee.value = findedGt.ohe;
+    })
+
+})
+
+//koniec fragment odpowiadający za ładowanie opłat handlowych 
+
 
 const c11Engine = new Tariff(1, 0, 'C11');
 const c12aEngine = new Tariff(2, 1, 'C12a');
