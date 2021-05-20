@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+var cors = require('cors');
 let accounts = [];
 const crmAccounts = require('../models/crmAccounts');
 const korzystnaMsg = require('../models/korzystnamsgs');
@@ -64,13 +65,13 @@ router.post('/', function (req, res, next) {
 
 });
 
+router.use(cors());
+
 router.post('/send-energy-msg', async function (req, res, next) {
     const clientName = req.body.clientName;
     const clientPhone = req.body.clientPhone;
     const clientEmail = req.body.clientEmail;
     const clientMessage = req.body.clientMessage;
-
-    console.log(clientMessage);
 
     const newMessage = new korzystnaMsg({
         name: clientName,
@@ -79,7 +80,7 @@ router.post('/send-energy-msg', async function (req, res, next) {
         msg: clientMessage
     });
     await newMessage.save()
-        .then(() => res.send('wiadomość wysłana :)'))
+        .then(() => res.send('wiadomość wysłana, dziękujemy :)'))
         .catch(err => res.send(err));
 
 })
