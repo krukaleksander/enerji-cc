@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 let accounts = [];
 const crmAccounts = require('../models/crmAccounts');
+const korzystnaMsg = require('../models/korzystnamsgs');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -62,5 +63,25 @@ router.post('/', function (req, res, next) {
     // koniec  inna logika logowania
 
 });
+
+router.post('/send-energy-msg', async function (req, res, next) {
+    const clientName = req.body.clientName;
+    const clientPhone = req.body.clientPhone;
+    const clientEmail = req.body.clientEmail;
+    const clientMessage = req.body.clientMessage;
+
+    console.log(clientMessage);
+
+    const newMessage = new korzystnaMsg({
+        name: clientName,
+        phone: clientPhone,
+        email: clientEmail,
+        msg: clientMessage
+    });
+    await newMessage.save()
+        .then(() => res.send('wiadomość wysłana :)'))
+        .catch(err => res.send(err));
+
+})
 
 module.exports = router;
