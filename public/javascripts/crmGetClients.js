@@ -746,11 +746,11 @@ let allClientsFromDB = [];
         const deleteClient = await fetch(`${window.location.href}/delete-client/${clientId}`);
         const respText = await deleteClient.text();
         particularClientContainer.style.display = 'none';
-        confirmRemoveClientWindow.style.display = 'none'
+        confirmRemoveClientWindow.style.display = 'none';
         alert(respText);
-
-
-
+        const clientsToShowAfterDelete = allClientsFromDB.filter(client => client._id != clientId);
+        allClientsFromDB = clientsToShowAfterDelete;
+        jumpToPage(actualPage, 'jump-to');
     })
 
     // koniec usuwanie klienta
