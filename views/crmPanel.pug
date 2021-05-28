@@ -158,6 +158,12 @@ block content
          .particular-client__line-action-buttons
            input(class='particular-client__btn-summary particular-client__btn-update' type='submit' value='Zaktualizuj')
            button(class='particular-client__btn-summary particular-client__btn-cancel' type='button') Anuluj           
+           button(class='particular-client__btn-summary particular-client__btn-delete' type='button') Usuń   
+         .confirm-remove
+          p Czy napewno chcesz usunąć klienta?
+          div
+            button(class='confirm-remove__not-confirm' type='button') Nie       
+            button(class='confirm-remove__confirm' type='button') Tak       
        .back-to-all
           button(class='back-to-all__btn') Powrót do listy
        .number-of-pages

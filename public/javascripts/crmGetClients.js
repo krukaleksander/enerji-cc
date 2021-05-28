@@ -726,4 +726,32 @@ let allClientsFromDB = [];
 
 
     //koniec fragment socket io
+
+    //start usuwanie klienta
+
+    const removeClientShowWindowBtn = document.querySelector('.particular-client__btn-delete');
+    const confirmRemoveClientWindow = document.querySelector('.confirm-remove');
+    const notConfirmRemoveBtn = document.querySelector('.confirm-remove__not-confirm');
+    const confirmRemoveBtn = document.querySelector('.confirm-remove__confirm');
+
+    removeClientShowWindowBtn.addEventListener('click', () => confirmRemoveClientWindow.style.display = 'block');
+    notConfirmRemoveBtn.addEventListener('click', () => confirmRemoveClientWindow.style.display = 'none');
+
+
+    confirmRemoveBtn.addEventListener('click', async () => {
+        //tutaj cała funkcja usuwająca klienta. Trzeba usunąć i moim zdaniem odświeżyć stronę
+        // rozwiązanie oczywiście fetchem
+        const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
+        console.log(console.log(clientId));
+        const deleteClient = await fetch(`${window.location.href}/delete-client/${clientId}`);
+        const respText = await deleteClient.text();
+        particularClientContainer.style.display = 'none';
+        confirmRemoveClientWindow.style.display = 'none'
+        alert(respText);
+
+
+
+    })
+
+    // koniec usuwanie klienta
 })()

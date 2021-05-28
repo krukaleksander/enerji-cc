@@ -623,6 +623,17 @@
         }
     }
 
+    &__btn-delete {
+        background-color: red;
+        color: wheat;
+        width: 100px;
+
+        &:hover {
+            border-color: greenyellow;
+            letter-spacing: 1px;
+        }
+    }
+
     &__btn-update {
         color: yellowgreen;
 
@@ -631,6 +642,49 @@
             letter-spacing: 1px;
         }
     }
+}
+
+.confirm-remove {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $basic-background;
+    padding: 20px;
+    @include main-border;
+
+    div {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    button {
+        width: 100px;
+        padding: 2px;
+        border: 1px solid white;
+        background-color: unset;
+        border-radius: 5px;
+
+    }
+
+    &__not-confirm {
+        color: green;
+
+        &:hover {
+            border-color: green;
+        }
+    }
+
+    &__confirm {
+        color: red;
+
+        &:hover {
+            border-color: red;
+        }
+    }
+
+
 }
 
 // koniec pojedyńczy klient
