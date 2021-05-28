@@ -65,7 +65,25 @@ block content
          p(class='change-data-phone__response')
      p(class='wallet-summary') Twój portfel:
        span  Przeliczam...
-     .clients-wrapper       
+     .clients-wrapper
+       .filter-div
+         label(for="whatFilter") Filtruj po: 
+         select(id='whatFilter')
+           option(value="category") Kategoria        
+         select(id='filterOptions')
+           option(value="country") Gospodarstwa
+           option(value="factory") Zakłady
+           option(value="p5") P5
+           option(value="partner") Inny partner
+           option(value="mine") Inicjatywa
+           option(value="brak-danych") Brak danych
+           option(value="net") Internet              
+           option(value="bazafirm") BazaFirm              
+           option(value="olx") Olx              
+           option(value="gumtree") Gumtree              
+           option(value="google") Google   
+         button(class='filter-div__btn') Filtruj!    
+         button(class='filter-div__btn-remove' id='removeFilters') Usuń filtr    
        .lds-roller
         div
         div
@@ -74,7 +92,7 @@ block content
         div
         div
         div
-        div
+        div     
        table(class='clients-table')
          tr
            th NIP

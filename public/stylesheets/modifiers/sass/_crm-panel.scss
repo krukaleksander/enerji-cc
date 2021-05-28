@@ -1045,3 +1045,49 @@
 }
 
 // koniec loader zadań
+
+//filtracja
+
+.filter-div {
+    padding: 10px;
+
+    label {
+        color: aliceblue;
+        letter-spacing: 1px;
+        margin-right: 5px;
+    }
+
+    select {
+        padding: 1px;
+        margin-right: 5px;
+        background-color: $basic-background;
+        color: aliceblue;
+    }
+
+    button {
+        background-color: transparent;
+        border: 1px solid aliceblue;
+        font-size: 17px;
+        padding: 2px;
+        letter-spacing: 1px;
+        width: 85px;
+        color: yellowgreen;
+        transition: .3s;
+
+        &:hover {
+            border-color: yellowgreen;
+        }
+    }
+
+    #removeFilters {
+        display: none;
+        color: red;
+        margin-left: 10px;
+
+        &:hover {
+            border-color: red;
+        }
+    }
+}
+
+//koniec filtracja

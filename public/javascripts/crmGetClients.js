@@ -1,4 +1,5 @@
 let allClientsFromDB = [];
+let filteredClients = [];
 (() => {
     const table = document.querySelector('.clients-table');
     const spinner = document.querySelector('.lds-roller');
@@ -739,10 +740,7 @@ let allClientsFromDB = [];
 
 
     confirmRemoveBtn.addEventListener('click', async () => {
-        //tutaj cała funkcja usuwająca klienta. Trzeba usunąć i moim zdaniem odświeżyć stronę
-        // rozwiązanie oczywiście fetchem
         const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
-        console.log(console.log(clientId));
         const deleteClient = await fetch(`${window.location.href}/delete-client/${clientId}`);
         const respText = await deleteClient.text();
         particularClientContainer.style.display = 'none';
@@ -754,4 +752,35 @@ let allClientsFromDB = [];
     })
 
     // koniec usuwanie klienta
+
+    //filtrowanie klienta
+
+    let whatToFilter, filterOption;
+    const filterBtn = document.querySelector('.filter-div__btn');
+    const removeFiltersBtn = document.getElementById('removeFilters');
+
+    filterBtn.addEventListener('click', () => {
+        removeFiltersBtn.style.display = 'inline-block';
+        filterBtn.style.display = 'none';
+        whatToFilter = document.getElementById('whatFilter').value;
+        filterOption = document.getElementById('filterOptions').value;
+
+        switch (whatToFilter) {
+            case 'category':
+                filteredClients = allClientsFromDB.filter(client => client.category === filterOption);
+                break;
+
+            default:
+                break;
+        }
+        allClientsFromDB = filteredClients;
+        jumpToPage(1, 'jump-to');
+    })
+    removeFiltersBtn.addEventListener('click', () => {
+        location.reload();
+    })
+
+
+    // koniec filtrowanie klienta
+
 })()
