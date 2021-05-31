@@ -186,6 +186,7 @@ let filteredClients = [];
         const nipy = [...document.querySelectorAll('.clients-table tr td:nth-child(1)')];
         nipy.forEach(nip => nip.addEventListener('click', (e) => {
             particularClientContainer.style.display = 'flex';
+            console.log(allClientsFromDB);
             const clientToShow = allClientsFromDB.find(client => client._id == e.target.getAttribute('data-id'));
             const {
                 _id,
@@ -202,7 +203,8 @@ let filteredClients = [];
                 streetNumber,
                 tasks,
                 description,
-                status
+                status,
+                www
             } = clientToShow;
             const idPar = document.querySelector('.particular-client__id');
             const namePar = document.querySelector('.particular-client__name');
@@ -216,6 +218,7 @@ let filteredClients = [];
             const streetPar = document.querySelector('.particular-client__street');
             const streetNumberPar = document.querySelector('.particular-client__street-number');
             const descriptionPar = document.querySelector('.particular-client__description');
+            const wwwPar = document.querySelector('.particular-client__www');
             const selectStatus = document.querySelector('.particular-client__select-status');
 
             idPar.value = id;
@@ -231,6 +234,7 @@ let filteredClients = [];
             streetPar.value = street;
             streetNumberPar.value = streetNumber;
             selectStatus.value = status;
+            wwwPar.value = www;
             if (description.length > 0) return descriptionPar.value = description;
             descriptionPar.value = 'Opis...';
         }));
@@ -262,6 +266,7 @@ let filteredClients = [];
         data.append("street", document.querySelector('.particular-client__street').value);
         data.append("streetNumber", document.querySelector('.particular-client__street-number').value);
         data.append("description", document.querySelector('.particular-client__description').value);
+        data.append("www", document.querySelector('.particular-client__www').value);
         data.append("status", document.querySelector('.particular-client__select-status').value);
 
         fetch(`${window.location.href}/update-client/`, {
@@ -294,11 +299,14 @@ let filteredClients = [];
         const street = document.querySelector('.particular-client__street').value;
         const streetNumber = document.querySelector('.particular-client__street-number').value;
         const description = document.querySelector('.particular-client__description').value;
+        const www = document.querySelector('.particular-client__www').value;
         const status = document.querySelector('.particular-client__select-status').value;
-
+        const mongoId = document.querySelector('.particular-client__id').getAttribute("data_id");
         allClientsFromDB = allClientsFromDB.map(client => {
-            if (client.id == id) {
+            if (client._id === mongoId) {
+
                 return {
+                    _id: mongoId,
                     id,
                     name,
                     owner,
@@ -311,7 +319,8 @@ let filteredClients = [];
                     street,
                     streetNumber,
                     description,
-                    status
+                    status,
+                    www: www
                 }
             } else {
                 return client
@@ -343,7 +352,7 @@ let filteredClients = [];
     closeNewContainer.addEventListener('click', () => newClientContainer.style.display = 'none');
     cancelBtn.addEventListener('click', () => newClientContainer.style.display = 'none');
 
-    let idPar, namePar, ownerPar, phonePar, emailPar, consumptionPar, categoryPar, postalCodePar, cityPar, streetPar, streetNumberPar, descriptionPar, selectStatus;
+    let idPar, namePar, ownerPar, phonePar, emailPar, consumptionPar, categoryPar, postalCodePar, cityPar, streetPar, streetNumberPar, descriptionPar, wwwPar, selectStatus;
 
     function getActualValues() {
         idPar = document.querySelector('.particular-client-new__id').value;
@@ -358,6 +367,7 @@ let filteredClients = [];
         streetPar = document.querySelector('.particular-client-new__street').value;
         streetNumberPar = document.querySelector('.particular-client-new__street-number').value;
         descriptionPar = document.querySelector('.particular-client-new__description').value;
+        wwwPar = document.querySelector('.particular-client-new__www').value;
         selectStatus = document.querySelector('.particular-client-new__select-status').value;
     }
 
@@ -374,6 +384,7 @@ let filteredClients = [];
         document.querySelector('.particular-client-new__street').value = '';
         document.querySelector('.particular-client-new__street-number').value = '';
         document.querySelector('.particular-client-new__description').value = '';
+        document.querySelector('.particular-client-new__www').value = '';
         document.querySelector('.particular-client-new__select-status').value = 'potencjalny';
     }
 
@@ -394,6 +405,7 @@ let filteredClients = [];
         data.append("street", streetPar);
         data.append("streetNumber", streetNumberPar);
         data.append("description", descriptionPar);
+        data.append("www", wwwPar);
         data.append("status", selectStatus);
 
         fetch(`${window.location.href}/add-client/`, {
