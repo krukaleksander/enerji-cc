@@ -195,7 +195,8 @@ router.post('/update-client/', (req, res, next) => {
         street,
         streetNumber,
         description,
-        status
+        status,
+        www
     } = req.body;
 
     clientsready.findOneAndUpdate({
@@ -213,7 +214,8 @@ router.post('/update-client/', (req, res, next) => {
         street,
         streetNumber,
         description,
-        status
+        status,
+        www
     }, () => {
         return res.send('dane zmienione');
     })
@@ -242,7 +244,8 @@ router.post('/add-client/', async (req, res, next) => {
         street,
         streetNumber,
         description,
-        status
+        status,
+        www
     } = req.body;
 
     // fragment sprawdzenie nip
@@ -270,7 +273,8 @@ router.post('/add-client/', async (req, res, next) => {
                 postalCode,
                 description,
                 tasks: [],
-                status
+                status,
+                www
             });
             await newClient.save()
                 .then(() => res.send('dodano'))
@@ -290,7 +294,8 @@ router.post('/add-client/', async (req, res, next) => {
                 postalCode,
                 description,
                 tasks: [],
-                status
+                status,
+                www
             });
             await newClient.save()
                 .then(() => res.send('dodano'))
@@ -392,13 +397,6 @@ router.get('/delete-task/:id', async (req, res) => {
 })
 
 // koniec kasowanie zadania
-
-
-// pobieranie nazwy użytkownika dla chatu
-
-
-
-// koniec pobieranie nazwy użytkownika dla chatu
 
 // przebudowa bazy 
 //dodawanie nowej pozycji
@@ -528,6 +526,41 @@ router.get('/delete-task/:id', async (req, res) => {
 //     // });
 // });
 
+// dodanie nowej pozycji do dokumentów
+// pamiętaj dodać też tą pozycję w schema!
+
+// router.get('/rebuild', async (req, res, next) => {
+
+//     //tutaj
+
+//     let clientsList = [];
+//     await clientsready.find({}, (err, data) => {
+//             if (err) console.log(err);
+//             // clients = data[0].clients.splice(0, 10);
+//             clientsList = data;
+
+//         })
+//         .then(() => {
+//             clientsList.forEach((client, index) => {
+
+//                 clientsready.findOneAndUpdate({
+//                     _id: client._id
+//                 }, {
+//                     $set: {
+//                         'www': 'www'
+//                     }
+//                 }, () => {
+//                     return console.log('Zmieniłem ' + index);
+//                 })
+//             })
+//         })
+
+// })
+
+
+// koniec dodanie nowej pozycji do dokumentów
+
+
 // koniec przebudowa bazy
 
 // usuwanie z bazy
@@ -589,7 +622,8 @@ router.get('/add-client-mass/', async (req, res, next) => {
             streetNumber,
             description,
             status,
-            tasks
+            tasks,
+            www
         } = client;
 
         await clientsready.find({}, (err, data) => {
@@ -614,7 +648,8 @@ router.get('/add-client-mass/', async (req, res, next) => {
                     postalCode,
                     description,
                     tasks: [],
-                    status
+                    status,
+                    www
                 });
                 await newClient.save()
                     .then(() => {

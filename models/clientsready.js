@@ -57,6 +57,10 @@ clientsreadySchema = new Schema({
     status: {
         type: String,
         // required: true
+    },
+    www: {
+        type: String,
+        // required: true
     }
 }, {
     collection: 'cleanbasee'
