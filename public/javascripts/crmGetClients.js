@@ -76,7 +76,8 @@ let filteredClients = [];
                     owner,
                     status
                 } = client;
-                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
+                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
+
             });
         }
 
@@ -111,6 +112,24 @@ let filteredClients = [];
     // koniec funkcja do zmieniania strony
 
 
+
+    //funkcja do howania wyszukiwania klientów
+    function hideSearchBar() {
+        const loadDivStyles = 'font-size: 20px;padding: 10px;color: floralwhite;   cursor: pointer;border: 3px solid purple;margin-bottom: 2px;'
+        const searchDiv = document.querySelector('.search');
+        const loadDiv = document.createElement('div');
+        loadDiv.style = loadDivStyles;
+        loadDiv.innerText = 'Wróć do klientów';
+        searchDiv.innerHTML = '';
+        searchDiv.appendChild(loadDiv);
+        loadDiv.addEventListener('click', () => location.reload())
+    }
+
+    //koniec funkcja do howania wyszukiwania klientów
+
+
+
+
     // podpięcie zmieninia strony do guzików
 
 
@@ -134,17 +153,33 @@ let filteredClients = [];
     let searchInputValue, searchOption;
     const searchButton = document.querySelector('.searchButton');
 
+
     searchButton.addEventListener('click', () => {
-        let clientToShow = [];
         searchOption = document.querySelector('.search__select-option').value;
         searchInputValue = document.querySelector('.searchTerm').value;
 
+        let filteredClients = [];
+
         if (searchOption === 'name') {
             const re = RegExp(`${searchInputValue}`, 'gmi');
-            clientToShow = allClientsFromDB.filter(value => re.test(value.name));
+            filteredClients = allClientsFromDB.filter(value => re.test(value.name));
+            allClientsFromDB = filteredClients;
+            console.log(allClientsFromDB);
+            jumpToPage(1, 'jump-to');
+
         }
         if (searchOption === 'nip') {
-            clientToShow.push(allClientsFromDB.find(client => client.id == searchInputValue));
+            const re = RegExp(`${searchInputValue}`, 'gmi');
+            filteredClients = allClientsFromDB.filter(value => re.test(value.id));
+            allClientsFromDB = filteredClients;
+            jumpToPage(1, 'jump-to');
+        }
+        if (searchOption === 'tel') {
+            const re = RegExp(`${searchInputValue}`, 'gmi');
+            filteredClients = allClientsFromDB.filter(value => re.test(value.phone));
+            allClientsFromDB = filteredClients;
+            console.log(allClientsFromDB);
+            jumpToPage(1, 'jump-to');
         }
 
         document.querySelector('.searchTerm').value = '';
@@ -153,10 +188,16 @@ let filteredClients = [];
             clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status </th><th>Opiekun </th></tr>'
             document.querySelector('.doesnt-find-client').innerHTML = 'Nie znaleziono klienta';
         };
-        if (clientToShow.length < 1 || clientToShow[0] === undefined) return doesntFindFn();
+        if (allClientsFromDB.length < 1 || allClientsFromDB[0] === undefined) {
+            doesntFindFn()
+            hideSearchBar()
+
+        };
         clientsTable.innerHTML = '<tr><th>NIP</th><th>Nazwa</th><th>Telefon</th><th>Zużycie [MWH]</th><th>Status </th><th>Opiekun </th></tr>';
-        clientToShow.forEach(client => {
+        allClientsFromDB.forEach((client, index) => {
+            if (index > 19) return;
             const {
+                _id,
                 id,
                 name,
                 phone,
@@ -164,16 +205,18 @@ let filteredClients = [];
                 owner,
                 status
             } = client;
-            clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
+            clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
             btnBackToList.style.display = 'block';
         })
 
         setOpenClients();
+        hideSearchBar();
+        //tutaj
 
     });
 
     btnBackToList.addEventListener('click', () => {
-        jumpToPage(actualPage, 'jump-to');
+        location.reload();
     });
 
     // koniec wyszukiwanie klientów
@@ -186,7 +229,6 @@ let filteredClients = [];
         const nipy = [...document.querySelectorAll('.clients-table tr td:nth-child(1)')];
         nipy.forEach(nip => nip.addEventListener('click', (e) => {
             particularClientContainer.style.display = 'flex';
-            console.log(allClientsFromDB);
             const clientToShow = allClientsFromDB.find(client => client._id == e.target.getAttribute('data-id'));
             const {
                 _id,

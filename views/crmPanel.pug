@@ -23,7 +23,8 @@ block content
       select(class='search__select-option')
         option(value="nip") NIP
         option(value='name') Nazwa
-      input.searchTerm(type='text' placeholder='Wyszukaj po nip lub nazwie')
+        option(value='tel') Tel.
+      input.searchTerm(type='text' placeholder='Wybierz z lewej po czym szukasz, NIP?')
       button.searchButton(type='submit')
         i.fa.fa-search
      div(class="chat-container")
