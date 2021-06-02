@@ -809,25 +809,39 @@ let filteredClients = [];
 
     //filtrowanie klienta
 
-    let whatToFilter, filterOption;
+    let categoryFilter, statusFilter, cityFilter;
     const filterBtn = document.querySelector('.filter-div__btn');
     const removeFiltersBtn = document.getElementById('removeFilters');
 
     filterBtn.addEventListener('click', () => {
+        let temporaryFiltredClients = [];
         removeFiltersBtn.style.display = 'inline-block';
         filterBtn.style.display = 'none';
-        whatToFilter = document.getElementById('whatFilter').value;
-        filterOption = document.getElementById('filterOptions').value;
+        categoryFilter = document.getElementById('category').value;
+        statusFilter = document.getElementById('filterStatus').value;
+        cityFilter = document.getElementById('filterCity').value;
 
-        switch (whatToFilter) {
-            case 'category':
-                filteredClients = allClientsFromDB.filter(client => client.category === filterOption);
-                break;
+        // if (categoryFilter !== 'nie wybrano') temporaryFiltredClients = allClientsFromDB.filter(client => client.category === filterOption);
+        function filteringCategory(base, condition) {
+            if (condition === 'nie wybrano' || condition.length < 1) return base
+            return base.filter(client => client.category === condition);
+        };
 
-            default:
-                break;
-        }
-        allClientsFromDB = filteredClients;
+        function filteringStatus(base, condition) {
+            if (condition === 'nie wybrano' || condition.length < 1) return base
+            return base.filter(client => client.status === condition);
+        };
+
+        function filteringCity(base, condition) {
+            if (condition === 'nie wybrano' || condition.length < 1) return base
+            return base.filter(client => client.city === condition);
+        };
+
+        allClientsFromDB = filteringCity((filteringStatus(filteringCategory(allClientsFromDB, categoryFilter), statusFilter)), cityFilter);
+
+
+
+        // allClientsFromDB = filteredClients;
         jumpToPage(1, 'jump-to');
     })
     removeFiltersBtn.addEventListener('click', () => {
