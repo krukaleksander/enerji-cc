@@ -68,23 +68,40 @@ block content
        span  Przeliczam...
      .clients-wrapper
        .filter-div
-         label(for="whatFilter") Filtruj po: 
-         select(id='whatFilter')
-           option(value="category") Kategoria        
-         select(id='filterOptions')
-           option(value="country") Gospodarstwa
-           option(value="factory") Zakłady
-           option(value="p5") P5
-           option(value="partner") Inny partner
-           option(value="mine") Inicjatywa
-           option(value="brak-danych") Brak danych
-           option(value="net") Internet              
-           option(value="bazafirm") BazaFirm              
-           option(value="olx") Olx              
-           option(value="gumtree") Gumtree              
-           option(value="google") Google   
-         button(class='filter-div__btn') Filtruj!    
-         button(class='filter-div__btn-remove' id='removeFilters') Usuń filtr    
+         h1(class='filter-div__heading') Filtracja
+         div(class='filter-div__wrapper')
+           div
+             label(for="whatFilter") Kategoria 
+             select(id='category')
+               option(value="nie wybrano") nie wybrano
+               option(value="country") Gospodarstwa
+               option(value="factory") Zakłady
+               option(value="p5") P5
+               option(value="partner") Inny partner
+               option(value="mine") Inicjatywa
+               option(value="brak-danych") Brak danych
+               option(value="net") Internet   
+               option(value="bazafirm") BazaFirm              
+               option(value="olx") Olx              
+               option(value="gumtree") Gumtree              
+               option(value="google") Google 
+           div     
+             label(for="filterStatus") Status       
+             select(id='filterStatus' name='filterStatus')
+               option(value="nie wybrano") nie wybrano
+               option(value="potencjalny") Potencjalny
+               option(value="rezygnacja") Rezygnacja
+               option(value="aktualny") Aktualny
+               option(value="kontakt") Kontakt
+               option(value="no") NO
+               option(value="spotkanie") Spotkanie
+               option(value="brak-danych") Brak danych
+               option(value="inny") Inny 
+           div 
+             label(for="filterCity") Miasto
+             input(type="text" name='filterCity' id='filterCity' placeholder='miasto')  
+           button(class='filter-div__btn') Filtruj!    
+           button(class='filter-div__btn-remove' id='removeFilters') Usuń filtr    
        .lds-roller
         div
         div

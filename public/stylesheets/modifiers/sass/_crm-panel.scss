@@ -1067,15 +1067,37 @@
     button {
         background-color: transparent;
         border: 1px solid aliceblue;
+        border-radius: 5px;
         font-size: 17px;
         padding: 2px;
         letter-spacing: 1px;
         width: 85px;
         color: yellowgreen;
+        height: 33px;
+        align-self: flex-end;
+        margin-left: 5px;
         transition: .3s;
 
         &:hover {
             border-color: yellowgreen;
+        }
+    }
+
+    h1 {
+        text-align: center;
+        color: whitesmoke;
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+
+    &__wrapper {
+        display: flex;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 150px;
         }
     }
 
