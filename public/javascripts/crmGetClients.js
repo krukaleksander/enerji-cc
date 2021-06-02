@@ -735,6 +735,7 @@ let filteredClients = [];
                 console.log('klikam');
                 if (e.target.getAttribute('data-id') === 'none') return
                 taskListContainer.style.bottom = '-100vh';
+                document.querySelector('.lds-ellipsis').style.display = 'block';
                 particularClientContainer.style.display = 'flex';
                 const clientToShow = allClientsFromDB.find(client => client._id == e.target.getAttribute('data-id'));
                 const {
@@ -819,6 +820,8 @@ let filteredClients = [];
     btnHideTaskList.addEventListener('click', () => {
         taskListDiv.innerHTML = '';
         taskListContainer.style.bottom = '-100vh';
+        document.querySelector('.lds-ellipsis').style.display = 'block';
+
     });
 
 
