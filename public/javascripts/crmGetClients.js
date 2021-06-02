@@ -211,7 +211,7 @@ let filteredClients = [];
 
         setOpenClients();
         hideSearchBar();
-        //tutaj
+
 
     });
 
@@ -560,6 +560,7 @@ let filteredClients = [];
         data.append("description", document.querySelector('#taskDescription').value);
         data.append("phone", document.querySelector('#taskTel').value);
         data.append("date", new Date(dataForServerString).addHours(2));
+        data.append("clientId", document.getElementById('taskNip').getAttribute('data-id'));
 
         fetch(`${window.location.href}/add-task/`, {
                 method: 'post',
@@ -606,11 +607,13 @@ let filteredClients = [];
         createTaskWindow.style.display = 'flex';
 
         idForTask = document.querySelector('.particular-client__id').value;
+        const idInDb = document.querySelector('.particular-client__id').getAttribute('data_id');
         nameForTask = document.querySelector('.particular-client__name').value;
         phoneForTask = document.querySelector('.particular-client__phone').value;
 
 
         document.getElementById('taskNip').value = idForTask;
+        document.getElementById('taskNip').setAttribute('data-id', idInDb);
         document.getElementById('taskClientName').value = nameForTask;
         document.getElementById('taskTel').value = phoneForTask;
 
@@ -618,6 +621,7 @@ let filteredClients = [];
     })
 
     btnOpenTaskWindowInTaskList.addEventListener('click', () => {
+        document.getElementById('taskNip').setAttribute('data-id', 'none');
         const inputs = [...document.querySelectorAll('.task-window .task-window__input')];
         inputs.forEach(input => input.value = '');
         createTaskWindow.style.display = 'flex'
@@ -678,7 +682,8 @@ let filteredClients = [];
                 title,
                 phone,
                 description,
-                clientNip
+                clientNip,
+                clientId
             } = task;
 
             function fixDateNumber(number) {
@@ -693,7 +698,7 @@ let filteredClients = [];
             const hours = fixDateNumber(dateToFix.getUTCHours());
             const minutes = fixDateNumber(dateToFix.getUTCMinutes());
             taskListDiv.innerHTML = taskListDiv.innerHTML + `
-            <div class='particular-task'>
+            <div class='particular-task'><i class="fas fa-user-tie particular-task__track-client" data-id=${clientId}></i>` + `
             <div class='particular-task__open'><i class="fas fa-folder-open" data-id='${_id}' data-date='${hours}:${minutes} ${day}.${month}.${year}'></i></div>
             <div class='particular-task__date'>${hours}:${minutes} ${day}.${month}.${year}</div>
             <div class='particular-task__title ${dateToFix.getTime() > actualDate.getTime() ? '' : 'particular-task__title-red'}'>${shortenName(title)}</div>
@@ -703,6 +708,7 @@ let filteredClients = [];
             // wchodzenie w zadanie
 
             const openTaskBtns = [...document.querySelectorAll('.particular-task__open')];
+            console.log(openTaskBtns);
 
 
             openTaskBtns.forEach(btn => {
@@ -717,12 +723,79 @@ let filteredClients = [];
 
             });
 
+            //koniec wchodzenie w zadanie
+
+            // przejście z zadania do klienta
+
+            //tutaj
+            const openClientFromTaskListBtns = [...document.querySelectorAll('.particular-task__track-client')];
+            console.log(openClientFromTaskListBtns);
+
+            openClientFromTaskListBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                console.log('klikam');
+                if (e.target.getAttribute('data-id') === 'none') return
+                taskListContainer.style.bottom = '-100vh';
+                particularClientContainer.style.display = 'flex';
+                const clientToShow = allClientsFromDB.find(client => client._id == e.target.getAttribute('data-id'));
+                const {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks,
+                    description,
+                    status,
+                    www
+                } = clientToShow;
+                const idPar = document.querySelector('.particular-client__id');
+                const namePar = document.querySelector('.particular-client__name');
+                const ownerPar = document.querySelector('.particular-client__owner');
+                const phonePar = document.querySelector('.particular-client__phone');
+                const emailPar = document.querySelector('.particular-client__email');
+                const consumptionPar = document.querySelector('.particular-client__consumption');
+                const categoryPar = document.querySelector('.particular-client__category');
+                const postalCodePar = document.querySelector('.particular-client__postal-code');
+                const cityPar = document.querySelector('.particular-client__city');
+                const streetPar = document.querySelector('.particular-client__street');
+                const streetNumberPar = document.querySelector('.particular-client__street-number');
+                const descriptionPar = document.querySelector('.particular-client__description');
+                const wwwPar = document.querySelector('.particular-client__www');
+                const selectStatus = document.querySelector('.particular-client__select-status');
+
+                idPar.value = id;
+                idPar.setAttribute('data_id', _id);
+                namePar.value = name;
+                ownerPar.value = owner;
+                phonePar.value = phone;
+                emailPar.value = email;
+                consumptionPar.value = consumption;
+                categoryPar.value = category;
+                postalCodePar.value = postalCode;
+                cityPar.value = city;
+                streetPar.value = street;
+                streetNumberPar.value = streetNumber;
+                selectStatus.value = status;
+                wwwPar.value = www;
+                if (description.length > 0) return descriptionPar.value = description;
+                descriptionPar.value = 'Opis...';
+            }));
+
+            // koniecprzejście z zadania do klienta
+
         });
 
 
     });
 
-    //koniec wchodzenie w zadanie
+
 
     // zamykanie kontenera z zadaniem
     const closeTeTaskContainer = document.querySelector('.the-task-container__close');
@@ -747,6 +820,9 @@ let filteredClients = [];
         taskListDiv.innerHTML = '';
         taskListContainer.style.bottom = '-100vh';
     });
+
+
+
 
     // koniec obsługa dodawania zadania
 

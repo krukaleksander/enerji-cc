@@ -325,6 +325,7 @@ router.post('/add-task/', async (req, res, next) => {
         description,
         phone,
         date,
+        clientId
     } = req.body;
 
     //funkcja sprawdzająca poprawność daty
@@ -355,7 +356,9 @@ router.post('/add-task/', async (req, res, next) => {
         description,
         phone,
         date,
-        owner: req.session.userName
+        owner: req.session.userName,
+        clientId,
+        opened: true
     });
     await newTask.save()
         .then(res.send('Zadanie dodane'))

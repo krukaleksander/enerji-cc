@@ -28,6 +28,12 @@ tasksSchema = new Schema({
     },
     owner: {
         type: String
+    },
+    clientId: {
+        type: String
+    },
+    opened: {
+        type: Boolean
     }
 }, {
     collection: 'tasks'

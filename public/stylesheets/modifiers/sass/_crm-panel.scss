@@ -940,6 +940,12 @@
             &__open {
                 cursor: pointer;
             }
+
+            &__track-client {
+                align-self: center;
+                margin-right: 10px;
+                cursor: pointer;
+            }
         }
     }
 
