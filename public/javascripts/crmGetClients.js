@@ -285,7 +285,9 @@ let filteredClients = [];
 
 
 
-            let taskReverse = tasks.reverse();
+            let taskReverse = tasks.sort(function (a, b) {
+                return new Date(b.date) - new Date(a.date);
+            });
 
             taskReverse.forEach(note => {
                 const {
