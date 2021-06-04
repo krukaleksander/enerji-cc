@@ -1233,14 +1233,9 @@ let filteredClients = [];
         //tutaj bierzemy się za odświeżenie listy notatek o tą zaktualizaowaną.
         refreshNotes(clientId, notesContainer);
 
-
-
-
-
         let data = new URLSearchParams();
         data.append("_id", clientId);
         data.append("tasks", JSON.stringify(tasksNow));
-        console.log(tasksNow);
 
         fetch(`${window.location.href}/edit-note/`, {
                 method: 'post',
@@ -1259,22 +1254,103 @@ let filteredClients = [];
                 console.log(error)
             });
 
+    })
+
+    //koniec edycja notatki
 
 
 
+    // usuwanie notatki
 
 
 
+    const removeNoteBtn = document.querySelector('.note__button--remove');
+
+    removeNoteBtn.addEventListener('click', () => {
+        const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
+        let tasksNow;
+        const newClientsFromDb = allClientsFromDB.map(client => {
+            if (client._id == clientId) {
+                const {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks,
+                    description,
+                    status,
+                    www
+                } = client;
+
+
+                tasksNow = tasks;
+                const taskId = document.querySelector('.note__created').getAttribute('data-id');
+                tasksNow = tasksNow.filter(task => task.date !== taskId);
+
+                const newClient = {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks: tasksNow,
+                    description,
+                    status,
+                    www
+                };
+                return newClient;
+
+            } else {
+                return client
+            }
+        });
+        allClientsFromDB = newClientsFromDb;
+
+        //tutaj bierzemy się za odświeżenie listy notatek o tą zaktualizaowaną.
+        refreshNotes(clientId, notesContainer);
+
+        let data = new URLSearchParams();
+        data.append("_id", clientId);
+        data.append("tasks", JSON.stringify(tasksNow));
+
+        fetch(`${window.location.href}/remove-note/`, {
+                method: 'post',
+                body: data
+            })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                document.querySelector('.note').style.display = 'none';
+                const removeInfoContainer = document.querySelector('.notes__info');
+                removeInfoContainer.innerHTML = text;
+                removeInfoContainer.style.display = 'block';
+                setTimeout(() => removeInfoContainer.style.display = 'none', 1500)
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
 
     })
 
 
 
-
-
-    //koniec edycja notatki
-
-
+    // koniec usuwanie notatki
 
 
     // koniec notatki

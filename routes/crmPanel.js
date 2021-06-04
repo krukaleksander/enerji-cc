@@ -778,6 +778,26 @@ router.post('/edit-note/', (req, res, next) => {
 
 })
 
+router.post('/remove-note/', (req, res, next) => {
+    const {
+        _id,
+        tasks
+    } = req.body;
+
+
+    clientsready.findOneAndUpdate({
+        _id: _id
+    }, {
+        $set: {
+            tasks: JSON.parse(tasks)
+        }
+    }, () => {
+        return res.send('notatka usunięta');
+    })
+
+
+})
+
 
 //koniec edycja notatek
 

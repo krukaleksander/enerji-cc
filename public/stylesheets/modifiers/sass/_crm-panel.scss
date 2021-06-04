@@ -1142,6 +1142,16 @@
     background-color: $basic-background;
     @include main-border;
 
+    &__info {
+        display: none;
+        color: greenyellow;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+    }
+
     &__close {
         background: transparent;
         color: indianred;
