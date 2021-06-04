@@ -1167,7 +1167,7 @@ let filteredClients = [];
 
     editNoteBtn.addEventListener('click', () => {
         const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
-
+        let tasksNow;
         const newClientsFromDb = allClientsFromDB.map(client => {
             if (client._id == clientId) {
                 const {
@@ -1190,7 +1190,7 @@ let filteredClients = [];
                 } = client;
 
 
-                let tasksNow = tasks;
+                tasksNow = tasks;
                 const taskId = document.querySelector('.note__created').getAttribute('data-id');
                 tasksNow = tasksNow.map(task => {
                     if (task.date === taskId) {
@@ -1232,6 +1232,40 @@ let filteredClients = [];
 
         //tutaj bierzemy się za odświeżenie listy notatek o tą zaktualizaowaną.
         refreshNotes(clientId, notesContainer);
+
+
+
+
+
+        let data = new URLSearchParams();
+        data.append("_id", clientId);
+        data.append("tasks", JSON.stringify(tasksNow));
+        console.log(tasksNow);
+
+        fetch(`${window.location.href}/edit-note/`, {
+                method: 'post',
+                body: data
+            })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                const addInfoContainer = document.querySelector('.note__info');
+                addInfoContainer.innerHTML = text;
+                addInfoContainer.style.display = 'block';
+                setTimeout(() => addInfoContainer.style.display = 'none', 1500)
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+
+
+
+
+
+
+
+
     })
 
 

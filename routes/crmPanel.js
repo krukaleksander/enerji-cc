@@ -755,4 +755,30 @@ router.post('/add-note/', (req, res, next) => {
 //koniec dodawanie notatek
 
 
+//edycja notatek
+
+
+router.post('/edit-note/', (req, res, next) => {
+    const {
+        _id,
+        tasks
+    } = req.body;
+
+
+    clientsready.findOneAndUpdate({
+        _id: _id
+    }, {
+        $set: {
+            tasks: JSON.parse(tasks)
+        }
+    }, () => {
+        return res.send('notatka zedytowana');
+    })
+
+
+})
+
+
+//koniec edycja notatek
+
 module.exports = router;
