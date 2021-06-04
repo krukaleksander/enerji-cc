@@ -224,10 +224,13 @@ let filteredClients = [];
 
     // otwieranie poszczególnych klientów
     const particularClientContainer = document.querySelector('.particular-client');
+    let notesContainer = document.querySelector('.notes__container');
+
 
     function setOpenClients() {
         const nipy = [...document.querySelectorAll('.clients-table tr td:nth-child(1)')];
         nipy.forEach(nip => nip.addEventListener('click', (e) => {
+            notesContainer.innerHTML = '';
             particularClientContainer.style.display = 'flex';
             const clientToShow = allClientsFromDB.find(client => client._id == e.target.getAttribute('data-id'));
             const {
@@ -248,6 +251,7 @@ let filteredClients = [];
                 status,
                 www
             } = clientToShow;
+            console.log(tasks);
             const idPar = document.querySelector('.particular-client__id');
             const namePar = document.querySelector('.particular-client__name');
             const ownerPar = document.querySelector('.particular-client__owner');
@@ -277,6 +281,24 @@ let filteredClients = [];
             streetNumberPar.value = streetNumber;
             selectStatus.value = status;
             wwwPar.value = www;
+
+            // wyświetlanie notatek
+
+            //tutaj
+
+            let taskReverse = tasks.reverse();
+
+            taskReverse.forEach(note => {
+                const {
+                    title,
+                    date
+                } = note;
+
+
+                notesContainer.innerHTML = notesContainer.innerHTML + `<div class='note-row'><p class='note-row__date'>${date.slice(0,21)}</p><p class='note-row__title'>${title}</p></div>`
+            })
+            // koniec wyświetlanie notatek
+
             if (description.length > 0) return descriptionPar.value = description;
             descriptionPar.value = 'Opis...';
         }));

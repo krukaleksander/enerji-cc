@@ -1181,6 +1181,23 @@
         align-self: center;
         border: 1px solid;
         border-radius: 2px;
+        overflow-y: scroll;
+
+        .note-row {
+            display: flex;
+            padding: 5px;
+            margin: 5px;
+            border: 1px solid #743ad5;
+            cursor: pointer;
+
+            p {
+                margin: 0;
+            }
+
+            &__title {
+                margin-left: 10px !important;
+            }
+        }
     }
 
 }
