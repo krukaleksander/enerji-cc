@@ -1131,7 +1131,7 @@
 
 
 .notes {
-    display: flex;
+    display: none;
     flex-direction: column;
     min-width: 80%;
     min-height: 80%;
@@ -1151,6 +1151,13 @@
         align-self: flex-end;
         padding: 5px;
         cursor: pointer;
+    }
+
+    &__title {
+        margin-top: 10px;
+        font-size: 25px;
+        letter-spacing: 2px;
+        text-align: center;
     }
 
     &__create-note {
@@ -1174,6 +1181,73 @@
         align-self: center;
         border: 1px solid;
         border-radius: 2px;
+    }
+
+}
+
+.note,
+.create-note {
+    display: none;
+    flex-direction: column;
+    min-width: 80%;
+    min-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $basic-background;
+    @include main-border;
+
+    &__close {
+        background: transparent;
+        color: indianred;
+        width: 20%;
+        border: 1px solid indianred;
+        margin: 5px;
+        align-self: flex-end;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    &__created {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+    }
+
+    &__title,
+    &__description {
+        width: 80%;
+        align-self: center;
+        padding: 5px;
+        text-align: center;
+        margin: 5px;
+        background-color: transparent;
+        color: whitesmoke;
+        border: 1px solid #743ad5;
+
+    }
+
+    &__description {
+        width: 90%;
+        height: 215px;
+        text-align: left;
+        letter-spacing: 1px;
+    }
+
+    &__button {
+        background: yellowgreen;
+        letter-spacing: 1px;
+        border: none;
+        padding: 5px;
+        border-radius: 2px;
+        width: 80%;
+        align-self: center;
+        margin: 2px;
+
+        &--remove {
+            background: red;
+        }
     }
 }
 

@@ -930,4 +930,52 @@ let filteredClients = [];
 
     // koniec filtrowanie klienta
 
+
+    // notatki
+
+    const allNotesContainer = document.querySelector('.notes');
+    const createNoteContainer = document.querySelector('.create-note');
+    const particularNoteContainer = document.querySelector('.note');
+
+
+    const openNotesContainerBtn = document.querySelector('.particular-client__btn-notes');
+    const openCreateNoteContainerBtn = document.querySelector('.notes__create-note');
+
+
+    const closeCreateNoteContainerBtn = document.querySelector('.create-note__close');
+    const closeNotesContainerBtn = document.querySelector('.notes__close');
+    const closeparticularNoteContainerBtn = document.querySelector('.note__close');
+
+    openNotesContainerBtn.addEventListener('click', () => {
+        allNotesContainer.style.display = 'flex';
+    });
+
+    openCreateNoteContainerBtn.addEventListener('click', () => {
+        createNoteContainer.style.display = 'flex';
+    });
+
+    closeNotesContainerBtn.addEventListener('click', () => {
+        allNotesContainer.style.display = 'none';
+        createNoteContainer.style.display = 'none';
+        particularNoteContainer.style.display = 'none';
+    });
+
+    closeCreateNoteContainerBtn.addEventListener('click', () => {
+        createNoteContainer.style.display = 'none';
+    });
+
+    closeparticularNoteContainerBtn.addEventListener('click', () => {
+        particularNoteContainer.style.display = 'none';
+    });
+
+
+
+
+
+
+
+
+
+    // koniec notatki
+
 })()

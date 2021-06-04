@@ -1,17 +1,18 @@
 .notes
-  button(class='notes__close') Zamknij
-  button(class='notes__create-note') Dodaj notatkę
+  button(class='notes__close' type='button') Zamknij
+  button(class='notes__create-note' type='button') Dodaj notatkę
   h1(class='notes__title') Notatki na kliencie: 
   .notes__container
   .note
-    span(class='note__created')
-    h1(class='note__title')
-    p(class='note__description')
-    button(class='note__button note__button--edit') Edytuj
-    button(class='note__button note__button--remove') Usuń
+    button(class='note__close' type='button') Zamknij
+    span(class='note__created') 09:34 04.06.2021
+    input(class='note__title' value='Nazwa notatki') 
+    textarea(class='note__description') Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates harum inventore nobis nulla in ad sunt ducimus omnis dolores commodi itaque saepe velit nostrum, sapiente quibusdam earum laudantium corporis.
+    button(class='note__button note__button--edit' type='button') Edytuj
+    button(class='note__button note__button--remove' type='button') Usuń
   .create-note   
+    button(class='create-note__close' type='button') Zamknij
     input(class='create-note__title' placeholder='Tytuł notatki')
-    textarea(class='create-note__description' placeholder='Opis..s')
-    button(class='create-note__button note__button--create') Utwórz
-    button(class='create-note__button note__button--cancel') Anuluj
+    textarea(class='create-note__description' placeholder='Opis..')
+    button(class='create-note__button note__button--create' type='button') Utwórz  
 
