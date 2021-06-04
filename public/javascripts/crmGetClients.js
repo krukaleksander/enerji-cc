@@ -727,7 +727,7 @@ let filteredClients = [];
 
             // przejście z zadania do klienta
 
-            //tutaj
+
             const openClientFromTaskListBtns = [...document.querySelectorAll('.particular-task__track-client')];
             console.log(openClientFromTaskListBtns);
 
@@ -946,6 +946,8 @@ let filteredClients = [];
     const closeNotesContainerBtn = document.querySelector('.notes__close');
     const closeparticularNoteContainerBtn = document.querySelector('.note__close');
 
+    const createNoteBtn = document.querySelector('.note__button--create');
+
     openNotesContainerBtn.addEventListener('click', () => {
         allNotesContainer.style.display = 'flex';
     });
@@ -968,6 +970,43 @@ let filteredClients = [];
         particularNoteContainer.style.display = 'none';
     });
 
+    createNoteBtn.addEventListener('click', async () => {
+        const title = document.querySelector('.create-note__title');
+        const description = document.querySelector('.create-note__description');
+        const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
+        const date = new Date().addHours(2);
+
+        let data = new URLSearchParams();
+        data.append("_id", clientId);
+        data.append("title", title.value);
+        data.append("description", description.innerText);
+        data.append("date", date);
+
+
+        fetch(`${window.location.href}/add-note/`, {
+                method: 'post',
+                body: data
+            })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                if (text === 'notatka dodana') {
+                    title.value = '';
+                    description.innerText = '';
+                }
+                const addInfoContainer = document.querySelector('.create-note__info');
+                addInfoContainer.innerHTML = text;
+                addInfoContainer.style.display = 'block';
+                setTimeout(() => addInfoContainer.style.display = 'none', 1500)
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+
+    })
+
+    //tutaj 
 
 
 
