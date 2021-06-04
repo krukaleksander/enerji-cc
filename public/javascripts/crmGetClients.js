@@ -1020,7 +1020,7 @@ let filteredClients = [];
         const title = document.querySelector('.create-note__title');
         const description = document.querySelector('.create-note__description');
         const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
-        const date = new Date().addHours(2);
+        const date = new Date().addHours(0);
 
         let data = new URLSearchParams();
         data.append("_id", clientId);
