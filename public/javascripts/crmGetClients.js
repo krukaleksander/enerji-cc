@@ -10,6 +10,51 @@ let filteredClients = [];
     let actualPage = 1;
     let pageForSummary = 1;
 
+    function refreshNotes(clientId, notesContainer) {
+        notesContainer.innerHTML = '';
+        const client = allClientsFromDB.filter(client => client._id === clientId);
+        const tasks = client[0].tasks;
+        let taskReverse = tasks.sort(function (a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+
+
+
+        taskReverse.forEach(note => {
+            const {
+                title,
+                date
+            } = note;
+
+
+            notesContainer.innerHTML = notesContainer.innerHTML + `<div data-id='${date}' class='note-row'>${date.slice(0,21)}  ${title}</div>`
+        })
+        if (tasks.length > 0) {
+            const allNotesInClient = document.querySelectorAll('.note-row');
+
+            allNotesInClient.forEach(note => {
+                note.addEventListener('click', (e) => {
+                    const noteId = e.target.getAttribute("data-id");
+                    const noteToShow = taskReverse.filter(note => note.date === noteId);
+
+                    const {
+                        date,
+                        title,
+                        description
+                    } = noteToShow[0];
+                    document.querySelector('.note').style.display = 'flex';
+                    document.querySelector('.note__created').innerText = `${date.slice(0, 21)}`;
+                    document.querySelector('.note__created').setAttribute('data-id', date);
+                    document.querySelector('.note__title').value = title;
+                    document.querySelector('.note__description').value = description;
+
+
+
+                })
+            })
+        }
+    }
+
     function updatePage() {
         numberOfPagesContainer.innerHTML = `Strona ${pageForSummary} z ${Math.floor((allClientsFromDB.length - 1) / 20) + 1}`;
         return Math.floor((allClientsFromDB.length - 1) / 20) + 1
@@ -313,6 +358,7 @@ let filteredClients = [];
                         } = noteToShow[0];
                         document.querySelector('.note').style.display = 'flex';
                         document.querySelector('.note__created').innerText = `${date.slice(0, 21)}`;
+                        document.querySelector('.note__created').setAttribute('data-id', date);
                         document.querySelector('.note__title').value = title;
                         document.querySelector('.note__description').value = description;
 
@@ -1101,48 +1147,8 @@ let filteredClients = [];
 
             })
             .then(() => {
-                // tutaj kurwo tutaj!
-                notesContainer.innerHTML = '';
-                const client = allClientsFromDB.filter(client => client._id === clientId);
-                const tasks = client[0].tasks;
-                let taskReverse = tasks.sort(function (a, b) {
-                    return new Date(b.date) - new Date(a.date);
-                });
 
-
-
-                taskReverse.forEach(note => {
-                    const {
-                        title,
-                        date
-                    } = note;
-
-
-                    notesContainer.innerHTML = notesContainer.innerHTML + `<div data-id='${date}' class='note-row'>${date.slice(0,21)}  ${title}</div>`
-                })
-                if (tasks.length > 0) {
-                    const allNotesInClient = document.querySelectorAll('.note-row');
-
-                    allNotesInClient.forEach(note => {
-                        note.addEventListener('click', (e) => {
-                            const noteId = e.target.getAttribute("data-id");
-                            const noteToShow = taskReverse.filter(note => note.date === noteId);
-
-                            const {
-                                date,
-                                title,
-                                description
-                            } = noteToShow[0];
-                            document.querySelector('.note').style.display = 'flex';
-                            document.querySelector('.note__created').innerText = `${date.slice(0, 21)}`;
-                            document.querySelector('.note__title').value = title;
-                            document.querySelector('.note__description').value = description;
-
-
-
-                        })
-                    })
-                }
+                refreshNotes(clientId, notesContainer);
             })
 
             .catch(function (error) {
@@ -1154,8 +1160,85 @@ let filteredClients = [];
 
 
 
+    //edycja notatki
 
 
+    const editNoteBtn = document.querySelector('.note__button--edit');
+
+    editNoteBtn.addEventListener('click', () => {
+        const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
+
+        const newClientsFromDb = allClientsFromDB.map(client => {
+            if (client._id == clientId) {
+                const {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks,
+                    description,
+                    status,
+                    www
+                } = client;
+
+
+                let tasksNow = tasks;
+                const taskId = document.querySelector('.note__created').getAttribute('data-id');
+                tasksNow = tasksNow.map(task => {
+                    if (task.date === taskId) {
+                        return {
+                            title: document.querySelector('.note__title').value,
+                            description: document.querySelector('.note__description').value,
+                            date: task.date
+                        }
+                    } else {
+                        return task
+                    }
+                });
+
+                const newClient = {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks: tasksNow,
+                    description,
+                    status,
+                    www
+                };
+                return newClient;
+
+            } else {
+                return client
+            }
+        });
+        allClientsFromDB = newClientsFromDb;
+
+        //tutaj bierzemy się za odświeżenie listy notatek o tą zaktualizaowaną.
+        refreshNotes(clientId, notesContainer);
+    })
+
+
+
+
+
+    //koniec edycja notatki
 
 
 
