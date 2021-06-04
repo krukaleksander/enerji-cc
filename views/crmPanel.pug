@@ -193,12 +193,14 @@ block content
              label(for="streetNumber") Numer domu
              input(class='particular-client__par particular-client__street-number' name='streetNumber')
          button(class='particular-client__btn-tasks' type='button') Utwórz zadanie
+         button(class='particular-client__btn-notes' type='button') Notatki         
          textarea(class='particular-client__description' name='description')
          .particular-client__update-info
          .particular-client__line-action-buttons
            input(class='particular-client__btn-summary particular-client__btn-update' type='submit' value='Zaktualizuj')
            button(class='particular-client__btn-summary particular-client__btn-cancel' type='button') Anuluj           
-           button(class='particular-client__btn-summary particular-client__btn-delete' type='button') Usuń   
+           button(class='particular-client__btn-summary particular-client__btn-delete' type='button') Usuń  
+         include parts/crmNotes
          .confirm-remove
           p Czy napewno chcesz usunąć klienta?
           div

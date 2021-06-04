@@ -570,12 +570,19 @@
         margin: 10px;
     }
 
-    &__btn-tasks {
+    &__btn-tasks,
+    &__btn-notes {
         border: none;
         padding: 5px;
         background-color: aquamarine;
         border-radius: 2px;
     }
+
+    &__btn-notes {
+        margin-top: 10px;
+        background-color: greenyellow;
+    }
+
 
     &__description {
         padding: 10px;
@@ -1119,3 +1126,55 @@
 }
 
 //koniec filtracja
+
+// notatki
+
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    min-width: 80%;
+    min-height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $basic-background;
+    @include main-border;
+
+    &__close {
+        background: transparent;
+        color: indianred;
+        width: 20%;
+        border: 1px solid indianred;
+        margin: 5px;
+        align-self: flex-end;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    &__create-note {
+        background-color: yellowgreen;
+        width: 80%;
+        align-self: center;
+        margin-top: 10px;
+        border: none;
+        padding: 5px;
+        border-radius: 10px;
+        transition: .3s;
+
+        &:hover {
+            color: seagreen;
+        }
+    }
+
+    &__container {
+        width: 90%;
+        height: 250px;
+        align-self: center;
+        border: 1px solid;
+        border-radius: 2px;
+    }
+}
+
+// koniec notatki
