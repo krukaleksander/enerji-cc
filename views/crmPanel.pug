@@ -24,7 +24,7 @@ block content
         option(value="nip") NIP
         option(value='name') Nazwa
         option(value='tel') Tel.
-      input.searchTerm(type='text' placeholder='Wybierz z lewej po czym szukasz, NIP?')
+      input.searchTerm(type='text' autocomplete="off" placeholder='Wybierz z lewej po czym szukasz, NIP?')
       button.searchButton(type='submit')
         i.fa.fa-search
      div(class="chat-container")
@@ -82,7 +82,8 @@ block content
                option(value="brak-danych") Brak danych
                option(value="net") Internet   
                option(value="bazafirm") BazaFirm              
-               option(value="olx") Olx              
+               option(value="olx") Olx  
+               option(value="allegro") Allegro
                option(value="gumtree") Gumtree              
                option(value="google") Google 
            div     
@@ -91,10 +92,12 @@ block content
                option(value="nie wybrano") nie wybrano
                option(value="potencjalny") Potencjalny
                option(value="rezygnacja") Rezygnacja
+               option(value="błąd bazy") Błąd bazy
                option(value="aktualny") Aktualny
                option(value="kontakt") Kontakt
                option(value="no") NO
                option(value="spotkanie") Spotkanie
+               option(value="faktura") Faktura
                option(value="brak-danych") Brak danych
                option(value="inny") Inny 
            div 
@@ -146,10 +149,12 @@ block content
            select(class='particular-client__select-status' name='status')
              option(value="potencjalny") Potencjalny
              option(value="rezygnacja") Rezygnacja
+             option(value="błąd bazy") Błąd bazy
              option(value="aktualny") Aktualny
              option(value="kontakt") Kontakt
              option(value="no") NO
              option(value="spotkanie") Spotkanie
+             option(value="faktura") Faktura
              option(value="brak-danych") Brak danych
              option(value="inny") Inny
          .particular-client__line-contact
@@ -177,7 +182,8 @@ block content
               option(value="brak-danych") Brak danych
               option(value="net") Internet              
               option(value="bazafirm") BazaFirm              
-              option(value="olx") Olx              
+              option(value="olx") Olx 
+              option(value="allegro") Allegro               
               option(value="gumtree") Gumtree              
               option(value="google") Google              
            .particular-client__div
