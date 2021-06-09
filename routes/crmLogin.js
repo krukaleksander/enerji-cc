@@ -44,17 +44,13 @@ router.post('/', function (req, res, next) {
     const loginFlag = accounts.findIndex(account => account.login === login); // -1 lub większa
 
     if (loginFlag > -1) {
-        // jeśli jest taki login      
-        accounts.forEach(account => {
-            if (account.login === login && account.password === password) {
-                //zmień stats na wnętrze panelu!
-                req.session.userName = login;
-                req.session.userData = account;
-                return res.redirect('/panel');
-
-            }
-        });
-
+        // jeśli jest taki login  
+        const user = accounts.find(account => account.login === login);        
+        if(user.password === password) {          
+            req.session.userName = login;
+            req.session.userData = user;
+            res.redirect('/panel');}
+        if(user.password !== password) res.redirect('/');
 
     } else {
         // jeśli nie ma takiego loginu odsyła na główną
