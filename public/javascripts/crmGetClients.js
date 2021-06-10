@@ -1,4 +1,5 @@
 let allClientsFromDB = [];
+let mirrorBase = []; // mirrorBase ma za zadanie przechowywać zawsze pełną, aktualną bazę
 let filteredClients = [];
 (() => {
     const table = document.querySelector('.clients-table');
@@ -12,7 +13,7 @@ let filteredClients = [];
 
     function refreshNotes(clientId, notesContainer) {
         notesContainer.innerHTML = '';
-        const client = allClientsFromDB.filter(client => client._id === clientId);
+        const client = mirrorBase.filter(client => client._id === clientId);
         const tasks = client[0].tasks;
         let taskReverse = tasks.sort(function (a, b) {
             return new Date(b.date) - new Date(a.date);
@@ -78,6 +79,7 @@ let filteredClients = [];
         const clients = await fetch(`${window.location.href}/get-clients/`);
         const clientsArr = await clients.json();
         allClientsFromDB = clientsArr;
+        mirrorBase = allClientsFromDB;
         clientsToShow = clientsArr.slice(start, end);
         await clientsToShow.forEach(client => {
             const {
@@ -158,7 +160,7 @@ let filteredClients = [];
 
 
 
-    //funkcja do howania wyszukiwania klientów
+    //funkcja do chowania wyszukiwania klientów
     function hideSearchBar() {
         const loadDivStyles = 'font-size: 20px;padding: 10px;color: floralwhite;   cursor: pointer;border: 3px solid purple;margin-bottom: 2px;'
         const searchDiv = document.querySelector('.search');
@@ -208,8 +210,7 @@ let filteredClients = [];
         if (searchOption === 'name') {
             const re = RegExp(`${searchInputValue}`, 'gmi');
             filteredClients = allClientsFromDB.filter(value => re.test(value.name));
-            allClientsFromDB = filteredClients;
-            console.log(allClientsFromDB);
+            allClientsFromDB = filteredClients;         
             jumpToPage(1, 'jump-to');
 
         }
@@ -273,6 +274,7 @@ let filteredClients = [];
 
 
     function setOpenClients() {
+    
         const nipy = [...document.querySelectorAll('.clients-table tr td:nth-child(1)')];
         nipy.forEach(nip => nip.addEventListener('click', (e) => {
             notesContainer.innerHTML = '';
@@ -459,7 +461,31 @@ let filteredClients = [];
             } else {
                 return client
             }
-        })
+        });
+        mirrorBase = mirrorBase.map(client => {
+            if (client._id === mongoId) {
+
+                return {
+                    _id: mongoId,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    description,
+                    status,
+                    www: www
+                }
+            } else {
+                return client
+            }
+        });
         jumpToPage(actualPage, 'jump-to');
         //koniec edycja na przodzie
     })
@@ -799,8 +825,7 @@ let filteredClients = [];
             `;
             // wchodzenie w zadanie
 
-            const openTaskBtns = [...document.querySelectorAll('.particular-task__open')];
-            console.log(openTaskBtns);
+            const openTaskBtns = [...document.querySelectorAll('.particular-task__open')];          
 
 
             openTaskBtns.forEach(btn => {
@@ -821,15 +846,13 @@ let filteredClients = [];
 
 
             const openClientFromTaskListBtns = [...document.querySelectorAll('.particular-task__track-client')];
-            console.log(openClientFromTaskListBtns);
-
-            openClientFromTaskListBtns.forEach(btn => btn.addEventListener('click', (e) => {
-                console.log('klikam');
+         
+            openClientFromTaskListBtns.forEach(btn => btn.addEventListener('click', (e) => {               
                 if (e.target.getAttribute('data-id') === 'none') return
                 taskListContainer.style.bottom = '-100vh';
                 document.querySelector('.lds-ellipsis').style.display = 'block';
                 particularClientContainer.style.display = 'flex';
-                const clientToShow = allClientsFromDB.find(client => client._id == e.target.getAttribute('data-id'));
+                const clientToShow = mirrorBase.find(client => client._id == e.target.getAttribute('data-id'));
                 const {
                     _id,
                     id,
@@ -862,7 +885,49 @@ let filteredClients = [];
                 const descriptionPar = document.querySelector('.particular-client__description');
                 const wwwPar = document.querySelector('.particular-client__www');
                 const selectStatus = document.querySelector('.particular-client__select-status');
+                const notesContainer = document.querySelector('.notes__container');
 
+                notesContainer.innerHTML = '';
+                console.log(tasks)
+                let taskReverse = tasks.sort(function (a, b) {
+                    return new Date(b.date) - new Date(a.date);
+                });
+    
+                taskReverse.forEach(note => {
+                    const {
+                        title,
+                        date
+                    } = note;
+    
+    
+                    notesContainer.innerHTML = notesContainer.innerHTML + `<div data-id='${date}' class='note-row'>${date.slice(0,21)}  ${title}</div>`
+                })
+                if (tasks.length > 0) {
+                    const allNotesInClient = document.querySelectorAll('.note-row');
+    
+                    allNotesInClient.forEach(note => {
+                        note.addEventListener('click', (e) => {
+                            const noteId = e.target.getAttribute("data-id");
+                            const noteToShow = taskReverse.filter(note => note.date === noteId);
+    
+                            const {
+                                date,
+                                title,
+                                description
+                            } = noteToShow[0];
+                            document.querySelector('.note').style.display = 'flex';
+                            document.querySelector('.note__created').innerText = `${date.slice(0, 21)}`;
+                            document.querySelector('.note__created').setAttribute('data-id', date);
+                            document.querySelector('.note__title').value = title;
+                            document.querySelector('.note__description').value = description;
+    
+    
+    
+                        })
+                    })
+                }
+                refreshNotes(e.target.getAttribute('data-id'), notesContainer);
+//tutaj
                 idPar.value = id;
                 idPar.setAttribute('data_id', _id);
                 namePar.value = name;
@@ -879,6 +944,8 @@ let filteredClients = [];
                 wwwPar.value = www;
                 if (description.length > 0) return descriptionPar.value = description;
                 descriptionPar.value = 'Opis...';
+
+
             }));
 
             // koniecprzejście z zadania do klienta
@@ -1140,7 +1207,65 @@ let filteredClients = [];
                     } else {
                         return client
                     }
+
+                   
                 });
+
+              mirrorBase = mirrorBase.map(client => {
+                    if (client._id == clientId) {
+                        const {
+                            _id,
+                            id,
+                            name,
+                            owner,
+                            phone,
+                            email,
+                            consumption,
+                            category,
+                            postalCode,
+                            city,
+                            street,
+                            streetNumber,
+                            tasks,
+                            description,
+                            status,
+                            www
+                        } = client;
+
+
+                        const tasksNow = tasks;
+                        const newTasks = tasksNow.concat([{
+                            title: title.value,
+                            description: document.querySelector('.create-note__description').value,
+                            date: date.toString(),
+                        }]);
+                        const newClient = {
+                            _id,
+                            id,
+                            name,
+                            owner,
+                            phone,
+                            email,
+                            consumption,
+                            category,
+                            postalCode,
+                            city,
+                            street,
+                            streetNumber,
+                            tasks: newTasks,
+                            description,
+                            status,
+                            www
+                        };
+                        return newClient;
+
+                    } else {
+                        return client
+                    }
+
+                   
+                });
+
                 allClientsFromDB = newClientsFromDb;
                 title.value = '';
                 description.value = '';
@@ -1166,6 +1291,7 @@ let filteredClients = [];
     const editNoteBtn = document.querySelector('.note__button--edit');
 
     editNoteBtn.addEventListener('click', () => {
+        console.log('klikam');
         const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
         let tasksNow;
         const newClientsFromDb = allClientsFromDB.map(client => {
@@ -1228,9 +1354,71 @@ let filteredClients = [];
                 return client
             }
         });
+
+      mirrorBase = mirrorBase.map(client => {
+            if (client._id == clientId) {
+                const {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks,
+                    description,
+                    status,
+                    www
+                } = client;
+
+
+                tasksNow = tasks;
+                const taskId = document.querySelector('.note__created').getAttribute('data-id');
+                tasksNow = tasksNow.map(task => {
+                    if (task.date === taskId) {
+                        return {
+                            title: document.querySelector('.note__title').value,
+                            description: document.querySelector('.note__description').value,
+                            date: task.date
+                        }
+                    } else {
+                        return task
+                    }
+                });
+
+                const newClient = {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks: tasksNow,
+                    description,
+                    status,
+                    www
+                };
+                return newClient;
+
+            } else {
+                return client
+            }
+        });
+
         allClientsFromDB = newClientsFromDb;
 
-        //tutaj bierzemy się za odświeżenie listy notatek o tą zaktualizaowaną.
+      
         refreshNotes(clientId, notesContainer);
 
         let data = new URLSearchParams();
@@ -1319,9 +1507,60 @@ let filteredClients = [];
                 return client
             }
         });
+
+       mirrorBase = mirrorBase.map(client => {
+            if (client._id == clientId) {
+                const {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks,
+                    description,
+                    status,
+                    www
+                } = client;
+
+
+                tasksNow = tasks;
+                const taskId = document.querySelector('.note__created').getAttribute('data-id');
+                tasksNow = tasksNow.filter(task => task.date !== taskId);
+
+                const newClient = {
+                    _id,
+                    id,
+                    name,
+                    owner,
+                    phone,
+                    email,
+                    consumption,
+                    category,
+                    postalCode,
+                    city,
+                    street,
+                    streetNumber,
+                    tasks: tasksNow,
+                    description,
+                    status,
+                    www
+                };
+                return newClient;
+
+            } else {
+                return client
+            }
+        });
         allClientsFromDB = newClientsFromDb;
 
-        //tutaj bierzemy się za odświeżenie listy notatek o tą zaktualizaowaną.
+     
         refreshNotes(clientId, notesContainer);
 
         let data = new URLSearchParams();
