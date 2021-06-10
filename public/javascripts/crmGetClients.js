@@ -298,6 +298,7 @@ let filteredClients = [];
                 status,
                 www
             } = clientToShow;
+            console.log(clientToShow);
             const idPar = document.querySelector('.particular-client__id');
             const namePar = document.querySelector('.particular-client__name');
             const ownerPar = document.querySelector('.particular-client__owner');
@@ -456,6 +457,7 @@ let filteredClients = [];
                     streetNumber,
                     description,
                     status,
+                    tasks: client.tasks,
                     www: www
                 }
             } else {
@@ -480,6 +482,7 @@ let filteredClients = [];
                     streetNumber,
                     description,
                     status,
+                    tasks: client.tasks,
                     www: www
                 }
             } else {
