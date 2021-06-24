@@ -63,8 +63,8 @@ let filteredClients = [];
 
     // funkcja skracająca nazwę
 
-    function shortenName(name) {
-        if (name.length < 45) {
+    function shortenName(name, length = 45) {
+        if (name.length < length) {
             return name;
         } else {
             return `${name.slice(0,45)}...`;
@@ -91,7 +91,7 @@ let filteredClients = [];
                 owner,
                 status
             } = client;
-            return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
+            return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${shortenName(phone, 20)}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`
         });
         spinner.style.display = 'none';
         table.style.display = 'block';
@@ -123,7 +123,7 @@ let filteredClients = [];
                     owner,
                     status
                 } = client;
-                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
+                return clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${shortenName(phone, 20)}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
 
             });
         }
@@ -251,7 +251,7 @@ let filteredClients = [];
                 owner,
                 status
             } = client;
-            clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${phone}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
+            clientsTable.innerHTML = clientsTable.innerHTML + `<tr><td data-id=${_id}>${id}</td><td>${shortenName(name)}</td><td>${shortenName(phone, 20)}</td><td>${consumption}</td><td>${status}</td><td>${owner}</td></tr>`;
             btnBackToList.style.display = 'block';
         })
 
