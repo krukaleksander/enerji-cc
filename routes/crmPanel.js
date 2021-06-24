@@ -606,7 +606,7 @@ const baseToAdd = [];
 
 
 //dodawanie klientów hurt
-// miałem 372 przed
+
 router.get('/add-client-mass/', async (req, res, next) => {
     let numberIndex = 0;
     let clients = [];

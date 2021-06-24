@@ -224,7 +224,7 @@ let filteredClients = [];
             const re = RegExp(`${searchInputValue}`, 'gmi');
             filteredClients = allClientsFromDB.filter(value => re.test(value.phone));
             allClientsFromDB = filteredClients;
-            console.log(allClientsFromDB);
+            
             jumpToPage(1, 'jump-to');
         }
 
@@ -298,7 +298,7 @@ let filteredClients = [];
                 status,
                 www
             } = clientToShow;
-            console.log(clientToShow);
+       
             const idPar = document.querySelector('.particular-client__id');
             const namePar = document.querySelector('.particular-client__name');
             const ownerPar = document.querySelector('.particular-client__owner');
@@ -890,8 +890,7 @@ let filteredClients = [];
                 const selectStatus = document.querySelector('.particular-client__select-status');
                 const notesContainer = document.querySelector('.notes__container');
 
-                notesContainer.innerHTML = '';
-                console.log(tasks)
+                notesContainer.innerHTML = '';             
                 let taskReverse = tasks.sort(function (a, b) {
                     return new Date(b.date) - new Date(a.date);
                 });
@@ -1294,7 +1293,7 @@ let filteredClients = [];
     const editNoteBtn = document.querySelector('.note__button--edit');
 
     editNoteBtn.addEventListener('click', () => {
-        console.log('klikam');
+       
         const clientId = document.querySelector('.particular-client__id').getAttribute('data_id');
         let tasksNow;
         const newClientsFromDb = allClientsFromDB.map(client => {

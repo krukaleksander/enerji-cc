@@ -4,7 +4,12 @@
 html,
 body {
   height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(0), color-stop(#202239), to(#8595AC));
   background: linear-gradient(0, #202239, #8595AC);
+}
+
+::-moz-selection {
+  background: #CDD4DE;
 }
 
 ::selection {
@@ -18,7 +23,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -26,7 +32,8 @@ body {
   background: #0D0C1E;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /*--------------------
@@ -64,7 +71,8 @@ header nav::before {
   height: 2px;
   background: #565c73;
   border-radius: 2px;
-  box-shadow: 0 5px 0 #565c73, 0 10px 0 #565c73;
+  -webkit-box-shadow: 0 5px 0 #565c73, 0 10px 0 #565c73;
+          box-shadow: 0 5px 0 #565c73, 0 10px 0 #565c73;
 }
 
 header .search {
@@ -131,5 +139,7 @@ img {
   width: 100%;
   height: auto;
   z-index: -1;
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
+/*# sourceMappingURL=404.css.map */

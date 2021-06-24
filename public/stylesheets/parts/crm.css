@@ -2,7 +2,8 @@
   position: fixed;
   top: 55%;
   left: 53%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   background-color: lemonchiffon;
   height: 350px;
   width: 320px;
@@ -13,9 +14,15 @@
 }
 
 .login-crm__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 75px;
   margin: 10px 0;
   font-size: 35px;
@@ -26,13 +33,20 @@
 }
 
 .login-crm__title span:nth-of-type(2) {
-  align-self: flex-start;
-  animation: reserved 5s cubic-bezier(0.68, -0.55, 0.27, 1.55) both infinite;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-animation: reserved 5s cubic-bezier(0.68, -0.55, 0.27, 1.55) both infinite;
+          animation: reserved 5s cubic-bezier(0.68, -0.55, 0.27, 1.55) both infinite;
 }
 
 .login-crm form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-size: 25px;
 }
 
@@ -60,6 +74,7 @@
   border: none;
   border-radius: 30px;
   cursor: pointer;
+  -webkit-transition: .3s;
   transition: .3s;
 }
 
@@ -69,28 +84,36 @@
 }
 
 .login-crm .show-about-project:hover {
-  box-shadow: 2px 2px 2px 2px;
+  -webkit-box-shadow: 2px 2px 2px 2px;
+          box-shadow: 2px 2px 2px 2px;
 }
 
 .login-crm .about-project {
   position: fixed;
   display: none;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   top: 0px;
   left: 0px;
   background-color: #e5fdd0;
   width: 600px;
   padding: 20px;
-  transform: translateX(-160px);
+  -webkit-transform: translateX(-160px);
+          transform: translateX(-160px);
   border-radius: 5px;
-  box-shadow: 6px 5px 7px 4px;
+  -webkit-box-shadow: 6px 5px 7px 4px;
+          box-shadow: 6px 5px 7px 4px;
 }
 
 .login-crm .about-project__close {
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   width: 110px;
   border: 1px solid black;
   cursor: pointer;
+  -webkit-transition: .2s;
   transition: .2s;
 }
 
@@ -135,17 +158,41 @@
   background-color: #f8f0f0;
 }
 
-@keyframes reserved {
+@-webkit-keyframes reserved {
   0% {
-    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
   }
   89% {
-    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
   }
   90% {
-    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
   }
   100% {
-    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
   }
 }
+
+@keyframes reserved {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  89% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  90% {
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+/*# sourceMappingURL=crm.css.map */

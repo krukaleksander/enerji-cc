@@ -5,7 +5,6 @@ const energyClients = require('../models/experts');
 const axpoPrices = require('../models/axpoPrices');
 // api is multiplying price by 1.5% 
 const priceMultiplier = 1.015;
-const db = require('../db/db.js');
 
 router.all('*', (req, res, next) => {
     if (!req.session.userName) {
@@ -16,8 +15,7 @@ router.all('*', (req, res, next) => {
     next();
 })
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-    console.log(db.length);
+router.get('/', function (req, res, next) { 
     axpoPrices.find({}, (err, data) => {
 
         res.render('ofertomat', {
