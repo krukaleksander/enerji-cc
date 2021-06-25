@@ -782,7 +782,7 @@ let filteredClients = [];
             document.getElementById('theTaskDescription').value = '';
             document.getElementById('theTaskTel').value = '';
             document.getElementById('theTaskTitle').innerHTML = respText;
-        })
+        });       
     }
     const taskListDiv = document.querySelector('.task-list__list');
     btnShowTaskList.addEventListener('click', async () => {
@@ -833,12 +833,15 @@ let filteredClients = [];
 
             openTaskBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
+                    refreshDeleteTaskBtn();
                     theTaskContainer.style.display = 'flex';
                     // poniżej pobieramy id
                     const taskId = e.target.getAttribute("data-id");
                     const taskDate = e.target.getAttribute("data-date");
                     searchAndDisplayTask(taskId, taskDate);
                     handleDeleteTask(taskId);
+                    // tutaj jest problem z taskId
+                   
                 });
 
             });
@@ -929,7 +932,6 @@ let filteredClients = [];
                     })
                 }
                 refreshNotes(e.target.getAttribute('data-id'), notesContainer);
-//tutaj
                 idPar.value = id;
                 idPar.setAttribute('data_id', _id);
                 namePar.value = name;
@@ -957,12 +959,20 @@ let filteredClients = [];
 
     });
 
+   // funkcja usuwająca guzik
 
+   function refreshDeleteTaskBtn() {
+        const oldBtn = document.querySelector('.the-task-container__btn');
+        const cloneBtn = oldBtn.cloneNode(true); 
+        oldBtn.parentNode.replaceChild(cloneBtn, oldBtn);
+   }
 
     // zamykanie kontenera z zadaniem
     const closeTeTaskContainer = document.querySelector('.the-task-container__close');
     closeTeTaskContainer.addEventListener('click', () => {
-        theTaskContainer.style.display = 'none'
+        theTaskContainer.style.display = 'none';
+        // tutaj zlikwidować eventlistenery   
+        refreshDeleteTaskBtn();
     });
 
 
