@@ -6,6 +6,27 @@
     background: $basic-background;
     font-family: $content-font;
 
+    .chat-users {
+        display: none;
+        position: fixed;
+        top: 200px;
+        right: 0px;    
+        flex-direction: column;
+
+        @media (min-width: 800px){
+            display: flex;
+        }
+        &__photo {
+            box-sizing: content-box;
+            max-width: 50px;
+            border-radius: 50%;
+            margin-top: 10px;
+            &--active {
+                border: 3px solid yellowgreen;
+            }
+        }
+    }
+
     &__title {
         color: $heading-color;
         font-family: $title-font;

@@ -124,6 +124,37 @@ body {
   font-family: "Anton", sans-serif;
 }
 
+.energy-panel-wrapper .chat-users {
+  display: none;
+  position: fixed;
+  top: 200px;
+  right: 0px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 800px) {
+  .energy-panel-wrapper .chat-users {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.energy-panel-wrapper .chat-users__photo {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  max-width: 50px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.energy-panel-wrapper .chat-users__photo--active {
+  border: 3px solid yellowgreen;
+}
+
 .energy-panel-wrapper__title {
   color: #efeaea;
   font-family: "Fredoka One", cursive;
