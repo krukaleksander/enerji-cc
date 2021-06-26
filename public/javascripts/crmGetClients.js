@@ -839,9 +839,7 @@ let filteredClients = [];
                     const taskId = e.target.getAttribute("data-id");
                     const taskDate = e.target.getAttribute("data-date");
                     searchAndDisplayTask(taskId, taskDate);
-                    handleDeleteTask(taskId);
-                    // tutaj jest problem z taskId
-                   
+                    handleDeleteTask(taskId);                                      
                 });
 
             });
@@ -970,8 +968,7 @@ let filteredClients = [];
     // zamykanie kontenera z zadaniem
     const closeTeTaskContainer = document.querySelector('.the-task-container__close');
     closeTeTaskContainer.addEventListener('click', () => {
-        theTaskContainer.style.display = 'none';
-        // tutaj zlikwidować eventlistenery   
+        theTaskContainer.style.display = 'none';      
         refreshDeleteTaskBtn();
     });
 

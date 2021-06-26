@@ -5,6 +5,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
+
+   
 
     .login-form {
         height: 400px;
@@ -17,6 +20,25 @@
         border-image-slice: 1;
         border-width: 5px;
         border-image-source: $login-color;
+        position: relative;
+
+        .stripper {
+            display: none;
+            position: absolute;
+            height: 300px;
+            top: 50%;
+            transform: translateY(-50%);            
+            right: -232px;
+            @media screen and (min-width: 800px){
+                display: block;
+            }
+        }
+        .stripper--left {
+            right: unset;
+            left: -232px;
+            transform: rotateY(180deg);
+            top: 15%;
+        }
 
         &__heading {
             font-size: 30px;

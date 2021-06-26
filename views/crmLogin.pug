@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  link(rel='stylesheet', href='/stylesheets/modifiers/css/crm.min.css')   
+  //- link(rel='stylesheet', href='/stylesheets/modifiers/css/crm.min.css')  
+  link(rel='stylesheet', href='/css/crm.min.css')  
   .crm-login-wrapper
     form.login-form(action='' method='post')
       h1.login-form__heading energy2000
@@ -9,5 +10,6 @@ block content
       input.login-form__input(type='text' name='login' placeholder='login')
       input.login-form__input(type='password' name='password' placeholder='hasło')
       button.login-form__btn(type='submit') Zaloguj
-        
+      img(src="/images/stripper.png", alt="striptizerka" class='stripper')
+      img(src="/images/stripper.png", alt="striptizerka" class='stripper stripper--left')     
   //- script(src="/javascripts/crmLogin.js")  
