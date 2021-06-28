@@ -1022,8 +1022,7 @@ let filteredClients = [];
         newUserConnected(login);
     })
 
-    socket.on('sent-who-is-logged', (list) => { 
-        console.log(list);
+    socket.on('sent-who-is-logged', (list) => {         
         try {
             const allUsersActive = [...document.querySelectorAll('.chat-users__photo--active')];
             allUsersActive.forEach(user => user.classList.remove('chat-users__photo--active'));
