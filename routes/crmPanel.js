@@ -47,7 +47,12 @@ router.get('/', function (req, res, next) {
             });
             io.emit('sent-who-is-logged', activeUsers);
         });
-
+        socket.on('disconnect', function() {  
+          activeUsers = activeUsers.filter(user => {
+            if (user !== req.session.userName) return user;
+        });      
+          io.emit('sent-who-is-logged', activeUsers);
+       });
 
     })
 
