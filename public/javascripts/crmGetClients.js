@@ -1022,11 +1022,14 @@ let filteredClients = [];
         newUserConnected(login);
     })
 
-    socket.on('sent-who-is-logged', (list) => {         
+    socket.on('sent-who-is-logged', (list) => {      
+        console.log(list);   
         try {
             const allUsersActive = [...document.querySelectorAll('.chat-users__photo--active')];
             allUsersActive.forEach(user => user.classList.remove('chat-users__photo--active'));
+            
             list.forEach(user => {  
+            if(user === 'admin') return
              document.getElementById(user.replace('.', '')).classList.add('chat-users__photo--active')
 
             });  
