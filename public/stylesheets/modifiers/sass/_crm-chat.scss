@@ -2,12 +2,13 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    right: 0px;
+    right: -300px;
     bottom: 0px;
     width: 300px;
     height: 350px;
     background-color: $basic-background;
     padding: 10px;
+    transition: .5s;
     @include main-border;
     border-radius: 5px;
     .chat-window__messages {

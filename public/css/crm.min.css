@@ -1771,12 +1771,14 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  right: 0px;
+  right: -300px;
   bottom: 0px;
   width: 300px;
   height: 350px;
   background-color: #020024;
   padding: 10px;
+  -webkit-transition: .5s;
+  transition: .5s;
   border: 10px solid;
   border-image-slice: 1;
   border-width: 5px;

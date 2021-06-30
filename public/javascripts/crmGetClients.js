@@ -1040,6 +1040,24 @@ let filteredClients = [];
 
     //koniec fragment socket io
 
+//fragment chat
+
+const openChat = document.querySelector('.chat-icon');
+const chatWindow = document.querySelector('.chat-window');
+let openChatFlag = true;
+openChat.addEventListener('click', () => {
+    if(openChatFlag) {
+        openChatFlag = false;
+        return chatWindow.style.right = '0px';
+    } else {
+        openChatFlag = true;
+        return chatWindow.style.right = '-300px';
+    }
+    
+})
+
+//koniec fragment chat
+
     //start usuwanie klienta
 
     const removeClientShowWindowBtn = document.querySelector('.particular-client__btn-delete');
