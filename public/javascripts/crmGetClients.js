@@ -1045,6 +1045,7 @@ let filteredClients = [];
 
 const openChat = document.querySelector('.chat-icon');
 const chatWindow = document.querySelector('.chat-window');
+const messagesContainer = document.querySelector('.chat-window__messages');
 
 const userLogin = document.getElementById('loginUser').innerText;
 const userChatName = document.getElementById('chatName').innerText;
@@ -1066,7 +1067,23 @@ openChat.addEventListener('click', () => {
 async function getMessages() {
     const messages = await await fetch(`${window.location.href}/get-messages/`)
     .then(data => data.json())
-    .then(messages => console.log(messages));
+    .then(messages => {
+        // tutaj pokazywanie wiadomości przy inicjowaniu
+
+        //userLogin
+        if(messages.length > 0) {
+            messages.forEach(message => {
+                const {name, date, text} = message;
+                console.log(userLogin, name);
+               messagesContainer.innerHTML = messagesContainer.innerHTML + `
+               <p class='chat-window__name ${userLogin === name ? 'chat-window__name--me' : 'chat-window__name--other'}'>${name}</p>
+               <div class='chat-window__message ${userLogin === name ? 'chat-window__message--me' : 'chat-window__message--other'}'><p class='chat-window__text'>${text}</p></div>               
+               ` 
+            })
+        } else {
+            return
+        }
+    });
 
 }
 
