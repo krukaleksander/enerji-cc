@@ -1048,6 +1048,7 @@ let filteredClients = [];
 const openChat = document.querySelector('.chat-icon');
 const chatWindow = document.querySelector('.chat-window');
 const messagesContainer = document.querySelector('.chat-window__messages');
+const inputChat = document.querySelector('.chat-window__input');
 
 const userLogin = document.getElementById('loginUser').innerText;
 const userChatName = document.getElementById('chatName').innerText;
@@ -1091,9 +1092,7 @@ async function getMessages() {
     });
 
 }
-
-
-sendMessageBtn.addEventListener('click', async () => {
+sendMessageFn = async () => {
     const input = document.querySelector('.chat-window__input');
 
     let data = new URLSearchParams();
@@ -1121,6 +1120,12 @@ sendMessageBtn.addEventListener('click', async () => {
     })
 
     
+};
+
+sendMessageBtn.addEventListener('click', () => sendMessageFn());
+
+inputChat.addEventListener('keydown', (e) => {
+    if(e.keyCode === 13) return sendMessageFn();
 })
 
 //tutaj
