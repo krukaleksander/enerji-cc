@@ -62,6 +62,15 @@ router.get('/', function (req, res, next) {
 
     //fragment chat
 
+    router.get('/get-messages/', async (req,res) => {      
+      let messages = [];
+      await chatMessages.find({}, (err, data) => {
+        if (err) console.log(err);       
+        messages = data;        
+        res.send(messages);
+    })
+    })
+
     router.post('/send-message/', async (req, res, next) => {
       const {
           name,

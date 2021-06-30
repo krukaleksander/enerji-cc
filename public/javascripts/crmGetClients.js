@@ -100,6 +100,7 @@ let filteredClients = [];
         setOpenClients();
     }
     getClients(0, 20);
+    getMessages();
 
     //funkcja do zmieniania strony
 
@@ -1062,6 +1063,14 @@ openChat.addEventListener('click', () => {
     
 })
 
+async function getMessages() {
+    const messages = await await fetch(`${window.location.href}/get-messages/`)
+    .then(data => data.json())
+    .then(messages => console.log(messages));
+
+}
+
+
 sendMessageBtn.addEventListener('click', async () => {
     const input = document.querySelector('.chat-window__input');
 
@@ -1079,7 +1088,7 @@ sendMessageBtn.addEventListener('click', async () => {
         if(text === 'ok') {
             input.value = '';
             // wiadomośc dochodzi na serwer
-            //tutaj
+            //tutaj przód wiadomości
         }
     })
 
