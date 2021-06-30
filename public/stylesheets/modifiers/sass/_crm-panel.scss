@@ -5,7 +5,10 @@
     overflow: hidden;
     background: $basic-background;
     font-family: $content-font;
-
+    #loginUser,
+    #chatName {
+        display: none;
+    }
     .chat-users {
         display: none;
         position: fixed;

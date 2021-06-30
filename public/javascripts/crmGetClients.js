@@ -1044,6 +1044,12 @@ let filteredClients = [];
 
 const openChat = document.querySelector('.chat-icon');
 const chatWindow = document.querySelector('.chat-window');
+
+const userLogin = document.getElementById('loginUser').innerText;
+const userChatName = document.getElementById('chatName').innerText;
+
+const sendMessageBtn = document.querySelector('.chat-window__button');
+
 let openChatFlag = true;
 openChat.addEventListener('click', () => {
     if(openChatFlag) {
@@ -1056,6 +1062,29 @@ openChat.addEventListener('click', () => {
     
 })
 
+sendMessageBtn.addEventListener('click', async () => {
+    const input = document.querySelector('.chat-window__input');
+
+    let data = new URLSearchParams();
+    data.append("name", userLogin);
+    data.append("date", new Date());
+    data.append("text", input.value);  
+
+    const sendMessageFetch = await fetch(`${window.location.href}/send-message/`, {
+        method: 'post',
+        body: data
+    })
+    .then(response => response.text())
+    .then(text => {
+        if(text === 'ok') {
+            input.value = '';
+            // wiadomośc dochodzi na serwer
+            //tutaj
+        }
+    })
+
+    
+})
 //koniec fragment chat
 
     //start usuwanie klienta

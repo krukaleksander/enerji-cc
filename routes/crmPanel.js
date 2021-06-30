@@ -5,6 +5,7 @@ const crmAccounts = require('../models/crmAccounts');
 // const energyClients = require('../models/experts');
 const clientsready = require('../models/clientsready');
 const tasks = require('../models/tasks');
+const chatMessages = require('../models/chat');
 //fragment socket.io
 let activeUsers = [];
 
@@ -58,6 +59,30 @@ router.get('/', function (req, res, next) {
 
 
     //koniec fragment socket test
+
+    //fragment chat
+
+    router.post('/send-message/', async (req, res, next) => {
+      const {
+          name,
+          date,
+          text
+      } = req.body;
+      const newMessage = new chatMessages({
+        name,
+        date,
+        text
+    });
+    await newMessage.save()
+        .then(() => res.send('ok'))
+        .catch(err => res.send(err));
+      
+  
+  })
+
+
+    // koniec fragment chat
+
 
     crmAccounts.find({}, (err, data) => {
         accounts = data;
