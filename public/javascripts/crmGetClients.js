@@ -1063,6 +1063,7 @@ let openChatFlag = true;
 openChat.addEventListener('click', () => {
     chatScrollToBottom()
     openChat.style.borderColor = 'whitesmoke';
+    openChat.style.color = 'whitesmoke';
     if(openChatFlag) {
         openChatFlag = false;
         return chatWindow.style.right = '0px';
@@ -1131,6 +1132,7 @@ inputChat.addEventListener('keydown', (e) => {
 //tutaj
 socket.on('new-message-to-everyone', message => {     
     openChat.style.borderColor = 'red';
+    openChat.style.color = 'red';
     const {name, data, text} = message;
     messagesContainer.innerHTML = messagesContainer.innerHTML + `
                <p class='chat-window__name ${userLogin === name ? 'chat-window__name--me' : 'chat-window__name--other'}'>${name}</p>
