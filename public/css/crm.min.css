@@ -1802,7 +1802,14 @@ body {
   -ms-flex-preferred-size: 90%;
       flex-basis: 90%;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
   scrollbar-width: none;
+  /* Firefox */
+}
+
+.chat-window .chat-window__messages::-webkit-scrollbar {
+  display: none;
 }
 
 .chat-window .chat-icon {
@@ -1815,7 +1822,7 @@ body {
   line-height: 50px;
   border: 1px solid whitesmoke;
   position: absolute;
-  top: -55px;
+  top: 0px;
   left: -62px;
   cursor: pointer;
 }
@@ -1844,8 +1851,7 @@ body {
 .chat-window__message--me {
   background: #FBB03B;
   -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
+      align-self: flex-end;
   color: #35322c;
 }
 
@@ -1870,6 +1876,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 5px;
 }
 
 .chat-window__input {

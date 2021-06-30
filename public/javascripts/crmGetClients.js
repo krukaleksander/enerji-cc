@@ -1043,6 +1043,8 @@ let filteredClients = [];
 
 //fragment chat
 
+
+
 const openChat = document.querySelector('.chat-icon');
 const chatWindow = document.querySelector('.chat-window');
 const messagesContainer = document.querySelector('.chat-window__messages');
@@ -1052,8 +1054,14 @@ const userChatName = document.getElementById('chatName').innerText;
 
 const sendMessageBtn = document.querySelector('.chat-window__button');
 
+function chatScrollToBottom() {
+ messagesContainer.scrollTop = messagesContainer.scrollHeight;  
+}
+
 let openChatFlag = true;
 openChat.addEventListener('click', () => {
+    chatScrollToBottom()
+    openChat.style.borderColor = 'whitesmoke';
     if(openChatFlag) {
         openChatFlag = false;
         return chatWindow.style.right = '0px';
@@ -1068,13 +1076,10 @@ async function getMessages() {
     const messages = await await fetch(`${window.location.href}/get-messages/`)
     .then(data => data.json())
     .then(messages => {
-        // tutaj pokazywanie wiadomości przy inicjowaniu
-
-        //userLogin
+        
         if(messages.length > 0) {
             messages.forEach(message => {
-                const {name, date, text} = message;
-                console.log(userLogin, name);
+                const {name, date, text} = message;              
                messagesContainer.innerHTML = messagesContainer.innerHTML + `
                <p class='chat-window__name ${userLogin === name ? 'chat-window__name--me' : 'chat-window__name--other'}'>${name}</p>
                <div class='chat-window__message ${userLogin === name ? 'chat-window__message--me' : 'chat-window__message--other'}'><p class='chat-window__text'>${text}</p></div>               
@@ -1096,6 +1101,12 @@ sendMessageBtn.addEventListener('click', async () => {
     data.append("date", new Date());
     data.append("text", input.value);  
 
+    const messageForSocket = {
+        name: userLogin,
+        date: new Date(),
+        text: input.value
+    }
+
     const sendMessageFetch = await fetch(`${window.location.href}/send-message/`, {
         method: 'post',
         body: data
@@ -1103,13 +1114,24 @@ sendMessageBtn.addEventListener('click', async () => {
     .then(response => response.text())
     .then(text => {
         if(text === 'ok') {
-            input.value = '';
-            // wiadomośc dochodzi na serwer
-            //tutaj przód wiadomości
+            input.value = '';                      
+            socket.emit('new-message', messageForSocket);
+            
         }
     })
 
     
+})
+
+//tutaj
+socket.on('new-message-to-everyone', message => {     
+    openChat.style.borderColor = 'red';
+    const {name, data, text} = message;
+    messagesContainer.innerHTML = messagesContainer.innerHTML + `
+               <p class='chat-window__name ${userLogin === name ? 'chat-window__name--me' : 'chat-window__name--other'}'>${name}</p>
+               <div class='chat-window__message ${userLogin === name ? 'chat-window__message--me' : 'chat-window__message--other'}'><p class='chat-window__text'>${text}</p></div>               
+               ` ;
+               chatScrollToBottom() 
 })
 //koniec fragment chat
 

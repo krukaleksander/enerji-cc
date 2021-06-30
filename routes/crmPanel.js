@@ -54,6 +54,10 @@ router.get('/', function (req, res, next) {
         });      
           io.emit('sent-who-is-logged', activeUsers);
        });
+       socket.on('new-message', function(message) {      
+          // tutaj
+          io.emit('new-message-to-everyone', message);
+       })
 
     })
 
