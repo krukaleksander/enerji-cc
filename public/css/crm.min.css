@@ -1761,4 +1761,126 @@ body {
           transform: translate(-50%, -50%);
   font-size: 25px;
 }
+
+.chat-window {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  right: 0px;
+  bottom: 0px;
+  width: 300px;
+  height: 350px;
+  background-color: #020024;
+  padding: 10px;
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  border-radius: 5px;
+}
+
+.chat-window .chat-window__messages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 90%;
+      flex-basis: 90%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.chat-window .chat-icon {
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  border: 1px solid whitesmoke;
+  position: absolute;
+  top: -55px;
+  left: -62px;
+  cursor: pointer;
+}
+
+.chat-window .chat-icon:hover {
+  color: yellowgreen;
+  border-color: yellowgreen;
+}
+
+.chat-window__message {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.chat-window__message--other {
+  color: white;
+  background: #0084ff;
+}
+
+.chat-window__message--me {
+  background: #FBB03B;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  color: #35322c;
+}
+
+.chat-window__name {
+  margin-top: 5px;
+  color: #cac2c2;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.chat-window__name--me {
+  text-align: right;
+}
+
+.chat-window__text {
+  margin: 0;
+}
+
+.chat-window__send {
+  -ms-flex-preferred-size: 10%;
+      flex-basis: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chat-window__input {
+  background-color: transparent;
+  border: 1px solid #773ad3;
+  -ms-flex-preferred-size: 90%;
+      flex-basis: 90%;
+  color: #f0f0f0;
+  letter-spacing: 1px;
+  padding: 5px;
+}
+
+.chat-window__button {
+  -ms-flex-preferred-size: 10%;
+      flex-basis: 10%;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+}
 /*# sourceMappingURL=crm.min.css.map */

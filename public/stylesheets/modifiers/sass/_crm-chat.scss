@@ -1,0 +1,87 @@
+.chat-window {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    right: 0px;
+    bottom: 0px;
+    width: 300px;
+    height: 350px;
+    background-color: $basic-background;
+    padding: 10px;
+    @include main-border;
+    border-radius: 5px;
+    .chat-window__messages {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 90%;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+    .chat-icon {
+        background-color: cornflowerblue;
+        color: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        border: 1px solid whitesmoke;
+        position: absolute;
+        top: -55px;
+        left: -62px;
+        cursor: pointer;
+        &:hover {
+            color: yellowgreen;
+            border-color: yellowgreen;            
+        }
+    }
+    &__message {
+        width: 80%;
+        display: flex;
+        padding: 5px;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        font-size: 14px;
+        &--other {
+            color: white;
+            background: rgb(0, 132, 255); 
+        }
+        &--me {
+            background: #FBB03B;
+            align-self: end;
+            color: #35322c;
+        }
+    }
+    &__name {
+        margin-top: 5px;
+        color: #cac2c2;;
+        margin: 5px;
+        font-size: 12px;
+        &--me {
+            text-align: right;
+        }
+    }
+    &__text {        
+        margin: 0;
+    }
+    &__send {
+        flex-basis: 10%;
+        display: flex;
+    }
+    &__input {
+        background-color: transparent;
+        border: 1px solid #773ad3;
+        flex-basis: 90%;
+        color: #f0f0f0;
+        letter-spacing: 1px;
+        padding: 5px;
+
+    }
+    &__button {
+        flex-basis: 10%;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 20px;
+    }
+}
