@@ -538,7 +538,7 @@ let filteredClients = [];
     function zeroValues() {
         document.querySelector('.particular-client-new__id').value = '';
         document.querySelector('.particular-client-new__name').value = '';
-        document.querySelector('.particular-client-new__owner').value = 'default';
+        document.querySelector('.particular-client-new__owner').value = document.getElementById('loginUser').innerText;
         document.querySelector('.particular-client-new__phone').value = '';
         document.querySelector('.particular-client-new__email').value = '';
         document.querySelector('.particular-client-new__consumption').value = '';
@@ -1129,7 +1129,7 @@ inputChat.addEventListener('keydown', (e) => {
     if(e.keyCode === 13) return sendMessageFn();
 })
 
-//tutaj
+
 socket.on('new-message-to-everyone', message => {     
     openChat.style.borderColor = 'red';
     openChat.style.color = 'red';
