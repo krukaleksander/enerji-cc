@@ -148,6 +148,12 @@ body {
   }
 }
 
+@media (max-height: 855px) {
+  .energy-panel-wrapper .chat-users {
+    top: 85px;
+  }
+}
+
 .energy-panel-wrapper .chat-users__photo {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;

@@ -19,6 +19,9 @@
         @media (min-width: 800px){
             display: flex;
         }
+        @media (max-height: 855px) {
+            top: 85px;
+        }
         &__photo {
             box-sizing: content-box;
             max-width: 50px;

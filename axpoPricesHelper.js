@@ -24,6 +24,8 @@ fixPricesOneSphere(priceOk)
 
 // dwustrefowa
 
+var price = ``;
+
 var priceOk = price.replace(/[^0-9]/g, '')
 
 function fixPricesTwoSphere(price) {
@@ -46,6 +48,8 @@ function fixPricesTwoSphere(price) {
 fixPricesTwoSphere(priceOk)
 
 // trzystrefowa
+
+var price = ``;
 
 var priceOk = price.replace(/[^0-9]/g, '')
 
