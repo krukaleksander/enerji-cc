@@ -4,6 +4,7 @@ var cors = require('cors');
 let accounts = [];
 const crmAccounts = require('../models/crmAccounts');
 const korzystnaMsg = require('../models/korzystnamsgs');
+const kociasiec = require('../models/kociasiec');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -45,12 +46,13 @@ router.post('/', function (req, res, next) {
 
     if (loginFlag > -1) {
         // jeśli jest taki login  
-        const user = accounts.find(account => account.login === login);        
-        if(user.password === password) {          
+        const user = accounts.find(account => account.login === login);
+        if (user.password === password) {
             req.session.userName = login;
             req.session.userData = user;
-            res.redirect('/panel');}
-        if(user.password !== password) res.redirect('/');
+            res.redirect('/panel');
+        }
+        if (user.password !== password) res.redirect('/');
 
     } else {
         // jeśli nie ma takiego loginu odsyła na główną
@@ -77,6 +79,21 @@ router.post('/send-energy-msg', async function (req, res, next) {
     });
     await newMessage.save()
         .then(() => res.send('wiadomość wysłana, dziękujemy :)'))
+        .catch(err => res.send(err));
+
+})
+router.post('/kociasiec-msg', async function (req, res, next) {
+    const clientName = req.body.clientName;
+    const clientPhone = req.body.clientPhone;
+    const clientMessage = req.body.clientMessage;
+
+    const newMessage = new kociasiec({
+        name: clientName,
+        phone: clientPhone,
+        message: clientMessage
+    });
+    await newMessage.save()
+        .then(() => res.send('Wiadomość wysłana'))
         .catch(err => res.send(err));
 
 })
