@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var cors = require('cors');
+const nodemailer = require("nodemailer");
 let accounts = [];
 const crmAccounts = require('../models/crmAccounts');
 const korzystnaMsg = require('../models/korzystnamsgs');
@@ -92,6 +93,26 @@ router.post('/kociasiec-msg', async function (req, res, next) {
         phone: clientPhone,
         message: clientMessage
     });
+
+    let transporter = nodemailer.createTransport({
+        host: "server662911.nazwa.pl",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+            user: 'kontakt@server662911.nazwa.pl',
+            pass: 'Pompa1234',
+        },
+    });
+    let info = await transporter.sendMail({
+        from: '"Kociasiec 👻" <kontakt@kociasiec.pl>', // sender address
+        to: "kontakt@kociasiec.pl", // list of receivers may by many after comma
+        subject: "Nowy kontakt ✔", // Subject line
+        text: `Nowy kontakt od: ${clientName}, podany telefon: ${clientPhone}. Treść wiadomości: ${clientMessage}`, // plain text body
+        html: `<h1>Nowy kontakt od: ${clientName}</h1><h2>podany telefon: <strong>${clientPhone}</strong></h2><p>${clientMessage}</p>`, // html body
+    });
+
+    console.log("Message sennt: %s", info.messageId);
+
     await newMessage.save()
         .then(() => res.send('Wiadomość wysłana'))
         .catch(err => res.send(err));
