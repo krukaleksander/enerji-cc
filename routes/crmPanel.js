@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 let accounts = [];
 const crmAccounts = require('../models/crmAccounts');
 // const energyClients = require('../models/experts');
 const clientsready = require('../models/clientsready');
 const tasks = require('../models/tasks');
 const chatMessages = require('../models/chat');
+const nodemailer = require("nodemailer");
 //fragment socket.io
 let activeUsers = [];
 
@@ -220,6 +222,48 @@ router.get('/get-clients/', async (req, res, next) => {
         return res.send(clients.filter(client => client.owner === req.session.userName));
     })
 });
+
+// wyciąganie całej bazy i tasków
+
+router.get('/db/', async (req, res) => {
+    await clientsready.find({}, async (err, data) => {
+        const dataToSave = JSON.stringify(data);
+        if (err) console.log(err)
+        const date = new Date();
+        const path = `db_${date.getDate()}_${date.getMonth() + 1}.json`;
+        fs.writeFile(path, dataToSave, async err => {
+            if (err) throw err
+            console.log('File was generated..')
+        })
+        let transporter = nodemailer.createTransport({
+            host: "server662911.nazwa.pl",
+            port: 465,
+            secure: true, // true for 465, false for other ports
+            auth: {
+                user: 'kontakt@server662911.nazwa.pl',
+                pass: 'Pompa1234',
+            },
+        });
+        let info = await transporter.sendMail({
+            from: '"CRM" <kontakt@kociasiec.pl>',
+            to: "aleksander@korzystnaenergia.pl",
+            subject: `Stan bazy danych na dzień ${date.getDate()}_${date.getMonth() + 1}`,
+            text: `Migawka bazy danych`,
+            html: `<p style='color:green'>Migawka bazy danych</p>`,
+            attachments: [{
+                path: path
+            }]
+        });
+        fs.unlink(path, (err) => {
+            if (err) {
+                console.error(err)
+                return
+            }
+        })
+        res.send('Migawka zapisana')
+        console.log("Message sennt: %s", info.messageId);
+    })
+})
 
 //aktualizacja klienta
 
