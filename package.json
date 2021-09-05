@@ -18,7 +18,7 @@
     "morgan": "~1.9.1",
     "nodemailer": "^6.6.3",
     "normalize.css": "^8.0.1",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "socket.io": "^2.4.1",
     "tui-calendar": "^1.13.0"
   }
