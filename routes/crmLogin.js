@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config()
 const express = require('express');
 const router = express.Router();
 var cors = require('cors');
@@ -95,12 +96,12 @@ router.post('/kociasiec-msg', async function (req, res, next) {
     });
 
     let transporter = nodemailer.createTransport({
-        host: "server662911.nazwa.pl",
-        port: 465,
-        secure: true, // true for 465, false for other ports
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
+        secure: true,
         auth: {
-            user: 'kontakt@server662911.nazwa.pl',
-            pass: 'Pompa1234',
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASSWORD,
         },
     });
     let info = await transporter.sendMail({
