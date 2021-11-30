@@ -120,4 +120,44 @@ router.post('/kociasiec-msg', async function (req, res, next) {
 
 })
 
+router.post('/or-msg', async function (req, res, next) {
+    const clientName = req.body.clientName;
+    const clientEmail = req.body.clientEmail;
+    const clientPhone = req.body.clientPhone;
+    const clientDate = req.body.clientDate;
+    const clientMessage = req.body.clientMessage;
+
+    const newMessage = new kociasiec({
+        name: clientName,
+        email: clientEmail,
+        phone: clientPhone,
+        date: clientDate,
+        message: clientMessage
+    });
+
+    let transporter = nodemailer.createTransport({
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
+        secure: true,
+        auth: {
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASSWORD,
+        },
+    });
+    let info = await transporter.sendMail({
+        from: '"Kociasiec 👻" <kontakt@kociasiec.pl>', // sender address
+        to: "kontakt@kociasiec.pl", // list of receivers may by many after comma
+        subject: "Prąd / Gaz Nowy kontakt 🤩", // Subject line
+        text: `Nowy kontakt od: ${clientName}, klient prosi o kontakt: ${clientDate} podany telefon: ${clientPhone}, oraz email: ${clientEmail} Treść wiadomości: ${clientMessage}`, // plain text body
+        html: `<h1>Nowy kontakt od: ${clientName}</h1><h2>Klient prosi o kontakt: <strong>${clientDate}</strong></h2><h2>podany telefon: <strong>${clientPhone}</strong></h2><h2>podany email: <strong>${clientEmail}</strong></h2><p>${clientMessage}</p>`, // html body
+    });
+
+    console.log("Message sennt: %s", info.messageId);
+
+    await newMessage.save()
+        .then(() => res.send('Wiadomość wysłana'))
+        .catch(err => res.send(err));
+
+})
+
 module.exports = router;

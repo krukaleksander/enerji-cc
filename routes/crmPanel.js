@@ -58,7 +58,6 @@ router.get('/', function (req, res, next) {
             io.emit('sent-who-is-logged', activeUsers);
         });
         socket.on('new-message', function (message) {
-            // tutaj
             io.emit('new-message-to-everyone', message);
         })
 
@@ -236,10 +235,6 @@ router.get('/db/', async (req, res) => {
             if (err) throw err
             console.log('File was generated..')
         })
-        console.log(process.env.MAIL_HOST)
-        console.log(process.env.MAIL_PORT)
-        console.log(process.env.MAIL_USER)
-        console.log(process.env.MAIL_PASSWORD)
         let transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,
             port: process.env.MAIL_PORT,
